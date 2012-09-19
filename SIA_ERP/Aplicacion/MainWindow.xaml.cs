@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SIA.ExceptionLog;
+using SIA.TipoCambio;
 
 namespace Aplicacion
 {
@@ -31,6 +32,10 @@ namespace Aplicacion
             catch (Exception ex)
             {
                 ExceptionLogger.LogExcepcion(ex, "Division entre 0");
+            }
+            if (TiposCambio.Instancia.SonValoresValidos)
+            {
+
             }
         }
     }

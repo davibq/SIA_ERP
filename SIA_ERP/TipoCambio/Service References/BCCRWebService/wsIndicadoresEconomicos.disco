@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx?wsdl" docRef="http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx" xmlns:q1="http://ws.sdde.bccr.fi.cr" binding="q1:wsIndicadoresEconomicosSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx" xmlns:q2="http://ws.sdde.bccr.fi.cr" binding="q2:wsIndicadoresEconomicosSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
