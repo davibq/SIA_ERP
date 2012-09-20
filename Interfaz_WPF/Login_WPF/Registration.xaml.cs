@@ -92,6 +92,10 @@ namespace Login_WPF
                     errormessage.Text = "Su password de confirmación es diferente";
                     passwordBoxConfirm.Focus();
                 }
+                else if((Admin.IsChecked == false) & (User.IsChecked == false))
+                {
+                    errormessage.Text = "Debe Indicar el Tipo de Usuario";
+                }
                 else
                 {
                     errormessage.Text = "";
@@ -111,6 +115,26 @@ namespace Login_WPF
             {
                 Application.Current.Shutdown();
             }
+        }
+
+        private void Admin_Checked(object sender, RoutedEventArgs e)
+        {
+            User.IsHitTestVisible = false;
+        }
+
+        private void Admin_Unchecked(object sender, RoutedEventArgs e)
+        {
+            User.IsHitTestVisible = true;
+        }
+
+        private void User_Checked(object sender, RoutedEventArgs e)
+        {
+            Admin.IsHitTestVisible = false;
+        }
+
+        private void User_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Admin.IsHitTestVisible = true;
         }
     }
 }
