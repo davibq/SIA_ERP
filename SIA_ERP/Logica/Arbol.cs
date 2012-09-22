@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Project1
 {
+    //Clase para Nodo Padre, sólo posee el nombre de la empresa y las ocho cuentas principales
     public class NodoRaiz
     {
         public string nombreEmpresa;
@@ -17,21 +18,22 @@ namespace Project1
         public NodoCuenta otrosIngresos;
         public NodoCuenta otrosGastos;
 
-        //Constructor
+        //Constructor, se crea la raíz con las ocho cuentas principales en el árbol
         public NodoRaiz(string pNombreEmpresa)
         {
             this.nombreEmpresa = pNombreEmpresa;
-            this.activos = new NodoCuenta("1", "Activos");
-            this.pasivos = new NodoCuenta("2", "Pasivos");
-            this.patrimonio = new NodoCuenta("3", "Patrimonio");
-            this.ingresos = new NodoCuenta("4", "Ingresos");
-            this.costos = new NodoCuenta("5", "Costos");
-            this.gastos = new NodoCuenta("6", "Gastos");
-            this.otrosIngresos = new NodoCuenta("7", "Otros Ingresos");
-            this.otrosGastos = new NodoCuenta("8", "Otros Gastos");
+            this.activos = new NodoCuenta("1", "Activos",false);
+            this.pasivos = new NodoCuenta("2", "Pasivos", false);
+            this.patrimonio = new NodoCuenta("3", "Patrimonio", false);
+            this.ingresos = new NodoCuenta("4", "Ingresos", false);
+            this.costos = new NodoCuenta("5", "Costos", false);
+            this.gastos = new NodoCuenta("6", "Gastos", false);
+            this.otrosIngresos = new NodoCuenta("7", "Otros Ingresos", false);
+            this.otrosGastos = new NodoCuenta("8", "Otros Gastos", false);
         }
     }
 
+    //Nodo que representa las cuentas del árbol, con todos sus atributos
     public class NodoCuenta
     {
         public string codigo;
@@ -41,24 +43,29 @@ namespace Project1
         public double saldoEnLocal;
         public double saldoEnSistema;
         public NodoCuenta sigCuenta;
+        public NodoCuenta antCuenta;
         public NodoCuenta listaCuentasHijas;
+        public NodoCuenta cuentaPadre;
 
-        //Constructor
-        public NodoCuenta(string pCodigo, string pNombre)
+        //Constructor, crea la cuenta con el código, el nombre y estado de la cuenta como parámetros, lo demás se inicializa por default
+        public NodoCuenta(string pCodigo, string pNombre, bool pEstadoCuenta)
         {
             this.codigo = pCodigo;
             this.nombre = pNombre;
-            this.cuentaActiva = false;
+            this.cuentaActiva = pEstadoCuenta;
             this.moneda = "USD";
             this.saldoEnLocal = 0;
             this.saldoEnSistema = 0;
             this.listaCuentasHijas = null;
             this.sigCuenta = null;
+            this.antCuenta = null;
+            this.cuentaPadre = null;
         }
     }
 
     class Arbol
     {
+        //instancia de la clase que manejara el arbol
         public NodoRaiz arbolCuentas;
 
         //Costructor
@@ -66,6 +73,7 @@ namespace Project1
         {
 
         }
+
 
         public void crearArbol(string pNombreEmpresa)    //crear el árbol para una compañía
         {
@@ -77,14 +85,16 @@ namespace Project1
 
         }
 
-        public NodoCuenta buscarCuentaPadre(string pCodPadre)
+        //funcion que retorna el nodo con la cuenta que se4 desea, se envía como parámetro el codCuenta
+        public NodoCuenta buscarCuenta(string pCodCuenta)
         {
             NodoCuenta recorridoArbol = null;
 
             //dividrir el codPadre en tokens
             char[] delimiterChars = { '-' };
-            string[] tokens = pCodPadre.Split(delimiterChars);
+            string[] tokens = pCodCuenta.Split(delimiterChars);
 
+            //case para determinar el primer token del cod
             switch (tokens[0])
             {
                 case "1":
@@ -116,37 +126,137 @@ namespace Project1
                     break;
             }
 
+            //si existen más tokens
             if (tokens.Length > 1) 
             {
-                for (int i = 1; (i-1)< tokens.Length; i++)
+                //ciclo para recorrer el arbol de manera vertical
+                for (int i = 1; i< tokens.Length; i++)
                 {
-                    string[] tokensCodigoCuenta = recorridoArbol.codigo.Split(delimiterChars);
-                    if (tokens[i] == tokensCodigoCuenta[i])
-                        recorridoArbol = recorridoArbol.listaCuentasHijas;
-                    else
-                        recorridoArbol = recorridoArbol.sigCuenta;
+                    bool encontrado = false;
+                    //ciclo para recorrer la rama a nivel horizontal
+                    while (!(encontrado)&&recorridoArbol!=null)
+                    {
+                        string[] tokensCodigoCuenta = recorridoArbol.codigo.Split(delimiterChars);
+                        if (tokens[i] == tokensCodigoCuenta[i])
+                        {
+                            recorridoArbol = recorridoArbol.listaCuentasHijas;
+                            encontrado = true;
+                        }
+                        else
+                            recorridoArbol = recorridoArbol.sigCuenta;
+                    }
+                    if (!(encontrado))
+                        Console.WriteLine("Error, no se encontro el código");
                 }
             }
 
             return recorridoArbol;
         }
 
+        //procedimiento para insertar una nueva cuenta en el arbolCuentas
         public void insertarNuevaCuenta(string pCodPadre, string pCodigo, string pNombre)
         {
-            NodoCuenta cuentaPadre = buscarCuentaPadre(pCodPadre);
-            NodoCuenta nuevaCuenta = new NodoCuenta(pCodigo, pNombre);
+            //busca la cuenta padre
+            NodoCuenta cuentaPadre = buscarCuenta(pCodPadre);
+            //crea la instancia de la nueva cuenta
+            NodoCuenta nuevaCuenta = new NodoCuenta(pCodigo, pNombre,true);
+            nuevaCuenta.cuentaPadre = cuentaPadre;
+            //la cuenta padre para a estar desactivada para movimientos
+            cuentaPadre.cuentaActiva = false;
 
+            //si la cuentaPadre no posee hijos
             if (cuentaPadre.listaCuentasHijas == null)
+                //se le asigna el primer hijo
                 cuentaPadre.listaCuentasHijas = nuevaCuenta;
-            else 
+            else
             {
-                NodoCuenta recorridoArbol = cuentaPadre.listaCuentasHijas;
-
-                while (recorridoArbol.sigCuenta == null)
-                    recorridoArbol=recorridoArbol.sigCuenta;
-
-                recorridoArbol.sigCuenta = nuevaCuenta;
+                //se inserta la cuenta nueva cuenta en la lista simple de cuentas hijas
+                cuentaPadre.listaCuentasHijas.antCuenta = nuevaCuenta;
+                nuevaCuenta.sigCuenta = cuentaPadre.listaCuentasHijas;
+                cuentaPadre.listaCuentasHijas = nuevaCuenta;
             }
         }
+
+        //procedimiento para eliminar una cuenta que no posea moviminetos relacionados, recibe como parámetro el cod de la cuenta
+        public void eliminarCuenta(string pCodCuenta)
+        {
+            /*
+             * validar desde BD que la cuenta no posea moviminetos asociados
+             * si no poseía movimientos asociados se realiza:
+             *
+             * 
+            NodoCuenta cuentaAEliminar = buscarCuenta(pCodCuenta);
+            //Si es una hoja del árbol de cuentas, se puede eliminar
+            if (cuentaAEliminar.cuentaActiva == true)
+            { 
+                //si es el primer nodo cuenta de la lista de hijos
+                if (cuentaAEliminar.antCuenta == null)
+                {
+                    cuentaAEliminar.cuentaPadre.listaCuentasHijas = cuentaAEliminar.sigCuenta;
+                    cuentaAEliminar.sigCuenta.antCuenta = null;
+                }
+                else
+                {
+                    //si es el último nodo de la lista de hijos
+                    if (cuentaAEliminar.sigCuenta == null)
+                        cuentaAEliminar.antCuenta.sigCuenta = null;
+                    //sino entonces esta en medio de la lista de cuentas hijas
+                    else
+                    {
+                        cuentaAEliminar.sigCuenta.antCuenta = cuentaAEliminar.antCuenta;
+                        cuentaAEliminar.antCuenta.sigCuenta = cuentaAEliminar.sigCuenta;
+                    }
+                }
+                //se eliminan referencia para que el recolector de basura libere memoria
+                cuentaAEliminar.antCuenta = null;
+                cuentaAEliminar.cuentaPadre = null;
+                cuentaAEliminar.sigCuenta = null;
+            }
+            */
+        }
+
+        //procedimiento para cambiar el nombre de una cuenta
+        public void modificarNombreCuenta(string pCodCuenta, string pNuevoNombre)
+        {
+            buscarCuenta(pCodCuenta).nombre = pNuevoNombre;
+        }
+
+        //procedimiento para cambiar el estado de una cuenta
+        public void modificarEstadoCuenta(string pCodCuenta, bool pNuevoEstado)
+        {
+            buscarCuenta(pCodCuenta).cuentaActiva = pNuevoEstado;
+        }
+
+        //procedimiento para cambiar la moneda a otra o bien a TODAS las monedas de una cuenta
+        public void modificarNombreCuenta(string pCodCuenta, string pNuevaMoneda)
+        {
+            buscarCuenta(pCodCuenta).moneda = pNuevaMoneda;
+        }
+
+        //método para actualizar los saldos de las cuentas en moneda local y del sistema de una sola Cuenta
+        //se ejecuta cada vez que se realiza un movimiento (asiento) 
+        public void actualizarSaldoCuenta(string pCodCuenta, bool pTipoOperacion, double pMontoMonedaLocal, double pMontoMonedaSistema)
+        { 
+            NodoCuenta cuentaAActualizar = buscarCuenta(pCodCuenta);
+            //pTipoOperacion==true es incrmentar saldo
+            //pTipoOperacion==false es decrementar saldo
+            if (pTipoOperacion)
+            {
+                cuentaAActualizar.saldoEnLocal += pMontoMonedaLocal;
+                cuentaAActualizar.saldoEnSistema += pMontoMonedaSistema;
+            }
+            else
+            {
+                cuentaAActualizar.saldoEnLocal -= pMontoMonedaLocal;
+                cuentaAActualizar.saldoEnSistema -= pMontoMonedaSistema;
+            }
+        }
+
+        /*
+         * MAE FALTAN LOS REPORTES NADA MAS CREO 
+         * BUENO Y LOS METODOS DE ACCEDER A BD QUE ESTAN INCOMPLETOS
+         * LA OTRA VARA ES QUE NO HE PROBADO NADA JAJAJAJAJAJA, SI ALGO NO SIRVIERA AL FINAL AHI LO REVISO LUEGO
+         * 
+         */
     }
 }
