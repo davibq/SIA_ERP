@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[ERP_EntidadXPais]
+    ADD CONSTRAINT [FK_ERP_EntidadXPais_ERP_Paises] FOREIGN KEY ([IdPais]) REFERENCES [dbo].[ERP_Paises] ([IdPais]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
