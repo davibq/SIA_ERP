@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project1
+namespace Logica
 {
     //Clase para Nodo Padre, sólo posee el nombre de la empresa y las ocho cuentas principales
     public class NodoRaiz
@@ -47,7 +47,10 @@ namespace Project1
         public NodoCuenta listaCuentasHijas;
         public NodoCuenta cuentaPadre;
 
-        //Constructor, crea la cuenta con el código, el nombre y estado de la cuenta como parámetros, lo demás se inicializa por default
+        /*
+         * Constructor, crea la cuenta con el código, el nombre y estado de la cuenta como parámetros, 
+         * lo demás se inicializa por default
+         */
         public NodoCuenta(string pCodigo, string pNombre, bool pEstadoCuenta)
         {
             this.codigo = pCodigo;
@@ -85,7 +88,7 @@ namespace Project1
 
         }
 
-        //funcion que retorna el nodo con la cuenta que se4 desea, se envía como parámetro el codCuenta
+        //funcion que retorna el nodo con la cuenta que se desea, se envía como parámetro el codCuenta
         public NodoCuenta buscarCuenta(string pCodCuenta)
         {
             NodoCuenta recorridoArbol = null;
