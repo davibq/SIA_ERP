@@ -277,5 +277,14 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ActualizarModulosEntidad.proc.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerDatosModulo.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ValidarUsuario.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerDatosEntidad.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
 </Project>
