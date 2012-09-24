@@ -9,8 +9,7 @@
 --  </Contactos>'
 -----------------------------------------------------------
 CREATE PROCEDURE [dbo].[ERPSP_ActualizarContactosEntidad]
-	@Contactos VARCHAR(1000), --Hasta 11 países
-	@Nombre VARCHAR(35),
+	@Contactos VARCHAR(1000), --Hasta 11 contactos
 	@IdEntidad INT
 AS 
 BEGIN
@@ -54,7 +53,7 @@ BEGIN
 		IF LEN(@Contactos)>0 BEGIN
 		
 			-- Habilitar o deshabilita los contactos asociados a una entidad
-			UPDATE dbo.ERP_ContactoXEntidad SET Enabled = XmlEnabled FROM dbo.ERP_ContactoXEntidad ConEnt
+			UPDATE dbo.ERP_ContactoXEntidad SET Enabled = Contactos.XmlEnabled FROM dbo.ERP_ContactoXEntidad ConEnt
 			INNER JOIN (
 				SELECT IdContacto, XmlEnabled FROM (
 					SELECT Contactos.Contacto.value('@nombre','varchar(35)')  XmlContacto,
@@ -66,9 +65,10 @@ BEGIN
 
 			-- Asocia nuevos contactos
 			INSERT INTO dbo.ERP_ContactoXEntidad 
-			SELECT @IdEntidad, IdContacto, Enabled FROM 
+			SELECT @IdEntidad, Contactos.IdContacto, XmlContactos.XmlEnabled FROM 
 			(
-				SELECT Contactos.Contacto.value('@nombre','VARCHAR(20)') Contacto
+				SELECT Contactos.Contacto.value('@nombre','VARCHAR(20)') Contacto,
+				       Contactos.Contacto.value('@enabled','BIT') XmlEnabled
 				FROM @XmlContactos.nodes('/Contactos/Contacto') AS Contactos(Contacto)
 			) AS XmlContactos
 			INNER JOIN dbo.ERP_Contacto Contactos ON Contactos.Nombre = XmlContactos.Contacto

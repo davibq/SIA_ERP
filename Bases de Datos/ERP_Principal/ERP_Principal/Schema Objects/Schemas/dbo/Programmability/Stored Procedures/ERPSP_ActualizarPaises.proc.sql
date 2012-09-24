@@ -10,7 +10,6 @@
 -----------------------------------------------------------
 CREATE PROCEDURE [dbo].[ERPSP_ActualizarPaises]
 	@Paises VARCHAR(500), --Hasta 11 países
-	@Nombre VARCHAR(35),
 	@IdEntidad INT
 AS 
 BEGIN

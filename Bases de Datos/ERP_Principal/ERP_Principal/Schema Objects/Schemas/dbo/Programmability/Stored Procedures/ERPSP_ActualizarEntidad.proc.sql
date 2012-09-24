@@ -12,6 +12,11 @@
 --     <Pais enabled="1">Costa Rica</Pais>
 --     <Pais enabled="0">Guatemala</Pais>
 -- </Paises>'
+-- @Modulos: Si es vacio se ignora, sino inserta o actualiza
+-- '<Modulos>
+--		<Modulo enabled="1" nombre="Finanzas" base="ERP_Finanzas" />
+--		<Modulo enabled="0" nombre="Recursos" base="ERP_Recursos" />
+--  </Modulos>'
 -----------------------------------------------------------
 CREATE PROCEDURE [dbo].[ERPSP_ActualizarEntidad]
 	@Nombre VARCHAR(35),
@@ -19,7 +24,8 @@ CREATE PROCEDURE [dbo].[ERPSP_ActualizarEntidad]
 	@Logo VARCHAR(MAX) = '',
 	@CedulaJuridica VARCHAR(15),
 	@Paises VARCHAR(500), --Hasta 11 países
-	@Enabled BIT
+	@Enabled BIT,
+	@Modulos VARCHAR(1000)='' -- Hasta 14 modulos
 AS 
 BEGIN
 	
@@ -57,10 +63,12 @@ BEGIN
 
 		END	
 
-		EXEC dbo.[ERPSP_ActualizarContactos] @Contactos, @Nombre, @IdEntidad
+		EXEC dbo.[ERPSP_ActualizarContactosEntidad] @Contactos, @IdEntidad
 		
-		EXEC dbo.[ERPSP_ActualizarPaises] @Paises, @Nombre, @IdEntidad
+		EXEC dbo.[ERPSP_ActualizarPaises] @Paises, @IdEntidad
 
+		EXEC dbo.[ERPSP_ActualizarModulosEntidad] @Modulos, @IdEntidad
+		
 		IF @InicieTransaccion=1 BEGIN
 			COMMIT
 		END
