@@ -287,4 +287,9 @@
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Scripts\Post-Deployment\BasicData.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
 </Project>

@@ -14,8 +14,8 @@ AS
 	INNER JOIN dbo.ERP_UsuarioXModulo UsuXMod ON UsuXMod.IdModulo = Mod.IdModulo
 	INNER JOIN dbo.ERP_Usuarios Usu ON Usu.IdUsuario = UsuXMod.IdUsuario
 	INNER JOIN dbo.ERP_TipoUsuario Tipo ON Tipo.IdTipoUsuario = UsuXMod.IdTipoUsuario
-	LEFT JOIN dbo.ERP_PermisosXTipoUsuario PermXTipo ON PermXTipo.IdTipoUsuario = Tipo.IdTipoUsuario
-	LEFT JOIN dbo.ERP_Permisos Perm ON Perm.IdPermisos = PermXTipo.IdPermisos
+	INNER JOIN dbo.ERP_PermisosXTipoUsuario PermXTipo ON PermXTipo.IdTipoUsuario = Tipo.IdTipoUsuario
+	INNER JOIN dbo.ERP_Permisos Perm ON Perm.IdPermisos = PermXTipo.IdPermisos
 	WHERE Mod.Nombre = @Modulo AND Ent.Nombre = @Entidad AND Usu.Login = CONVERT(VARBINARY, @Login)
 	AND Usu.Password = CONVERT(VARBINARY, @Pass) AND Mod.Enabled = 1 AND Ent.Enabled = 1
 	AND UsuXMod.Enabled = 1 AND Usu.Enabled = 1 
