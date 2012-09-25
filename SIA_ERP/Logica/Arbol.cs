@@ -66,7 +66,7 @@ namespace Logica
         }
     }
 
-    class Arbol
+    public class Arbol
     {
         //instancia de la clase que manejara el arbol
         public NodoRaiz arbolCuentas;
@@ -74,7 +74,7 @@ namespace Logica
         //Costructor
         public Arbol()
         {
-
+            arbolCuentas = null;
         }
 
 
@@ -231,7 +231,7 @@ namespace Logica
         }
 
         //procedimiento para cambiar la moneda a otra o bien a TODAS las monedas de una cuenta
-        public void modificarNombreCuenta(string pCodCuenta, string pNuevaMoneda)
+        public void modificarMonedaCuenta(string pCodCuenta, string pNuevaMoneda)
         {
             buscarCuenta(pCodCuenta).moneda = pNuevaMoneda;
         }

@@ -60,6 +60,10 @@
       <Project>{A29707C3-89B6-42EE-9CDB-19712D3AA490}</Project>
       <Name>ExceptionLog</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logica\Logica.csproj">
+      <Project>{A22FDDB0-5B24-4EA4-A3BD-5AD99C2A421B}</Project>
+      <Name>Logica</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TipoCambio\TipoCambio.csproj">
       <Project>{1E890B42-E86B-430C-AE87-37393D19FA84}</Project>
       <Name>TipoCambio</Name>

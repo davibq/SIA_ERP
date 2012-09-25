@@ -7,6 +7,6 @@ namespace Logica
 {
     class Reportes : Arbol
     {
-        public void Reportes() { }
+        //public void Reportes() { }
     }
 }
