@@ -1,6 +1,7 @@
 # Build and Object Folders
 bin/
 obj/
+sql/
 
 #User Specific Files
 *.user

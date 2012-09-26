@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using AccesoServicio;
 
 namespace Login_WPF
 {
@@ -30,6 +31,7 @@ namespace Login_WPF
         public Login()
         {
             InitializeComponent();
+            MessageBox.Show(ServicioFinanzas.Instancia.Saludar());
         }        
 
         private void button1_Click(object sender, RoutedEventArgs e)

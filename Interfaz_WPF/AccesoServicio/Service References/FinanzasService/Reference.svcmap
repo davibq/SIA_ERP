@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="636eb132-ea9e-4cb0-8961-3ea7cee77fef" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:5603/ContabilidadService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContabilidadService.disco" MetadataType="Disco" ID="b636f60a-2ded-4303-ba82-3f19981b1b52" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?disco" />
+    <MetadataFile FileName="ContabilidadService.wsdl" MetadataType="Wsdl" ID="4856c50f-50f9-42b4-af30-817f5289f443" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?wsdl" />
+    <MetadataFile FileName="ContabilidadService.xsd" MetadataType="Schema" ID="1b6bdc19-012f-402e-8ef6-ac314b6a138d" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContabilidadService1.xsd" MetadataType="Schema" ID="023d1600-80b3-47b3-b9ec-67b2608c9b30" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
