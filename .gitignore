@@ -2,6 +2,7 @@
 bin/
 obj/
 sql/
+*.dbmdl
 
 #User Specific Files
 *.user
