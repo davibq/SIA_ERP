@@ -136,13 +136,14 @@ namespace Logica
                 for (int i = 1; i< tokens.Length; i++)
                 {
                     bool encontrado = false;
+                    recorridoArbol = recorridoArbol.listaCuentasHijas;
                     //ciclo para recorrer la rama a nivel horizontal
                     while (!(encontrado)&&recorridoArbol!=null)
                     {
                         string[] tokensCodigoCuenta = recorridoArbol.codigo.Split(delimiterChars);
                         if (tokens[i] == tokensCodigoCuenta[i])
                         {
-                            recorridoArbol = recorridoArbol.listaCuentasHijas;
+                            //recorridoArbol = recorridoArbol.listaCuentasHijas;
                             encontrado = true;
                         }
                         else
@@ -187,7 +188,7 @@ namespace Logica
              * validar desde BD que la cuenta no posea moviminetos asociados
              * si no poseía movimientos asociados se realiza:
              *
-             * 
+             */ 
             NodoCuenta cuentaAEliminar = buscarCuenta(pCodCuenta);
             //Si es una hoja del árbol de cuentas, se puede eliminar
             if (cuentaAEliminar.cuentaActiva == true)
@@ -196,7 +197,8 @@ namespace Logica
                 if (cuentaAEliminar.antCuenta == null)
                 {
                     cuentaAEliminar.cuentaPadre.listaCuentasHijas = cuentaAEliminar.sigCuenta;
-                    cuentaAEliminar.sigCuenta.antCuenta = null;
+                    if (cuentaAEliminar.sigCuenta!=null)
+                        cuentaAEliminar.sigCuenta.antCuenta = null;
                 }
                 else
                 {
@@ -215,7 +217,8 @@ namespace Logica
                 cuentaAEliminar.cuentaPadre = null;
                 cuentaAEliminar.sigCuenta = null;
             }
-            */
+            else
+                Console.WriteLine("Imposible borrar cuenta" + cuentaAEliminar.nombre + ", ya que es un padre del árbol");
         }
 
         //procedimiento para cambiar el nombre de una cuenta
@@ -254,12 +257,5 @@ namespace Logica
                 cuentaAActualizar.saldoEnSistema -= pMontoMonedaSistema;
             }
         }
-
-        /*
-         * MAE FALTAN LOS REPORTES NADA MAS CREO 
-         * BUENO Y LOS METODOS DE ACCEDER A BD QUE ESTAN INCOMPLETOS
-         * LA OTRA VARA ES QUE NO HE PROBADO NADA JAJAJAJAJAJA, SI ALGO NO SIRVIERA AL FINAL AHI LO REVISO LUEGO
-         * 
-         */
     }
 }
