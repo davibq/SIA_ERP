@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SIA.TipoCambio;
+using SIA.ExceptionLog;
 using Logica;
 
 namespace Pruebas
@@ -51,13 +52,29 @@ namespace Pruebas
             System.Console.Read();
             */
 
-                        
+            /*            
+             * EJEMPLO: PEDIR TIPO DE CAMBIO AL BCCR
             if (TiposCambio.Instancia.SonValoresValidos)
             {
                 Console.WriteLine("$25 es igual a: C" + TiposCambio.Instancia.ObtenerColones(25));
                 Console.WriteLine("C12500 es igual a: $" + TiposCambio.Instancia.ObtenerDolares(12500));
                 Console.ReadLine();
+            }*/
+
+            
+            /*
+             * EJEMPLO: MANEJO DE EXCEPCIONES
+             * 
+            try
+            {
+                int j = 10;
+                int i = 24 / (j - 10);
             }
+            catch (Exception ex)
+            {
+                ExceptionLogger.LogExcepcion(ex, "Division entre 0");
+            }
+             */
         }
     }
 }

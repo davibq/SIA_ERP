@@ -38,6 +38,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Arbol.cs" />
+    <Compile Include="NodoCuenta.cs" />
+    <Compile Include="NodoRaiz.cs" />
     <Compile Include="Reportes.cs" />
   </ItemGroup>
   <ItemGroup>

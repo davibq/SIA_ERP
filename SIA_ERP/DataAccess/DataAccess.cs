@@ -37,7 +37,7 @@ namespace SIA.DataAccess
 
         public DataSet EjecutarConsulta(string pProcedureName, IEnumerable<SqlParameter> pParametros)
         {
-            DataSet dataSet = null;
+            var dataSet = new DataSet();
             try
             {
                 var adapter = new SqlDataAdapter(CrearComando(pProcedureName, pParametros));
