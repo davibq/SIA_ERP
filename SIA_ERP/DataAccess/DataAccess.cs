@@ -13,7 +13,7 @@ namespace SIA.DataAccess
     {
         #region Constructor
 
-        public DataAccess(string pConnectionStringName)
+        protected DataAccess(string pConnectionStringName)
         {
             _Conexion.ConnectionString= ConfigurationManager.ConnectionStrings[pConnectionStringName].ConnectionString;
         }
