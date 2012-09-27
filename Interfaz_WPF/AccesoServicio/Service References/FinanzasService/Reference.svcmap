@@ -24,6 +24,7 @@
     <MetadataFile FileName="ContabilidadService.disco" MetadataType="Disco" ID="b636f60a-2ded-4303-ba82-3f19981b1b52" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?disco" />
     <MetadataFile FileName="ContabilidadService.wsdl" MetadataType="Wsdl" ID="4856c50f-50f9-42b4-af30-817f5289f443" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?wsdl" />
     <MetadataFile FileName="ContabilidadService.xsd" MetadataType="Schema" ID="1b6bdc19-012f-402e-8ef6-ac314b6a138d" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContabilidadService2.xsd" MetadataType="Schema" ID="4268f5f5-d038-49f5-bc53-706f0906ce43" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" />
     <MetadataFile FileName="ContabilidadService1.xsd" MetadataType="Schema" ID="023d1600-80b3-47b3-b9ec-67b2608c9b30" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>

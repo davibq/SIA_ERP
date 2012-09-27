@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using SIA.Libreria;
 
 namespace SIA.Contabilidad.WebService
 {
@@ -13,6 +14,9 @@ namespace SIA.Contabilidad.WebService
     {
         [OperationContract]
         string Saludar();
+
+        [OperationContract]
+        bool AutenticarUsuario(Usuario pUsuario);
     }
 
 }

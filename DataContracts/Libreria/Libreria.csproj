@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CE15780C-DD38-41BD-8DCC-8139520B1613}</ProjectGuid>
+    <ProjectGuid>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AccesoServicio</RootNamespace>
-    <AssemblyName>AccesoServicio</AssemblyName>
+    <RootNamespace>SIA.Libreria</RootNamespace>
+    <AssemblyName>SIA.Libreria</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,7 +34,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,53 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServicioFinanzas.cs" />
+    <Compile Include="Empresa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\FinanzasService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Service References\FinanzasService\ContabilidadService.wsdl" />
-    <None Include="Service References\FinanzasService\ContabilidadService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FinanzasService\ContabilidadService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\FinanzasService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FinanzasService\ContabilidadService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FinanzasService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FinanzasService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FinanzasService\ContabilidadService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FinanzasService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DataContracts\Libreria\Libreria.csproj">
-      <Project>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</Project>
-      <Name>Libreria</Name>
-    </ProjectReference>
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
