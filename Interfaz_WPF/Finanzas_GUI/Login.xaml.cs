@@ -38,7 +38,7 @@ namespace Login_WPF
                 NombreUsuario="davibq",
                 Apellido1="Ballesteros"
             };
-            MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario).ToString());
+            //MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario).ToString());
         }        
 
         private void button1_Click(object sender, RoutedEventArgs e)

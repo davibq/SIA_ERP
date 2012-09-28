@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SIA.ExceptionLog;
+using System.Collections;
 
 namespace SIA.TipoCambio
 {
@@ -16,37 +17,16 @@ namespace SIA.TipoCambio
             {
                 UsarCompra = true;
                 _ValoresValidos = true;
-                var wsCliente = new BCCRWebService.wsIndicadoresEconomicosSoapClient();
+                _TiposCambio = new Hashtable();
+                 wsCliente = new BCCRWebService.wsIndicadoresEconomicosSoapClient();
                 var fechaHoy=DateTime.Now.ToShortDateString();
                 wsCliente.Open();
-                var dataSet = wsCliente.ObtenerIndicadoresEconomicos(INDICADOR_ECONOMICO_COMPRA,
-                    fechaHoy, fechaHoy, NOMBRE, "N");
-                if (dataSet != null && dataSet.Tables[0] != null && dataSet.Tables[0].Rows!=null)
+
+                foreach (var moneda in Enum.GetValues(typeof(MonedasValidas)).Cast<MonedasValidas>())
                 {
-                    double compra;
-                    if (double.TryParse(dataSet.Tables[0].Rows[0][2].ToString(), out compra))
-                    {
-                        _Compra = compra;
-                    }
-                    else
-                    {
-                        throw new Exception("Formato de número no válido");
-                    }
+                    CargarTipoCambio(moneda, fechaHoy);
                 }
-                dataSet = wsCliente.ObtenerIndicadoresEconomicos(INDICADOR_ECONOMICO_VENTA,
-                    fechaHoy, fechaHoy, NOMBRE, "N");
-                if (dataSet != null && dataSet.Tables[0] != null && dataSet.Tables[0].Rows != null)
-                {
-                    double venta;
-                    if (double.TryParse(dataSet.Tables[0].Rows[0][2].ToString(), out venta))
-                    {
-                        _Venta = venta;
-                    }
-                    else
-                    {
-                        throw new Exception("Formato de número no válido");
-                    }
-                }
+
                 wsCliente.Close();
             }
             catch (Exception ex)
@@ -92,13 +72,31 @@ namespace SIA.TipoCambio
 
         #region Metodos
 
-        public double ObtenerDolares(double pColones){
-            return pColones / (UsarCompra ? _Compra : _Venta);
+        private void CargarTipoCambio(MonedasValidas pMoneda, string pFechaHoy)
+        {
+            var dataSet = wsCliente.ObtenerIndicadoresEconomicos(((int)pMoneda).ToString(),
+                    pFechaHoy, pFechaHoy, NOMBRE, "N");
+            if (dataSet != null && dataSet.Tables[0] != null && dataSet.Tables[0].Rows != null)
+            {
+                double cambio;
+                try
+                {
+                    if (double.TryParse(dataSet.Tables[0].Rows[0][2].ToString(), out cambio))
+                    {
+                        _TiposCambio.Add(pMoneda, cambio);
+                    }
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    ExceptionLogger.LogExcepcion(ex, "Error obteniendo datos del WS del BCCR");
+                }
+            }
         }
 
-        public double ObtenerColones(double pDolares)
+        public double DemeCambio(MonedasValidas pOrigen, double pValor, MonedasValidas pDestino)
         {
-            return pDolares * (UsarCompra ? _Compra : _Venta);
+            return ((double)(_TiposCambio[pOrigen]) * pValor) / (double)_TiposCambio[pDestino];
         }
 
         #endregion
@@ -117,9 +115,10 @@ namespace SIA.TipoCambio
         private static TiposCambio _Instancia;
         private static object _Lock=new object();
 
-        private double _Venta;
-        private double _Compra;
+        private Hashtable _TiposCambio;
         private bool _ValoresValidos;
+
+        private BCCRWebService.wsIndicadoresEconomicosSoapClient wsCliente;
 
         #endregion
     }

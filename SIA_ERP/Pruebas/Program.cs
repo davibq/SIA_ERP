@@ -53,13 +53,12 @@ namespace Pruebas
             */
 
             /*            
-             * EJEMPLO: PEDIR TIPO DE CAMBIO AL BCCR
+             * EJEMPLO: PEDIR TIPO DE CAMBIO AL BCCR*/
             if (TiposCambio.Instancia.SonValoresValidos)
             {
-                Console.WriteLine("$25 es igual a: C" + TiposCambio.Instancia.ObtenerColones(25));
-                Console.WriteLine("C12500 es igual a: $" + TiposCambio.Instancia.ObtenerDolares(12500));
+                Console.WriteLine("$25 es igual a: C");
                 Console.ReadLine();
-            }*/
+            }
 
             
             /*
