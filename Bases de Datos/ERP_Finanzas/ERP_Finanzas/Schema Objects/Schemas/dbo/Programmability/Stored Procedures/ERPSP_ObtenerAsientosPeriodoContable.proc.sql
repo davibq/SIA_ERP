@@ -22,4 +22,5 @@ AS
 	INNER JOIN dbo.FIN_Moneda Mon ON Mon.IdMoneda = MonXMonXAsi.IdMoneda
 	INNER JOIN dbo.FIN_HistorialTipoCambio Hist ON Hist.IdMonedaOrigen = Mon.IdMoneda AND Hist.IdMonedaDestino = Mon.IdMoneda
 	WHERE Asi.Enabled = 1 AND Cuen.Enabled = 1 AND PerCon.Anyo = Anyo
+	ORDER BY Asi.FechaContabilizacion
 RETURN 0
