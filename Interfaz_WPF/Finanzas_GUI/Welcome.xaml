@@ -3,10 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Welcome" Height="600" Width="615" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="Images/icon_erp.png" Closing="Window_Closing" MinHeight="620" MinWidth="615">
     <Grid MinHeight="580" MinWidth="580">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="405*" />
-            <ColumnDefinition Width="173*" />
-        </Grid.ColumnDefinitions>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" x:Name="WelcomeHeading" Text="Bienvenido:" VerticalAlignment="Top" FontSize="17" FontStretch="ExtraCondensed"/>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="105,10,0,0" x:Name="TextBlockName"  VerticalAlignment="Top" FontSize="15" FontStretch="ExtraCondensed" />
         <TabControl Height="auto" HorizontalAlignment="Stretch" Margin="0,40,0,0" Name="tabControl1" VerticalAlignment="Stretch" Width="auto" Grid.ColumnSpan="2" Padding="0">
@@ -24,18 +20,32 @@
             </TabItem>            
             <TabItem Header="Catálogo Contable" Name="CatálogoContable">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="311*" />
-                        <ColumnDefinition Width="267*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Content="Agregar" Height="30" HorizontalAlignment="Left" Margin="51,463,0,0" Name="buttonAgregar" VerticalAlignment="Top" Width="115" Click="buttonAgregar_Click" />
-                    <Button Content="Modificar" Height="30" HorizontalAlignment="Left" Margin="233,463,0,0" Name="buttonModificar" VerticalAlignment="Top" Width="115" Click="buttonModificar_Click" Grid.ColumnSpan="2" />
-                    <Button Content="Eliminar" Height="30" HorizontalAlignment="Left" Margin="97,463,0,0" Name="buttonEliminar" VerticalAlignment="Top" Width="115" Click="buttonEliminar_Click" Grid.Column="1" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="85,34,0,0" Name="textBlockCuenta" Text="Cuenta:" VerticalAlignment="Top" Width="74" FontSize="15" />
-                    <TextBox Height="28" HorizontalAlignment="Left" Margin="165,32,0,0" Name="textBoxCuenta" VerticalAlignment="Top" Width="338" Grid.ColumnSpan="2" />
-                    <TextBlock FontSize="15" Height="30" HorizontalAlignment="Left" Margin="77,79,0,0" Name="textBlockMoneda" Text="Moneda:" VerticalAlignment="Top" Width="74" />
-                    <ComboBox Height="28" HorizontalAlignment="Left" Margin="165,77,0,0" Name="comboBoxMoneda" VerticalAlignment="Top" Width="338" Grid.ColumnSpan="2" />
-                    <TreeView HorizontalAlignment="Stretch" Margin="77,135,77,74" Name="treeView1" Height="Auto" Grid.ColumnSpan="2" />
+                    <TabControl Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="tabControlCuentas" VerticalAlignment="Stretch" Width="Auto" BorderThickness="1">
+                        <TabItem Header="Crear Cuentas" Name="CrearCuentas">
+                            <Grid>
+                                <Button Content="Agregar" Height="30" HorizontalAlignment="Left" Margin="79,0,0,22" Name="buttonAgregar" VerticalAlignment="Bottom" Width="115" Click="buttonAgregar_Click" />
+                                <TextBlock Height="30" HorizontalAlignment="Left" Margin="115,25,0,0" Name="textBlockCuenta" Text="Cuenta:" VerticalAlignment="Top" Width="47" FontSize="13" />
+                                <TextBox Height="24" HorizontalAlignment="Left" Margin="165,23,0,0" Name="textBoxCuenta" VerticalAlignment="Top" Width="308" />
+                                <TextBlock FontSize="13" Height="30" HorizontalAlignment="Left" Margin="108,146,0,0" Name="textBlockMoneda" Text="Moneda:" VerticalAlignment="Top" Width="51" />
+                                <ComboBox Height="24" HorizontalAlignment="Left" Margin="165,144,0,0" Name="comboBoxMoneda" VerticalAlignment="Top" Width="308" />
+                                <TreeView HorizontalAlignment="Stretch" Margin="77,185,70,74" Name="treeView1" Height="Auto" Grid.ColumnSpan="2" />
+                                <TextBlock FontSize="13" Height="30" HorizontalAlignment="Left" Margin="115,56,0,0" Name="textBlockCodigo" Text="Código:" VerticalAlignment="Top" Width="47" />
+                                <TextBox Height="24" HorizontalAlignment="Left" Margin="165,54,0,0" Name="textBoxCodigo" VerticalAlignment="Top" Width="308" />
+                                <TextBlock FontSize="13" Height="22" HorizontalAlignment="Left" Margin="108,86,0,0" Name="textBlock2" Text="Nombre:" VerticalAlignment="Top" Width="54" />
+                                <TextBox Height="24" HorizontalAlignment="Left" Margin="165,84,0,0" Name="textBoxNomCuenta" VerticalAlignment="Top" Width="308" />
+                                <TextBlock FontSize="13" Height="30" HorizontalAlignment="Left" Margin="21,116,0,0" Name="textBlockNomExtranjero" Text="Nom. Idioma Extranjero:" VerticalAlignment="Top" Width="141" />
+                                <TextBox Height="24" HorizontalAlignment="Left" Margin="165,114,0,0" Name="textBoxNomExtranjero" VerticalAlignment="Top" Width="308" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Modificar/Eliminar Cuentas" Name="ModificarElimnarCuentas">
+                            <Grid>
+                                <ListBox Height="Auto" HorizontalAlignment="Stretch" Margin="77,90,90,89" Name="listBoxCuentas" VerticalAlignment="Stretch" Width="Auto" />
+                                <TextBlock FontSize="16" FontWeight="Bold" Height="23" HorizontalAlignment="Left" Margin="77,25,0,0" Name="textBlockCuentasDisponibles" Text="Cuentas Disponibles" VerticalAlignment="Top" />
+                                <Button Content="Modificar" Height="27" HorizontalAlignment="Left" Margin="77,0,0,32" Name="buttonModificar" VerticalAlignment="Bottom" Width="83" Click="buttonModificar_Click" />
+                                <Button Content="Elminar" Height="27" HorizontalAlignment="Left" Margin="190,0,0,32" Name="buttonEliminar" VerticalAlignment="Bottom" Width="83" Click="buttonEliminar_Click" />
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </TabItem>
             <TabItem Header="Registro De Asientos" Name="RegistroDeAsientos">

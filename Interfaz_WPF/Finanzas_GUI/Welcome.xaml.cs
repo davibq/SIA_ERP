@@ -31,18 +31,10 @@ namespace Login_WPF
         {
             if (NoCierre == 0)
             {
-                MessageBoxResult result = MessageBox.Show("Desea cerrar la aplicación?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
+                MessageBoxResult res = MessageBox.Show(this, "Si cierra la ventana, todos los Datos no guardados pueden ser perdidos.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                if (res == MessageBoxResult.OK)
                 {
-                    MessageBoxResult res = MessageBox.Show(this, "Si cierra la ventana, todos los Datos no guardados pueden ser perdidos.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-                    if (res == MessageBoxResult.OK)
-                    {
-                        Application.Current.Shutdown();
-                    }
-                    else
-                    {
-                        e.Cancel = true;
-                    }
+                    Application.Current.Shutdown();
                 }
                 else
                 {
@@ -78,30 +70,6 @@ namespace Login_WPF
             }
         }
 
-        private void buttonModificar_Click(object sender, RoutedEventArgs e)
-        {
-            string message = "Esta seguro que desea modificar la cuenta seleccionada?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
-
-            }
-        }
-
-        private void buttonEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            string message = "Esta seguro que desea eliminar la cuenta seleccionada?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
-
-            }
-        }
-
         private void buttonGuardarAsiento_Click(object sender, RoutedEventArgs e)
         {
             string message = "Desea guardar el asiento creado?";
@@ -124,6 +92,33 @@ namespace Login_WPF
             {
 
             }
+        }
+
+        private void buttonEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Esta seguro que desea eliminar la cuenta seleccionada?";
+            string caption = "Confirmación";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+            {  
+                /*if()
+                {
+                    MessageBoxResult result = MessageBox.Show("Se ha Eliminado la Cuenta con Éxito");
+                }
+                else
+                {
+                    MessageBoxResult error = MessageBox.Show(this, "No se pudo eliminar la Cuenta Correctamente", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                }*/
+            }
+        }
+
+        private void buttonModificar_Click(object sender, RoutedEventArgs e)
+        {
+            Update modificar = new Update();
+            modificar.Show();
+            NoCierre = 1;
+            //Close();
         }
     }
 }
