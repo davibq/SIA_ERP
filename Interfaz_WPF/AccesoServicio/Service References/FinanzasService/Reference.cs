@@ -9,118 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace AccesoServicio.FinanzasService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
-    [System.SerializableAttribute()]
-    public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Apellido1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Apellido2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreUsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] _PasswordField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido1 {
-            get {
-                return this.Apellido1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido1Field, value) != true)) {
-                    this.Apellido1Field = value;
-                    this.RaisePropertyChanged("Apellido1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido2 {
-            get {
-                return this.Apellido2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido2Field, value) != true)) {
-                    this.Apellido2Field = value;
-                    this.RaisePropertyChanged("Apellido2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreUsuario {
-            get {
-                return this.NombreUsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreUsuarioField, value) != true)) {
-                    this.NombreUsuarioField = value;
-                    this.RaisePropertyChanged("NombreUsuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] _Password {
-            get {
-                return this._PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._PasswordField, value) != true)) {
-                    this._PasswordField = value;
-                    this.RaisePropertyChanged("_Password");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FinanzasService.IContabilidadService")]
@@ -130,7 +19,10 @@ namespace AccesoServicio.FinanzasService {
         string Saludar();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/AutenticarUsuario", ReplyAction="http://tempuri.org/IContabilidadService/AutenticarUsuarioResponse")]
-        bool AutenticarUsuario(AccesoServicio.FinanzasService.Usuario pUsuario);
+        bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevoUsuarioResponse")]
+        bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -164,8 +56,12 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.Saludar();
         }
         
-        public bool AutenticarUsuario(AccesoServicio.FinanzasService.Usuario pUsuario) {
+        public bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario) {
             return base.Channel.AutenticarUsuario(pUsuario);
+        }
+        
+        public bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario) {
+            return base.Channel.InsertarNuevoUsuario(pUsuario);
         }
     }
 }

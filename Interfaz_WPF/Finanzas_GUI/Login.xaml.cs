@@ -17,6 +17,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using AccesoServicio;
 using AccesoServicio.FinanzasService;
+using SIA.Libreria;
 
 namespace Login_WPF
 {
@@ -43,10 +44,18 @@ namespace Login_WPF
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Welcome welcome = new Welcome();
-            welcome.Show();
-            NoCierre = 1;
-            Close();
+            Usuario usuario = new Usuario()
+            {
+                NombreUsuario = textBoxUserName.GetLineText(0),
+                Password = passwordBox1.GetHashCode().ToString()
+            };
+            if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario))
+            {
+                Welcome welcome = new Welcome();
+                welcome.Show();
+                NoCierre = 1;
+                Close();
+            }
         }
 
         private void buttonRegister_Click(object sender, RoutedEventArgs e)

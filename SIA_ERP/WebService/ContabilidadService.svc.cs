@@ -18,7 +18,17 @@ namespace SIA.Contabilidad.WebService
 
         public bool AutenticarUsuario(Usuario pUsuario)
         {
-            return pUsuario.NombreUsuario.CompareTo("davibq") == 0;
+            //Llamar SP para verificar userName y password
+            Console.WriteLine("Bienvenido" + pUsuario.NombreUsuario);  //prueba
+            return true;
+            //return pUsuario.NombreUsuario.CompareTo("davibq") == 0;
+        }
+
+        public bool InsertarNuevoUsuario(Usuario pUsuario)
+        {
+            //Llamar SP para insertar nuevo usuario
+            Console.WriteLine("Bienvenido" + pUsuario.NombreUsuario);  //prueba
+            return true;
         }
     }
 }

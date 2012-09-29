@@ -19,6 +19,12 @@
   <wsdl:message name="IContabilidadService_AutenticarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:AutenticarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IContabilidadService_InsertarNuevoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarNuevoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_InsertarNuevoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarNuevoUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContabilidadService">
     <wsdl:operation name="Saludar">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/Saludar" message="tns:IContabilidadService_Saludar_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="AutenticarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/AutenticarUsuario" message="tns:IContabilidadService_AutenticarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/AutenticarUsuarioResponse" message="tns:IContabilidadService_AutenticarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarNuevoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario" message="tns:IContabilidadService_InsertarNuevoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuarioResponse" message="tns:IContabilidadService_InsertarNuevoUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContabilidadService" type="tns:IContabilidadService">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="AutenticarUsuario">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/AutenticarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarNuevoUsuario">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
