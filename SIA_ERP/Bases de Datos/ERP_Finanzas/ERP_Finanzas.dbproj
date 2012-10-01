@@ -276,6 +276,21 @@
     <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ActualizarAsiento.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ActualizarCuenta.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ActualizarTipoCambio.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_InsertarMonedas.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerAsientosPeriodoContable.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerCatalogoCuentas.proc.sql">
       <SubType>Code</SubType>
     </Build>

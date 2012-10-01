@@ -6,11 +6,11 @@
 -- FIN_TipoAsiento
 -- =============================================
 -----------------------------------------------------------
--- Autor: Rmadrigal
+-- Autor: Rmadrigal -> con razón no me sirve!
 -- Fecha: 23/09/2012
 -- Descripcion: Primeros valores para TipoAsiento
 -----------------------------------------------------------
-INSERT INTO dbo.FIN_TipoAsiento VALUES ('AS')
+INSERT INTO dbo.FIN_TipoAsiento (Nombre, Descripcion) VALUES ('AS', 'Asientos Manuales')
 
 GO
 -- =============================================
