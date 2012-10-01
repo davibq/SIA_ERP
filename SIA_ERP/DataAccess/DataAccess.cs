@@ -13,9 +13,9 @@ namespace SIA.DataAccess
     {
         #region Constructor
 
-        protected DataAccess(string pConnectionStringName)
+        protected DataAccess(string pConnectionString)
         {
-            _Conexion.ConnectionString= ConfigurationManager.ConnectionStrings[pConnectionStringName].ConnectionString;
+            _Conexion = new SqlConnection(pConnectionString);
         }
 
         #endregion
@@ -47,6 +47,7 @@ namespace SIA.DataAccess
             catch (Exception ex)
             {
                 ExceptionLogger.LogExcepcion(ex, string.Empty);
+                dataSet = null;
             }
             finally
             {

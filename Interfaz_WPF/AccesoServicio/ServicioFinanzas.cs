@@ -41,9 +41,9 @@ namespace AccesoServicio
             return _CSC.Saludar();
         }
 
-        public bool AutenticarUsuario(Usuario pUsuario)
+        public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
-            return _CSC.AutenticarUsuario(pUsuario);
+            return _CSC.AutenticarUsuario(pUsuario, pNombreEmpresa);
         }
 
         private ContabilidadServiceClient _CSC;

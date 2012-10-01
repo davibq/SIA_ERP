@@ -33,29 +33,24 @@ namespace Login_WPF
         public Login()
         {
             InitializeComponent();
-            Usuario usuario = new Usuario()
-            {
-                Nombre="David",
-                NombreUsuario="davibq",
-                Apellido1="Ballesteros"
-            };
-            MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario).ToString());
+            
         }        
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = new Usuario()
             {
-                NombreUsuario = textBoxUserName.GetLineText(0),
-                Password = passwordBox1.GetHashCode().ToString()
+                NombreUsuario = textBoxUserName.Text,
+                Password = passwordBox1.Password
             };
-            if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario))
+            MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario, txtSociedadTemp.Text).ToString());
+            /*if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario))
             {
                 Welcome welcome = new Welcome();
                 welcome.Show();
                 NoCierre = 1;
                 Close();
-            }
+            }*/
         }
 
         private void buttonRegister_Click(object sender, RoutedEventArgs e)

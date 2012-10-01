@@ -5,6 +5,7 @@ using System.Text;
 using SIA.TipoCambio;
 using SIA.ExceptionLog;
 using Logica;
+using SIA.Libreria;
 
 namespace Pruebas
 {
@@ -54,13 +55,19 @@ namespace Pruebas
 
             /*            
              * EJEMPLO: PEDIR TIPO DE CAMBIO AL BCCR*/
+            /*
             if (TiposCambio.Instancia.SonValoresValidos)
             {
                 Console.WriteLine("$25 es igual a: C");
                 Console.ReadLine();
             }
-
-            
+            */
+            Usuario usuario = new Usuario()
+            {
+                NombreUsuario="davibq",
+                Password="12345"
+            };
+            var d=LogicaNegocio.Instancia.AutenticarUsuario(usuario, "Empresa1");
             /*
              * EJEMPLO: MANEJO DE EXCEPCIONES
              * 

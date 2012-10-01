@@ -6,9 +6,11 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using SIA.Libreria;
+using Logica;
 
 namespace SIA.Contabilidad.WebService
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class ContabilidadService : IContabilidadService
     {
         public string Saludar()
@@ -16,11 +18,10 @@ namespace SIA.Contabilidad.WebService
             return "Hola";
         }
 
-        public bool AutenticarUsuario(Usuario pUsuario)
+        public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
             //Llamar SP para verificar userName y password
-            Console.WriteLine("Bienvenido" + pUsuario.NombreUsuario);  //prueba
-            return true;
+            return LogicaNegocio.Instancia.AutenticarUsuario(pUsuario, pNombreEmpresa);
             //return pUsuario.NombreUsuario.CompareTo("davibq") == 0;
         }
 

@@ -16,7 +16,7 @@ namespace SIA.Contabilidad.WebService
         string Saludar();
 
         [OperationContract]
-        bool AutenticarUsuario(Usuario pUsuario);
+        bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa);
 
         [OperationContract]
         bool InsertarNuevoUsuario(Usuario pUsuario);

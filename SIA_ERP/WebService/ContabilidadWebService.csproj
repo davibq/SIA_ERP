@@ -105,6 +105,10 @@
       <Project>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</Project>
       <Name>Libreria</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logica\Logica.csproj">
+      <Project>{A22FDDB0-5B24-4EA4-A3BD-5AD99C2A421B}</Project>
+      <Name>Logica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

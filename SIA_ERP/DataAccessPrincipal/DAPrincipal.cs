@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using SIA.DataAccess;
+using SIA.Libreria;
+using System.Configuration;
 
 namespace DataAccessPrincipal
 {
@@ -12,33 +14,24 @@ namespace DataAccessPrincipal
     {
         // Inicializa el Connection String en el padre.
         // El connectionString lo toma de Web.config
-        public DAPrincipal():base("Principal")
+        public DAPrincipal():base(ConfigurationManager.ConnectionStrings["Principal"].ConnectionString)
         {
             
         }
 
-        //Crear md5 a partir de string
-        /*
-         * _PasswordBinary es un byte[]
-        Stream memStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(STRING_A_CONVERTIR), false);
-        if ((memStream != null) && (memStream.Length > 0)) // if the stream is valid
+        public string AutenticarUsuario(Usuario pUsuario, string pEmpresa)
         {
-            _PasswordBinary = MD5.Create().ComputeHash(memStream);
-        }
-         */
-        // Suponiendo que esto retorna el nombre del usuario y el apellido
-        public String AutenticarUsuario(string pNombreUsuario, byte[] pPassword)
-        {
-            var ds=EjecutarConsulta("dbo.AutenticarUsuario", new List<SqlParameter>()
+            var ds=EjecutarConsulta("dbo.LoginUsuario", new List<SqlParameter>()
                                                           {
-                                                              new SqlParameter("paramName1", "VALOR"),
-                                                              new SqlParameter("paramName1", "VALOR"),
+                                                              new SqlParameter("pNombreUsuario", pUsuario.NombreUsuario),
+                                                              new SqlParameter("pPassword", pUsuario.PasswordBinario),
+                                                              new SqlParameter("pNombreEmpresa", pEmpresa)
                                                           });
             if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows!=null)
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    return row[0].ToString() + " " + row[1].ToString();
+                    return row[0].ToString();
                 }
             }
             return string.Empty;

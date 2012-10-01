@@ -19,7 +19,7 @@ namespace AccesoServicio.FinanzasService {
         string Saludar();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/AutenticarUsuario", ReplyAction="http://tempuri.org/IContabilidadService/AutenticarUsuarioResponse")]
-        bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario);
+        bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevoUsuarioResponse")]
         bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario);
@@ -56,8 +56,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.Saludar();
         }
         
-        public bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario) {
-            return base.Channel.AutenticarUsuario(pUsuario);
+        public bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa) {
+            return base.Channel.AutenticarUsuario(pUsuario, pNombreEmpresa);
         }
         
         public bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario) {
