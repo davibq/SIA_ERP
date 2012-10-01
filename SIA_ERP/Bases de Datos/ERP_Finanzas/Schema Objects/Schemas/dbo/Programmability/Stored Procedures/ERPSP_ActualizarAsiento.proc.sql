@@ -54,7 +54,7 @@ BEGIN
 		ELSE IF(LEN(@Cuenta) > 0) BEGIN 
 		
 			INSERT INTO dbo.FIN_Asiento (Debe, Haber, Enabled, FechaContabilizacion, FechaDocumento, IdPeriodoContable, IdTipoAsiento, Referencia1, Referencia2)
-			VALUES (@MontoDebe, @MontoHaber, @Enabled, GETDATE(),GETDATE(), @IdPeriodoContable, @IdTipoAsiento, @Referencia1, @Referencia2)
+			VALUES (@MontoDebe, @MontoHaber, @Enabled, GETDATE(), @Fecha, @IdPeriodoContable, @IdTipoAsiento, @Referencia1, @Referencia2)
 				
 			SET @IdAsiento = SCOPE_IDENTITY()
 		
