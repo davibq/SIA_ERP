@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Windows.Shapes;
+using SIA.Libreria;
 
 namespace Login_WPF
 {
@@ -66,6 +67,13 @@ namespace Login_WPF
             MessageBoxImage icon = MessageBoxImage.Question;
             if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
             {
+                Cuenta cuenta = new Cuenta()
+                {
+                    Nombre=TextBlockName.Text,
+                    Codigo=textBlockCodigo.Text,
+                    NombreIdiomaExtranjero=textBlockNomExtranjero.Text,
+                    Moneda=comboBoxMoneda.SelectedItem.ToString()
+                };
 
             }
         }

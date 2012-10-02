@@ -23,6 +23,9 @@ namespace AccesoServicio.FinanzasService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevoUsuarioResponse")]
         bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearCuenta", ReplyAction="http://tempuri.org/IContabilidadService/CrearCuentaResponse")]
+        bool CrearCuenta(SIA.Libreria.Cuenta pCuenta);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -62,6 +65,10 @@ namespace AccesoServicio.FinanzasService {
         
         public bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario) {
             return base.Channel.InsertarNuevoUsuario(pUsuario);
+        }
+        
+        public bool CrearCuenta(SIA.Libreria.Cuenta pCuenta) {
+            return base.Channel.CrearCuenta(pCuenta);
         }
     }
 }

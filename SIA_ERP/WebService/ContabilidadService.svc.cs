@@ -31,5 +31,11 @@ namespace SIA.Contabilidad.WebService
             Console.WriteLine("Bienvenido" + pUsuario.NombreUsuario);  //prueba
             return true;
         }
+
+        public bool CrearCuenta(Cuenta pCuenta)
+        {
+            //Llamar SP para crear una nueva cuenta
+            return true;
+        }
     }
 }

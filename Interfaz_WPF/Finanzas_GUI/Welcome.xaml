@@ -8,14 +8,18 @@
         <TabControl Height="auto" HorizontalAlignment="Stretch" Margin="0,40,0,0" Name="tabControl1" VerticalAlignment="Stretch" Width="auto" Grid.ColumnSpan="2" Padding="0">
             <TabItem Header="Periodos Contables" Name="PeriodoContable">
                 <Grid>
-                    <TextBlock Height="26" HorizontalAlignment="Left" Margin="113,78,0,0" Name="textBlockPeriodoC" Text="Definir Periodo Contable" VerticalAlignment="Top" Width="183" FontSize="15" FontWeight="Bold" />
-                    <Label Content="Mes De Inicio:" FontSize="14" Height="29" HorizontalAlignment="Left" Margin="113,118,0,0" Name="labelInicio" VerticalAlignment="Top" Width="99" />
-                    <TextBox Height="31" HorizontalAlignment="Left" Margin="235,117,0,0" Name="textBoxMesInicio" VerticalAlignment="Top" Width="209" />
-                    <TextBlock FontSize="15" FontWeight="Bold" Height="26" HorizontalAlignment="Left" Margin="112,227,0,0" Name="textBlockFechas" Text="Definir Fechas de Inicio y Fin de Cada Mes" VerticalAlignment="Top" Width="300" />
-                    <Label Content="Fecha De Inicio:" FontSize="14" Height="29" HorizontalAlignment="Left" Margin="103,278,0,0" Name="label1" VerticalAlignment="Top" Width="113" />
-                    <DatePicker Height="31" HorizontalAlignment="Left" Margin="235,275,0,0" Name="datePickerInicio" VerticalAlignment="Top" Width="209"/>
-                    <Label Content="Fecha De Fin:" FontSize="14" Height="29" HorizontalAlignment="Left" Margin="117,328,0,0" Name="label2" VerticalAlignment="Top" Width="98" />
-                    <DatePicker Height="31" HorizontalAlignment="Left" Margin="235,326,0,0" Name="datePickerFin" VerticalAlignment="Top" Width="209"></DatePicker>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="188" />
+                        <ColumnDefinition Width="403" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Height="26" HorizontalAlignment="Left" Margin="113,78,0,0" Name="textBlockPeriodoC" Text="Definir Periodo Contable" VerticalAlignment="Top" Width="183" FontSize="15" FontWeight="Bold" Grid.ColumnSpan="2" />
+                    <Label Content="Mes De Inicio:" FontSize="14" Height="29" HorizontalAlignment="Left" Margin="113,118,0,0" Name="labelInicio" VerticalAlignment="Top" Width="99" Grid.ColumnSpan="2" />
+                    <TextBox Height="31" HorizontalAlignment="Left" Margin="47,117,0,0" Name="textBoxMesInicio" VerticalAlignment="Top" Width="209" Grid.Column="1" />
+                    <TextBlock FontSize="15" FontWeight="Bold" Height="26" HorizontalAlignment="Left" Margin="112,227,0,0" Name="textBlockFechas" Text="Definir Fechas de Inicio y Fin de Cada Mes" VerticalAlignment="Top" Width="300" Grid.ColumnSpan="2" />
+                    <Label Content="Fecha De Inicio:" FontSize="14" Height="29" HorizontalAlignment="Left" Margin="103,278,0,0" Name="label1" VerticalAlignment="Top" Width="113" Grid.ColumnSpan="2" />
+                    <DatePicker Height="31" HorizontalAlignment="Left" Margin="47,275,0,0" Name="datePickerInicio" VerticalAlignment="Top" Width="209" Grid.Column="1" />
+                    <Label Content="Fecha De Fin:" FontSize="14" Height="29" HorizontalAlignment="Left" Margin="117,328,0,0" Name="label2" VerticalAlignment="Top" Width="98" Grid.ColumnSpan="2" />
+                    <DatePicker Height="31" HorizontalAlignment="Left" Margin="47,326,0,0" Name="datePickerFin" VerticalAlignment="Top" Width="209" Grid.Column="1"></DatePicker>
                 </Grid>
             </TabItem>            
             <TabItem Header="Catálogo Contable" Name="CatálogoContable">
@@ -24,8 +28,6 @@
                         <TabItem Header="Crear Cuentas" Name="CrearCuentas">
                             <Grid>
                                 <Button Content="Agregar" Height="30" HorizontalAlignment="Left" Margin="79,0,0,22" Name="buttonAgregar" VerticalAlignment="Bottom" Width="115" Click="buttonAgregar_Click" />
-                                <TextBlock Height="30" HorizontalAlignment="Left" Margin="115,25,0,0" Name="textBlockCuenta" Text="Cuenta:" VerticalAlignment="Top" Width="47" FontSize="13" />
-                                <TextBox Height="24" HorizontalAlignment="Left" Margin="165,23,0,0" Name="textBoxCuenta" VerticalAlignment="Top" Width="308" />
                                 <TextBlock FontSize="13" Height="30" HorizontalAlignment="Left" Margin="108,146,0,0" Name="textBlockMoneda" Text="Moneda:" VerticalAlignment="Top" Width="51" />
                                 <ComboBox Height="24" HorizontalAlignment="Left" Margin="165,144,0,0" Name="comboBoxMoneda" VerticalAlignment="Top" Width="308" />
                                 <TreeView HorizontalAlignment="Stretch" Margin="77,185,70,74" Name="treeView1" Height="Auto" Grid.ColumnSpan="2" />

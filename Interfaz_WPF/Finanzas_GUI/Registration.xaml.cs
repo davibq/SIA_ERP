@@ -14,6 +14,9 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using AccesoServicio;
+using AccesoServicio.FinanzasService;
+using SIA.Libreria;
 
 namespace Login_WPF
 {
@@ -98,13 +101,25 @@ namespace Login_WPF
                 }
                 else
                 {
-                    errormessage.Text = "";
-                    MessageBoxResult result = MessageBox.Show("Se Ha Registrado Correctamente"); 
-                    Reset();
-                    Login login = new Login();
-                    login.Show();
-                    NoCierre = 1;
-                    Close();
+                    Usuario usuario = new Usuario()
+                    {
+                        Nombre = textBlockFirstname.Text,
+                        Apellido1 = textBlockLastName.Text,
+                        NombreUsuario = textBlockUserName.Text,
+                        Password = passwordBox1.Password
+                    };
+                    if (ServicioFinanzas.Instancia.InsertarNuevoUsuario(usuario))
+                    {
+                        errormessage.Text = "";
+                        MessageBoxResult result = MessageBox.Show("Se Ha Registrado Correctamente");
+                        Reset();
+                        Login login = new Login();
+                        login.Show();
+                        NoCierre = 1;
+                        Close();
+                    }
+                    else
+                        errormessage.Text = "Registro NO realizado";
                 }
             }
         }
