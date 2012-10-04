@@ -30,6 +30,14 @@ namespace Login_WPF
         public Registration()
         {
             InitializeComponent();
+            string empresas = ServicioFinanzas.Instancia.ObtenerEmpresas();
+            string[] split = empresas.Split(new Char[] { ';' });
+            foreach (string s in split)
+            {
+                if (s.Trim() != "")
+                    SociedadcomboBox1.Items.Add(s);
+            }
+            SociedadcomboBox1.SelectedIndex = 0;
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -53,6 +61,7 @@ namespace Login_WPF
             passwordBox1.Password = "";
             passwordBoxConfirm.Password = "";
         }
+
         private void button3_Click(object sender, RoutedEventArgs e)
         {
             if (NoCierre == 0)
@@ -95,20 +104,15 @@ namespace Login_WPF
                     errormessage.Text = "Su password de confirmación es diferente";
                     passwordBoxConfirm.Focus();
                 }
-                else if((Admin.IsChecked == false) & (User.IsChecked == false))
-                {
-                    errormessage.Text = "Debe Indicar el Tipo de Usuario";
-                }
                 else
                 {
                     Usuario usuario = new Usuario()
                     {
-                        Nombre = textBlockFirstname.Text,
-                        Apellido1 = textBlockLastName.Text,
-                        NombreUsuario = textBlockUserName.Text,
+                        NombreUsuario = textBoxUserName.Text,
                         Password = passwordBox1.Password
                     };
-                    if (ServicioFinanzas.Instancia.InsertarNuevoUsuario(usuario))
+                    string password = passwordBox1.Password;
+                    if (ServicioFinanzas.Instancia.InsertarNuevoUsuario(usuario,SociedadcomboBox1.SelectedItem.ToString(),password))
                     {
                         errormessage.Text = "";
                         MessageBoxResult result = MessageBox.Show("Se Ha Registrado Correctamente");
@@ -130,26 +134,6 @@ namespace Login_WPF
             {
                 Application.Current.Shutdown();
             }
-        }
-
-        private void Admin_Checked(object sender, RoutedEventArgs e)
-        {
-            User.IsHitTestVisible = false;
-        }
-
-        private void Admin_Unchecked(object sender, RoutedEventArgs e)
-        {
-            User.IsHitTestVisible = true;
-        }
-
-        private void User_Checked(object sender, RoutedEventArgs e)
-        {
-            Admin.IsHitTestVisible = false;
-        }
-
-        private void User_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Admin.IsHitTestVisible = true;
         }
     }
 }

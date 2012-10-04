@@ -40,7 +40,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>.\sql\debug\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TargetConnectionString>Data Source=localhost;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetConnectionString>Data Source=SANTAMARIA-PC;Integrated Security=True;Pooling=False</TargetConnectionString>
     <TargetDatabase>
     </TargetDatabase>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -286,6 +286,9 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\LoginUsuario.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObetenerEntidades.proc.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>

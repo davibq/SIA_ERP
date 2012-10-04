@@ -36,20 +36,17 @@
             <TextBlock Height="23" HorizontalAlignment="Left" Margin="117,91,0,0" Name="textBlockUserName" Text="Username:" VerticalAlignment="Top" Width="110" />
             <TextBlock Height="23" HorizontalAlignment="Left" Margin="120,118,0,0" Name="textBlockPassword" Text="Password:" VerticalAlignment="Top" Width="110"  />
             <TextBlock Height="23" HorizontalAlignment="Left" Margin="64,147,0,0" Name="textBlockConfirmPwd" Text="Confirmar Password:" VerticalAlignment="Top" Width="110" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="85,178,0,0" Name="TipoDeUsuario" Text="Tipo De Usuario:" VerticalAlignment="Top" Width="95" />
-
             <TextBox Height="23" HorizontalAlignment="Left" Margin="183,30,0,0" Name="textBoxFirstName" VerticalAlignment="Top" Width="222" />
             <TextBox Height="23" HorizontalAlignment="Left" Margin="183,60,0,0" Name="textBoxLastName" VerticalAlignment="Top" Width="222" />
             <TextBox Height="23" HorizontalAlignment="Left" Margin="183,90,0,0" Name="textBoxUserName" VerticalAlignment="Top" Width="222" />            
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,117,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" />
+            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,117,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" PasswordChanged="passwordBox1_PasswordChanged" />
             <!--For password-->
             <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,146,0,0" Name="passwordBoxConfirm" VerticalAlignment="Top" Width="222" />
-            <CheckBox Content="Administrador" Height="26" HorizontalAlignment="Left" Margin="183,179,0,0" Name="Admin" VerticalAlignment="Top" Width="100" Checked="Admin_Checked" Unchecked="Admin_Unchecked" />
-            <CheckBox Content="Usuario Limitado" Height="26" HorizontalAlignment="Left" Margin="289,179,0,0" Name="User" VerticalAlignment="Top" Width="116" Checked="User_Checked" Unchecked="User_Unchecked" />
-            
             <Button Content="Registrar" Height="23" HorizontalAlignment="Left" Margin="183,214,0,0" Name="Submit" VerticalAlignment="Top" Width="70" Click="Submit_Click" />
             <Button Content="Resetear" Height="23" HorizontalAlignment="Left" Margin="259,214,0,0" Name="button2" VerticalAlignment="Top" Width="70" Click="button2_Click" />
-            <Button Content="Cancelar" Height="23" HorizontalAlignment="Right" Margin="0,214,60,0" Name="button3" VerticalAlignment="Top" Width="70" Click="button3_Click" />          
+            <Button Content="Cancelar" Height="23" HorizontalAlignment="Right" Margin="0,214,60,0" Name="button3" VerticalAlignment="Top" Width="70" Click="button3_Click" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="120,176,0,0" Name="textBlock3" Text="Sociedad:" VerticalAlignment="Top" Width="77" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="183,176,0,0" Name="SociedadcomboBox1" VerticalAlignment="Top" Width="222" />
         </Grid>
     </Grid>
 </Window>

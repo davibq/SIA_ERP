@@ -19,9 +19,8 @@
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="59,187,0,0" Name="textBlock3" Text="Sociedad:" VerticalAlignment="Top" Width="77" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="118,115,0,0" Name="textBoxUserName" VerticalAlignment="Top" Width="247" />
         <PasswordBox Height="23" HorizontalAlignment="Left" Margin="118,150,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="247" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="118,212,0,0" Name="SociedadcomboBox1" VerticalAlignment="Top" Width="247" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="118,188,0,0" Name="SociedadcomboBox1" VerticalAlignment="Top" Width="247" />
         <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="118,233,0,0" Name="button1" VerticalAlignment="Top" Width="104" Click="button1_Click" />
         <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="118,263,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="120,188,0,0" Name="txtSociedadTemp" VerticalAlignment="Top" Width="120" />
     </Grid>
 </Window>

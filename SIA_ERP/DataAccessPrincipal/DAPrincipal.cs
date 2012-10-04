@@ -19,6 +19,21 @@ namespace DataAccessPrincipal
             
         }
 
+        public string ObtenerEmpresas()
+        {
+            var ds = EjecutarConsulta("dbo.ObtenerEntidades", new List<SqlParameter>());
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                string retorno = "";
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    retorno += row[0] +";"; 
+                }
+                return retorno;
+            }
+            return string.Empty;
+        }
+
         public string AutenticarUsuario(Usuario pUsuario, string pEmpresa)
         {
             var ds=EjecutarConsulta("dbo.LoginUsuario", new List<SqlParameter>()
@@ -35,6 +50,17 @@ namespace DataAccessPrincipal
                 }
             }
             return string.Empty;
+        }
+
+        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
+        {
+            return EjecutarNoConsulta("dbo.ERPSP_ActualizarUsuario", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("Login", pUsuario.NombreUsuario),
+                                                              new SqlParameter("Pass", pPassword),
+                                                              new SqlParameter("Enabled", true),
+                                                              new SqlParameter("Entidad", pNombreEmpresa)
+                                                          });
         }
     }
 }

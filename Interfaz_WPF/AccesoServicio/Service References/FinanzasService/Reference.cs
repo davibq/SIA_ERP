@@ -9,7 +9,102 @@
 //------------------------------------------------------------------------------
 
 namespace AccesoServicio.FinanzasService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
+    [System.SerializableAttribute()]
+    public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MonedaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreIdiomaExtranjeroField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Moneda {
+            get {
+                return this.MonedaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MonedaField, value) != true)) {
+                    this.MonedaField = value;
+                    this.RaisePropertyChanged("Moneda");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreIdiomaExtranjero {
+            get {
+                return this.NombreIdiomaExtranjeroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreIdiomaExtranjeroField, value) != true)) {
+                    this.NombreIdiomaExtranjeroField = value;
+                    this.RaisePropertyChanged("NombreIdiomaExtranjero");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FinanzasService.IContabilidadService")]
@@ -18,14 +113,17 @@ namespace AccesoServicio.FinanzasService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/Saludar", ReplyAction="http://tempuri.org/IContabilidadService/SaludarResponse")]
         string Saludar();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerEmpresas", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerEmpresasResponse")]
+        string ObtenerEmpresas();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/AutenticarUsuario", ReplyAction="http://tempuri.org/IContabilidadService/AutenticarUsuarioResponse")]
         bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevoUsuarioResponse")]
-        bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario);
+        bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearCuenta", ReplyAction="http://tempuri.org/IContabilidadService/CrearCuentaResponse")]
-        bool CrearCuenta(SIA.Libreria.Cuenta pCuenta);
+        bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -59,15 +157,19 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.Saludar();
         }
         
+        public string ObtenerEmpresas() {
+            return base.Channel.ObtenerEmpresas();
+        }
+        
         public bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa) {
             return base.Channel.AutenticarUsuario(pUsuario, pNombreEmpresa);
         }
         
-        public bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario) {
-            return base.Channel.InsertarNuevoUsuario(pUsuario);
+        public bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa, string Password) {
+            return base.Channel.InsertarNuevoUsuario(pUsuario, pNombreEmpresa, Password);
         }
         
-        public bool CrearCuenta(SIA.Libreria.Cuenta pCuenta) {
+        public bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta) {
             return base.Channel.CrearCuenta(pCuenta);
         }
     }

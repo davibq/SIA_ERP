@@ -30,6 +30,12 @@ namespace Logica
             }
         }
 
+        public string ObtenerEmpresas() 
+        {
+            var daPrincipal = new DAPrincipal();
+            return daPrincipal.ObtenerEmpresas();
+        }
+
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
             var daPrincipal = new DAPrincipal();
@@ -39,6 +45,12 @@ namespace Logica
                 return true;
             }
             return false;
+        }
+
+        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
+        {
+            var daPrincipal = new DAPrincipal();
+            return daPrincipal.InsertarNuevoUsuario(pUsuario, pNombreEmpresa, pPassword);
         }
 
         private static LogicaNegocio _Instancia;

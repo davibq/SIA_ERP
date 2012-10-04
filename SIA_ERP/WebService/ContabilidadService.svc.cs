@@ -18,6 +18,11 @@ namespace SIA.Contabilidad.WebService
             return "Hola";
         }
 
+        public string ObtenerEmpresas()
+        {
+            return LogicaNegocio.Instancia.ObtenerEmpresas();
+        }
+
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
             //Llamar SP para verificar userName y password
@@ -25,11 +30,9 @@ namespace SIA.Contabilidad.WebService
             //return pUsuario.NombreUsuario.CompareTo("davibq") == 0;
         }
 
-        public bool InsertarNuevoUsuario(Usuario pUsuario)
+        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
         {
-            //Llamar SP para insertar nuevo usuario
-            Console.WriteLine("Bienvenido" + pUsuario.NombreUsuario);  //prueba
-            return true;
+            return LogicaNegocio.Instancia.InsertarNuevoUsuario(pUsuario, pNombreEmpresa, pPassword);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)

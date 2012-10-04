@@ -41,14 +41,19 @@ namespace AccesoServicio
             return _CSC.Saludar();
         }
 
+        public string ObtenerEmpresas()
+        {
+            return _CSC.ObtenerEmpresas();
+        }
+
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
             return _CSC.AutenticarUsuario(pUsuario, pNombreEmpresa);
         }
 
-        public bool InsertarNuevoUsuario(Usuario pUsuario)
+        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
         {
-            return _CSC.InsertarNuevoUsuario(pUsuario);
+            return _CSC.InsertarNuevoUsuario(pUsuario,pNombreEmpresa,pPassword);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)

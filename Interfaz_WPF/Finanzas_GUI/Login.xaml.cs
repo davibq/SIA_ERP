@@ -33,7 +33,14 @@ namespace Login_WPF
         public Login()
         {
             InitializeComponent();
-            
+            string empresas = ServicioFinanzas.Instancia.ObtenerEmpresas();
+            string[] split = empresas.Split(new Char[] {';'});
+            foreach (string s in split)
+            {
+                if (s.Trim() != "")
+                    SociedadcomboBox1.Items.Add(s);    
+            }
+            SociedadcomboBox1.SelectedIndex = 0;
         }        
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -43,7 +50,7 @@ namespace Login_WPF
                 NombreUsuario = textBoxUserName.Text,
                 Password = passwordBox1.Password
             };
-            MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario, txtSociedadTemp.Text).ToString());
+            //MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario, txtSociedadTemp.Text).ToString());
             /*if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario))
             {
                 Welcome welcome = new Welcome();
