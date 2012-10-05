@@ -51,13 +51,13 @@ namespace Login_WPF
                 Password = passwordBox1.Password
             };
             //MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario, txtSociedadTemp.Text).ToString());
-            /*if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario))
-            {
+            //if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario))
+            //{
                 Welcome welcome = new Welcome();
                 welcome.Show();
                 NoCierre = 1;
                 Close();
-            }*/
+            //}
         }
 
         private void buttonRegister_Click(object sender, RoutedEventArgs e)

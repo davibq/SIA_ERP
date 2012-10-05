@@ -12,6 +12,9 @@ using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using AccesoServicio;
+using AccesoServicio.FinanzasService;
+using SIA.Libreria;
 
 namespace Login_WPF
 {
@@ -131,9 +134,23 @@ namespace Login_WPF
 
             else
             {
-                errormessage.Text = "";
-                MessageBoxResult result = MessageBox.Show("Se Ha Creado La Empresa Correctamente");
-                Reset();
+                Empresa empresa = new Empresa()
+                {
+                    Nombre = textBoxNombre.Text,
+                    CedulaJuridica = textBoxCedJuridica.Text,
+                    Fax = textBoxFax.Text,
+                    Telefono= textBoxTelefono.Text,
+                    MonedaLocal=comboBoxMlocal.SelectedItem.ToString(),
+                    MonedaSistema=comboBoxMSistema.SelectedItem.ToString(),
+                    _FilePath=textBoxRuta.Text,
+                    Logo=textBoxRuta.Text
+                };
+                if (ServicioFinanzas.Instancia.InsertarNuevaEmpresa(empresa))
+                {
+                    errormessage.Text = "";
+                    MessageBoxResult result = MessageBox.Show("Se Ha Creado La Empresa Correctamente");
+                    Reset();
+                }
             }
         }
 

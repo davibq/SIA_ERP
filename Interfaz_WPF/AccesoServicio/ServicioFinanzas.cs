@@ -56,6 +56,11 @@ namespace AccesoServicio
             return _CSC.InsertarNuevoUsuario(pUsuario);
         }
 
+        public bool InsertarNuevaEmpresa(Empresa pEmpresa)
+        {
+            return true;
+        }
+
         public bool CrearCuenta(Cuenta pCuenta)
         {
             return _CSC.CrearCuenta(pCuenta);
