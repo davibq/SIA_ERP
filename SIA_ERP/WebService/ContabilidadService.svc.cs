@@ -30,9 +30,9 @@ namespace SIA.Contabilidad.WebService
             //return pUsuario.NombreUsuario.CompareTo("davibq") == 0;
         }
 
-        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
+        public bool InsertarNuevoUsuario(Usuario pUsuario)
         {
-            return LogicaNegocio.Instancia.InsertarNuevoUsuario(pUsuario, pNombreEmpresa, pPassword);
+            return LogicaNegocio.Instancia.InsertarNuevoUsuario(pUsuario);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)

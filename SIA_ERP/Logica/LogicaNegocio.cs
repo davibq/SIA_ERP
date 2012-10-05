@@ -47,10 +47,10 @@ namespace Logica
             return false;
         }
 
-        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
+        public bool InsertarNuevoUsuario(Usuario pUsuario)
         {
             var daPrincipal = new DAPrincipal();
-            return daPrincipal.InsertarNuevoUsuario(pUsuario, pNombreEmpresa, pPassword);
+            return daPrincipal.InsertarNuevoUsuario(pUsuario);
         }
 
         private static LogicaNegocio _Instancia;

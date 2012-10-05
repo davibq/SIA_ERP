@@ -52,14 +52,13 @@ namespace DataAccessPrincipal
             return string.Empty;
         }
 
-        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
+        public bool InsertarNuevoUsuario(Usuario pUsuario)
         {
             return EjecutarNoConsulta("dbo.ERPSP_ActualizarUsuario", new List<SqlParameter>()
                                                           {
                                                               new SqlParameter("Login", pUsuario.NombreUsuario),
-                                                              new SqlParameter("Pass", pPassword),
-                                                              new SqlParameter("Enabled", true),
-                                                              new SqlParameter("Entidad", pNombreEmpresa)
+                                                              new SqlParameter("Pass", pUsuario.PasswordBinario),
+                                                              new SqlParameter("Enabled", true)
                                                           });
         }
     }

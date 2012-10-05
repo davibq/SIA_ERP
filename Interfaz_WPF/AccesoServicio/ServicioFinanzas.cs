@@ -51,9 +51,9 @@ namespace AccesoServicio
             return _CSC.AutenticarUsuario(pUsuario, pNombreEmpresa);
         }
 
-        public bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string pPassword)
+        public bool InsertarNuevoUsuario(Usuario pUsuario)
         {
-            return _CSC.InsertarNuevoUsuario(pUsuario,pNombreEmpresa,pPassword);
+            return _CSC.InsertarNuevoUsuario(pUsuario);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)

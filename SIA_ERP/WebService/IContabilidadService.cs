@@ -22,7 +22,7 @@ namespace SIA.Contabilidad.WebService
         bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa);
 
         [OperationContract]
-        bool InsertarNuevoUsuario(Usuario pUsuario, string pNombreEmpresa, string Password);
+        bool InsertarNuevoUsuario(Usuario pUsuario);
 
         [OperationContract]
         bool CrearCuenta(Cuenta pCuenta);

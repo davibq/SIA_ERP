@@ -39,14 +39,12 @@
             <TextBox Height="23" HorizontalAlignment="Left" Margin="183,30,0,0" Name="textBoxFirstName" VerticalAlignment="Top" Width="222" />
             <TextBox Height="23" HorizontalAlignment="Left" Margin="183,60,0,0" Name="textBoxLastName" VerticalAlignment="Top" Width="222" />
             <TextBox Height="23" HorizontalAlignment="Left" Margin="183,90,0,0" Name="textBoxUserName" VerticalAlignment="Top" Width="222" />            
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,117,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" PasswordChanged="passwordBox1_PasswordChanged" />
+            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,117,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" />
             <!--For password-->
             <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,146,0,0" Name="passwordBoxConfirm" VerticalAlignment="Top" Width="222" />
             <Button Content="Registrar" Height="23" HorizontalAlignment="Left" Margin="183,214,0,0" Name="Submit" VerticalAlignment="Top" Width="70" Click="Submit_Click" />
             <Button Content="Resetear" Height="23" HorizontalAlignment="Left" Margin="259,214,0,0" Name="button2" VerticalAlignment="Top" Width="70" Click="button2_Click" />
             <Button Content="Cancelar" Height="23" HorizontalAlignment="Right" Margin="0,214,60,0" Name="button3" VerticalAlignment="Top" Width="70" Click="button3_Click" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="120,176,0,0" Name="textBlock3" Text="Sociedad:" VerticalAlignment="Top" Width="77" />
-            <ComboBox Height="23" HorizontalAlignment="Left" Margin="183,176,0,0" Name="SociedadcomboBox1" VerticalAlignment="Top" Width="222" />
         </Grid>
     </Grid>
 </Window>

@@ -30,14 +30,6 @@ namespace Login_WPF
         public Registration()
         {
             InitializeComponent();
-            string empresas = ServicioFinanzas.Instancia.ObtenerEmpresas();
-            string[] split = empresas.Split(new Char[] { ';' });
-            foreach (string s in split)
-            {
-                if (s.Trim() != "")
-                    SociedadcomboBox1.Items.Add(s);
-            }
-            SociedadcomboBox1.SelectedIndex = 0;
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -112,7 +104,7 @@ namespace Login_WPF
                         Password = passwordBox1.Password
                     };
                     string password = passwordBox1.Password;
-                    if (ServicioFinanzas.Instancia.InsertarNuevoUsuario(usuario,SociedadcomboBox1.SelectedItem.ToString(),password))
+                    if (ServicioFinanzas.Instancia.InsertarNuevoUsuario(usuario))
                     {
                         errormessage.Text = "";
                         MessageBoxResult result = MessageBox.Show("Se Ha Registrado Correctamente");
