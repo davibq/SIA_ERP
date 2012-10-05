@@ -25,6 +25,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerMonedas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pBaseDatos" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerMonedasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerMonedasResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AutenticarUsuario">
     <xs:complexType>
       <xs:sequence>
@@ -54,10 +68,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="InsertarNuevaEmpresa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pEmpresa" nillable="true" type="q3:Empresa" />
+        <xs:element minOccurs="0" name="pLogo" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertarNuevaEmpresaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertarNuevaEmpresaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CrearCuenta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pCuenta" nillable="true" type="q3:Cuenta" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pCuenta" nillable="true" type="q4:Cuenta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

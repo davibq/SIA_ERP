@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.IO;
 using AccesoServicio;
 using AccesoServicio.FinanzasService;
 using SIA.Libreria;
@@ -28,6 +29,14 @@ namespace Login_WPF
         public Admin()
         {
             InitializeComponent();
+            string empresas = ServicioFinanzas.Instancia.ObtenerEmpresas();
+            string[] split = empresas.Split(new Char[] { ';' });
+            foreach (string s in split)
+            {
+                if (s.Trim() != "")
+                    listBox1.Items.Add(s);
+            }
+            listBox1.SelectedIndex = 0;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -82,8 +91,6 @@ namespace Login_WPF
             textBoxFax.Text = "";
             textBoxCedJuridica.Text = "";
             textBoxRuta.Text = "";
-            comboBoxMlocal.Text = "";
-            comboBoxMSistema.Text = "";
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -120,18 +127,6 @@ namespace Login_WPF
                 textBoxRuta.Focus();
             }
 
-            else if (comboBoxMlocal.Text.Length == 0)
-            {
-                errormessage.Text = "Ingrese la moneda local";
-                comboBoxMlocal.Focus();
-            }
-
-            else if (comboBoxMSistema.Text.Length == 0)
-            {
-                errormessage.Text = "Ingrese la moneda del sistema";
-                comboBoxMSistema.Focus();
-            }
-
             else
             {
                 Empresa empresa = new Empresa()
@@ -140,17 +135,23 @@ namespace Login_WPF
                     CedulaJuridica = textBoxCedJuridica.Text,
                     Fax = textBoxFax.Text,
                     Telefono= textBoxTelefono.Text,
-                    MonedaLocal=comboBoxMlocal.SelectedItem.ToString(),
-                    MonedaSistema=comboBoxMSistema.SelectedItem.ToString(),
-                    _FilePath=textBoxRuta.Text,
-                    Logo=textBoxRuta.Text
+                    Enabled=true
                 };
-                if (ServicioFinanzas.Instancia.InsertarNuevaEmpresa(empresa))
+
+                FileStream stream = new FileStream(textBoxRuta.Text, FileMode.OpenOrCreate, FileAccess.Read);
+                BinaryReader reader = new BinaryReader(stream);
+                byte[] Logo = reader.ReadBytes((int)stream.Length);
+                reader.Close();
+                stream.Close();
+
+                if (ServicioFinanzas.Instancia.InsertarNuevaEmpresa(empresa,Logo))
                 {
                     errormessage.Text = "";
                     MessageBoxResult result = MessageBox.Show("Se Ha Creado La Empresa Correctamente");
                     Reset();
                 }
+                else
+                    errormessage.Text = "Error al insertar la empresa";
             }
         }
 

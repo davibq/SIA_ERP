@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using SIA.DataAccess;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using SIA.Libreria;
+
 
 namespace DataAccessFinanzas
 {
@@ -26,7 +30,20 @@ namespace DataAccessFinanzas
 
         #region Metodos
 
-
+        public string ObtenerMonedas()
+        {
+            var ds = EjecutarConsulta("dbo.ObtenerMonedas", new List<SqlParameter>());
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                string retorno = "";
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    retorno += row[0] + ";";
+                }
+                return retorno;
+            }
+            return string.Empty;
+        }
 
         #endregion
 

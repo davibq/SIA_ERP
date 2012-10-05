@@ -52,12 +52,29 @@ namespace DataAccessPrincipal
             return string.Empty;
         }
 
+
+        //HAY QUE HACERLE CAMBIO AL SP PARA PROBARLO Y QUE FUNCIONE
         public bool InsertarNuevoUsuario(Usuario pUsuario)
         {
             return EjecutarNoConsulta("dbo.ERPSP_ActualizarUsuario", new List<SqlParameter>()
                                                           {
                                                               new SqlParameter("Login", pUsuario.NombreUsuario),
                                                               new SqlParameter("Pass", pUsuario.PasswordBinario),
+                                                              new SqlParameter("Enabled", true)
+                                                          });
+        }
+
+        //ME RETORNA -1??????????????????????
+        public bool InsertarNuevaEmpresa(Empresa pEmpresa,byte[] pLogo)
+        {
+            const string quote = "\"";
+            string contactos = "<Contactos><Contacto enabled=" + quote + "1" + quote + " nombre=" + quote + "Telefono" + quote + " valor=" + quote + pEmpresa.Telefono + quote + " /><Contacto enabled=" + quote + "1" + quote + " nombre=" + quote + "Fax" + quote + " valor=" + quote + pEmpresa.Fax + quote + " /></Contactos>";
+            return EjecutarNoConsulta("dbo.ERPSP_ActualizarEntidad", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("Nombre", pEmpresa.Nombre),
+                                                              new SqlParameter("Contactos", contactos),
+                                                              new SqlParameter("Logo", pLogo),
+                                                              new SqlParameter("CedulaJuridica", pEmpresa.CedulaJuridica),
                                                               new SqlParameter("Enabled", true)
                                                           });
         }

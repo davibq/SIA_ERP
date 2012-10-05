@@ -21,9 +21,9 @@
 CREATE PROCEDURE [dbo].[ERPSP_ActualizarEntidad]
 	@Nombre VARCHAR(35),
 	@Contactos VARCHAR(1000)='',
-	@Logo VARCHAR(MAX) = '',
+	@Logo VARBINARY(MAX),
 	@CedulaJuridica VARCHAR(15),
-	@Paises VARCHAR(500), --Hasta 11 países
+	@Paises VARCHAR(500) = '', --Hasta 11 países
 	@Enabled BIT,
 	@Modulos VARCHAR(1000)='' -- Hasta 14 modulos
 AS 
@@ -51,14 +51,14 @@ BEGIN
 		IF NOT EXISTS(SELECT IdEntidad FROM dbo.ERP_Entidades WHERE Nombre=@Nombre) BEGIN
 	
 			INSERT INTO dbo.ERP_Entidades (Nombre, CedulaJuridica, Enabled, Logo) 
-			VALUES (@Nombre, @CedulaJuridica, @Enabled, CONVERT(VARBINARY,@Logo)) 
+			VALUES (@Nombre, @CedulaJuridica, @Enabled, @Logo)
 	
 			SET @IdEntidad = SCOPE_IDENTITY()
 
 		END ELSE BEGIN
 			SELECT @IdEntidad = IdEntidad FROM dbo.ERP_Entidades WHERE Nombre = @Nombre
 
-			UPDATE dbo.ERP_Entidades SET Enabled = @Enabled, CedulaJuridica = @CedulaJuridica, Logo = CONVERT(VARBINARY,@Logo)
+			UPDATE dbo.ERP_Entidades SET Enabled = @Enabled, CedulaJuridica = @CedulaJuridica, Logo = @Logo
 			WHERE IdEntidad = @IdEntidad
 
 		END	

@@ -6,23 +6,19 @@
         <TabControl Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="tabControlRegisEmpresas" VerticalAlignment="Stretch" Width="Auto">
             <TabItem Header="Crear Empresa" Name="CrearEmpresa">
                 <Grid>
-                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="153,10,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="250"  OpacityMask="Crimson" Foreground="#FFE5572C" FontSize="14"/>
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="80,48,0,0" Name="textBlock1Nombre" Text="Nombre:" VerticalAlignment="Top" Width="61" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,44,0,0" Name="textBoxNombre" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="80,85,0,0" Name="textBlockTelefono" Text="Teléfono:" VerticalAlignment="Top" Width="61" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,82,0,0" Name="textBoxTelefono" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="109,125,0,0" Name="textBlockFax" Text="Fax:" VerticalAlignment="Top" Width="30" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,121,0,0" Name="textBoxFax" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="100,198,0,0" Name="textBlockLogo" Text="Logo:" VerticalAlignment="Top" Width="40" />
-                    <TextBox Height="27" HorizontalAlignment="Left" IsReadOnly="True" Margin="153,196,0,0" Name="textBoxRuta" VerticalAlignment="Top" Width="250" />
-                    <Button Content="Buscar..." Height="25" HorizontalAlignment="Left" Margin="408,197,0,0" Name="buttonBuscar" VerticalAlignment="Top" Width="52" Click="buttonBuscar_Click" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="39,162,0,0" Name="textBlockCedJuridica" Text="Cédula Jurídica:" VerticalAlignment="Top" Width="104" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,159,0,0" Name="textBoxCedJuridica" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="45,237,0,0" Name="textBlockMLocal" Text="Moneda Local:" VerticalAlignment="Top" Width="94" />
-                    <TextBlock FontSize="14" Height="24" Margin="5,277,0,0" Name="textBlockMsistema" Text="Moneda Del Sistema:" VerticalAlignment="Top" Width="134" HorizontalAlignment="Left" />
-                    <ComboBox Height="27" HorizontalAlignment="Left" Margin="153,235,0,0" Name="comboBoxMlocal" VerticalAlignment="Top" Width="250" />
-                    <ComboBox Height="27" HorizontalAlignment="Left" Margin="153,274,0,0" Name="comboBoxMSistema" VerticalAlignment="Top" Width="250" />
-                    <Button Content="Crear" Height="28" HorizontalAlignment="Left" Margin="153,332,0,0" Name="button1" VerticalAlignment="Top" Width="65" Click="button1_Click" />
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="153,42,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="250"  OpacityMask="Crimson" Foreground="#FFE5572C" FontSize="14"/>
+                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="80,80,0,0" Name="textBlock1Nombre" Text="Nombre:" VerticalAlignment="Top" Width="61" />
+                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,76,0,0" Name="textBoxNombre" VerticalAlignment="Top" Width="250" />
+                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="80,117,0,0" Name="textBlockTelefono" Text="Teléfono:" VerticalAlignment="Top" Width="61" />
+                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,114,0,0" Name="textBoxTelefono" VerticalAlignment="Top" Width="250" />
+                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="109,157,0,0" Name="textBlockFax" Text="Fax:" VerticalAlignment="Top" Width="30" />
+                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,153,0,0" Name="textBoxFax" VerticalAlignment="Top" Width="250" />
+                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="100,230,0,0" Name="textBlockLogo" Text="Logo:" VerticalAlignment="Top" Width="40" />
+                    <TextBox Height="27" HorizontalAlignment="Left" IsReadOnly="True" Margin="153,228,0,0" Name="textBoxRuta" VerticalAlignment="Top" Width="250" />
+                    <Button Content="Buscar..." Height="25" HorizontalAlignment="Left" Margin="408,229,0,0" Name="buttonBuscar" VerticalAlignment="Top" Width="52" Click="buttonBuscar_Click" />
+                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="39,194,0,0" Name="textBlockCedJuridica" Text="Cédula Jurídica:" VerticalAlignment="Top" Width="104" />
+                    <TextBox Height="27" HorizontalAlignment="Left" Margin="153,191,0,0" Name="textBoxCedJuridica" VerticalAlignment="Top" Width="250" />
+                    <Button Content="Crear" Height="28" HorizontalAlignment="Left" Margin="153,278,0,0" Name="button1" VerticalAlignment="Top" Width="65" Click="button1_Click" />
                 </Grid>
             </TabItem>
             <TabItem Header="Modificar/Eliminar Empresa" Name="ModificarEliminarEmpresa">

@@ -23,16 +23,24 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerEmpresas();
         }
 
+        public string ObtenerMonedas(string pBaseDatos)
+        {
+            return LogicaNegocio.Instancia.ObtenerMonedas(pBaseDatos);
+        }
+
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
-            //Llamar SP para verificar userName y password
             return LogicaNegocio.Instancia.AutenticarUsuario(pUsuario, pNombreEmpresa);
-            //return pUsuario.NombreUsuario.CompareTo("davibq") == 0;
         }
 
         public bool InsertarNuevoUsuario(Usuario pUsuario)
         {
             return LogicaNegocio.Instancia.InsertarNuevoUsuario(pUsuario);
+        }
+
+        public bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo)
+        {
+            return LogicaNegocio.Instancia.InsertarNuevaEmpresa(pEmpresa,pLogo);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)

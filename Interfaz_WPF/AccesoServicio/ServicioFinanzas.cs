@@ -44,6 +44,11 @@ namespace AccesoServicio
         public string ObtenerEmpresas()
         {
             return _CSC.ObtenerEmpresas();
+        }        
+
+        public string ObtenerMonedas(string pBaseDatos)
+        {
+            return _CSC.ObtenerMonedas(pBaseDatos);
         }
 
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
@@ -56,9 +61,9 @@ namespace AccesoServicio
             return _CSC.InsertarNuevoUsuario(pUsuario);
         }
 
-        public bool InsertarNuevaEmpresa(Empresa pEmpresa)
+        public bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo)
         {
-            return true;
+            return _CSC.InsertarNuevaEmpresa(pEmpresa,pLogo);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)

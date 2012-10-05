@@ -24,13 +24,13 @@ namespace Login_WPF
     {
         public int NoCierre = 0;
 
-        private ObservableCollection<Asiento> _Coleccion;
+        //private ObservableCollection<Asiento> _Coleccion;
 
         public Welcome()
         {
             InitializeComponent();
-            _Coleccion = new ObservableCollection<Asiento>();
-            dataGridAgregaAsiento.ItemsSource = _Coleccion;
+            //_Coleccion = new ObservableCollection<Asiento>();
+            //dataGridAgregaAsiento.ItemsSource = _Coleccion;
         }
 
 

@@ -21,11 +21,17 @@ namespace AccesoServicio.FinanzasService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerEmpresas", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerEmpresasResponse")]
         string ObtenerEmpresas();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerMonedas", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerMonedasResponse")]
+        string ObtenerMonedas(string pBaseDatos);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/AutenticarUsuario", ReplyAction="http://tempuri.org/IContabilidadService/AutenticarUsuarioResponse")]
         bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevoUsuarioResponse")]
         bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresa", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresaResponse")]
+        bool InsertarNuevaEmpresa(SIA.Libreria.Empresa pEmpresa, byte[] pLogo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearCuenta", ReplyAction="http://tempuri.org/IContabilidadService/CrearCuentaResponse")]
         bool CrearCuenta(SIA.Libreria.Cuenta pCuenta);
@@ -66,12 +72,20 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.ObtenerEmpresas();
         }
         
+        public string ObtenerMonedas(string pBaseDatos) {
+            return base.Channel.ObtenerMonedas(pBaseDatos);
+        }
+        
         public bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa) {
             return base.Channel.AutenticarUsuario(pUsuario, pNombreEmpresa);
         }
         
         public bool InsertarNuevoUsuario(SIA.Libreria.Usuario pUsuario) {
             return base.Channel.InsertarNuevoUsuario(pUsuario);
+        }
+        
+        public bool InsertarNuevaEmpresa(SIA.Libreria.Empresa pEmpresa, byte[] pLogo) {
+            return base.Channel.InsertarNuevaEmpresa(pEmpresa, pLogo);
         }
         
         public bool CrearCuenta(SIA.Libreria.Cuenta pCuenta) {

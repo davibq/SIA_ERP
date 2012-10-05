@@ -19,6 +19,12 @@
   <wsdl:message name="IContabilidadService_ObtenerEmpresas_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerEmpresasResponse" />
   </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerMonedas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMonedas" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerMonedas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMonedasResponse" />
+  </wsdl:message>
   <wsdl:message name="IContabilidadService_AutenticarUsuario_InputMessage">
     <wsdl:part name="parameters" element="tns:AutenticarUsuario" />
   </wsdl:message>
@@ -30,6 +36,12 @@
   </wsdl:message>
   <wsdl:message name="IContabilidadService_InsertarNuevoUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertarNuevoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_InsertarNuevaEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarNuevaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_InsertarNuevaEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarNuevaEmpresaResponse" />
   </wsdl:message>
   <wsdl:message name="IContabilidadService_CrearCuenta_InputMessage">
     <wsdl:part name="parameters" element="tns:CrearCuenta" />
@@ -46,6 +58,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerEmpresas" message="tns:IContabilidadService_ObtenerEmpresas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerEmpresasResponse" message="tns:IContabilidadService_ObtenerEmpresas_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerMonedas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerMonedas" message="tns:IContabilidadService_ObtenerMonedas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerMonedasResponse" message="tns:IContabilidadService_ObtenerMonedas_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AutenticarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/AutenticarUsuario" message="tns:IContabilidadService_AutenticarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/AutenticarUsuarioResponse" message="tns:IContabilidadService_AutenticarUsuario_OutputMessage" />
@@ -53,6 +69,10 @@
     <wsdl:operation name="InsertarNuevoUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario" message="tns:IContabilidadService_InsertarNuevoUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevoUsuarioResponse" message="tns:IContabilidadService_InsertarNuevoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarNuevaEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresa" message="tns:IContabilidadService_InsertarNuevaEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresaResponse" message="tns:IContabilidadService_InsertarNuevaEmpresa_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CrearCuenta">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/CrearCuenta" message="tns:IContabilidadService_CrearCuenta_InputMessage" />
@@ -79,6 +99,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerMonedas">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerMonedas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AutenticarUsuario">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/AutenticarUsuario" style="document" />
       <wsdl:input>
@@ -90,6 +119,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertarNuevoUsuario">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/InsertarNuevoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarNuevaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
