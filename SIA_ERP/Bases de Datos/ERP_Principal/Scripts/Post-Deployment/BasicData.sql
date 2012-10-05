@@ -44,3 +44,42 @@ DECLARE @IdTipoUsuario INT
 SELECT @IdTipoUsuario = IdTipoUsuario FROM dbo.ERP_TipoUsuario WHERE Nombre = 'Administrador' 
 
 INSERT INTO dbo.ERP_PermisosXTipoUsuario(IdPermisos, IdTipoUsuario) VALUES (@IdPermiso, @IdTipoUsuario)
+
+GO
+
+-- =============================================
+-- ERP_Entidades
+-- =============================================
+-----------------------------------------------------------
+-- Autor: Rmadrigal
+-- Fecha: 05/10/2012
+-- Descripcion: Ingresa una entidad con modulos, contactos, usuarios.
+-----------------------------------------------------------
+EXEC dbo.ERPSP_ActualizarEntidad 'La Constancia',
+   '<Contactos>
+		<Contacto enabled="1" nombre="Telefono" valor="2222-5564" />
+		<Contacto enabled="1" nombre="Fax" valor="2222-5565" />
+   </Contactos>',
+   null,
+   '1-1456787498',
+   '<Paises>
+		<Pais enabled="1">Costa Rica</Pais>
+    </Paises>',
+    1,
+    '<Modulos>
+		<Modulo enabled="1" nombre="Finanzas" base="LCO_Finanzas" />
+	</Modulos>'
+	
+EXEC dbo.ERPSP_ActualizarUsuario 'admin',
+	'�\n�9I�Y��V�W��>',
+	'<Contactos>
+		<Contacto enabled="1" nombre="Telefono" valor="2888-5564" />
+    </Contactos>',
+	1,
+	'<Modulos>
+		<Modulo enabled="1" nombre="Finanzas" tipo="Administrador" />
+	</Modulos>',
+	'La Constancia',
+	null,
+	null
+
