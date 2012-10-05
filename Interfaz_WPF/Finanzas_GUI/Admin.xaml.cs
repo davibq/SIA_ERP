@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Login_WPF
 {
@@ -26,67 +27,22 @@ namespace Login_WPF
             InitializeComponent();
         }
 
-
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             if (NoCierre == 0)
             {
-                MessageBoxResult result = MessageBox.Show("Desea cerrar la aplicación?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
+                MessageBoxResult res = MessageBox.Show(this, "Si cierra la ventana, todos los Datos no guardados pueden ser perdidos.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                if (res == MessageBoxResult.OK)
                 {
-                    MessageBoxResult res = MessageBox.Show(this, "Si cierra la ventana, todos los Datos no guardados pueden ser perdidos.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-                    if (res == MessageBoxResult.OK)
-                    {
-                        Application.Current.Shutdown();
-                    }
-                    else
-                    {
-                        e.Cancel = true;
-                    }
+                    Login login = new Login();
+                    login.Show();
+                    NoCierre = 1;
+                    e.Cancel = false;
                 }
                 else
                 {
                     e.Cancel = true;
                 }
-            }
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            string message = "Esta seguro que desea cerrar sesión?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Question;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
-                Login login = new Login();
-                login.Show();
-                NoCierre = 1;
-                Close();
-            }
-        }
-
-        private void buttonAgregar_Click(object sender, RoutedEventArgs e)
-        {
-            string message = "Desea agregar esta nueva cuenta?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Question;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
-
-            }
-        }
-
-        private void buttonModificar_Click(object sender, RoutedEventArgs e)
-        {
-            string message = "Esta seguro que desea modificar la cuenta seleccionada?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
-
             }
         }
 
@@ -98,31 +54,107 @@ namespace Login_WPF
             MessageBoxImage icon = MessageBoxImage.Warning;
             if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
             {
-
+                /*if()
+                {
+                    MessageBoxResult result = MessageBox.Show("Se ha Eliminado la Cuenta con Éxito");
+                }
+                else
+                {
+                    MessageBoxResult error = MessageBox.Show(this, "No se pudo eliminar la Cuenta Correctamente", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                }*/
             }
         }
 
-        private void buttonGuardarAsiento_Click(object sender, RoutedEventArgs e)
+        private void buttonModificar_Click(object sender, RoutedEventArgs e)
         {
-            string message = "Desea guardar el asiento creado?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Question;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
+            UpdateEmpress ModificarEmpresa = new UpdateEmpress();
+            ModificarEmpresa.Show();
+            //Close();
+        }
 
+        public void Reset()
+        {
+            textBoxNombre.Text = "";
+            textBoxTelefono.Text = "";
+            textBoxFax.Text = "";
+            textBoxCedJuridica.Text = "";
+            textBoxRuta.Text = "";
+            comboBoxMlocal.Text = "";
+            comboBoxMSistema.Text = "";
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            if (textBoxNombre.Text.Length == 0)
+            {
+                errormessage.Text = "Digite el nombre de la empresa";
+                textBoxNombre.Focus();
+            }
+            
+            else if (!Regex.IsMatch(textBoxTelefono.Text, "^[2-8]{1}[1-9]{2}[0-9]{5}$"))
+            {
+                errormessage.Text = "Digite un número telefónico válido";
+                textBoxTelefono.Select(0, textBoxTelefono.Text.Length);
+                textBoxTelefono.Focus();
+            }
+
+            else if (!Regex.IsMatch(textBoxFax.Text, "^[2-7]{1}[1-9]{2}[0-9]{5}$"))
+            {
+                errormessage.Text = "Digite un número de fax válido";
+                textBoxFax.Select(0, textBoxFax.Text.Length);
+                textBoxFax.Focus();
+            }
+
+            else if (textBoxCedJuridica.Text.Length == 0)
+            {
+                errormessage.Text = "Digite la cédula jurídica";
+                textBoxCedJuridica.Focus();
+            }
+            
+            else if (textBoxRuta.Text.Length == 0)
+            {
+                errormessage.Text = "Ingrese una imagen de logo";
+                textBoxRuta.Focus();
+            }
+
+            else if (comboBoxMlocal.Text.Length == 0)
+            {
+                errormessage.Text = "Ingrese la moneda local";
+                comboBoxMlocal.Focus();
+            }
+
+            else if (comboBoxMSistema.Text.Length == 0)
+            {
+                errormessage.Text = "Ingrese la moneda del sistema";
+                comboBoxMSistema.Focus();
+            }
+
+            else
+            {
+                errormessage.Text = "";
+                MessageBoxResult result = MessageBox.Show("Se Ha Creado La Empresa Correctamente");
+                Reset();
             }
         }
 
-        private void buttonAnularAsiento_Click(object sender, RoutedEventArgs e)
+        private void buttonBuscar_Click(object sender, RoutedEventArgs e)
         {
-            string message = "Esta seguro que desea anular el asiento seleccionado?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
+            // Create OpenFileDialog
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
+            // Set filter for file extension and default file extension
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "Pictures (*.jpg; *.bmp; *.png)|*.jpg;*.bmp;*.png";
+
+            // Display OpenFileDialog by calling ShowDialog method
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox
+            if (result == true)
+            {
+                // Open picture
+                string filename = dlg.FileName;
+                textBoxRuta.Text = filename;
             }
         }
     }

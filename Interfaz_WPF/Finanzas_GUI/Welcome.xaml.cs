@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 using SIA.Libreria;
 
 namespace Login_WPF
@@ -22,9 +24,13 @@ namespace Login_WPF
     {
         public int NoCierre = 0;
 
+        private ObservableCollection<Asiento> _Coleccion;
+
         public Welcome()
         {
             InitializeComponent();
+            _Coleccion = new ObservableCollection<Asiento>();
+            dataGridAgregaAsiento.ItemsSource = _Coleccion;
         }
 
 
@@ -54,28 +60,22 @@ namespace Login_WPF
             {
                 Login login = new Login();
                 login.Show();
-                NoCierre = 1;
                 Close();
             }
         }
 
+        public void Reset()
+        {
+            textBoxCodigo.Text = "";
+            textBoxNomCuenta.Text = "";
+            textBoxNomExtranjero.Text = "";
+            comboBoxMoneda.Text = "";
+        }
+
         private void buttonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            string message = "Desea agregar esta nueva cuenta?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Question;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
-                Cuenta cuenta = new Cuenta()
-                {
-                    Nombre=TextBlockName.Text,
-                    Codigo=textBlockCodigo.Text,
-                    NombreIdiomaExtranjero=textBlockNomExtranjero.Text,
-                    Moneda=comboBoxMoneda.SelectedItem.ToString()
-                };
-
-            }
+            MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
+            Reset();
         }
 
         private void buttonGuardarAsiento_Click(object sender, RoutedEventArgs e)
@@ -109,7 +109,7 @@ namespace Login_WPF
             MessageBoxButton buttons = MessageBoxButton.YesNo;
             MessageBoxImage icon = MessageBoxImage.Warning;
             if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {  
+            {
                 /*if()
                 {
                     MessageBoxResult result = MessageBox.Show("Se ha Eliminado la Cuenta con Éxito");
@@ -125,8 +125,72 @@ namespace Login_WPF
         {
             Update modificar = new Update();
             modificar.Show();
-            NoCierre = 1;
             //Close();
+        }
+
+        private void checkBoxAbierto_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxCerrado.IsHitTestVisible = false;
+            checkBoxAbiertoExVentas.IsHitTestVisible = false;
+        }
+
+        private void checkBoxAbierto_UnChecked(object sender, RoutedEventArgs e)
+        {
+            checkBoxCerrado.IsHitTestVisible = true;
+            checkBoxAbiertoExVentas.IsHitTestVisible = true;
+        }
+
+        private void checkBoxCerrado_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxAbierto.IsHitTestVisible = false;
+            checkBoxAbiertoExVentas.IsHitTestVisible = false;
+        }
+
+        private void checkBoxCerrado_UnChecked(object sender, RoutedEventArgs e)
+        {
+            checkBoxAbierto.IsHitTestVisible = true;
+            checkBoxAbiertoExVentas.IsHitTestVisible = true;
+        }
+
+        private void checkBoxAbiertoExVentas_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxAbierto.IsHitTestVisible = false;
+            checkBoxCerrado.IsHitTestVisible = false;
+        }
+
+        private void checkBoxAbiertoExVentas_UnChecked(object sender, RoutedEventArgs e)
+        {
+            checkBoxAbierto.IsHitTestVisible = true;
+            checkBoxCerrado.IsHitTestVisible = true;
+        }
+
+        public void ResetMoneda()
+        {
+            textBoxNombreMoneda.Text = "";
+            textBoxAcronimoMoneda.Text = "";
+        }
+
+        private void buttonCrearMoneda_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Moneda Correctamente");
+            ResetMoneda();
+        }
+
+        private void buttonRealizarCambioPeriodo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Se Ha Realizado el Cambio Correctamente");
+        }
+
+        private void buttonTipoDeCambio_Click(object sender, RoutedEventArgs e)
+        {
+            TipoCambio tc = new TipoCambio();
+            tc.Show();
+        }
+
+        private void buttonGenerarCierre_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxUtilidades.Text = "";
+            textBoxPerdidasYGanancias.Text = "";
         }
     }
 }

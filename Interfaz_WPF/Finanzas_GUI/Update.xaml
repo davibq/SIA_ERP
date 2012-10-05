@@ -3,14 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Modificar Cuenta" Height="260" Width="515" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="Images/icon_erp.png" Closing="Window_Closing" MinHeight="280" MinWidth="515">
     <Grid>
-        <TextBlock FontSize="13" Height="30" HorizontalAlignment="Left" Margin="95,130,0,0" Name="textBlockMoneda" Text="Moneda:" VerticalAlignment="Top" Width="51" />
-        <ComboBox Height="24" HorizontalAlignment="Left" Margin="152,128,0,0" Name="comboBoxMoneda" VerticalAlignment="Top" Width="308" />
-        <TextBlock FontSize="13" Height="24" HorizontalAlignment="Left" Margin="41,99,0,0" Name="textBlockCodigo" Text="Estado de Cuenta:" VerticalAlignment="Top" Width="106" />
+        <TextBlock FontSize="13" Height="30" HorizontalAlignment="Left" Margin="95,109,0,0" Name="textBlockMoneda" Text="Moneda:" VerticalAlignment="Top" Width="51" />
+        <ComboBox Height="24" HorizontalAlignment="Left" Margin="152,107,0,0" Name="comboBoxMoneda" VerticalAlignment="Top" Width="308" />
         <TextBox Height="24" HorizontalAlignment="Left" Margin="152,38,0,0" Name="textBoxNomCuenta" VerticalAlignment="Top" Width="308" />
         <TextBlock FontSize="13" Height="22" HorizontalAlignment="Left" Margin="32,40,0,0" Name="textBlockNomCuenta" Text="Nombre de Cuenta:" VerticalAlignment="Top" Width="118" />
-        <TextBox Height="24" HorizontalAlignment="Left" Margin="152,68,0,0" Name="textBoxNomExtranjero" VerticalAlignment="Top" Width="308" />
-        <TextBlock FontSize="13" Height="24" HorizontalAlignment="Left" Margin="7,70,0,0" Name="textBlockNomExtranjero" Text="Nom. Cuenta Extranjero:" VerticalAlignment="Top" Width="141" />
-        <TextBox Height="24" HorizontalAlignment="Left" Margin="152,98,0,0" Name="textBoxEstadoCuenta" VerticalAlignment="Top" Width="308" />
+        <TextBox Height="24" HorizontalAlignment="Left" Margin="152,73,0,0" Name="textBoxNomExtranjero" VerticalAlignment="Top" Width="308" />
+        <TextBlock FontSize="13" Height="24" HorizontalAlignment="Left" Margin="7,75,0,0" Name="textBlockNomExtranjero" Text="Nom. Cuenta Extranjero:" VerticalAlignment="Top" Width="141" />
         <Button Content="Realizar Cambios" Height="26" HorizontalAlignment="Left" Margin="152,0,0,36" Name="buttonRealizarCambios" VerticalAlignment="Bottom" Width="108" Click="buttonRealizarCambios_Click" />
     </Grid>
 </Window>

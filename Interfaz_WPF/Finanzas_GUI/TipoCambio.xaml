@@ -1,0 +1,19 @@
+﻿<Window x:Class="Login_WPF.TipoCambio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TipoCambio" Height="360" Width="425" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="Images/icon_erp.png" Closing="Window_Closing" MinHeight="380" MinWidth="425">
+    <Grid>
+        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="12,77,0,0" Name="textBlockMoneda1" Text="Moneda #1:" VerticalAlignment="Top" Width="94" />
+        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="10,179,0,0" Name="textBlockMoneda2" Text="Moneda #2:" VerticalAlignment="Top" Width="81" />
+        <ComboBox Height="27" HorizontalAlignment="Left" Margin="106,75,0,0" Name="comboBoxMlocal" VerticalAlignment="Top" Width="275" />
+        <ComboBox Height="27" HorizontalAlignment="Left" Margin="106,176,0,0" Name="comboBoxMSistema" VerticalAlignment="Top" Width="275" />
+        <TextBlock FontSize="15" FontWeight="Bold" Height="24" HorizontalAlignment="Left" Margin="32,28,0,0" Name="textBlockModificarTipoDeCambio" Text="Modificar Tipo De Cambio" VerticalAlignment="Top" Width="189" />
+        <TextBlock FontSize="14" Height="30" HorizontalAlignment="Left" Margin="38,117,0,0" Name="textBlockMontoTipoDeCambio" Text="Monto:" VerticalAlignment="Top" Width="52" />
+        <TextBox Height="27" HorizontalAlignment="Left" Margin="106,114,0,0" Name="textBoxMontoTipoDeCambio1" VerticalAlignment="Top" Width="275" />
+        <Button Content="Modificar" Height="27" HorizontalAlignment="Left" Margin="106,296,0,0" Name="buttonModificarTipoDeCambio" VerticalAlignment="Top" Width="96" Click="buttonModificarTipoDeCambio_Click" />
+        <TextBlock FontSize="14" Foreground="#FFE5572C" Height="25" HorizontalAlignment="Left" Margin="106,144,0,0" Name="errormessage1" OpacityMask="Crimson" VerticalAlignment="Top" Width="195" />
+        <TextBlock FontSize="14" Height="30" HorizontalAlignment="Left" Margin="38,223,0,0" Name="textBlockMontoTipoDeCambio2" Text="Monto:" VerticalAlignment="Top" Width="52" />
+        <TextBox Height="27" HorizontalAlignment="Left" Margin="106,220,0,0" Name="textBoxMontoTipoDeCambio2" VerticalAlignment="Top" Width="275" />
+        <TextBlock FontSize="14" Foreground="#FFE5572C" Height="25" HorizontalAlignment="Left" Margin="106,252,0,0" Name="errormessage2" OpacityMask="Crimson" VerticalAlignment="Top" Width="195" />
+    </Grid>
+</Window>

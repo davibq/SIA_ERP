@@ -68,6 +68,14 @@ namespace Login_WPF
             Close();
         }
 
+        private void buttonRegistrarEmpresas_Click(object sender, RoutedEventArgs e)
+        {
+            Admin empresa = new Admin();
+            empresa.Show();
+            NoCierre = 1;
+            Close();
+        }
+
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             if (NoCierre == 0)
