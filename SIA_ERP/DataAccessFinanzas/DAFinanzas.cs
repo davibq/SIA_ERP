@@ -45,6 +45,16 @@ namespace DataAccessFinanzas
             return string.Empty;
         }
 
+        public bool InsertarMonedas(Empresa pEmpresa)
+        {
+            const string quote = "\"";
+            string monedas = "<Monedas><Moneda nombre="+quote+pEmpresa.NombreMonedaLocal+quote+" acronimo="+quote+pEmpresa.AcronimoMonedaLocal+quote+" esLocal="+quote+"1"+quote+" esSistema="+quote+"0"+quote+"/><Moneda nombre="+quote+pEmpresa.NombreMonedaSistema+quote+" acronimo="+quote+pEmpresa.AcronimoMonedaSistema+quote+" esLocal="+quote+"0"+quote+" esSistema="+quote+"1"+quote+"/></Monedas>";
+            return EjecutarNoConsulta("dbo.ERPSP_ActualizarEntidad", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("Moneda", monedas)
+                                                          });
+        }
+
         #endregion
 
     }

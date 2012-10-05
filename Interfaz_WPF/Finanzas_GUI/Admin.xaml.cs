@@ -91,6 +91,10 @@ namespace Login_WPF
             textBoxFax.Text = "";
             textBoxCedJuridica.Text = "";
             textBoxRuta.Text = "";
+            textBoxNombreMonedaL.Text = "";
+            textBoxNombreMonedaS.Text = "";
+            textBoxAcronimoMonedaL.Text = "";
+            textBoxAcronimoMonedaS.Text = "";
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -124,6 +128,30 @@ namespace Login_WPF
             else if (textBoxRuta.Text.Length == 0)
             {
                 errormessage.Text = "Ingrese una imagen de logo";
+                textBoxRuta.Focus();
+            }
+
+            else if (textBoxNombreMonedaL.Text.Length == 0)
+            {
+                errormessage.Text = "Ingrese un nombre para la moneda local";
+                textBoxRuta.Focus();
+            }
+
+            else if (textBoxAcronimoMonedaL.Text.Length == 0)
+            {
+                errormessage.Text = "Ingrese un acrónimo para la moneda local";
+                textBoxRuta.Focus();
+            }
+
+            else if (textBoxNombreMonedaS.Text.Length == 0)
+            {
+                errormessage.Text = "Ingrese un nombre para la moneda del sistema";
+                textBoxRuta.Focus();
+            }
+
+            else if (textBoxAcronimoMonedaS.Text.Length == 0)
+            {
+                errormessage.Text = "Ingrese un acrónimo para la moneda del sistema";
                 textBoxRuta.Focus();
             }
 

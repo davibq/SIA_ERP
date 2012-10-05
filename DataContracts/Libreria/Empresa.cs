@@ -22,6 +22,18 @@ namespace SIA.Libreria
         public string Fax { get; set; }
 
         [DataMember]
+        public string NombreMonedaLocal { get; set; }
+
+        [DataMember]
+        public string NombreMonedaSistema { get; set; }
+
+        [DataMember]
+        public string AcronimoMonedaLocal { get; set; }
+
+        [DataMember]
+        public string AcronimoMonedaSistema { get; set; }
+
+        [DataMember]
         public string Telefono { get; set; }
     }
 }

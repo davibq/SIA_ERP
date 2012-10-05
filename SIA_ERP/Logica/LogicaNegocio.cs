@@ -62,7 +62,9 @@ namespace Logica
         public bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo)
         {
             var daPrincipal = new DAPrincipal();
-            return daPrincipal.InsertarNuevaEmpresa(pEmpresa,pLogo);
+            var daFinanzas = new DAFinanzas(pEmpresa.Nombre);
+            //Si las dos inserciones son válidas retorna true
+            return ((daPrincipal.InsertarNuevaEmpresa(pEmpresa,pLogo))&&(daFinanzas.InsertarMonedas(pEmpresa)));
         }
 
         private static LogicaNegocio _Instancia;
