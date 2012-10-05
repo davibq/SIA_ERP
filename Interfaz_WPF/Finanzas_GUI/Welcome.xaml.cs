@@ -29,8 +29,9 @@ namespace Login_WPF
         public Welcome()
         {
             InitializeComponent();
+            
             //_Coleccion = new ObservableCollection<Asiento>();
-            //dataGridAgregaAsiento.ItemsSource = _Coleccion;
+            //dataGridAgregaAsiento.ItemsSource = _Coleccion;                                    
         }
 
 
@@ -178,7 +179,112 @@ namespace Login_WPF
 
         private void buttonRealizarCambioPeriodo_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Se Ha Realizado el Cambio Correctamente");
+            if (datePickerMesInicio.SelectedDate == null)
+            {
+                MessageBox.Show("Debe seleccionar un mes de inicio.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else 
+            {
+                string mes = datePickerMesInicio.DisplayDate.Month.ToString();
+                switch(mes)
+                {
+                    case "1":
+                        string[] EneroFirst = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+                        foreach (string mesAhora in EneroFirst) 
+                        {
+                            comboBoxMeses.Items.Add(mesAhora); 
+                        }
+                        break;
+
+                    case "2":
+                        string[] FebreroFirst = { "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero"};
+                        foreach (string mesAhora in FebreroFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "3":
+                        string[] MarzoFirst = { "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero" };
+                        foreach (string mesAhora in MarzoFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "4":
+                        string[] AbrilFirst = { "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo" };
+                        foreach (string mesAhora in AbrilFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "5":
+                        string[] MayoFirst = { "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril" };
+                        foreach (string mesAhora in MayoFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "6":
+                        string[] JunioFirst = { "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo" };
+                        foreach (string mesAhora in JunioFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "7":
+                        string[] JulioFirst = { "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio" };
+                        foreach (string mesAhora in JulioFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "8":
+                        string[] AgostoFirst = { "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio" };
+                        foreach (string mesAhora in AgostoFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "9":
+                        string[] SeptiembreFirst = { "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto" };
+                        foreach (string mesAhora in SeptiembreFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "10":
+                        string[] OctubreFirst = { "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre" };
+                        foreach (string mesAhora in OctubreFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "11":
+                        string[] NoviembreFirst = { "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre" };
+                        foreach (string mesAhora in NoviembreFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+
+                    case "12":
+                        string[] DiciembreFirst = { "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre" };
+                        foreach (string mesAhora in DiciembreFirst)
+                        {
+                            comboBoxMeses.Items.Add(mesAhora);
+                        }
+                        break;
+                }
+            }            
         }
 
         private void buttonTipoDeCambio_Click(object sender, RoutedEventArgs e)

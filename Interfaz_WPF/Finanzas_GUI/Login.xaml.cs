@@ -28,7 +28,7 @@ namespace Login_WPF
 
     public partial class Login : Window
     {
-        public int NoCierre = 0;
+        public int NoCierre = 0;        
 
         public Login()
         {
@@ -41,22 +41,39 @@ namespace Login_WPF
                     SociedadcomboBox1.Items.Add(s);    
             }
             SociedadcomboBox1.SelectedIndex = 0;
-        }        
-
+        }
+        
+        /*
+         * Los IF estan comentados solo para hacer mas facil cuando se esta probando
+         */
         private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            Usuario usuario = new Usuario()
-            {
-                NombreUsuario = textBoxUserName.Text,
-                Password = passwordBox1.Password
-            };
-            //MessageBox.Show(ServicioFinanzas.Instancia.AutenticarUsuario(usuario, txtSociedadTemp.Text).ToString());
-            //if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario))
+        {            
+
+            //if (SociedadcomboBox1.SelectedIndex == 0 || textBoxUserName.Text == string.Empty || passwordBox1.Password == string.Empty)
             //{
-                Welcome welcome = new Welcome();
-                welcome.Show();
-                NoCierre = 1;
-                Close();
+                //MessageBox.Show("Debe completar todos los datos solicitados.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+            //else
+            //{
+                string empresa = SociedadcomboBox1.SelectedIndex.ToString();
+                Usuario usuario = new Usuario()
+                {
+                    NombreUsuario = textBoxUserName.Text,
+                    Password = passwordBox1.Password
+                };
+                
+                //if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario, empresa))
+                //{
+                    Welcome welcome = new Welcome();
+                    welcome.Show();
+                    NoCierre = 1;
+                    Close();
+                //}
+                //else 
+                //{
+                //    MessageBox.Show("Datos erroneos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //}
+            //}
             //}
         }
 
@@ -91,6 +108,5 @@ namespace Login_WPF
                 }
             }
         }
-
     }
 }

@@ -22,7 +22,7 @@
                     <CheckBox Content="Abierto" HorizontalAlignment="Left" Margin="218,385,0,0" Name="checkBoxAbierto" Width="93" Height="25" VerticalAlignment="Top" Checked="checkBoxAbierto_Checked" Unchecked="checkBoxAbierto_UnChecked" />
                     <CheckBox Content="Cerrado" Height="25" HorizontalAlignment="Left" Margin="290,385,0,0" Name="checkBoxCerrado" VerticalAlignment="Top" Width="93" Checked="checkBoxCerrado_Checked" Unchecked="checkBoxCerrado_UnChecked" />
                     <CheckBox Content="Abierto Excepto Ventas" Height="25" HorizontalAlignment="Left" Margin="362,385,0,0" Name="checkBoxAbiertoExVentas" VerticalAlignment="Top" Width="148" Checked="checkBoxAbiertoExVentas_Checked" Unchecked="checkBoxAbiertoExVentas_UnChecked" />
-                    <Button Content="Realizar Cambio" Height="27" HorizontalAlignment="Left" Margin="217,442,0,0" Name="button2" VerticalAlignment="Top" Width="94" Click="buttonRealizarCambioPeriodo_Click" />
+                    <Button Content="Realizar Cambio" Height="27" HorizontalAlignment="Left" Margin="286,439,0,0" Name="buttonCambioPeriodo" VerticalAlignment="Top" Width="108" Click="buttonRealizarCambioPeriodo_Click" />
                 </Grid>
             </TabItem>            
             <TabItem Header="Catálogo Contable" Name="CatálogoContable">
