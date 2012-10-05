@@ -134,25 +134,25 @@ namespace Login_WPF
             else if (textBoxNombreMonedaL.Text.Length == 0)
             {
                 errormessage.Text = "Ingrese un nombre para la moneda local";
-                textBoxRuta.Focus();
+                textBoxNombreMonedaL.Focus();
             }
 
             else if (textBoxAcronimoMonedaL.Text.Length == 0)
             {
                 errormessage.Text = "Ingrese un acrónimo para la moneda local";
-                textBoxRuta.Focus();
+                textBoxAcronimoMonedaL.Focus();
             }
 
             else if (textBoxNombreMonedaS.Text.Length == 0)
             {
                 errormessage.Text = "Ingrese un nombre para la moneda del sistema";
-                textBoxRuta.Focus();
+                textBoxNombreMonedaS.Focus();
             }
 
             else if (textBoxAcronimoMonedaS.Text.Length == 0)
             {
                 errormessage.Text = "Ingrese un acrónimo para la moneda del sistema";
-                textBoxRuta.Focus();
+                textBoxAcronimoMonedaS.Focus();
             }
 
             else
