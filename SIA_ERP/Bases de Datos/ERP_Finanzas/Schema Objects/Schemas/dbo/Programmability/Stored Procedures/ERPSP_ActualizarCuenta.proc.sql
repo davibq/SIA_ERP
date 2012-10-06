@@ -62,8 +62,8 @@ BEGIN
 		
 		--Si no existe la cuenta la inserta
 		IF NOT EXISTS (SELECT IdCuenta FROM dbo.FIN_Cuenta WHERE IdCuenta = @IdCuenta) BEGIN
-			INSERT INTO dbo.FIN_Cuenta (Nombre, Codigo, Enabled, Nivel, IdCuentaPadre) 
-			VALUES (@Nombre, @Codigo, @Enabled, @Nivel, @IdCuentaPadre)
+            INSERT INTO dbo.FIN_Cuenta (Nombre, Codigo, Enabled, Nivel, IdCuentaPadre, IdIdentificadorCuenta) 
+			VALUES (@Nombre, @Codigo, @Enabled, @Nivel, @IdCuentaPadre, @IdIdentificador)
 			
 			SET @IdCuenta = SCOPE_IDENTITY()
 			
