@@ -2,11 +2,11 @@
 -- Autor: Rmadrigal
 -- Fecha: 27/09/2012
 -- Descripcion: Inserta o actualiza una entidad
--- @Saldos: Si es vacio se ignora, sino inserta si no existe la cuenta
--- '<Saldos>
---		<Saldo monto="10000.00" moneda="CRC"/>
---		<Saldo monto="5490.98" moneda="YEN"/>
---  </Saldos>'
+-- @MonedasCuenta: Si es vacio se ignora, sino inserta si no existe la cuenta
+-- '<MonedasCuenta>
+--		<Moneda moneda="CRC"/>
+--		<Moneda moneda="YEN"/>
+--  </MonedasCuenta>'
 -- @Nombres: Si es vacio se ignora, sino inserta o actualiza
 -- '<Nombres>
 --		<Nombre nombre="" idioma="es"/>
@@ -20,7 +20,7 @@ CREATE PROCEDURE [dbo].[ERPSP_ActualizarCuenta]
 	@Enabled		BIT,
 	@CuentaPadre	VARCHAR(15),
 	@Identificador	VARCHAR(30),
-	@SaldosMonedas	VARCHAR(1000)='',
+	@MonedasCuenta	VARCHAR(1000)='',
 	@Nombres		VARCHAR(1000)=''
 AS 
 BEGIN
@@ -33,7 +33,7 @@ BEGIN
 	DECLARE @Message VARCHAR(200)
 	
 	--Variables de SP
-	DECLARE @XmlSaldos XML
+	DECLARE @XmlMonedas XML
 	DECLARE @XmlNombre XML
 	DECLARE @IdCuenta INT
 	DECLARE @IdIdentificador INT
@@ -53,7 +53,7 @@ BEGIN
 	
 	BEGIN TRY
 	
-		SET @XmlSaldos = @SaldosMonedas
+		SET @XmlMonedas = @MonedasCuenta
 		SET @XmlNombre = @Nombres
 		
 		IF NOT EXISTS (SELECT IdCuenta FROM dbo.FIN_Cuenta WHERE IdCuenta = @IdCuentaPadre) BEGIN
@@ -67,15 +67,13 @@ BEGIN
 			
 			SET @IdCuenta = SCOPE_IDENTITY()
 			
-			--Inserta saldos de cuenta en caso de no existir
-			IF (LEN(@SaldosMonedas) > 0) BEGIN
+			--Inserta las monedas de las cuentas, en caso de haber
+			IF (LEN(@MonedasCuenta) > 0) BEGIN
 				INSERT INTO dbo.FIN_SaldoXCuentaXMoneda (IdCuenta, IdMoneda, Saldo)
-					SELECT @IdCuenta, Mon.IdMoneda, XmlSaldos.Saldo FROM
+					SELECT @IdCuenta, Mon.IdMoneda, 0 FROM
 					(
-						SELECT DISTINCT 
-						       Saldos.Saldo.value('@monto', 'DECIMAL(14,2)') Saldo,
-							   Saldos.Saldo.value('@moneda', 'VARCHAR(3)') XmlAcronimo
-						FROM @XmlSaldos.nodes('/Saldos/Saldo') AS Saldos(Saldo)
+						SELECT DISTINCT Saldos.Saldo.value('@moneda', 'VARCHAR(3)') XmlAcronimo
+						FROM @XmlMonedas.nodes('/Saldos/Saldo') AS Saldos(Saldo)
 					) AS XmlSaldos
 					INNER JOIN dbo.FIN_Moneda Mon ON Mon.Acronimo = XmlSaldos.XmlAcronimo
 					WHERE Mon.IdMoneda NOT IN 

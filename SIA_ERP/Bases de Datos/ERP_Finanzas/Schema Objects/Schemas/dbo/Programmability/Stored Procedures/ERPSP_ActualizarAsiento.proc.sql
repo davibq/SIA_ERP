@@ -67,7 +67,7 @@ BEGIN
 				)AS XmlCuentas
 				INNER JOIN dbo.FIN_Cuenta Cuen ON Cuen.Codigo = XmlCuentas.XmlCuenta
 				
-			INSERT INTO FIN_MontosXMonedaXAsientos(IdAsiento, IdCuenta, IdMoneda, Monto)
+			INSERT INTO dbo.FIN_MontosXMonedaXAsientos(IdAsiento, IdCuenta, IdMoneda, Monto)
 				SELECT @IdAsiento, Cuen.IdCuenta, Mon.IdMoneda, XmlCuentas.XmlMonto FROM
 				(
 					SELECT DISTINCT Cuentas.Cuenta.value('@monto','DECIMAL(14,2)') XmlMonto,
@@ -77,6 +77,30 @@ BEGIN
 				)AS XmlCuentas
 				INNER JOIN dbo.FIN_Cuenta Cuen ON Cuen.Codigo = XmlCuentas.XmlCuenta
 				INNER JOIN dbo.FIN_Moneda Mon ON Mon.Acronimo = XmlCuentas.XmlMoneda
+
+
+			UPDATE dbo.FIN_SaldoXCuentaXMoneda SET Saldo =
+			CASE
+				WHEN XmlDebe = 1 AND Numero IN (1,6,8,5) THEN (Saldo + XmlMonto)
+				WHEN XmlDebe = 0 AND Numero IN (1,6,8,5) THEN (Saldo - XmlMonto)				
+				WHEN XmlDebe = 0 AND Numero IN (2,3,4,7) THEN (Saldo + XmlMonto)			
+				WHEN XmlDebe = 1 AND Numero IN (2,3,4,7) THEN (Saldo - XmlMonto)
+			END 
+			FROM dbo.FIN_SaldoXCuentaXMoneda SalXCuenXMon 
+			INNER JOIN (
+				SELECT Cuen.IdCuenta, Mon.IdMoneda, XmlCuentas.XmlMonto, XmlDebe, IdeCuen.Numero FROM
+					(
+						SELECT DISTINCT Cuentas.Cuenta.value('@monto','DECIMAL(14,2)') XmlMonto,
+										Cuentas.Cuenta.value('@moneda', 'VARCHAR(3)') XmlMoneda,
+										Cuentas.Cuenta.value('@cuenta', 'VARCHAR(15)') XmlCuenta,
+										Cuentas.Cuenta.value('@debe', 'BIT') XmlDebe
+						FROM @XmlCuentas.nodes('/Cuentas/Cuenta') AS Cuentas(Cuenta)
+					)AS XmlCuentas
+					INNER JOIN dbo.FIN_Cuenta Cuen ON Cuen.Codigo = XmlCuentas.XmlCuenta
+					INNER JOIN dbo.FIN_Moneda Mon ON Mon.Acronimo = XmlCuentas.XmlMoneda
+					INNER JOIN dbo.FIN_IdentificadorCuenta IdeCuen ON IdeCuen.IdidentificadorCuenta = Cuen.IdIdentificadorCuenta
+			) AS Cuentas ON Cuentas.IdCuenta = SalXCuenXMon.IdCuenta AND Cuentas.IdMoneda = SalXCuenXMon.IdMoneda
+
 		END
 		
 		IF @InicieTransaccion=1 BEGIN

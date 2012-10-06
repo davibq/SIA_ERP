@@ -64,8 +64,8 @@
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="#" Visibility="Visible" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=NumeroAsiento}"/>
                                         <DataGridTextColumn Header="Fecha Contab." CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=FechaContable}"/>
-                                        <DataGridComboBoxColumn Header="Cuenta/Código SN" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"/>
-                                        <DataGridTextColumn Header="Cuenta/Nombre SN" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Cuenta/NombreSN}"/>
+                                        <DataGridComboBoxColumn Header="Moneda" />
+                                        <DataGridComboBoxColumn Header="Cuenta" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"/>
                                         <DataGridTextColumn Header="Debe" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaLocal}"/>
                                         <DataGridTextColumn Header="Haber" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaLocal}"/>
                                         <DataGridTextColumn Header="Debe (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaSistema}"/>

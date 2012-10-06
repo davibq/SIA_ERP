@@ -36,7 +36,7 @@ BEGIN
 		
 		IF (LEN(@Monedas)>0) BEGIN
 			INSERT INTO dbo.FIN_Moneda (Nombre, Acronimo, EsLocal, EsSistema)
-				SELECT XmlNombre, XmlAcronimo, XmlLocal, XmlSistema FROM(
+				SELECT Monedas.XmlNombre Nombre, Monedas.XmlAcronimo Acronimo, Monedas.XmlLocal EsLocal, Monedas.XmlSistema EsSistema FROM(
 					SELECT Monedas.Moneda.value('@nombre', 'VARCHAR(20)') XmlNombre,
 						   Monedas.Moneda.value('@acronimo', 'VARCHAR(3)') XmlAcronimo,
 						   Monedas.Moneda.value('@esLocal', 'BIT') XmlLocal,
