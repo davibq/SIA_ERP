@@ -700,7 +700,7 @@ namespace Login_WPF
             comboBoxFin.Items.Clear();
             if (comboBoxMesesAct.SelectedItem != null)
             {
-                comboBoxMeses_SelectionChanged(comboBoxMeses.SelectedItem.ToString());
+                comboBoxMeses_SelectionChanged(comboBoxMesesAct.SelectedItem.ToString());
             }
         }
         //ir a la base
@@ -712,7 +712,7 @@ namespace Login_WPF
             }
             else
             {
-                if (comboBoxMesesAct.SelectedItem == null || comboBoxInicioAct.SelectedItem == null || comboBoxFin.SelectedItem == null || comboBoxEstado.SelectedItem == null)
+                if (comboBoxMesesAct.SelectedItem == null || comboBoxInicioAct.SelectedItem == null || comboBoxFinAct.SelectedItem == null || comboBoxEstadoAct.SelectedItem == null)
                 {
                     MessageBox.Show("Datos incompletos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
