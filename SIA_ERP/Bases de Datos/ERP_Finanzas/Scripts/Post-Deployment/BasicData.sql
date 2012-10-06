@@ -43,6 +43,17 @@ INSERT INTO dbo.FIN_EstadoMes VALUES('Abierto')
 INSERT INTO dbo.FIN_EstadoMes VALUES('Cerrado')
 INSERT INTO dbo.FIN_EstadoMes VALUES('Abierto excepto ventas')
 
+
+-- =============================================
+-- Monedas
+-- =============================================
+-----------------------------------------------------------
+-- Autor: Rmadrigal
+-- Fecha: 06/10/2012
+-- Descripcion: Primeros valores para monedas
+-----------------------------------------------------------
+EXEC dbo.ERPSP_InsertarMonedas '<Monedas><Moneda nombre="Colon" acronimo="CRC" esLocal="1" esSistema="0"/><Moneda nombre="Dólar" acronimo="USD" esLocal="0" esSistema="1"/></Monedas>'
+
 -- =============================================
 -- Cuentas
 -- =============================================

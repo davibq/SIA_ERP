@@ -72,10 +72,10 @@ BEGIN
 				INSERT INTO dbo.FIN_SaldoXCuentaXMoneda (IdCuenta, IdMoneda, Saldo)
 					SELECT @IdCuenta, Mon.IdMoneda, 0 FROM
 					(
-						SELECT DISTINCT Saldos.Saldo.value('@moneda', 'VARCHAR(3)') XmlAcronimo
-						FROM @XmlMonedas.nodes('/Saldos/Saldo') AS Saldos(Saldo)
-					) AS XmlSaldos
-					INNER JOIN dbo.FIN_Moneda Mon ON Mon.Acronimo = XmlSaldos.XmlAcronimo
+						SELECT DISTINCT MonedasCuenta.Moneda.value('@moneda', 'VARCHAR(3)') XmlAcronimo
+						FROM @XmlMonedas.nodes('/MonedasCuenta/Moneda') AS MonedasCuenta(Moneda)
+					) AS XmlMonedas
+					INNER JOIN dbo.FIN_Moneda Mon ON Mon.Acronimo = XmlMonedas.XmlAcronimo
 					WHERE Mon.IdMoneda NOT IN 
 					(
 						SELECT IdMoneda FROM dbo.FIN_SaldoXCuentaXMoneda WHERE IdCuenta = @IdCuenta
