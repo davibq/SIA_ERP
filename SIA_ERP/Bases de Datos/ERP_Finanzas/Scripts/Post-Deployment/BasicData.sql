@@ -91,6 +91,42 @@ EXEC dbo.ERPSP_ActualizarCuenta 'Equipo y maquinaria', '1-2-01-01',  4, 1, '1-2-
 EXEC dbo.ERPSP_ActualizarCuenta 'Depreciación acumulada', '1-2-01-02' , 4, 1, '1-2-01', 'Activo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Depreciación acumulada" idioma="es"/></Nombres>'
 
 
+EXEC dbo.ERPSP_ActualizarCuenta 'PASIVOS CORTO PLAZO', '2-1', 2, 1, '2', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PASIVOS CORTO PLAZO" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar', '2-1-01', 3, 1, '2-1', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar nacionales', '2-1-01-01', 4, 1, '2-1-01', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar nacionales" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar extranjero', '2-1-01-02', 4, 1, '2-1-01', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar extranjero" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'PASIVOS LARGO PLAZO', '2-2' , 2, 1, '2', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PASIVOS LARGO PLAZO" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'PRESTAMOS', '2-2-01' , 3, 1, '2-2', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PRESTAMOS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Hipoteca', '2-2-01-01', 4, 1, '2-2-01', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Hipoteca" idioma="es"/></Nombres>'
+
+
+EXEC dbo.ERPSP_ActualizarCuenta 'CAPITAL Y UTILIDADES', '3-1', 2, 1, '3', 'Patrimonio', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="CAPITAL Y UTILIDADES" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Capital social', '3-1-01', 3, 1, '3-1', 'Patrimonio', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Capital social" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Utilidades retenidas', '3-1-02', 3, 1, '3-1', 'Patrimonio', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Utilidades retenidas" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Pérdidas y ganancias', '3-1-03', 3, 1, '3-1', 'Patrimonio', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Pérdidas y ganancias" idioma="es"/></Nombres>'
+
+
+EXEC dbo.ERPSP_ActualizarCuenta 'VENTAS', '4-1', 2, 1, '4', 'Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="VENTAS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Ventas', '4-1-01', 3, 1, '4-1', 'Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Ventas" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Descuentos sobre ventas', '4-1-02', 3, 1, '4-1', 'Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Descuentos sobre ventas" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Devoluciones sobre ventas', '4-1-03', 3, 1, '4-1', 'Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Devoluciones sobre ventas" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Ingresos por consultoría', '4-1-04' , 3, 1, '4-1', 'Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Ingresos por consultoría" idioma="es"/></Nombres>'
+
+EXEC dbo.ERPSP_ActualizarCuenta 'COSTO DE VENTAS', '5-1', 2, 1, '5', 'Costos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="COSTO DE VENTAS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Costo de ventas', '5-1-01', 3, 1, '5-1', 'Costos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Costo de ventas" idioma="es"/></Nombres>'
+
+
+EXEC dbo.ERPSP_ActualizarCuenta 'GASTOS DE VENTAS', '6-1', 2, 1, '6', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="GASTOS DE VENTAS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Bonificaciones', '6-1-01', 3, 1, '6-1', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Bonificaciones" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'GASTOS ADMINISTRATIVOS', '6-2', 2, 1, '6', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="GASTOS ADMINISTRATIVOS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Salarios', '6-2-01', 3, 1, '6-2', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Salarios" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Servicios varios', '6-2-02' , 3, 1, '6-2', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Servicios varios" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'GASTOS DE OPERACION', '6-3' , 2, 1, '6', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="GASTOS DE OPERACION" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Pérdidas por inventario dañado', '6-3-01', 3, 1, '6-3', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Pérdidas por inventario dañado" idioma="es"/></Nombres>'
+
+
+EXEC dbo.ERPSP_ActualizarCuenta 'OTROS INGRESOS', '7-1', 2, 1, '7', 'Otros Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="OTROS INGRESOS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Ingresos financieros', '7-1-01', 3, 1, '7-1', 'Otros Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Ingresos financieros" idioma="es"/></Nombres>'
 
 
 

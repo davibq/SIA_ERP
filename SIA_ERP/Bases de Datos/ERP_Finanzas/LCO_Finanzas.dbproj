@@ -300,6 +300,12 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_InsertarPeriodoContable.proc.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerBalanceComprobacion.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerCuentasXIdentificador.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <NotInBuild Include="Scripts\Post-Deployment\BasicData.sql">
