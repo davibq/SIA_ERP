@@ -30,6 +30,22 @@ namespace Login_WPF
         private ObservableCollection<Asiento> _Coleccion;
         private ObservableCollection<Cuenta> _Cuenta;
 
+        public Mes Enero = new Mes { FechaInicio = null };
+        public Mes Febrero = new Mes { FechaInicio = null };
+        public Mes Marzo = new Mes { FechaInicio = null };
+        public Mes Abril = new Mes { FechaInicio = null };
+        public Mes Mayo = new Mes { FechaInicio = null };
+        public Mes Junio = new Mes { FechaInicio = null };
+        public Mes Julio = new Mes { FechaInicio = null };
+        public Mes Agosto = new Mes { FechaInicio = null };
+        public Mes Septiembre = new Mes { FechaInicio = null };
+        public Mes Octubre = new Mes { FechaInicio = null };
+        public Mes Noviembre = new Mes { FechaInicio = null };
+        public Mes Diciembre = new Mes { FechaInicio = null };
+        private string anio;
+        private string FechaInicio;
+        private string FechaFin;
+
         public Welcome()
         {
             InitializeComponent();
@@ -56,7 +72,6 @@ namespace Login_WPF
             ////////////////////////////////////////////////
 
         }
-
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
@@ -165,42 +180,6 @@ namespace Login_WPF
             //Close();
         }
 
-        private void checkBoxAbierto_Checked(object sender, RoutedEventArgs e)
-        {
-            checkBoxCerrado.IsHitTestVisible = false;
-            checkBoxAbiertoExVentas.IsHitTestVisible = false;
-        }
-
-        private void checkBoxAbierto_UnChecked(object sender, RoutedEventArgs e)
-        {
-            checkBoxCerrado.IsHitTestVisible = true;
-            checkBoxAbiertoExVentas.IsHitTestVisible = true;
-        }
-
-        private void checkBoxCerrado_Checked(object sender, RoutedEventArgs e)
-        {
-            checkBoxAbierto.IsHitTestVisible = false;
-            checkBoxAbiertoExVentas.IsHitTestVisible = false;
-        }
-
-        private void checkBoxCerrado_UnChecked(object sender, RoutedEventArgs e)
-        {
-            checkBoxAbierto.IsHitTestVisible = true;
-            checkBoxAbiertoExVentas.IsHitTestVisible = true;
-        }
-
-        private void checkBoxAbiertoExVentas_Checked(object sender, RoutedEventArgs e)
-        {
-            checkBoxAbierto.IsHitTestVisible = false;
-            checkBoxCerrado.IsHitTestVisible = false;
-        }
-
-        private void checkBoxAbiertoExVentas_UnChecked(object sender, RoutedEventArgs e)
-        {
-            checkBoxAbierto.IsHitTestVisible = true;
-            checkBoxCerrado.IsHitTestVisible = true;
-        }
-
         public void ResetMoneda()
         {
             textBoxNombreMoneda.Text = "";
@@ -219,108 +198,144 @@ namespace Login_WPF
             {
                 MessageBox.Show("Debe seleccionar un mes de inicio.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else 
+            else
             {
-                string mes = datePickerMesInicio.DisplayDate.Month.ToString();
-                switch(mes)
+                if (comboBoxMeses.SelectedItem == null || comboBoxInicio.SelectedItem == null || comboBoxFin.SelectedItem == null || comboBoxEstado.SelectedItem == null)
                 {
-                    case "1":
-                        string[] EneroFirst = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
-                        foreach (string mesAhora in EneroFirst) 
-                        {
-                            comboBoxMeses.Items.Add(mesAhora); 
-                        }
-                        break;
-
-                    case "2":
-                        string[] FebreroFirst = { "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero"};
-                        foreach (string mesAhora in FebreroFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "3":
-                        string[] MarzoFirst = { "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero" };
-                        foreach (string mesAhora in MarzoFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "4":
-                        string[] AbrilFirst = { "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo" };
-                        foreach (string mesAhora in AbrilFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "5":
-                        string[] MayoFirst = { "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril" };
-                        foreach (string mesAhora in MayoFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "6":
-                        string[] JunioFirst = { "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo" };
-                        foreach (string mesAhora in JunioFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "7":
-                        string[] JulioFirst = { "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio" };
-                        foreach (string mesAhora in JulioFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "8":
-                        string[] AgostoFirst = { "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio" };
-                        foreach (string mesAhora in AgostoFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "9":
-                        string[] SeptiembreFirst = { "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto" };
-                        foreach (string mesAhora in SeptiembreFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "10":
-                        string[] OctubreFirst = { "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre" };
-                        foreach (string mesAhora in OctubreFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "11":
-                        string[] NoviembreFirst = { "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre" };
-                        foreach (string mesAhora in NoviembreFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
-
-                    case "12":
-                        string[] DiciembreFirst = { "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre" };
-                        foreach (string mesAhora in DiciembreFirst)
-                        {
-                            comboBoxMeses.Items.Add(mesAhora);
-                        }
-                        break;
+                    MessageBox.Show("Datos incompletos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            }            
+                else
+                {
+                    string mes = comboBoxMeses.SelectedItem.ToString();
+                    switch (mes)
+                    {
+                        case "Enero":
+                            Enero = new Mes()
+                            {
+                                NombreMes = "Enero",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Febrero":
+                            Febrero = new Mes()
+                            {
+                                NombreMes = "Febrero",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Marzo":
+                            Marzo = new Mes()
+                            {
+                                NombreMes = "Marzo",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Abril":
+                            Abril = new Mes()
+                            {
+                                NombreMes = "Abril",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Mayo":
+                            Mayo = new Mes()
+                            {
+                                NombreMes = "Mayo",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Junio":
+                            Junio = new Mes()
+                            {
+                                NombreMes = "Junio",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Julio":
+                            Julio = new Mes()
+                            {
+                                NombreMes = "Julio",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Agosto":
+                            Agosto = new Mes()
+                            {
+                                NombreMes = "Agosto",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Septiembre":
+                            Septiembre = new Mes()
+                            {
+                                NombreMes = "Septiembre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Octubre":
+                            Octubre = new Mes()
+                            {
+                                NombreMes = "Octubre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Noviembre":
+                            Noviembre = new Mes()
+                            {
+                                NombreMes = "Noviembre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Diciembre":
+                            Diciembre = new Mes()
+                            {
+                                NombreMes = "Diciembre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+                    }
+
+                    comboBoxFin.SelectedIndex = -1;
+                    comboBoxInicio.SelectedIndex = -1;
+                    comboBoxEstado.SelectedIndex = -1;
+                    comboBoxMeses.SelectedIndex = -1;
+                }
+            }
         }
 
         private void buttonTipoDeCambio_Click(object sender, RoutedEventArgs e)
@@ -333,6 +348,626 @@ namespace Login_WPF
         {
             textBoxUtilidades.Text = "";
             textBoxPerdidasYGanancias.Text = "";
+        }
+
+        private void datePickerMesInicio_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string mes = datePickerMesInicio.DisplayDate.Month.ToString();
+            anio = datePickerMesInicio.DisplayDate.Year.ToString();
+            int n = 0, j = 1;
+
+            comboBoxFinPeriodo.Items.Clear();
+            comboBoxMeses.Items.Clear();
+            switch (mes)
+            {
+                case "1":
+                    string[] EneroFirst = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+                    foreach (string mesAhora in EneroFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 31;
+                    break;
+
+                case "2":
+                    string[] FebreroFirst = { "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero" };
+                    foreach (string mesAhora in FebreroFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 31;
+                    break;
+
+                case "3":
+                    string[] MarzoFirst = { "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero" };
+                    foreach (string mesAhora in MarzoFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 28;
+                    break;
+
+                case "4":
+                    string[] AbrilFirst = { "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo" };
+                    foreach (string mesAhora in AbrilFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 31;
+                    break;
+
+                case "5":
+                    string[] MayoFirst = { "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril" };
+                    foreach (string mesAhora in MayoFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 30;
+                    break;
+
+                case "6":
+                    string[] JunioFirst = { "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo" };
+                    foreach (string mesAhora in JunioFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 31;
+                    break;
+
+                case "7":
+                    string[] JulioFirst = { "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio" };
+                    foreach (string mesAhora in JulioFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 30;
+                    break;
+
+                case "8":
+                    string[] AgostoFirst = { "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio" };
+                    foreach (string mesAhora in AgostoFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 31;
+                    break;
+
+                case "9":
+                    string[] SeptiembreFirst = { "Septiembre", "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto" };
+                    foreach (string mesAhora in SeptiembreFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 31;
+                    break;
+
+                case "10":
+                    string[] OctubreFirst = { "Octubre", "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre" };
+                    foreach (string mesAhora in OctubreFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 30;
+                    break;
+
+                case "11":
+                    string[] NoviembreFirst = { "Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre" };
+                    foreach (string mesAhora in NoviembreFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 31;
+                    break;
+
+                case "12":
+                    string[] DiciembreFirst = { "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre" };
+                    foreach (string mesAhora in DiciembreFirst)
+                    {
+                        comboBoxMeses.Items.Add(mesAhora);
+                        comboBoxMesesAct.Items.Add(mesAhora);
+                    }
+                    n = 30;
+                    break;
+            }
+
+            while (n > 0)
+            {
+                comboBoxFinPeriodo.Items.Add(j);
+                n--; j++;
+            }
+
+            comboBoxInicio.Items.Clear();
+            comboBoxFin.Items.Clear();
+            comboBoxInicioAct.Items.Clear();
+            comboBoxFinAct.Items.Clear();
+            comboBoxEstado.Items.Clear();
+            comboBoxEstadoAct.Items.Clear();
+            comboBoxEstado.Items.Add("Abierto");
+            comboBoxEstado.Items.Add("Cerrado");
+            comboBoxEstado.Items.Add("Abierto excepto ventas");
+            comboBoxEstadoAct.Items.Add("Abierto");
+            comboBoxEstadoAct.Items.Add("Cerrado");
+            comboBoxEstadoAct.Items.Add("Abierto excepto ventas");
+        }
+
+        public void comboBoxMeses_SelectionChanged(string mes)
+        {
+            if (mes == "Enero" || mes == "Marzo" || mes == "Mayo" || mes == "Julio" || mes == "Agosto" || mes == "Octubre" || mes == "Diciembre")
+            {
+                for (int n = 1; n < 32; n++)
+                {
+                    comboBoxInicio.Items.Add(n.ToString());
+                    comboBoxFin.Items.Add(n.ToString());
+                    comboBoxInicioAct.Items.Add(n.ToString());
+                    comboBoxFinAct.Items.Add(n.ToString());
+                }
+            }
+            else
+            {
+                if (mes == "Abril" || mes == "Junio" || mes == "Septiembre" || mes == "Noviembre")
+                {
+                    for (int n = 1; n < 31; n++)
+                    {
+                        comboBoxInicio.Items.Add(n.ToString());
+                        comboBoxFin.Items.Add(n.ToString());
+                        comboBoxInicioAct.Items.Add(n.ToString());
+                        comboBoxFinAct.Items.Add(n.ToString());
+                    }
+                }
+                else
+                {
+                    for (int n = 1; n < 29; n++)
+                    {
+                        comboBoxInicio.Items.Add(n.ToString());
+                        comboBoxFin.Items.Add(n.ToString());
+                        comboBoxInicioAct.Items.Add(n.ToString());
+                        comboBoxFinAct.Items.Add(n.ToString());
+                    }
+                }
+            }
+        }
+
+        private void comboBoxMeses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboBoxInicio.Items.Clear();
+            comboBoxFin.Items.Clear();
+            if (comboBoxMeses.SelectedItem != null)
+            {
+                comboBoxMeses_SelectionChanged(comboBoxMeses.SelectedItem.ToString());
+            }
+        }
+        //ir a la base
+        private void buttonTerminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (datePickerMesInicio.SelectedDate == null || comboBoxFinPeriodo.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un mes de inicio.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Mes[] ListaMeses = new Mes[12];
+                string mes;
+                if (Enero.FechaInicio == null)
+                {
+                    Enero.FechaInicio = "1/1/" + anio;
+                    Enero.FechaFin = "1/31" + anio;
+                }
+                if (Febrero.FechaInicio == null)
+                {
+                    Febrero.FechaInicio = "2/1/" + anio;
+                    Febrero.FechaFin = "2/28" + anio;
+                }
+                if (Marzo.FechaInicio == null)
+                {
+                    Marzo.FechaInicio = "3/1/" + anio;
+                    Marzo.FechaFin = "3/31" + anio;
+                }
+                if (Abril.FechaInicio == null)
+                {
+                    Abril.FechaInicio = "4/1/" + anio;
+                    Abril.FechaFin = "4/30" + anio;
+                }
+                if (Mayo.FechaInicio == null)
+                {
+                    Mayo.FechaInicio = "5/1/" + anio;
+                    Mayo.FechaFin = "5/31" + anio;
+                }
+                if (Junio.FechaInicio == null)
+                {
+                    Junio.FechaInicio = "6/1/" + anio;
+                    Junio.FechaFin = "6/30" + anio;
+                }
+                if (Julio.FechaInicio == null)
+                {
+                    Julio.FechaInicio = "7/1/" + anio;
+                    Julio.FechaFin = "7/31" + anio;
+                }
+                if (Agosto.FechaInicio == null)
+                {
+                    Agosto.FechaInicio = "8/1/" + anio;
+                    Agosto.FechaFin = "8/31" + anio;
+                }
+                if (Septiembre.FechaInicio == null)
+                {
+                    Septiembre.FechaInicio = "9/1/" + anio;
+                    Septiembre.FechaFin = "9/30" + anio;
+                }
+                if (Octubre.FechaInicio == null)
+                {
+                    Octubre.FechaInicio = "10/1/" + anio;
+                    Octubre.FechaFin = "10/31" + anio;
+                }
+                if (Noviembre.FechaInicio == null)
+                {
+                    Noviembre.FechaInicio = "11/1/" + anio;
+                    Noviembre.FechaFin = "11/30" + anio;
+                }
+                if (Diciembre.FechaInicio == null)
+                {
+                    Diciembre.FechaInicio = "12/1/" + anio;
+                    Diciembre.FechaFin = "12/31" + anio;
+                }
+
+                anio = datePickerMesInicio.DisplayDate.Year.ToString();
+
+                mes = datePickerMesInicio.DisplayDate.Month.ToString();
+
+                switch (mes)
+                {
+                    case "1":
+                        FechaFin = "12";
+                        break;
+                    case "2":
+                        FechaFin = "1";
+                        break;
+                    case "3":
+                        FechaFin = "2";
+                        break;
+                    case "4":
+                        FechaFin = "3";
+                        break;
+                    case "5":
+                        FechaFin = "4";
+                        break;
+                    case "6":
+                        FechaFin = "5";
+                        break;
+                    case "7":
+                        FechaFin = "6";
+                        break;
+                    case "8":
+                        FechaFin = "7";
+                        break;
+                    case "9":
+                        FechaFin = "8";
+                        break;
+                    case "10":
+                        FechaFin = "9";
+                        break;
+                    case "11":
+                        FechaFin = "10";
+                        break;
+                    case "12":
+                        FechaFin = "11";
+                        break;
+                }
+
+                FechaInicio = datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Year;
+                FechaFin = FechaFin + "/" + comboBoxFinPeriodo.SelectedItem + "/" + anio;
+
+                ListaMeses[0] = Enero;
+                ListaMeses[1] = Febrero;
+                ListaMeses[2] = Marzo;
+                ListaMeses[3] = Abril;
+                ListaMeses[4] = Mayo;
+                ListaMeses[5] = Junio;
+                ListaMeses[6] = Julio;
+                ListaMeses[7] = Agosto;
+                ListaMeses[8] = Septiembre;
+                ListaMeses[9] = Octubre;
+                ListaMeses[10] = Noviembre;
+                ListaMeses[11] = Diciembre;
+            }
+        }
+
+        private void comboBoxMesesAct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboBoxInicio.Items.Clear();
+            comboBoxFin.Items.Clear();
+            if (comboBoxMesesAct.SelectedItem != null)
+            {
+                comboBoxMeses_SelectionChanged(comboBoxMeses.SelectedItem.ToString());
+            }
+        }
+        //ir a la base
+        private void buttonCambioPeriodoAct_Click(object sender, RoutedEventArgs e)
+        {
+            if (datePickerMesInicio.SelectedDate == null)
+            {
+                MessageBox.Show("Primero debe definir el periodo contable.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                if (comboBoxMeses.SelectedItem == null || comboBoxInicio.SelectedItem == null || comboBoxFin.SelectedItem == null || comboBoxEstado.SelectedItem == null)
+                {
+                    MessageBox.Show("Datos incompletos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    string mes = comboBoxMeses.SelectedItem.ToString();
+                    switch (mes)
+                    {
+                        case "Enero":
+                            Enero = new Mes()
+                            {
+                                NombreMes = "Enero",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Febrero":
+                            Febrero = new Mes()
+                            {
+                                NombreMes = "Febrero",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Marzo":
+                            Marzo = new Mes()
+                            {
+                                NombreMes = "Marzo",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Abril":
+                            Abril = new Mes()
+                            {
+                                NombreMes = "Abril",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Mayo":
+                            Mayo = new Mes()
+                            {
+                                NombreMes = "Mayo",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Junio":
+                            Junio = new Mes()
+                            {
+                                NombreMes = "Junio",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Julio":
+                            Julio = new Mes()
+                            {
+                                NombreMes = "Julio",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Agosto":
+                            Agosto = new Mes()
+                            {
+                                NombreMes = "Agosto",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Septiembre":
+                            Septiembre = new Mes()
+                            {
+                                NombreMes = "Septiembre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Octubre":
+                            Octubre = new Mes()
+                            {
+                                NombreMes = "Octubre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Noviembre":
+                            Noviembre = new Mes()
+                            {
+                                NombreMes = "Noviembre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+
+                        case "Diciembre":
+                            Diciembre = new Mes()
+                            {
+                                NombreMes = "Diciembre",
+                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
+                                FechaFin = comboBoxFin.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                            };
+                            break;
+                    }
+
+                    comboBoxFin.SelectedIndex = -1;
+                    comboBoxInicio.SelectedIndex = -1;
+                    comboBoxEstado.SelectedIndex = -1;
+                    comboBoxMeses.SelectedIndex = -1;
+                }
+            }
+        }
+        //ir a la base
+        private void buttonTerminarAct_Click(object sender, RoutedEventArgs e)
+        {
+            if (datePickerMesInicio.SelectedDate == null || comboBoxFinPeriodo.SelectedItem == null)
+            {
+                MessageBox.Show("Primero debe definir un periodo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Mes[] ListaMeses = new Mes[12];
+                string mes;
+                if (Enero.FechaInicio == null)
+                {
+                    Enero.FechaInicio = "1/1/" + anio;
+                    Enero.FechaFin = "1/31" + anio;
+                }
+                if (Febrero.FechaInicio == null)
+                {
+                    Febrero.FechaInicio = "2/1/" + anio;
+                    Febrero.FechaFin = "2/28" + anio;
+                }
+                if (Marzo.FechaInicio == null)
+                {
+                    Marzo.FechaInicio = "3/1/" + anio;
+                    Marzo.FechaFin = "3/31" + anio;
+                }
+                if (Abril.FechaInicio == null)
+                {
+                    Abril.FechaInicio = "4/1/" + anio;
+                    Abril.FechaFin = "4/30" + anio;
+                }
+                if (Mayo.FechaInicio == null)
+                {
+                    Mayo.FechaInicio = "5/1/" + anio;
+                    Mayo.FechaFin = "5/31" + anio;
+                }
+                if (Junio.FechaInicio == null)
+                {
+                    Junio.FechaInicio = "6/1/" + anio;
+                    Junio.FechaFin = "6/30" + anio;
+                }
+                if (Julio.FechaInicio == null)
+                {
+                    Julio.FechaInicio = "7/1/" + anio;
+                    Julio.FechaFin = "7/31" + anio;
+                }
+                if (Agosto.FechaInicio == null)
+                {
+                    Agosto.FechaInicio = "8/1/" + anio;
+                    Agosto.FechaFin = "8/31" + anio;
+                }
+                if (Septiembre.FechaInicio == null)
+                {
+                    Septiembre.FechaInicio = "9/1/" + anio;
+                    Septiembre.FechaFin = "9/30" + anio;
+                }
+                if (Octubre.FechaInicio == null)
+                {
+                    Octubre.FechaInicio = "10/1/" + anio;
+                    Octubre.FechaFin = "10/31" + anio;
+                }
+                if (Noviembre.FechaInicio == null)
+                {
+                    Noviembre.FechaInicio = "11/1/" + anio;
+                    Noviembre.FechaFin = "11/30" + anio;
+                }
+                if (Diciembre.FechaInicio == null)
+                {
+                    Diciembre.FechaInicio = "12/1/" + anio;
+                    Diciembre.FechaFin = "12/31" + anio;
+                }
+
+                anio = datePickerMesInicio.DisplayDate.Year.ToString();
+
+                mes = datePickerMesInicio.DisplayDate.Month.ToString();
+
+                switch (mes)
+                {
+                    case "1":
+                        FechaFin = "12";
+                        break;
+                    case "2":
+                        FechaFin = "1";
+                        break;
+                    case "3":
+                        FechaFin = "2";
+                        break;
+                    case "4":
+                        FechaFin = "3";
+                        break;
+                    case "5":
+                        FechaFin = "4";
+                        break;
+                    case "6":
+                        FechaFin = "5";
+                        break;
+                    case "7":
+                        FechaFin = "6";
+                        break;
+                    case "8":
+                        FechaFin = "7";
+                        break;
+                    case "9":
+                        FechaFin = "8";
+                        break;
+                    case "10":
+                        FechaFin = "9";
+                        break;
+                    case "11":
+                        FechaFin = "10";
+                        break;
+                    case "12":
+                        FechaFin = "11";
+                        break;
+                }
+
+                FechaInicio = datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Year;
+                FechaFin = FechaFin + "/" + comboBoxFinPeriodo.SelectedItem + "/" + anio;
+
+                ListaMeses[0] = Enero;
+                ListaMeses[1] = Febrero;
+                ListaMeses[2] = Marzo;
+                ListaMeses[3] = Abril;
+                ListaMeses[4] = Mayo;
+                ListaMeses[5] = Junio;
+                ListaMeses[6] = Julio;
+                ListaMeses[7] = Agosto;
+                ListaMeses[8] = Septiembre;
+                ListaMeses[9] = Octubre;
+                ListaMeses[10] = Noviembre;
+                ListaMeses[11] = Diciembre;
+            }
         }
     }
 }
