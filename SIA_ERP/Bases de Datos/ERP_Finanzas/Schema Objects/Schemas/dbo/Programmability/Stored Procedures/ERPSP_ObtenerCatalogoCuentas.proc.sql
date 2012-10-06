@@ -17,8 +17,8 @@ AS
 	INNER JOIN dbo.FIN_IdentificadorCuenta IdeCuen ON IdeCuen.IdIdentificadorCuenta = Cuen.IdIdentificadorCuenta
 	INNER JOIN dbo.FIN_NombreIdioma NomIdi ON NomIdi.IdCuenta = Cuen.IdCuenta
 	INNER JOIN dbo.FIN_Idioma Idi ON Idi.IdIdioma = NomIdi.IdIdioma
-	INNER JOIN dbo.FIN_SaldoXCuentaXMoneda SalXCuXMo ON SalXCuXMo.IdCuenta = Cuen.IdCuenta
-	INNER JOIN dbo.FIN_Moneda Mon ON Mon.IdMoneda = SalXCuXMo.IdMoneda
+	LEFT JOIN dbo.FIN_SaldoXCuentaXMoneda SalXCuXMo ON SalXCuXMo.IdCuenta = Cuen.IdCuenta
+	LEFT JOIN dbo.FIN_Moneda Mon ON Mon.IdMoneda = SalXCuXMo.IdMoneda
 	WHERE Cuen.Enabled = 1
 	ORDER BY Cuen.Codigo
 RETURN 0
