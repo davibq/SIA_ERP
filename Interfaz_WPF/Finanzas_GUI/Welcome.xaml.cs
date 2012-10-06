@@ -13,7 +13,10 @@ using System.ComponentModel;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
+using AccesoServicio;
+using AccesoServicio.FinanzasService;
 using SIA.Libreria;
+using SIA.Contabilidad.Libreria;
 
 namespace Login_WPF
 {
@@ -24,14 +27,29 @@ namespace Login_WPF
     {
         public int NoCierre = 0;
 
-        //private ObservableCollection<Asiento> _Coleccion;
+        private ObservableCollection<Asiento> _Coleccion;
+        private ObservableCollection<Cuenta> _Cuenta;
 
         public Welcome()
         {
             InitializeComponent();
             
-            //_Coleccion = new ObservableCollection<Asiento>();
-            //dataGridAgregaAsiento.ItemsSource = _Coleccion;                                    
+            _Coleccion = new ObservableCollection<Asiento>();
+            dataGridAgregaAsiento.ItemsSource = _Coleccion;
+
+            DataGridComboBoxColumn comboboxColumn = dataGridAgregaAsiento.Columns[2] as DataGridComboBoxColumn;
+            comboboxColumn.ItemsSource = _Cuenta;
+            //comboboxColumn.
+
+            string monedas = ServicioFinanzas.Instancia.ObtenerMonedas("CocaCola");
+            string[] split = monedas.Split(new Char[] { ';' });
+            foreach (string s in split)
+            {
+                if (s.Trim() != "")
+                    comboBoxMoneda.Items.Add(s);
+            }
+            comboBoxMoneda.Items.Add("TODAS");
+            comboBoxMoneda.SelectedIndex = 0;
         }
 
 
@@ -61,6 +79,7 @@ namespace Login_WPF
             {
                 Login login = new Login();
                 login.Show();
+                NoCierre = 1;
                 Close();
             }
         }
@@ -75,8 +94,20 @@ namespace Login_WPF
 
         private void buttonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
-            Reset();
+            Cuenta cuenta = new Cuenta()
+            {
+                Codigo = textBoxCodigo.Text,
+                Nombre = textBoxNomCuenta.Text,
+                NombreIdiomaExtranjero = textBoxNomExtranjero.Text,
+                Moneda = comboBoxMoneda.SelectedItem.ToString()
+            };
+            if (ServicioFinanzas.Instancia.CrearCuenta(cuenta,"CocaCola"))
+            {
+                MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
+                Reset();
+            }
+            else
+                MessageBox.Show("Error al intentar crear la cuenta");
         }
 
         private void buttonGuardarAsiento_Click(object sender, RoutedEventArgs e)

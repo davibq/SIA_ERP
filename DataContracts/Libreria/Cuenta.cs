@@ -20,5 +20,17 @@ namespace SIA.Libreria
 
         [DataMember]
         public string Moneda { get; set; }
+
+        [DataMember]
+        public string CuentaPadre { get; set; }
+
+        [DataMember]
+        public string Identificador { get; set; }
+
+        [DataMember]
+        public int Nivel { get; set; }
+
+        [DataMember]
+        public Int16 Enabled { get; set; }
     }
 }

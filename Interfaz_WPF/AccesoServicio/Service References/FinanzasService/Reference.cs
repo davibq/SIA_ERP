@@ -34,7 +34,7 @@ namespace AccesoServicio.FinanzasService {
         bool InsertarNuevaEmpresa(SIA.Libreria.Empresa pEmpresa, byte[] pLogo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearCuenta", ReplyAction="http://tempuri.org/IContabilidadService/CrearCuentaResponse")]
-        bool CrearCuenta(SIA.Libreria.Cuenta pCuenta);
+        bool CrearCuenta(SIA.Libreria.Cuenta pCuenta, string pNombreEmpresa);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -88,8 +88,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.InsertarNuevaEmpresa(pEmpresa, pLogo);
         }
         
-        public bool CrearCuenta(SIA.Libreria.Cuenta pCuenta) {
-            return base.Channel.CrearCuenta(pCuenta);
+        public bool CrearCuenta(SIA.Libreria.Cuenta pCuenta, string pNombreEmpresa) {
+            return base.Channel.CrearCuenta(pCuenta, pNombreEmpresa);
         }
     }
 }

@@ -49,12 +49,12 @@ namespace Login_WPF
         private void button1_Click(object sender, RoutedEventArgs e)
         {            
 
-            //if (SociedadcomboBox1.SelectedIndex == 0 || textBoxUserName.Text == string.Empty || passwordBox1.Password == string.Empty)
-            //{
-                //MessageBox.Show("Debe completar todos los datos solicitados.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-            //else
-            //{
+           /* if (SociedadcomboBox1.SelectedIndex == -1 || textBoxUserName.Text == string.Empty || passwordBox1.Password == string.Empty)
+            {
+                MessageBox.Show("Debe completar todos los datos solicitados.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {*/
                 string empresa = SociedadcomboBox1.SelectedIndex.ToString();
                 Usuario usuario = new Usuario()
                 {
@@ -62,19 +62,18 @@ namespace Login_WPF
                     Password = passwordBox1.Password
                 };
                 
-                //if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario, empresa))
-                //{
+            //    if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario, empresa))
+            //    {
                     Welcome welcome = new Welcome();
                     welcome.Show();
                     NoCierre = 1;
                     Close();
-                //}
-                //else 
-                //{
-                //    MessageBox.Show("Datos erroneos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                //}
-            //}
-            //}
+            /*    }
+                else 
+                {
+                    MessageBox.Show("Datos erroneos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }*/
         }
 
         private void buttonRegister_Click(object sender, RoutedEventArgs e)

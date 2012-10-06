@@ -43,10 +43,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.InsertarNuevaEmpresa(pEmpresa,pLogo);
         }
 
-        public bool CrearCuenta(Cuenta pCuenta)
+        public bool CrearCuenta(Cuenta pCuenta, string pNombreEmpresa)
         {
-            //Llamar SP para crear una nueva cuenta
-            return true;
+            return LogicaNegocio.Instancia.CrearCuenta(pCuenta,pNombreEmpresa);
         }
     }
 }

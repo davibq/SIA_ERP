@@ -48,6 +48,7 @@ namespace Logica
             var nombreBD=daPrincipal.AutenticarUsuario(pUsuario, pNombreEmpresa);
             if (nombreBD.Length>2){
                 _DataAccess = new DAFinanzas(nombreBD);
+                _Arbol.crearArbol(pNombreEmpresa);
                 return true;
             }
             return false;
@@ -70,9 +71,58 @@ namespace Logica
             return false;
         }
 
+        public bool CrearCuenta(Cuenta pCuenta, string pNombreEmpresa)
+        {
+            var daFinanzas = new DAFinanzas(pNombreEmpresa);
+            pCuenta.CuentaPadre = pCuenta.Codigo.Remove(pCuenta.Codigo.LastIndexOf("-"));
+            pCuenta.Enabled = 1;
+            //dividrir el cod en tokens
+            char[] delimiterChars = { '-' };
+            string[] tokens = pCuenta.Codigo.Split(delimiterChars);
+            pCuenta.Nivel = tokens.Length;
+
+            string codId  = pCuenta.Codigo.Remove(pCuenta.Codigo.IndexOf("-"));
+            switch (codId)
+            {
+                case "1":
+                    pCuenta.Identificador = "Activo";
+                    break;
+                case "2":
+                    pCuenta.Identificador = "Pasivo";
+                    break;
+                case "3":
+                    pCuenta.Identificador = "Patrimonio";
+                    break;
+                case "4":
+                    pCuenta.Identificador = "Ingresos";
+                    break;
+                case "5":
+                    pCuenta.Identificador = "Costos";
+                    break;
+                case "6":
+                    pCuenta.Identificador = "Gastos";
+                    break;
+                case "7":
+                    pCuenta.Identificador = "Otros Ingresos";
+                    break;
+                default:
+                    pCuenta.Identificador = "Otros Gastos";
+                    break;
+            }
+
+            if (daFinanzas.CrearCuenta(pCuenta))
+            {
+                _Arbol.crearArbol(pNombreEmpresa);
+                _Arbol.insertarNuevaCuenta(pCuenta.CuentaPadre,pCuenta.Codigo,pCuenta.Nombre);
+                return true;
+            }
+            return false;
+        }
+
         private static LogicaNegocio _Instancia;
         private static object _Lock=new object();
 
         private DAFinanzas _DataAccess;
+        Arbol _Arbol = new Arbol();
     }
 }

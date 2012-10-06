@@ -64,12 +64,12 @@
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="#" Visibility="Visible" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=NumeroAsiento}"/>
                                         <DataGridTextColumn Header="Fecha Contab." CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=FechaContable}"/>
-                                        <DataGridTextColumn Header="Cuenta/Código SN" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Cuenta/CodigoSN}"/>
+                                        <DataGridComboBoxColumn Header="Cuenta/Código SN" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"/>
                                         <DataGridTextColumn Header="Cuenta/Nombre SN" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Cuenta/NombreSN}"/>
                                         <DataGridTextColumn Header="Debe" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaLocal}"/>
                                         <DataGridTextColumn Header="Haber" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaLocal}"/>
-                                        <DataGridTextColumn Header="Debe (MS)" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaSistema}"/>
-                                        <DataGridTextColumn Header="Haber (MS)" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaSistema}"/>
+                                        <DataGridTextColumn Header="Debe (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaSistema}"/>
+                                        <DataGridTextColumn Header="Haber (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaSistema}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>

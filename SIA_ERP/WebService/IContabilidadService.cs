@@ -31,7 +31,7 @@ namespace SIA.Contabilidad.WebService
         bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo);
 
         [OperationContract]
-        bool CrearCuenta(Cuenta pCuenta);
+        bool CrearCuenta(Cuenta pCuenta, string pNombreEmpresa);
     }
 
 }

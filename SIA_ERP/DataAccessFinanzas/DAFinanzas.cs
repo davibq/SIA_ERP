@@ -55,6 +55,25 @@ namespace DataAccessFinanzas
                                                           });
         }
 
+
+        // No me esta sirviendo(no se que recibe seguro o esta dando algo raro) REVISAR SP
+        public bool CrearCuenta(Cuenta pCuenta)
+        {
+            const string quote = "\"";
+                              //<Nombres><Nombre nombre=      "                        "       idioma=      "      es     "       /><Nombre nombre=      "                                        "       idioma=      "      en-US     "       /></Nombres>
+            string nombres = "<Nombres><Nombre nombre=" + quote + pCuenta.Nombre + quote + " idioma=" + quote + "es"+ quote + " /><Nombre nombre=" + quote + pCuenta.NombreIdiomaExtranjero + quote + " idioma=" + quote + "en-US"+ quote + " /></Nombres>";
+            return EjecutarNoConsulta("dbo.ERPSP_ActualizarCuenta", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("Nombre", pCuenta.Nombre),
+                                                              new SqlParameter("Codigo", pCuenta.Codigo),
+                                                              new SqlParameter("Nivel", pCuenta.Nivel),
+                                                              new SqlParameter("Enabled", pCuenta.Enabled),
+                                                              new SqlParameter("CuentaPadre", pCuenta.CuentaPadre),
+                                                              new SqlParameter("Identificador", pCuenta.Identificador),
+                                                              new SqlParameter("Nombres", nombres)
+                                                          });
+        }
+
         #endregion
 
     }
