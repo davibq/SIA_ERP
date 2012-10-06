@@ -36,10 +36,9 @@ namespace Logica
             return daPrincipal.ObtenerEmpresas();
         }
 
-        public string ObtenerMonedas(string pBaseDatos)
+        public string ObtenerMonedas()
         {
-            var daFinanzas = new DAFinanzas(pBaseDatos);
-            return daFinanzas.ObtenerMonedas();
+            return _DataAccess.ObtenerMonedas();
         }
 
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
@@ -71,9 +70,8 @@ namespace Logica
             return false;
         }
 
-        public bool CrearCuenta(Cuenta pCuenta, string pNombreEmpresa)
+        public bool CrearCuenta(Cuenta pCuenta)
         {
-            var daFinanzas = new DAFinanzas(pNombreEmpresa);
             pCuenta.CodigoCuentaPadre = pCuenta.Codigo.Remove(pCuenta.Codigo.LastIndexOf("-"));
             pCuenta.Enabled = 1;
             //dividir el cod en tokens
@@ -110,7 +108,7 @@ namespace Logica
                     break;
             }
 
-            if (daFinanzas.CrearCuenta(pCuenta))
+            if (_DataAccess.CrearCuenta(pCuenta))
             {
                 //_Arbol.crearArbol(pNombreEmpresa);
                 _Arbol.insertarNuevaCuenta(pCuenta);

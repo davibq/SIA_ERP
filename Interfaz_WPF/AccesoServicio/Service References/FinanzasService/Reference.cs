@@ -22,7 +22,7 @@ namespace AccesoServicio.FinanzasService {
         string ObtenerEmpresas();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerMonedas", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerMonedasResponse")]
-        string ObtenerMonedas(string pBaseDatos);
+        string ObtenerMonedas();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/AutenticarUsuario", ReplyAction="http://tempuri.org/IContabilidadService/AutenticarUsuarioResponse")]
         bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa);
@@ -34,7 +34,7 @@ namespace AccesoServicio.FinanzasService {
         bool InsertarNuevaEmpresa(SIA.Libreria.Empresa pEmpresa, byte[] pLogo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearCuenta", ReplyAction="http://tempuri.org/IContabilidadService/CrearCuentaResponse")]
-        bool CrearCuenta(SIA.Libreria.Cuenta pCuenta, string pNombreEmpresa);
+        bool CrearCuenta(SIA.Libreria.Cuenta pCuenta);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -72,8 +72,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.ObtenerEmpresas();
         }
         
-        public string ObtenerMonedas(string pBaseDatos) {
-            return base.Channel.ObtenerMonedas(pBaseDatos);
+        public string ObtenerMonedas() {
+            return base.Channel.ObtenerMonedas();
         }
         
         public bool AutenticarUsuario(SIA.Libreria.Usuario pUsuario, string pNombreEmpresa) {
@@ -88,8 +88,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.InsertarNuevaEmpresa(pEmpresa, pLogo);
         }
         
-        public bool CrearCuenta(SIA.Libreria.Cuenta pCuenta, string pNombreEmpresa) {
-            return base.Channel.CrearCuenta(pCuenta, pNombreEmpresa);
+        public bool CrearCuenta(SIA.Libreria.Cuenta pCuenta) {
+            return base.Channel.CrearCuenta(pCuenta);
         }
     }
 }

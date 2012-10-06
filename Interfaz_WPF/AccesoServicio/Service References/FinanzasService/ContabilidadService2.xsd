@@ -27,8 +27,9 @@
   <xs:complexType name="Cuenta">
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CuentaPadre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoCuentaPadre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Enabled" type="xs:short" />
+      <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Moneda" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nivel" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />

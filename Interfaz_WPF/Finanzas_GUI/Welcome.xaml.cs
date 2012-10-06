@@ -44,7 +44,7 @@ namespace Login_WPF
             ////////////////////////////////////////////////
 
             //cargar monedas para insertar cuentas
-            string monedas = ServicioFinanzas.Instancia.ObtenerMonedas("CocaCola");
+            string monedas = ServicioFinanzas.Instancia.ObtenerMonedas();
             string[] split = monedas.Split(new Char[] { ';' });
             foreach (string s in split)
             {
@@ -106,7 +106,7 @@ namespace Login_WPF
                 NombreIdiomaExtranjero = textBoxNomExtranjero.Text,
                 Moneda = comboBoxMoneda.SelectedItem.ToString()
             };
-            if (ServicioFinanzas.Instancia.CrearCuenta(cuenta,"CocaCola"))
+            if (ServicioFinanzas.Instancia.CrearCuenta(cuenta))
             {
                 MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
                 Reset();

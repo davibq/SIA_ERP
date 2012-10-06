@@ -163,7 +163,11 @@ namespace Login_WPF
                     CedulaJuridica = textBoxCedJuridica.Text,
                     Fax = textBoxFax.Text,
                     Telefono= textBoxTelefono.Text,
-                    Enabled=true
+                    Enabled=true,
+                    NombreMonedaLocal=textBoxNombreMonedaL.Text,
+                    NombreMonedaSistema=textBoxNombreMonedaS.Text,
+                    AcronimoMonedaLocal=textBoxAcronimoMonedaL.Text,
+                    AcronimoMonedaSistema=textBoxAcronimoMonedaS.Text
                 };
 
                 FileStream stream = new FileStream(textBoxRuta.Text, FileMode.OpenOrCreate, FileAccess.Read);

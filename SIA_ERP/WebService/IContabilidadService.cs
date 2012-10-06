@@ -19,7 +19,7 @@ namespace SIA.Contabilidad.WebService
         string ObtenerEmpresas();
 
         [OperationContract]
-        string ObtenerMonedas(string pBaseDatos);
+        string ObtenerMonedas();
 
         [OperationContract]
         bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa);
@@ -31,7 +31,7 @@ namespace SIA.Contabilidad.WebService
         bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo);
 
         [OperationContract]
-        bool CrearCuenta(Cuenta pCuenta, string pNombreEmpresa);
+        bool CrearCuenta(Cuenta pCuenta);
     }
 
 }

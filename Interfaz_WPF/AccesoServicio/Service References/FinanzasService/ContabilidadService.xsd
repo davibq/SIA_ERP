@@ -27,9 +27,7 @@
   </xs:element>
   <xs:element name="ObtenerMonedas">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="pBaseDatos" nillable="true" type="xs:string" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="ObtenerMonedasResponse">
@@ -87,7 +85,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pCuenta" nillable="true" type="q4:Cuenta" />
-        <xs:element minOccurs="0" name="pNombreEmpresa" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
