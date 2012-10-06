@@ -48,7 +48,7 @@ namespace AccesoServicio
 
         public string ObtenerMonedas()
         {
-            return _CSC.ObtenerMonedas();
+            return "";// _CSC.ObtenerMonedas();
         }
 
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)

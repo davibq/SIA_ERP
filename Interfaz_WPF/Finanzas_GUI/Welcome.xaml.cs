@@ -45,6 +45,7 @@ namespace Login_WPF
         private string anio;
         private string FechaInicio;
         private string FechaFin;
+        private bool periodoCreado = false;
 
         public Welcome()
         {
@@ -194,7 +195,7 @@ namespace Login_WPF
 
         private void buttonRealizarCambioPeriodo_Click(object sender, RoutedEventArgs e)
         {
-            if (datePickerMesInicio.SelectedDate == null)
+            if (datePickerMesInicio.SelectedDate == null || comboBoxFinPeriodo.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar un mes de inicio.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -358,6 +359,7 @@ namespace Login_WPF
 
             comboBoxFinPeriodo.Items.Clear();
             comboBoxMeses.Items.Clear();
+            comboBoxMesesAct.Items.Clear();
             switch (mes)
             {
                 case "1":
@@ -678,6 +680,17 @@ namespace Login_WPF
                 ListaMeses[9] = Octubre;
                 ListaMeses[10] = Noviembre;
                 ListaMeses[11] = Diciembre;
+
+                //meter consulta
+                if (true)
+                {
+                    periodoCreado = true;
+                    MessageBox.Show("Creacion del periodo realizada.", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Imposible actualizar el periodo contable", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -693,28 +706,28 @@ namespace Login_WPF
         //ir a la base
         private void buttonCambioPeriodoAct_Click(object sender, RoutedEventArgs e)
         {
-            if (datePickerMesInicio.SelectedDate == null)
+            if (!periodoCreado)
             {
                 MessageBox.Show("Primero debe definir el periodo contable.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                if (comboBoxMeses.SelectedItem == null || comboBoxInicio.SelectedItem == null || comboBoxFin.SelectedItem == null || comboBoxEstado.SelectedItem == null)
+                if (comboBoxMesesAct.SelectedItem == null || comboBoxInicioAct.SelectedItem == null || comboBoxFin.SelectedItem == null || comboBoxEstado.SelectedItem == null)
                 {
                     MessageBox.Show("Datos incompletos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    string mes = comboBoxMeses.SelectedItem.ToString();
+                    string mes = comboBoxMesesAct.SelectedItem.ToString();
                     switch (mes)
                     {
                         case "Enero":
                             Enero = new Mes()
                             {
                                 NombreMes = "Enero",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -722,9 +735,9 @@ namespace Login_WPF
                             Febrero = new Mes()
                             {
                                 NombreMes = "Febrero",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -732,9 +745,9 @@ namespace Login_WPF
                             Marzo = new Mes()
                             {
                                 NombreMes = "Marzo",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -742,9 +755,9 @@ namespace Login_WPF
                             Abril = new Mes()
                             {
                                 NombreMes = "Abril",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -752,9 +765,9 @@ namespace Login_WPF
                             Mayo = new Mes()
                             {
                                 NombreMes = "Mayo",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -762,9 +775,9 @@ namespace Login_WPF
                             Junio = new Mes()
                             {
                                 NombreMes = "Junio",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -772,9 +785,9 @@ namespace Login_WPF
                             Julio = new Mes()
                             {
                                 NombreMes = "Julio",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -782,9 +795,9 @@ namespace Login_WPF
                             Agosto = new Mes()
                             {
                                 NombreMes = "Agosto",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -792,9 +805,9 @@ namespace Login_WPF
                             Septiembre = new Mes()
                             {
                                 NombreMes = "Septiembre",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -802,9 +815,9 @@ namespace Login_WPF
                             Octubre = new Mes()
                             {
                                 NombreMes = "Octubre",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -812,9 +825,9 @@ namespace Login_WPF
                             Noviembre = new Mes()
                             {
                                 NombreMes = "Noviembre",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
 
@@ -822,24 +835,24 @@ namespace Login_WPF
                             Diciembre = new Mes()
                             {
                                 NombreMes = "Diciembre",
-                                FechaInicio = comboBoxInicio.SelectedItem.ToString(),
-                                FechaFin = comboBoxFin.SelectedItem.ToString(),
-                                EstadoMes = comboBoxEstado.SelectedItem.ToString()
+                                FechaInicio = comboBoxInicioAct.SelectedItem.ToString(),
+                                FechaFin = comboBoxFinAct.SelectedItem.ToString(),
+                                EstadoMes = comboBoxEstadoAct.SelectedItem.ToString()
                             };
                             break;
                     }
 
-                    comboBoxFin.SelectedIndex = -1;
-                    comboBoxInicio.SelectedIndex = -1;
-                    comboBoxEstado.SelectedIndex = -1;
-                    comboBoxMeses.SelectedIndex = -1;
+                    comboBoxFinAct.SelectedIndex = -1;
+                    comboBoxInicioAct.SelectedIndex = -1;
+                    comboBoxEstadoAct.SelectedIndex = -1;
+                    comboBoxMesesAct.SelectedIndex = -1;
                 }
             }
         }
         //ir a la base
         private void buttonTerminarAct_Click(object sender, RoutedEventArgs e)
         {
-            if (datePickerMesInicio.SelectedDate == null || comboBoxFinPeriodo.SelectedItem == null)
+            if (!periodoCreado)
             {
                 MessageBox.Show("Primero debe definir un periodo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -967,6 +980,16 @@ namespace Login_WPF
                 ListaMeses[9] = Octubre;
                 ListaMeses[10] = Noviembre;
                 ListaMeses[11] = Diciembre;
+
+                //meter la consulta
+                if (true)
+                {
+                    MessageBox.Show("Actualizacion de los estados realizada.", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Imposible actualizar el periodo contable", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }
