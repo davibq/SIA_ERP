@@ -68,6 +68,8 @@ namespace DataAccessPrincipal
         public bool InsertarNuevaEmpresa(Empresa pEmpresa,byte[] pLogo)
         {
             const string quote = "\"";
+                              //<Modulos><Modulo enabled=      "      1     "        nombre=      "      Finanzas      "       base=      "     ERP_Finanzas        "       /></Modulos>
+            string modulos = "<Modulos><Modulo enabled=" + quote + "1" + quote + " nombre=" + quote + "Finanzas" + quote + " base=" + quote + pEmpresa.Nombre + quote + " /></Modulos>";
             string contactos = "<Contactos><Contacto enabled=" + quote + "1" + quote + " nombre=" + quote + "Telefono" + quote + " valor=" + quote + pEmpresa.Telefono + quote + " /><Contacto enabled=" + quote + "1" + quote + " nombre=" + quote + "Fax" + quote + " valor=" + quote + pEmpresa.Fax + quote + " /></Contactos>";
             return EjecutarNoConsulta("dbo.ERPSP_ActualizarEntidad", new List<SqlParameter>()
                                                           {
@@ -75,7 +77,8 @@ namespace DataAccessPrincipal
                                                               new SqlParameter("Contactos", contactos),
                                                               new SqlParameter("Logo", pLogo),
                                                               new SqlParameter("CedulaJuridica", pEmpresa.CedulaJuridica),
-                                                              new SqlParameter("Enabled", true)
+                                                              new SqlParameter("Enabled", true),
+                                                              new SqlParameter("Modulos", modulos)
                                                           });
         }
     }

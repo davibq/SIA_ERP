@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas", "Pruebas\Pruebas.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{A22FDDB0-5B24-4EA4-A3BD-5AD99C2A421B}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "ERP_Finanzas", "Bases de Datos\ERP_Finanzas\ERP_Finanzas.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "CocaCola", "Bases de Datos\ERP_Finanzas\CocaCola.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
 EndProject
 Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "ERP_Principal", "Bases de Datos\ERP_Principal\ERP_Principal.dbproj", "{0AF37760-5B4C-48CC-B493-2200C99DDF01}"
 EndProject

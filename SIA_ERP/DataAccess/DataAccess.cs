@@ -67,7 +67,7 @@ namespace SIA.DataAccess
                 _Conexion.Open();
                 int resultado=comando.ExecuteNonQuery();
                 _Conexion.Close();
-                return resultado==0;
+                return resultado==-1;
             }
             catch (Exception ex)
             {
