@@ -29,3 +29,16 @@ INSERT INTO dbo.FIN_IdentificadorCuenta(Nombre, Numero) VALUES ('Costos', 5)
 INSERT INTO dbo.FIN_IdentificadorCuenta(Nombre, Numero) VALUES ('Gastos', 6)
 INSERT INTO dbo.FIN_IdentificadorCuenta(Nombre, Numero) VALUES ('Otros Ingresos', 7)
 INSERT INTO dbo.FIN_IdentificadorCuenta(Nombre, Numero) VALUES ('Otros Gastos', 8)
+
+
+-- =============================================
+-- FIN_EstadoMes
+-- =============================================
+-----------------------------------------------------------
+-- Autor: Rmadrigal
+-- Fecha: 28/09/2012
+-- Descripcion: Primeros valores para estado de mes
+-----------------------------------------------------------
+INSERT INTO dbo.FIN_EstadoMes VALUES('Abierto')
+INSERT INTO dbo.FIN_EstadoMes VALUES('Cerrado')
+INSERT INTO dbo.FIN_EstadoMes VALUES('Abierto excepto ventas')
