@@ -55,8 +55,6 @@ namespace DataAccessFinanzas
                                                           });
         }
 
-
-        // No me esta sirviendo(no se que recibe seguro o esta dando algo raro) REVISAR SP
         public bool CrearCuenta(Cuenta pCuenta)
         {
             const string quote = "\"";
@@ -68,7 +66,7 @@ namespace DataAccessFinanzas
                                                               new SqlParameter("Codigo", pCuenta.Codigo),
                                                               new SqlParameter("Nivel", pCuenta.Nivel),
                                                               new SqlParameter("Enabled", pCuenta.Enabled),
-                                                              new SqlParameter("CuentaPadre", pCuenta.CuentaPadre),
+                                                              new SqlParameter("CuentaPadre", pCuenta.CodigoCuentaPadre),
                                                               new SqlParameter("Identificador", pCuenta.Identificador),
                                                               new SqlParameter("Nombres", nombres)
                                                           });

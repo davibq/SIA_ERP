@@ -74,9 +74,9 @@ namespace Logica
         public bool CrearCuenta(Cuenta pCuenta, string pNombreEmpresa)
         {
             var daFinanzas = new DAFinanzas(pNombreEmpresa);
-            pCuenta.CuentaPadre = pCuenta.Codigo.Remove(pCuenta.Codigo.LastIndexOf("-"));
+            pCuenta.CodigoCuentaPadre = pCuenta.Codigo.Remove(pCuenta.Codigo.LastIndexOf("-"));
             pCuenta.Enabled = 1;
-            //dividrir el cod en tokens
+            //dividir el cod en tokens
             char[] delimiterChars = { '-' };
             string[] tokens = pCuenta.Codigo.Split(delimiterChars);
             pCuenta.Nivel = tokens.Length;
@@ -112,8 +112,8 @@ namespace Logica
 
             if (daFinanzas.CrearCuenta(pCuenta))
             {
-                _Arbol.crearArbol(pNombreEmpresa);
-                _Arbol.insertarNuevaCuenta(pCuenta.CuentaPadre,pCuenta.Codigo,pCuenta.Nombre);
+                //_Arbol.crearArbol(pNombreEmpresa);
+                _Arbol.insertarNuevaCuenta(pCuenta);
                 return true;
             }
             return false;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SIA.Libreria;
 
 namespace Logica
 {
@@ -97,12 +98,13 @@ namespace Logica
         }
 
         //procedimiento para insertar una nueva cuenta en el arbolCuentas
-        public void insertarNuevaCuenta(string pCodPadre, string pCodigo, string pNombre)
+        public void insertarNuevaCuenta(Cuenta pCuenta)
         {
             //busca la cuenta padre
-            NodoCuenta cuentaPadre = buscarCuenta(pCodPadre);
+            NodoCuenta cuentaPadre = buscarCuenta(pCuenta.CodigoCuentaPadre);
             //crea la instancia de la nueva cuenta
-            NodoCuenta nuevaCuenta = new NodoCuenta(pCodigo, pNombre,true);
+            NodoCuenta nuevaCuenta = new NodoCuenta(pCuenta.Codigo, pCuenta.Nombre, true);
+            nuevaCuenta.moneda = pCuenta.Moneda;
             nuevaCuenta.cuentaPadre = cuentaPadre;
             //la cuenta padre para a estar desactivada para movimientos
             cuentaPadre.cuentaActiva = false;

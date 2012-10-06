@@ -22,7 +22,7 @@ namespace SIA.Libreria
         public string Moneda { get; set; }
 
         [DataMember]
-        public string CuentaPadre { get; set; }
+        public string CodigoCuentaPadre { get; set; }
 
         [DataMember]
         public string Identificador { get; set; }

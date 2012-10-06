@@ -33,7 +33,7 @@
                                 <Button Content="Agregar" Height="30" HorizontalAlignment="Left" Margin="69,0,0,22" Name="buttonAgregar" VerticalAlignment="Bottom" Width="115" Click="buttonAgregar_Click" />
                                 <TextBlock FontSize="14" Height="30" HorizontalAlignment="Left" Margin="146,139,0,0" Name="textBlockMoneda" Text="Moneda:" VerticalAlignment="Top" Width="60" />
                                 <ComboBox Height="27" HorizontalAlignment="Left" Margin="208,137,0,0" Name="comboBoxMoneda" VerticalAlignment="Top" Width="308" />
-                                <TreeView HorizontalAlignment="Stretch" Margin="67,185,80,74" Name="treeView1" Height="Auto" />
+                                <TreeView HorizontalAlignment="Stretch" Margin="67,185,80,74" Name="treeViewCuentas" Height="Auto" />
                                 <TextBlock FontSize="14" Height="30" HorizontalAlignment="Left" Margin="154,35,0,0" Name="textBlockCodigo" Text="Código:" VerticalAlignment="Top" Width="54" />
                                 <TextBox Height="27" HorizontalAlignment="Left" Margin="208,33,0,0" Name="textBoxCodigo" VerticalAlignment="Top" Width="308" />
                                 <TextBlock FontSize="14" Height="22" HorizontalAlignment="Left" Margin="79,70,0,0" Name="textBlockNomCuenta" Text="Nombre De Cuenta:" VerticalAlignment="Top" Width="127" />

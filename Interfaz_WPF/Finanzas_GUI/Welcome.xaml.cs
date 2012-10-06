@@ -33,14 +33,17 @@ namespace Login_WPF
         public Welcome()
         {
             InitializeComponent();
-            
+
+            //Inicializar DataGrid
             _Coleccion = new ObservableCollection<Asiento>();
             dataGridAgregaAsiento.ItemsSource = _Coleccion;
 
             DataGridComboBoxColumn comboboxColumn = dataGridAgregaAsiento.Columns[2] as DataGridComboBoxColumn;
             comboboxColumn.ItemsSource = _Cuenta;
             //comboboxColumn.
+            ////////////////////////////////////////////////
 
+            //cargar monedas para insertar cuentas
             string monedas = ServicioFinanzas.Instancia.ObtenerMonedas("CocaCola");
             string[] split = monedas.Split(new Char[] { ';' });
             foreach (string s in split)
@@ -50,6 +53,8 @@ namespace Login_WPF
             }
             comboBoxMoneda.Items.Add("TODAS");
             comboBoxMoneda.SelectedIndex = 0;
+            ////////////////////////////////////////////////
+
         }
 
 
