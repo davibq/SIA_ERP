@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIA.ExceptionLog;
 using System.Collections;
+using SIA.Libreria;
 
 namespace SIA.TipoCambio
 {

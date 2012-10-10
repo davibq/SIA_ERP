@@ -7,6 +7,8 @@ using System.ServiceModel.Web;
 using System.Text;
 using SIA.Libreria;
 using Logica;
+using SIA.Contabilidad.Libreria;
+using SIA.TipoCambio;
 
 namespace SIA.Contabilidad.WebService
 {
@@ -23,9 +25,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerEmpresas();
         }
 
-        public string ObtenerMonedas()
+        public string ObtenerMonedas()//string pBaseDatos)
         {
-            return LogicaNegocio.Instancia.ObtenerMonedas();
+            return LogicaNegocio.Instancia.ObtenerMonedas();//pBaseDatos);
         }
 
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
@@ -40,12 +42,44 @@ namespace SIA.Contabilidad.WebService
 
         public bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo)
         {
-            return LogicaNegocio.Instancia.InsertarNuevaEmpresa(pEmpresa,pLogo);
+            return LogicaNegocio.Instancia.InsertarNuevaEmpresa(pEmpresa, pLogo);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)
         {
             return LogicaNegocio.Instancia.CrearCuenta(pCuenta);
+        }
+
+        public bool GuardarPeriodoContable(Mes[] pArregloMeses)
+        {
+            return LogicaNegocio.Instancia.GuardarPeriodoContable(pArregloMeses);
+        }
+
+        public IEnumerable<Cuenta> DemeCuentasHijas()
+        {
+            return LogicaNegocio.Instancia.DemeCuentasHijas();
+        }
+
+        public IEnumerable<Moneda> DemeMonedasCuenta(string pCuenta)
+        {
+            var monedas = LogicaNegocio.Instancia.DemeMonedasCuenta(pCuenta);
+            return monedas;
+        }
+
+
+        public double DemeCambio(Moneda pOrigen, double pValor, Moneda pDestino)
+        {
+            return TiposCambio.Instancia.DemeCambio(pOrigen.TipoMoneda, pValor, pDestino.TipoMoneda);
+        }
+
+        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        {
+            return LogicaNegocio.Instancia.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+        }
+
+        public void InsertarAsiento(Asiento pAs)
+        {
+
         }
     }
 }

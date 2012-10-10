@@ -17,12 +17,21 @@ namespace SIA.Contabilidad.Libreria
         public DateTime FechaContable { get; set; }
 
         [DataMember]
-        public List<Cuenta> CuentasAsociadas { get; set; }         
+        public Cuenta Cuenta { get; set; }
 
         [DataMember]
         public double DebeMonedaSistema { get; set; }
 
         [DataMember]
         public double HaberMonedaSistema { get; set; }
+
+        [DataMember]
+        public double DebeMonedaOtra { get; set; }
+
+        [DataMember]
+        public double HaberMonedaOtra { get; set; }
+
+        [DataMember]
+        public string MonedaAcronimo { get; set; }
     }
 }

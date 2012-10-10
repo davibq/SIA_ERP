@@ -31,6 +31,6 @@ namespace SIA.Libreria
         public int Nivel { get; set; }
 
         [DataMember]
-        public Int16 Enabled { get; set; }
+        public bool Enabled { get; set; }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AccesoServicio.FinanzasService;
-using SIA.Libreria;
 
 namespace AccesoServicio
 {
@@ -14,7 +13,8 @@ namespace AccesoServicio
             _CSC = new ContabilidadServiceClient();
         }
 
-        ~ServicioFinanzas(){
+        ~ServicioFinanzas()
+        {
             _CSC.Close();
         }
 
@@ -44,11 +44,11 @@ namespace AccesoServicio
         public string ObtenerEmpresas()
         {
             return _CSC.ObtenerEmpresas();
-        }        
+        }
 
-        public string ObtenerMonedas()
+        public string ObtenerMonedas()//string pBaseDatos)
         {
-            return _CSC.ObtenerMonedas();
+            return _CSC.ObtenerMonedas();//pBaseDatos);
         }
 
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
@@ -63,7 +63,7 @@ namespace AccesoServicio
 
         public bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo)
         {
-            return _CSC.InsertarNuevaEmpresa(pEmpresa,pLogo);
+            return _CSC.InsertarNuevaEmpresa(pEmpresa, pLogo);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)
@@ -71,9 +71,29 @@ namespace AccesoServicio
             return _CSC.CrearCuenta(pCuenta);
         }
 
+        public IEnumerable<Cuenta> DemeCuentasHijas()
+        {
+            return _CSC.DemeCuentasHijas();
+        }
+
+        public IEnumerable<Moneda> DemeMonedasCuenta(string pCuenta)
+        {
+            return _CSC.DemeMonedasCuenta(pCuenta);
+        }
+
+        public double DemeCambio(Moneda pOrigen, double pValor, Moneda pDestino)
+        {
+            return _CSC.DemeCambio(pOrigen, pValor, pDestino);
+        }
+
+        public bool InsertarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        {
+            return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;
-        private static object _Lock=new object();
+        private static object _Lock = new object();
     }
 }

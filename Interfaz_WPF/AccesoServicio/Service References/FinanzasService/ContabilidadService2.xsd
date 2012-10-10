@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SIA.Libreria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SIA.Libreria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" />
   <xs:complexType name="Usuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="Apellido1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Apellido2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="_Password" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="_PasswordStr" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
@@ -28,7 +31,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoCuentaPadre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Enabled" type="xs:short" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
       <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Moneda" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nivel" type="xs:int" />
@@ -37,4 +40,40 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cuenta" nillable="true" type="tns:Cuenta" />
+  <xs:complexType name="ArrayOfMes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Mes" nillable="true" type="tns:Mes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMes" nillable="true" type="tns:ArrayOfMes" />
+  <xs:complexType name="Mes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EstadoMes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaFin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaInicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreMes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Mes" nillable="true" type="tns:Mes" />
+  <xs:complexType name="ArrayOfCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cuenta" nillable="true" type="tns:Cuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCuenta" nillable="true" type="tns:ArrayOfCuenta" />
+  <xs:complexType name="ArrayOfMoneda">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Moneda" nillable="true" type="tns:Moneda" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoneda" nillable="true" type="tns:ArrayOfMoneda" />
+  <xs:complexType name="Moneda">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Acronimo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" minOccurs="0" name="TipoMoneda" type="q1:MonedasValidas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Moneda" nillable="true" type="tns:Moneda" />
 </xs:schema>

@@ -186,10 +186,6 @@
     <Resource Include="Images\icon_erp.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DataContracts\Libreria\Libreria.csproj">
-      <Project>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</Project>
-      <Name>Libreria</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AccesoServicio\AccesoServicio.csproj">
       <Project>{CE15780C-DD38-41BD-8DCC-8139520B1613}</Project>
       <Name>AccesoServicio</Name>

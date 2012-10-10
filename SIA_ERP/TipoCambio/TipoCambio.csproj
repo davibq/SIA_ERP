@@ -74,7 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MonedasValidas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\BCCRWebService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -110,6 +109,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DataContracts\Libreria\Libreria.csproj">
+      <Project>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</Project>
+      <Name>Libreria</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExceptionLog\ExceptionLog.csproj">
       <Project>{A29707C3-89B6-42EE-9CDB-19712D3AA490}</Project>
       <Name>ExceptionLog</Name>

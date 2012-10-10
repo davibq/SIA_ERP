@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria" />
+  <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" />
   <xs:element name="Saludar">
     <xs:complexType>
       <xs:sequence />
@@ -93,6 +94,91 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="CrearCuentaResult" type="xs:boolean" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GuardarPeriodoContable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pArregloMeses" nillable="true" type="q5:ArrayOfMes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GuardarPeriodoContableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GuardarPeriodoContableResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DemeCuentasHijas">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DemeCuentasHijasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="DemeCuentasHijasResult" nillable="true" type="q6:ArrayOfCuenta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DemeMonedasCuenta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pCuenta" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DemeMonedasCuentaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="DemeMonedasCuentaResult" nillable="true" type="q7:ArrayOfMoneda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DemeCambio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pOrigen" nillable="true" type="q8:Moneda" />
+        <xs:element minOccurs="0" name="pValor" type="xs:double" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pDestino" nillable="true" type="q9:Moneda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DemeCambioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DemeCambioResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarAsiento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Fecha" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MontoDebe" type="xs:double" />
+        <xs:element minOccurs="0" name="MontoHaber" type="xs:double" />
+        <xs:element minOccurs="0" name="pXML" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarAsientoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarAsientoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertarAsiento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" minOccurs="0" name="pAs" nillable="true" type="q10:Asiento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertarAsientoResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

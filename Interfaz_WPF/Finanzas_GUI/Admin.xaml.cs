@@ -15,7 +15,6 @@ using System.Text.RegularExpressions;
 using System.IO;
 using AccesoServicio;
 using AccesoServicio.FinanzasService;
-using SIA.Libreria;
 
 namespace Login_WPF
 {

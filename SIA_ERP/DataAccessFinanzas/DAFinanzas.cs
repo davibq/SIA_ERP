@@ -7,7 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using SIA.Libreria;
-
+using SIA.TipoCambio;
 
 namespace DataAccessFinanzas
 {
@@ -69,6 +69,87 @@ namespace DataAccessFinanzas
                                                               new SqlParameter("CuentaPadre", pCuenta.CodigoCuentaPadre),
                                                               new SqlParameter("Identificador", pCuenta.Identificador),
                                                               new SqlParameter("Nombres", nombres)
+                                                          });
+        }
+
+        public bool GuardarPeriodoContable(Mes[] pMeses)
+        {
+            string xml = "<Meses>";
+            foreach (var mes in pMeses)
+            {
+                xml += string.Format("<Mes Nombre=\"{0}\" FechaInicio=\"{1}\" FechaFin=\"{2}\" Estado=\"{3}\"/>",
+                    mes.NombreMes, mes.FechaInicio, mes.FechaFin, mes.EstadoMes);
+            }
+            xml += "</Meses>";
+            return EjecutarNoConsulta("dbo.InsertarPeriodoContable", new List<SqlParameter>()
+            {
+                new SqlParameter("ListaMeses", xml)
+            });
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentas()
+        {
+            var cuentas = new List<Cuenta>();
+            var ds = EjecutarConsulta("dbo.ERPSP_ObtenerCatalogoCuentas", new List<SqlParameter>()
+            {
+                new SqlParameter("Entidad", ":D:D:D:D")
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var cuenta = new Cuenta();
+                    cuenta.CodigoCuentaPadre = row["IdCuentaPadre"].ToString();
+                    cuenta.Nombre = row["NombreCuenta"].ToString();
+                    cuenta.Codigo = row["CodigoCuenta"].ToString();
+                    cuenta.Nivel = int.Parse(row["NivelCuenta"].ToString());
+                    cuenta.Identificador = row["NombreIdentificador"].ToString();
+                    /*cuenta.Saldo = double.Parse(row["SaldoCuenta"].ToString());
+                    cuenta.Moneda = new Moneda()
+                    {
+                        Nombre = row["NombreMoneda"].ToString(),
+                        Acronimo = row["AcronimoMoneda"].ToString(),
+                        Tipo = row["MonedaAplica"].ToString()
+                    };*/
+                    cuentas.Add(cuenta);
+                }
+            }
+            return cuentas;
+        }
+
+        public IEnumerable<Moneda> DemeMonedas(string pNombreCuenta)
+        {
+            var ds = EjecutarConsulta("dbo.ObtenterMonedasCuenta", new List<SqlParameter>()
+            {
+                new SqlParameter("pNombreCuenta", pNombreCuenta)
+            });
+            var monedas = new List<Moneda>();
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var moneda = new Moneda();
+                    moneda.Nombre = row[0].ToString();
+                    moneda.TipoMoneda = (MonedasValidas)(int.Parse(row[1].ToString()));
+                    monedas.Add(moneda);
+                }
+            }
+            return monedas;
+        }
+
+        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        {
+            return EjecutarNoConsulta("dbo.ERPSP_ActualizarAsiento", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("IdAsiento", -1),
+                                                              new SqlParameter("Fecha", Fecha),
+                                                              new SqlParameter("MontoDebe", MontoDebe),
+                                                              new SqlParameter("MontoHaber", MontoHaber),
+                                                              new SqlParameter("Referencia1", "-"),
+                                                              new SqlParameter("Referencia2", "-"),
+                                                              new SqlParameter("Enabled", true),
+                                                              new SqlParameter("Cuenta", pXML),
+                                                              new SqlParameter("TipoAsiento", "AS")
                                                           });
         }
 

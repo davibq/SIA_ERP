@@ -16,7 +16,6 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using AccesoServicio;
 using AccesoServicio.FinanzasService;
-using SIA.Libreria;
 
 namespace Login_WPF
 {

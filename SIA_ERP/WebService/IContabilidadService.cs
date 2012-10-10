@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using SIA.Libreria;
+using SIA.Contabilidad.Libreria;
 
 namespace SIA.Contabilidad.WebService
 {
@@ -19,7 +20,7 @@ namespace SIA.Contabilidad.WebService
         string ObtenerEmpresas();
 
         [OperationContract]
-        string ObtenerMonedas();
+        string ObtenerMonedas();//string pBaseDatos);
 
         [OperationContract]
         bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa);
@@ -32,6 +33,24 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         bool CrearCuenta(Cuenta pCuenta);
+
+        [OperationContract]
+        bool GuardarPeriodoContable(Mes[] pArregloMeses);
+
+        [OperationContract]
+        IEnumerable<Cuenta> DemeCuentasHijas();
+
+        [OperationContract]
+        IEnumerable<Moneda> DemeMonedasCuenta(string pCuenta);
+
+        [OperationContract]
+        double DemeCambio(Moneda pOrigen, double pValor, Moneda pDestino);
+
+        [OperationContract]
+        bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML);
+
+        [OperationContract]
+        void InsertarAsiento(Asiento pAs);
     }
 
 }

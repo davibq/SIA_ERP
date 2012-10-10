@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanzasGUI", "Finanzas_GUI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoServicio", "AccesoServicio\AccesoServicio.csproj", "{CE15780C-DD38-41BD-8DCC-8139520B1613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria", "..\DataContracts\Libreria\Libreria.csproj", "{FB259A9F-E35D-42AA-8453-85D3CAA52F63}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,16 +35,6 @@ Global
 		{CE15780C-DD38-41BD-8DCC-8139520B1613}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CE15780C-DD38-41BD-8DCC-8139520B1613}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CE15780C-DD38-41BD-8DCC-8139520B1613}.Release|x86.ActiveCfg = Release|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{FB259A9F-E35D-42AA-8453-85D3CAA52F63}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

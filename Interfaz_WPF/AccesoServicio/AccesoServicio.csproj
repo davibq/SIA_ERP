@@ -52,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Cuenta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Moneda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FinanzasService\ContabilidadService.wsdl" />
     <None Include="Service References\FinanzasService\ContabilidadService.xsd">
       <SubType>Designer</SubType>
@@ -79,16 +85,16 @@
     <None Include="Service References\FinanzasService\ContabilidadService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\FinanzasService\ContabilidadService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FinanzasService\ContabilidadService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\FinanzasService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DataContracts\Libreria\Libreria.csproj">
-      <Project>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</Project>
-      <Name>Libreria</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,8 +15,6 @@ using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
 using AccesoServicio;
 using AccesoServicio.FinanzasService;
-using SIA.Libreria;
-using SIA.Contabilidad.Libreria;
 
 namespace Login_WPF
 {
@@ -30,6 +28,7 @@ namespace Login_WPF
         private ObservableCollection<Asiento> _Coleccion;
         private ObservableCollection<Cuenta> _Cuenta;
 
+        // Xq no hacer un Mes[12]?
         public Mes Enero = new Mes { FechaInicio = null };
         public Mes Febrero = new Mes { FechaInicio = null };
         public Mes Marzo = new Mes { FechaInicio = null };
@@ -131,18 +130,7 @@ namespace Login_WPF
                 MessageBox.Show("Error al intentar crear la cuenta");
         }
 
-        private void buttonGuardarAsiento_Click(object sender, RoutedEventArgs e)
-        {
-            string message = "Desea guardar el asiento creado?";
-            string caption = "Confirmación";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Question;
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
-            {
-
-            }
-        }
-
+        
         private void buttonAnularAsiento_Click(object sender, RoutedEventArgs e)
         {
             string message = "Esta seguro que desea anular el asiento seleccionado?";
@@ -925,6 +913,18 @@ namespace Login_WPF
 
                 mes = datePickerMesInicio.DisplayDate.Month.ToString();
 
+                int mesInt;
+                if (int.TryParse(mes, out mesInt)){
+                    if (mesInt == 2)
+                    {
+                        FechaFin = "12";
+                    }
+                    else
+                    {
+                        FechaFin = (mesInt - 1).ToString();
+                    }
+                }
+                /* ¿Es igual q lo de arriba?
                 switch (mes)
                 {
                     case "1":
@@ -964,7 +964,7 @@ namespace Login_WPF
                         FechaFin = "11";
                         break;
                 }
-
+                */
                 FechaInicio = datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Year;
                 FechaFin = FechaFin + "/" + comboBoxFinPeriodo.SelectedItem + "/" + anio;
 
@@ -992,5 +992,71 @@ namespace Login_WPF
                 }
             }
         }
+
+        private void cmdAgregarCuenta_Click(object sender, RoutedEventArgs e)
+        {
+            var asiento = new Asiento();
+            asiento.Cuenta = (Cuenta)_CmbCuentas.SelectedItem;
+            if (_txtHaber.Text.Length > 0)
+            {
+                asiento.HaberMonedaOtra = double.Parse(_txtHaber.Text);
+                asiento.HaberMonedaSistema = ServicioFinanzas.Instancia.DemeCambio(
+                    (Moneda)_CmbMonedas.SelectedItem, double.Parse(_txtHaber.Text),
+                    new Moneda()
+                    {
+                        Nombre = "Colon",
+                        TipoMoneda = MonedasValidas.Colon
+                    });
+            }
+            else
+            {
+                asiento.DebeMonedaOtra = double.Parse(_txtDebe.Text);
+                asiento.DebeMonedaSistema = ServicioFinanzas.Instancia.DemeCambio(
+                    (Moneda)_CmbMonedas.SelectedItem, double.Parse(_txtDebe.Text),
+                    new Moneda()
+                    {
+                        Nombre = "Colon",
+                        TipoMoneda = MonedasValidas.Colon
+                    });
+            }
+            asiento.MonedaAcronimo = ((Moneda)_CmbMonedas.SelectedItem).Acronimo;
+            _Coleccion.Add(asiento);
+            dataGridAgregaAsiento.Items.Refresh();
+        }
+
+        private void buttonGuardarAsiento_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Desea guardar el asiento creado?";
+            string caption = "Confirmación";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+            {
+                string xml = "<Cuentas>";
+                double montoDebe = 0, montoHaber = 0;
+                foreach (var item in _Coleccion)
+                {
+                    /*      <Cuentas>
+                      --		<Cuenta monto="10000.00" moneda="CRC" cuenta="" debe="0"/>
+                      --		<Cuenta monto="5490.98" moneda="CRC" cuenta="" debe="1"/>
+                      --  </Cuentas>*/
+                    xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                        (item.DebeMonedaSistema != null ? item.DebeMonedaSistema.ToString() : item.HaberMonedaSistema.ToString()),
+                        item.MonedaAcronimo, item.Cuenta.Codigo, item.DebeMonedaSistema != null);
+                    montoDebe += (item.DebeMonedaSistema != null ? item.DebeMonedaSistema : 0);
+                    montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);
+                }
+                xml += "</Cuentas>";
+                ServicioFinanzas.Instancia.InsertarAsiento(fechaAsiento.SelectedDate.Value.ToShortDateString(),
+                    montoDebe, montoHaber, xml);
+            }
+        }
+
+        private void _CmbCuentas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var monedas = ServicioFinanzas.Instancia.DemeMonedasCuenta(((Cuenta)_CmbCuentas.SelectedItem).Nombre);
+            _CmbMonedas.ItemsSource = monedas;
+        }
+
     }
 }

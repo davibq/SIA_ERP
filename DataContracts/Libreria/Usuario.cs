@@ -23,15 +23,21 @@ namespace SIA.Libreria
         [DataMember]
         public string Apellido2 { get; set; }
 
+        [DataMember]
         public string Password
         {
             set
             {
+                _PasswordStr = value;
                 Stream memStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(value), false);
                 if ((memStream != null) && (memStream.Length > 0))
                 {
                     _Password = MD5.Create().ComputeHash(memStream);
                 }
+            }
+            get
+            {
+                return _PasswordStr;
             }
         }
 
@@ -45,5 +51,7 @@ namespace SIA.Libreria
 
         [DataMember]
         private byte[] _Password;
+        [DataMember]
+        private string _PasswordStr;
     }
 }

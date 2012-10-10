@@ -109,6 +109,10 @@
       <Project>{A22FDDB0-5B24-4EA4-A3BD-5AD99C2A421B}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TipoCambio\TipoCambio.csproj">
+      <Project>{1E890B42-E86B-430C-AE87-37393D19FA84}</Project>
+      <Name>TipoCambio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
