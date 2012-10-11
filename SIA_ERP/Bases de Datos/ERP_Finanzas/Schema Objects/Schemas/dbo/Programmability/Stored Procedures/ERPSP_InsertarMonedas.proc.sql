@@ -4,7 +4,7 @@
 -- Descripcion: Inserta monedas en caso de existir
 -- @Monedas: Si es vacio se ignora, sino inserta si no existe la cuenta
 -- '<Monedas>
---		<Moneda nombre="Colon" acronimo="CRC" esLocal="1" esSistema="0"/>
+--		<Moneda nombre="Colon" acronimo="CRC" esLocal="1" esSistema="0" idBCCR="1"/>
 --		<Moneda nombre="Dólar" acronimo="USD" esLocal="0" esSistema="1"/>
 --  </Monedas>'
 -----------------------------------------------------------
@@ -35,12 +35,13 @@ BEGIN
 		SET @XmlMonedas = @Monedas
 		
 		IF (LEN(@Monedas)>0) BEGIN
-			INSERT INTO dbo.FIN_Moneda (Nombre, Acronimo, EsLocal, EsSistema)
-				SELECT Monedas.XmlNombre Nombre, Monedas.XmlAcronimo Acronimo, Monedas.XmlLocal EsLocal, Monedas.XmlSistema EsSistema FROM(
+			INSERT INTO dbo.FIN_Moneda (Nombre, Acronimo, EsLocal, EsSistema, idBCCR)
+				SELECT Monedas.XmlNombre Nombre, Monedas.XmlAcronimo Acronimo, Monedas.XmlLocal EsLocal, Monedas.XmlSistema EsSistema, Monedas.XmlIdBCCR idBCCR FROM(
 					SELECT Monedas.Moneda.value('@nombre', 'VARCHAR(20)') XmlNombre,
 						   Monedas.Moneda.value('@acronimo', 'VARCHAR(3)') XmlAcronimo,
 						   Monedas.Moneda.value('@esLocal', 'BIT') XmlLocal,
-						   Monedas.Moneda.value('@esSistema', 'BIT') XmlSistema
+						   Monedas.Moneda.value('@esSistema', 'BIT') XmlSistema,
+                           Monedas.Moneda.value('@idBCCR', 'INT') XMLIdBCCR
 					FROM @XmlMonedas.nodes('/Monedas/Moneda') AS Monedas(Moneda)
 				) AS Monedas
 				WHERE Monedas.XmlAcronimo NOT IN 

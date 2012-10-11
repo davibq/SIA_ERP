@@ -28,6 +28,15 @@ namespace Login_WPF
         public Admin()
         {
             InitializeComponent();
+
+            foreach (MonedasValidas moneda in Enum.GetValues(typeof(MonedasValidas)))
+            {
+                CMBMonedaLocal.Items.Add(moneda);
+                CMBMonedaSistema.Items.Add(moneda);
+            }
+            CMBMonedaSistema.SelectedIndex = 1;
+            CMBMonedaLocal.SelectedIndex = 0;
+
             string empresas = ServicioFinanzas.Instancia.ObtenerEmpresas();
             string[] split = empresas.Split(new Char[] { ';' });
             foreach (string s in split)
@@ -90,8 +99,6 @@ namespace Login_WPF
             textBoxFax.Text = "";
             textBoxCedJuridica.Text = "";
             textBoxRuta.Text = "";
-            textBoxNombreMonedaL.Text = "";
-            textBoxNombreMonedaS.Text = "";
             textBoxAcronimoMonedaL.Text = "";
             textBoxAcronimoMonedaS.Text = "";
         }
@@ -130,22 +137,10 @@ namespace Login_WPF
                 textBoxRuta.Focus();
             }
 
-            else if (textBoxNombreMonedaL.Text.Length == 0)
-            {
-                errormessage.Text = "Ingrese un nombre para la moneda local";
-                textBoxNombreMonedaL.Focus();
-            }
-
             else if (textBoxAcronimoMonedaL.Text.Length == 0)
             {
                 errormessage.Text = "Ingrese un acrónimo para la moneda local";
                 textBoxAcronimoMonedaL.Focus();
-            }
-
-            else if (textBoxNombreMonedaS.Text.Length == 0)
-            {
-                errormessage.Text = "Ingrese un nombre para la moneda del sistema";
-                textBoxNombreMonedaS.Focus();
             }
 
             else if (textBoxAcronimoMonedaS.Text.Length == 0)
@@ -163,8 +158,8 @@ namespace Login_WPF
                     Fax = textBoxFax.Text,
                     Telefono= textBoxTelefono.Text,
                     Enabled=true,
-                    NombreMonedaLocal=textBoxNombreMonedaL.Text,
-                    NombreMonedaSistema=textBoxNombreMonedaS.Text,
+                    NombreMonedaLocal=CMBMonedaLocal.SelectedItem.ToString(),
+                    NombreMonedaSistema = CMBMonedaSistema.SelectedItem.ToString(),
                     AcronimoMonedaLocal=textBoxAcronimoMonedaL.Text,
                     AcronimoMonedaSistema=textBoxAcronimoMonedaS.Text
                 };

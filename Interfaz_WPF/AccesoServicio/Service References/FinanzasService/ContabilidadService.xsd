@@ -82,10 +82,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="InsertarNuevaMoneda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pMoneda" nillable="true" type="q4:Moneda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertarNuevaMonedaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertarNuevaMonedaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CrearCuenta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pCuenta" nillable="true" type="q4:Cuenta" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pCuenta" nillable="true" type="q5:Cuenta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -99,7 +113,7 @@
   <xs:element name="GuardarPeriodoContable">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pArregloMeses" nillable="true" type="q5:ArrayOfMes" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pArregloMeses" nillable="true" type="q6:ArrayOfMes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -118,7 +132,7 @@
   <xs:element name="DemeCuentasHijasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="DemeCuentasHijasResult" nillable="true" type="q6:ArrayOfCuenta" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="DemeCuentasHijasResult" nillable="true" type="q7:ArrayOfCuenta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -132,16 +146,16 @@
   <xs:element name="DemeMonedasCuentaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="DemeMonedasCuentaResult" nillable="true" type="q7:ArrayOfMoneda" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="DemeMonedasCuentaResult" nillable="true" type="q8:ArrayOfMoneda" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DemeCambio">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pOrigen" nillable="true" type="q8:Moneda" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pOrigen" nillable="true" type="q9:Moneda" />
         <xs:element minOccurs="0" name="pValor" type="xs:double" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pDestino" nillable="true" type="q9:Moneda" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pDestino" nillable="true" type="q10:Moneda" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -172,7 +186,7 @@
   <xs:element name="InsertarAsiento">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" minOccurs="0" name="pAs" nillable="true" type="q10:Asiento" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" minOccurs="0" name="pAs" nillable="true" type="q11:Asiento" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

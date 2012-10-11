@@ -25,9 +25,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerEmpresas();
         }
 
-        public string ObtenerMonedas()//string pBaseDatos)
+        public string ObtenerMonedas()
         {
-            return LogicaNegocio.Instancia.ObtenerMonedas();//pBaseDatos);
+            return LogicaNegocio.Instancia.ObtenerMonedas();
         }
 
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
@@ -43,6 +43,11 @@ namespace SIA.Contabilidad.WebService
         public bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo)
         {
             return LogicaNegocio.Instancia.InsertarNuevaEmpresa(pEmpresa, pLogo);
+        }
+
+        public bool InsertarNuevaMoneda(Moneda pMoneda)
+        {
+            return LogicaNegocio.Instancia.InsertarNuevaMoneda(pMoneda);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)

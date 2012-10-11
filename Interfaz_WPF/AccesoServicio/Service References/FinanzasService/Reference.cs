@@ -329,6 +329,246 @@ namespace AccesoServicio.FinanzasService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Moneda", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
+    [System.SerializableAttribute()]
+    public partial class Moneda : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AcronimoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.MonedasValidas TipoMonedaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idBCCRField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Acronimo {
+            get {
+                return this.AcronimoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AcronimoField, value) != true)) {
+                    this.AcronimoField = value;
+                    this.RaisePropertyChanged("Acronimo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.MonedasValidas TipoMoneda {
+            get {
+                return this.TipoMonedaField;
+            }
+            set {
+                if ((this.TipoMonedaField.Equals(value) != true)) {
+                    this.TipoMonedaField = value;
+                    this.RaisePropertyChanged("TipoMoneda");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idBCCR {
+            get {
+                return this.idBCCRField;
+            }
+            set {
+                if ((this.idBCCRField.Equals(value) != true)) {
+                    this.idBCCRField = value;
+                    this.RaisePropertyChanged("idBCCR");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MonedasValidas", Namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio")]
+    public enum MonedasValidas : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Colon = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar = 317,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Yen_Japones = 325,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Franco_suizo = 326,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar_canadiense = 328,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Libra_esterlina = 330,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Peso_mexicano = 332,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Euro = 333,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Corona_sueca = 335,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Won_coreano = 337,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Quetzal_guatemalteco = 338,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Lempira_hondureño = 339,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Cordoba_nicaragüense = 340,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Corona_danesa = 342,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Corona_noruega = 343,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Peso_argentino = 344,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Peso_colombiano = 345,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Real_brasilero = 346,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unidad_de_Desarrollo = 347,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Peso_Republica_Dominicana = 3043,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bolivar_Venezolano = 3051,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar_de_Hong_Kong = 3052,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar_de_Taiwan = 3053,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Peso_Boliviano = 3054,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Peso_Chileno = 3055,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Rublo_Ruso = 3056,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Sol_Peruano = 3057,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Yuan_Chino = 3364,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Zloty_de_Polonia = 3430,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar_Australiano = 3433,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Rupia_de_Sri_Lanka = 20873,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bangladesh_Taka = 21251,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bath_Tailandia = 21262,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Rupiah_Indonesia = 21263,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dirham_Emiratos_Arabes_Unidos = 21264,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dirham_Marroquí = 21265,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Shekel_Israelí = 21266,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Rupee_India = 21267,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Libre_Egipcia = 21268,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar_de_Nueva_Zelandia = 21269,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar_de_Singapur = 21270,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dong_Vietnamita = 21766,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -579,230 +819,6 @@ namespace AccesoServicio.FinanzasService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Moneda", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
-    [System.SerializableAttribute()]
-    public partial class Moneda : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AcronimoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccesoServicio.FinanzasService.MonedasValidas TipoMonedaField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Acronimo {
-            get {
-                return this.AcronimoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AcronimoField, value) != true)) {
-                    this.AcronimoField = value;
-                    this.RaisePropertyChanged("Acronimo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo {
-            get {
-                return this.TipoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
-                    this.TipoField = value;
-                    this.RaisePropertyChanged("Tipo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccesoServicio.FinanzasService.MonedasValidas TipoMoneda {
-            get {
-                return this.TipoMonedaField;
-            }
-            set {
-                if ((this.TipoMonedaField.Equals(value) != true)) {
-                    this.TipoMonedaField = value;
-                    this.RaisePropertyChanged("TipoMoneda");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MonedasValidas", Namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio")]
-    public enum MonedasValidas : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Colon = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar = 317,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Yen_Japones = 325,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Franco_suizo = 326,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar_canadiense = 328,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Libra_esterlina = 330,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Peso_mexicano = 332,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Euro = 333,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Corona_sueca = 335,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Won_coreano = 337,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Quetzal_guatemalteco = 338,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Lempira_hondureño = 339,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Cordoba_nicaragüense = 340,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Corona_danesa = 342,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Corona_noruega = 343,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Peso_argentino = 344,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Peso_colombiano = 345,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Real_brasilero = 346,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Unidad_de_Desarrollo = 347,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Peso_Republica_Dominicana = 3043,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Bolivar_Venezolano = 3051,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar_de_Hong_Kong = 3052,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar_de_Taiwan = 3053,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Peso_Boliviano = 3054,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Peso_Chileno = 3055,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Rublo_Ruso = 3056,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Sol_Peruano = 3057,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Yuan_Chino = 3364,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Zloty_de_Polonia = 3430,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar_Australiano = 3433,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Rupia_de_Sri_Lanka = 20873,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Bangladesh_Taka = 21251,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Bath_Tailandia = 21262,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Rupiah_Indonesia = 21263,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dirham_Emiratos_Arabes_Unidos = 21264,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dirham_Marroquí = 21265,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Shekel_Israelí = 21266,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Rupee_India = 21267,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Libre_Egipcia = 21268,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar_de_Nueva_Zelandia = 21269,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar_de_Singapur = 21270,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dong_Vietnamita = 21766,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Asiento", Namespace="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria")]
     [System.SerializableAttribute()]
     public partial class Asiento : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -980,6 +996,9 @@ namespace AccesoServicio.FinanzasService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresa", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresaResponse")]
         bool InsertarNuevaEmpresa(AccesoServicio.FinanzasService.Empresa pEmpresa, byte[] pLogo);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarNuevaMoneda", ReplyAction="http://tempuri.org/IContabilidadService/InsertarNuevaMonedaResponse")]
+        bool InsertarNuevaMoneda(AccesoServicio.FinanzasService.Moneda pMoneda);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearCuenta", ReplyAction="http://tempuri.org/IContabilidadService/CrearCuentaResponse")]
         bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta);
         
@@ -1051,6 +1070,10 @@ namespace AccesoServicio.FinanzasService {
         
         public bool InsertarNuevaEmpresa(AccesoServicio.FinanzasService.Empresa pEmpresa, byte[] pLogo) {
             return base.Channel.InsertarNuevaEmpresa(pEmpresa, pLogo);
+        }
+        
+        public bool InsertarNuevaMoneda(AccesoServicio.FinanzasService.Moneda pMoneda) {
+            return base.Channel.InsertarNuevaMoneda(pMoneda);
         }
         
         public bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta) {

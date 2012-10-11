@@ -27,6 +27,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Empresa" nillable="true" type="tns:Empresa" />
+  <xs:complexType name="Moneda">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Acronimo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" minOccurs="0" name="TipoMoneda" type="q1:MonedasValidas" />
+      <xs:element minOccurs="0" name="idBCCR" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Moneda" nillable="true" type="tns:Moneda" />
   <xs:complexType name="Cuenta">
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
@@ -67,13 +77,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfMoneda" nillable="true" type="tns:ArrayOfMoneda" />
-  <xs:complexType name="Moneda">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Acronimo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" minOccurs="0" name="TipoMoneda" type="q1:MonedasValidas" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Moneda" nillable="true" type="tns:Moneda" />
 </xs:schema>

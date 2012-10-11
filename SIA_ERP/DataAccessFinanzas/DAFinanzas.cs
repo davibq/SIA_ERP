@@ -45,10 +45,20 @@ namespace DataAccessFinanzas
             return string.Empty;
         }
 
-        public bool InsertarMonedas(Empresa pEmpresa)
+        public bool InsertarMonedasConfiguracion(Empresa pEmpresa)
         {
             const string quote = "\"";
             string monedas = "<Monedas><Moneda nombre="+quote+pEmpresa.NombreMonedaLocal+quote+" acronimo="+quote+pEmpresa.AcronimoMonedaLocal+quote+" esLocal="+quote+"1"+quote+" esSistema="+quote+"0"+quote+"/><Moneda nombre="+quote+pEmpresa.NombreMonedaSistema+quote+" acronimo="+quote+pEmpresa.AcronimoMonedaSistema+quote+" esLocal="+quote+"0"+quote+" esSistema="+quote+"1"+quote+"/></Monedas>";
+            return EjecutarNoConsulta("dbo.ERPSP_InsertarMonedas", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("Monedas", monedas)
+                                                          });
+        }
+
+        public bool InsertarMonedas(Moneda pMoneda)
+        {
+            const string quote = "\"";
+            string monedas = "<Monedas><Moneda nombre=" + quote + pMoneda.Nombre + quote + " acronimo=" + quote + pMoneda.Acronimo + quote + " esLocal=" + quote + "0" + quote + " esSistema=" + quote + "0" + quote + " idBCCR=" + quote + pMoneda.idBCCR + quote + "/></Monedas>";
             return EjecutarNoConsulta("dbo.ERPSP_InsertarMonedas", new List<SqlParameter>()
                                                           {
                                                               new SqlParameter("Monedas", monedas)
@@ -92,7 +102,7 @@ namespace DataAccessFinanzas
             var cuentas = new List<Cuenta>();
             var ds = EjecutarConsulta("dbo.ERPSP_ObtenerCatalogoCuentas", new List<SqlParameter>()
             {
-                new SqlParameter("Entidad", ":D:D:D:D")
+                //new SqlParameter("Entidad", ":D:D:D:D")
             });
             if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
             {

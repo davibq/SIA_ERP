@@ -19,14 +19,14 @@
                     <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="111,161,0,0" Name="textBlockCedJuridica" Text="Cédula Jurídica:" VerticalAlignment="Top" Width="104" />
                     <TextBox Height="27" HorizontalAlignment="Left" Margin="225,158,0,0" Name="textBoxCedJuridica" VerticalAlignment="Top" Width="250" />
                     <Button Content="Crear" Height="28" HorizontalAlignment="Left" Margin="225,366,0,0" Name="button1" VerticalAlignment="Top" Width="65" Click="button1_Click" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="64,236,0,0" Name="textBlock1" Text="Nombre Moneda Local:" VerticalAlignment="Top" Width="149" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="226,234,0,0" Name="textBoxNombreMonedaL" VerticalAlignment="Top" Width="250" />
+                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="64,236,0,0" Name="textBlock1" Text="Moneda Local:" VerticalAlignment="Top" Width="149" />
                     <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="55,269,0,0" Name="textBlock2" Text="Acrónimo Moneda Local:" VerticalAlignment="Top" Width="157" />
                     <TextBox Height="27" HorizontalAlignment="Left" Margin="225,267,0,0" Name="textBoxAcronimoMonedaL" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="23,302,0,0" Name="textBlock3" Text="Nombre Moneda del Sistema:" VerticalAlignment="Top" Width="189" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="225,300,0,0" Name="textBoxNombreMonedaS" VerticalAlignment="Top" Width="250" />
+                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="23,302,0,0" Name="textBlock3" Text="Moneda del Sistema:" VerticalAlignment="Top" Width="189" />
                     <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="16,335,0,0" Name="textBlock4" Text="Acrónimo Moneda del Sistema:" VerticalAlignment="Top" Width="196" />
                     <TextBox Height="27" HorizontalAlignment="Left" Margin="225,333,0,0" Name="textBoxAcronimoMonedaS" VerticalAlignment="Top" Width="250" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="225,236,0,0" Name="CMBMonedaLocal" VerticalAlignment="Top" Width="250" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="225,302,0,0" Name="CMBMonedaSistema" VerticalAlignment="Top" Width="250" />
                 </Grid>
             </TabItem>
             <TabItem Header="Modificar/Eliminar Empresa" Name="ModificarEliminarEmpresa">

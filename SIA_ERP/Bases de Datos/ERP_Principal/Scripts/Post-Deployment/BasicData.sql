@@ -55,7 +55,7 @@ GO
 -- Fecha: 05/10/2012
 -- Descripcion: Ingresa una entidad con modulos, contactos, usuarios.
 -----------------------------------------------------------
-EXEC dbo.ERPSP_ActualizarEntidad 'La Constancia',
+EXEC dbo.ERPSP_ActualizarEntidad 'LCO_Finanzas',
    '<Contactos>
 		<Contacto enabled="1" nombre="Telefono" valor="2222-5564" />
 		<Contacto enabled="1" nombre="Fax" valor="2222-5565" />
@@ -71,7 +71,7 @@ EXEC dbo.ERPSP_ActualizarEntidad 'La Constancia',
 	</Modulos>'
 	
 EXEC dbo.ERPSP_ActualizarUsuario 'admin',
-	'�\n�9I�Y��V�W��>',
+	'123456',
 	'<Contactos>
 		<Contacto enabled="1" nombre="Telefono" valor="2888-5564" />
     </Contactos>',
@@ -79,7 +79,7 @@ EXEC dbo.ERPSP_ActualizarUsuario 'admin',
 	'<Modulos>
 		<Modulo enabled="1" nombre="Finanzas" tipo="Administrador" />
 	</Modulos>',
-	'La Constancia',
+	'LCO_Finanzas',
 	null,
 	null
 

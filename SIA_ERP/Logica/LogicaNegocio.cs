@@ -42,23 +42,25 @@ namespace Logica
             return daPrincipal.ObtenerEmpresas();
         }
 
-        public string ObtenerMonedas()//string pBaseDatos)
+        public string ObtenerMonedas()
         {
-            //var daFinanzas = new DAFinanzas(pBaseDatos);
             return _DataAccess.ObtenerMonedas();
         }
 
+        // falta crear la BD antes de hacer esto
+        // no esta guardando el PasswordBinario en la clase Usuario
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
             var daPrincipal = new DAPrincipal();
-            var nombreBD = daPrincipal.AutenticarUsuario(pUsuario, pNombreEmpresa);
+
+            _DataAccess = new DAFinanzas("LCO_Finanzas");
+            /*var nombreBD = daPrincipal.AutenticarUsuario(pUsuario, pNombreEmpresa);
             if (nombreBD.Length > 2)
             {
                 _DataAccess = new DAFinanzas(nombreBD);
-                _Arbol.crearArbol(pNombreEmpresa);
-                return true;
+                */return true;/*
             }
-            return false;
+            return false;*/
         }
 
         public bool InsertarNuevoUsuario(Usuario pUsuario)
@@ -70,52 +72,20 @@ namespace Logica
         public bool InsertarNuevaEmpresa(Empresa pEmpresa, byte[] pLogo)
         {
             var daPrincipal = new DAPrincipal();
-            var daFinanzas = new DAFinanzas(pEmpresa.Nombre);
-            bool retorno = daPrincipal.InsertarNuevaEmpresa(pEmpresa, pLogo);
-            bool retorno1 = daFinanzas.InsertarMonedas(pEmpresa);
-            if (retorno && retorno1)
-                return true;
-            return false;
+            _DataAccess = new DAFinanzas(pEmpresa.Nombre);
+            bool retorno = _DataAccess.InsertarMonedasConfiguracion(pEmpresa);
+            if (retorno)
+                retorno = daPrincipal.InsertarNuevaEmpresa(pEmpresa, pLogo);
+            return retorno;
+        }
+
+        public bool InsertarNuevaMoneda(Moneda pMoneda)
+        {
+            return _DataAccess.InsertarMonedas(pMoneda);
         }
 
         public bool CrearCuenta(Cuenta pCuenta)
         {
-            /*
-            pCuenta.CodigoCuentaPadre = pCuenta.Codigo.Remove(pCuenta.Codigo.LastIndexOf("-"));
-            pCuenta.Enabled = true;
-            char[] delimiterChars = { '-' };
-            string[] tokens = pCuenta.Codigo.Split(delimiterChars);
-            pCuenta.Nivel = tokens.Length;
-
-            string codId = pCuenta.Codigo.Remove(pCuenta.Codigo.IndexOf("-"));
-            switch (codId)
-            {
-                case "1":
-                    pCuenta.Identificador = "Activo";
-                    break;
-                case "2":
-                    pCuenta.Identificador = "Pasivo";
-                    break;
-                case "3":
-                    pCuenta.Identificador = "Patrimonio";
-                    break;
-                case "4":
-                    pCuenta.Identificador = "Ingresos";
-                    break;
-                case "5":
-                    pCuenta.Identificador = "Costos";
-                    break;
-                case "6":
-                    pCuenta.Identificador = "Gastos";
-                    break;
-                case "7":
-                    pCuenta.Identificador = "Otros Ingresos";
-                    break;
-                default:
-                    pCuenta.Identificador = "Otros Gastos";
-                    break;
-            }
-            */
             return _DataAccess.CrearCuenta(pCuenta);
         }
 
@@ -126,7 +96,6 @@ namespace Logica
 
         public IEnumerable<Cuenta> DemeCuentasHijas()
         {
-            _DataAccess = new DAFinanzas("ERP_Finanzas");
             var todasCuentas = _DataAccess.ObtenerCuentas();
             var cuentasHijas = todasCuentas;
             foreach (var cuenta in todasCuentas)
@@ -146,7 +115,6 @@ namespace Logica
 
         public IEnumerable<Moneda> DemeMonedasCuenta(string pCuenta)
         {
-            _DataAccess = new DAFinanzas("ERP_Finanzas");
             return _DataAccess.DemeMonedas(pCuenta);
         }
 
@@ -163,7 +131,6 @@ namespace Logica
         private static object _Lock = new object();
 
         private DAFinanzas _DataAccess;
-        Arbol _Arbol = new Arbol();
 
         #endregion
     }

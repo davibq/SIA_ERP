@@ -45,6 +45,12 @@
   <wsdl:message name="IContabilidadService_InsertarNuevaEmpresa_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertarNuevaEmpresaResponse" />
   </wsdl:message>
+  <wsdl:message name="IContabilidadService_InsertarNuevaMoneda_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarNuevaMoneda" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_InsertarNuevaMoneda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarNuevaMonedaResponse" />
+  </wsdl:message>
   <wsdl:message name="IContabilidadService_CrearCuenta_InputMessage">
     <wsdl:part name="parameters" element="tns:CrearCuenta" />
   </wsdl:message>
@@ -111,6 +117,10 @@
     <wsdl:operation name="InsertarNuevaEmpresa">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresa" message="tns:IContabilidadService_InsertarNuevaEmpresa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresaResponse" message="tns:IContabilidadService_InsertarNuevaEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarNuevaMoneda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevaMoneda" message="tns:IContabilidadService_InsertarNuevaMoneda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/InsertarNuevaMonedaResponse" message="tns:IContabilidadService_InsertarNuevaMoneda_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CrearCuenta">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/CrearCuenta" message="tns:IContabilidadService_CrearCuenta_InputMessage" />
@@ -190,6 +200,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertarNuevaEmpresa">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/InsertarNuevaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarNuevaMoneda">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/InsertarNuevaMoneda" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

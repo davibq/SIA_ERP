@@ -52,7 +52,7 @@ INSERT INTO dbo.FIN_EstadoMes VALUES('Abierto excepto ventas')
 -- Fecha: 06/10/2012
 -- Descripcion: Primeros valores para monedas
 -----------------------------------------------------------
-EXEC dbo.ERPSP_InsertarMonedas '<Monedas><Moneda nombre="Colon" acronimo="CRC" esLocal="1" esSistema="0"/><Moneda nombre="Dólar" acronimo="USD" esLocal="0" esSistema="1"/></Monedas>'
+EXEC dbo.ERPSP_InsertarMonedas '<Monedas><Moneda nombre="Colon" acronimo="CRC" esLocal="1" esSistema="0" idBCCR="1"/><Moneda nombre="Dolar" acronimo="USD" esLocal="0" esSistema="1" idBCCR="317"/></Monedas>'
 
 -- =============================================
 -- Cuentas
@@ -91,13 +91,13 @@ EXEC dbo.ERPSP_ActualizarCuenta 'Equipo y maquinaria', '1-2-01-01',  4, 1, '1-2-
 EXEC dbo.ERPSP_ActualizarCuenta 'Depreciación acumulada', '1-2-01-02' , 4, 1, '1-2-01', 'Activo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Depreciación acumulada" idioma="es"/></Nombres>'
 
 
-EXEC dbo.ERPSP_ActualizarCuenta 'PASIVOS CORTO PLAZO', '2-1', 2, 1, '2', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PASIVOS CORTO PLAZO" idioma="es"/></Nombres>'
-EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar', '2-1-01', 3, 1, '2-1', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar" idioma="es"/></Nombres>'
-EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar nacionales', '2-1-01-01', 4, 1, '2-1-01', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar nacionales" idioma="es"/></Nombres>'
-EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar extranjero', '2-1-01-02', 4, 1, '2-1-01', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar extranjero" idioma="es"/></Nombres>'
-EXEC dbo.ERPSP_ActualizarCuenta 'PASIVOS LARGO PLAZO', '2-2' , 2, 1, '2', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PASIVOS LARGO PLAZO" idioma="es"/></Nombres>'
-EXEC dbo.ERPSP_ActualizarCuenta 'PRESTAMOS', '2-2-01' , 3, 1, '2-2', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PRESTAMOS" idioma="es"/></Nombres>'
-EXEC dbo.ERPSP_ActualizarCuenta 'Hipoteca', '2-2-01-01', 4, 1, '2-2-01', 'Pasivos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Hipoteca" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'PASIVOS CORTO PLAZO', '2-1', 2, 1, '2', 'Pasivo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PASIVOS CORTO PLAZO" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar', '2-1-01', 3, 1, '2-1', 'Pasivo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar nacionales', '2-1-01-01', 4, 1, '2-1-01', 'Pasivo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar nacionales" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Cuentas por pagar extranjero', '2-1-01-02', 4, 1, '2-1-01', 'Pasivo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Cuentas por pagar extranjero" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'PASIVOS LARGO PLAZO', '2-2' , 2, 1, '2', 'Pasivo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PASIVOS LARGO PLAZO" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'PRESTAMOS', '2-2-01' , 3, 1, '2-2', 'Pasivo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="PRESTAMOS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Hipoteca', '2-2-01-01', 4, 1, '2-2-01', 'Pasivo', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Hipoteca" idioma="es"/></Nombres>'
 
 
 EXEC dbo.ERPSP_ActualizarCuenta 'CAPITAL Y UTILIDADES', '3-1', 2, 1, '3', 'Patrimonio', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="CAPITAL Y UTILIDADES" idioma="es"/></Nombres>'

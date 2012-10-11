@@ -26,7 +26,7 @@ namespace Login_WPF
         public int NoCierre = 0;
 
         private ObservableCollection<Asiento> _Coleccion;
-        private ObservableCollection<Cuenta> _Cuenta;
+        //private ObservableCollection<Cuenta> _Cuenta;
 
         // Xq no hacer un Mes[12]?
         public Mes Enero = new Mes { FechaInicio = null };
@@ -54,10 +54,10 @@ namespace Login_WPF
             _Coleccion = new ObservableCollection<Asiento>();
             dataGridAgregaAsiento.ItemsSource = _Coleccion;
 
-            DataGridComboBoxColumn comboboxColumn = dataGridAgregaAsiento.Columns[2] as DataGridComboBoxColumn;
-            comboboxColumn.ItemsSource = _Cuenta;
-            //comboboxColumn.
-            ////////////////////////////////////////////////
+            //DataGridComboBoxColumn comboboxColumn = dataGridAgregaAsiento.Columns[2] as DataGridComboBoxColumn;
+            //comboboxColumn.ItemsSource = _Cuenta;
+            var cuentas = ServicioFinanzas.Instancia.DemeCuentasHijas();
+            _CmbCuentas.ItemsSource = cuentas;
 
             //cargar monedas para insertar cuentas
             string monedas = ServicioFinanzas.Instancia.ObtenerMonedas();
@@ -69,8 +69,12 @@ namespace Login_WPF
             }
             comboBoxMoneda.Items.Add("TODAS");
             comboBoxMoneda.SelectedIndex = 0;
-            ////////////////////////////////////////////////
 
+            foreach (MonedasValidas moneda in Enum.GetValues(typeof(MonedasValidas)))
+            {
+                CMBNuevaMoneda.Items.Add(moneda);
+            }
+            CMBNuevaMoneda.SelectedIndex = 0;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -171,14 +175,29 @@ namespace Login_WPF
 
         public void ResetMoneda()
         {
-            textBoxNombreMoneda.Text = "";
             textBoxAcronimoMoneda.Text = "";
         }
 
         private void buttonCrearMoneda_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Moneda Correctamente");
-            ResetMoneda();
+            if (textBoxAcronimoMoneda.Text == "")
+                MessageBox.Show("Llene los dos datos necesarios por favor");
+            else
+            {
+                ////////////////////////////////FALTA LLENAR EL idBCCR
+                Moneda moneda = new Moneda()
+                {
+                    Nombre=CMBNuevaMoneda.SelectedItem.ToString(),
+                    Acronimo=textBoxAcronimoMoneda.Text,                   
+                };
+                if (ServicioFinanzas.Instancia.InsertarNuevaMoneda(moneda))
+                {
+                    MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Moneda Correctamente");
+                    ResetMoneda();
+                }
+                else
+                    MessageBox.Show("Error al insertar la moneda");
+            }
         }
 
         private void buttonRealizarCambioPeriodo_Click(object sender, RoutedEventArgs e)

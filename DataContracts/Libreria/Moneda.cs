@@ -20,6 +20,11 @@ namespace SIA.Libreria
         public string Tipo { get; set; }
 
         [DataMember]
+        public int idBCCR { get; set; }
+
+        [DataMember]
         public MonedasValidas TipoMoneda { get; set; }
+
+
     }
 }
