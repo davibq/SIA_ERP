@@ -20,7 +20,7 @@ namespace SIA.Contabilidad.WebService
         string ObtenerEmpresas();
 
         [OperationContract]
-        string ObtenerMonedas();
+        IEnumerable<Moneda> ObtenerMonedas();
 
         [OperationContract]
         bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa);

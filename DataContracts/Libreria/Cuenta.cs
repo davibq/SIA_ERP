@@ -19,7 +19,7 @@ namespace SIA.Libreria
         public string NombreIdiomaExtranjero { get; set; }
 
         [DataMember]
-        public string Moneda { get; set; }
+        public Moneda _Moneda { get; set; }
 
         [DataMember]
         public string CodigoCuentaPadre { get; set; }

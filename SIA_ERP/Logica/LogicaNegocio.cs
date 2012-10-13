@@ -42,7 +42,7 @@ namespace Logica
             return daPrincipal.ObtenerEmpresas();
         }
 
-        public string ObtenerMonedas()
+        public IEnumerable<Moneda> ObtenerMonedas()
         {
             return _DataAccess.ObtenerMonedas();
         }

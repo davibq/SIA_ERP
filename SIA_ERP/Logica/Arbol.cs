@@ -104,7 +104,7 @@ namespace Logica
             NodoCuenta cuentaPadre = buscarCuenta(pCuenta.CodigoCuentaPadre);
             //crea la instancia de la nueva cuenta
             NodoCuenta nuevaCuenta = new NodoCuenta(pCuenta.Codigo, pCuenta.Nombre, true);
-            nuevaCuenta.moneda = pCuenta.Moneda;
+            nuevaCuenta.moneda = pCuenta._Moneda.Nombre;
             nuevaCuenta.cuentaPadre = cuentaPadre;
             //la cuenta padre para a estar desactivada para movimientos
             cuentaPadre.cuentaActiva = false;

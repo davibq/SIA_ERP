@@ -30,19 +30,22 @@ namespace DataAccessFinanzas
 
         #region Metodos
 
-        public string ObtenerMonedas()
+        public IEnumerable<Moneda> ObtenerMonedas()
         {
+            var monedas = new List<Moneda>();
             var ds = EjecutarConsulta("dbo.ObtenerMonedas", new List<SqlParameter>());
             if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
             {
-                string retorno = "";
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    retorno += row[0] + ";";
+                    var moneda = new Moneda();
+                    moneda.Nombre = row["Nombre"].ToString();// .CodigoCuentaPadre = row["IdCuentaPadre"].ToString();
+                    moneda.Acronimo = row["Acronimo"].ToString();
+                    moneda.TipoMoneda = (MonedasValidas)(int.Parse(row["idBCCR"].ToString()));
+                    monedas.Add(moneda);
                 }
-                return retorno;
             }
-            return string.Empty;
+            return monedas;
         }
 
         public bool InsertarMonedasConfiguracion(Empresa pEmpresa)
@@ -58,13 +61,14 @@ namespace DataAccessFinanzas
         public bool InsertarMonedas(Moneda pMoneda)
         {
             const string quote = "\"";
-            string monedas = "<Monedas><Moneda nombre=" + quote + pMoneda.Nombre + quote + " acronimo=" + quote + pMoneda.Acronimo + quote + " esLocal=" + quote + "0" + quote + " esSistema=" + quote + "0" + quote + " idBCCR=" + quote + pMoneda.idBCCR + quote + "/></Monedas>";
+            string monedas = "<Monedas><Moneda nombre=" + quote + pMoneda.Nombre + quote + " acronimo=" + quote + pMoneda.Acronimo + quote + " esLocal=" + quote + "0" + quote + " esSistema=" + quote + "0" + quote + " idBCCR=" + quote + (int)pMoneda.TipoMoneda + quote + "/></Monedas>";
             return EjecutarNoConsulta("dbo.ERPSP_InsertarMonedas", new List<SqlParameter>()
                                                           {
                                                               new SqlParameter("Monedas", monedas)
                                                           });
         }
 
+        //Falta insertar las monedas asociadas de alguna manera
         public bool CrearCuenta(Cuenta pCuenta)
         {
             const string quote = "\"";

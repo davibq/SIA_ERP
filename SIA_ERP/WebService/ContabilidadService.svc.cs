@@ -25,7 +25,7 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerEmpresas();
         }
 
-        public string ObtenerMonedas()
+        public IEnumerable<Moneda> ObtenerMonedas()
         {
             return LogicaNegocio.Instancia.ObtenerMonedas();
         }

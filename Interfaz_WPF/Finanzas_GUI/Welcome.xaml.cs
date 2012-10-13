@@ -59,15 +59,13 @@ namespace Login_WPF
             var cuentas = ServicioFinanzas.Instancia.DemeCuentasHijas();
             _CmbCuentas.ItemsSource = cuentas;
 
-            //cargar monedas para insertar cuentas
-            string monedas = ServicioFinanzas.Instancia.ObtenerMonedas();
-            string[] split = monedas.Split(new Char[] { ';' });
-            foreach (string s in split)
-            {
-                if (s.Trim() != "")
-                    comboBoxMoneda.Items.Add(s);
-            }
-            comboBoxMoneda.Items.Add("TODAS");
+            var monedas = ServicioFinanzas.Instancia.ObtenerMonedas();
+            comboBoxMoneda.ItemsSource = monedas;
+            /*Moneda monedaTodas = new Moneda ()
+                {
+                    Nombre="TODAS"
+                };
+            comboBoxMoneda.Items.Add(monedaTodas);*/
             comboBoxMoneda.SelectedIndex = 0;
 
             foreach (MonedasValidas moneda in Enum.GetValues(typeof(MonedasValidas)))
@@ -119,12 +117,12 @@ namespace Login_WPF
         private void buttonAgregar_Click(object sender, RoutedEventArgs e)
         {
             Cuenta cuenta = new Cuenta()
-            {
-                Codigo = textBoxCodigo.Text,
-                Nombre = textBoxNomCuenta.Text,
-                NombreIdiomaExtranjero = textBoxNomExtranjero.Text,
-                Moneda = comboBoxMoneda.SelectedItem.ToString()
-            };
+                {
+                    Codigo = textBoxCodigo.Text,
+                    Nombre = textBoxNomCuenta.Text,
+                    NombreIdiomaExtranjero = textBoxNomExtranjero.Text,
+                    _Moneda=(Moneda)comboBoxMoneda.SelectedItem
+                };
             if (ServicioFinanzas.Instancia.CrearCuenta(cuenta))
             {
                 MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
@@ -184,13 +182,16 @@ namespace Login_WPF
                 MessageBox.Show("Llene los dos datos necesarios por favor");
             else
             {
-                ////////////////////////////////FALTA LLENAR EL idBCCR
-                Moneda moneda = new Moneda()
+                Moneda nuevaMoneda = new Moneda()
                 {
                     Nombre=CMBNuevaMoneda.SelectedItem.ToString(),
                     Acronimo=textBoxAcronimoMoneda.Text,                   
+                    TipoMoneda= (MonedasValidas)CMBNuevaMoneda.SelectedItem
                 };
-                if (ServicioFinanzas.Instancia.InsertarNuevaMoneda(moneda))
+
+                //Moneda nuevaMoneda = (Moneda)CMBNuevaMoneda.SelectedItem;
+
+                if (ServicioFinanzas.Instancia.InsertarNuevaMoneda(nuevaMoneda))
                 {
                     MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Moneda Correctamente");
                     ResetMoneda();

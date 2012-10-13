@@ -46,7 +46,7 @@ namespace AccesoServicio
             return _CSC.ObtenerEmpresas();
         }
 
-        public string ObtenerMonedas()
+        public IEnumerable<Moneda> ObtenerMonedas()
         {
             return _CSC.ObtenerMonedas();
         }
