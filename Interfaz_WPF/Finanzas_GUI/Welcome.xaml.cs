@@ -1076,6 +1076,7 @@ namespace Login_WPF
         {
             var monedas = ServicioFinanzas.Instancia.DemeMonedasCuenta(((Cuenta)_CmbCuentas.SelectedItem).Nombre);
             _CmbMonedas.ItemsSource = monedas;
+            _CmbMonedas.SelectedIndex = 0;
         }
 
     }

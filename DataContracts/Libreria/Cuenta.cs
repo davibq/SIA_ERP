@@ -22,6 +22,12 @@ namespace SIA.Libreria
         public Moneda _Moneda { get; set; }
 
         [DataMember]
+        public double Saldo { get; set; }
+
+        [DataMember]
+        public bool Debe { get; set; }
+
+        [DataMember]
         public string CodigoCuentaPadre { get; set; }
 
         [DataMember]

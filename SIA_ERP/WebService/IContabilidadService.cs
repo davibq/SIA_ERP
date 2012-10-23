@@ -53,6 +53,9 @@ namespace SIA.Contabilidad.WebService
         bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML);
 
         [OperationContract]
+        Moneda ObtenerMonedasSistema(string pAtributo);
+
+        [OperationContract]
         void InsertarAsiento(Asiento pAs);
     }
 

@@ -18,6 +18,11 @@ namespace AccesoServicio.FinanzasService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Moneda", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Moneda : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -556,7 +561,12 @@ namespace AccesoServicio.FinanzasService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
@@ -565,6 +575,9 @@ namespace AccesoServicio.FinanzasService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CodigoCuentaPadreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DebeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool EnabledField;
@@ -580,6 +593,9 @@ namespace AccesoServicio.FinanzasService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombreIdiomaExtranjeroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SaldoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AccesoServicio.FinanzasService.Moneda _MonedaField;
@@ -616,6 +632,19 @@ namespace AccesoServicio.FinanzasService {
                 if ((object.ReferenceEquals(this.CodigoCuentaPadreField, value) != true)) {
                     this.CodigoCuentaPadreField = value;
                     this.RaisePropertyChanged("CodigoCuentaPadre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Debe {
+            get {
+                return this.DebeField;
+            }
+            set {
+                if ((this.DebeField.Equals(value) != true)) {
+                    this.DebeField = value;
+                    this.RaisePropertyChanged("Debe");
                 }
             }
         }
@@ -681,6 +710,19 @@ namespace AccesoServicio.FinanzasService {
                 if ((object.ReferenceEquals(this.NombreIdiomaExtranjeroField, value) != true)) {
                     this.NombreIdiomaExtranjeroField = value;
                     this.RaisePropertyChanged("NombreIdiomaExtranjero");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Saldo {
+            get {
+                return this.SaldoField;
+            }
+            set {
+                if ((this.SaldoField.Equals(value) != true)) {
+                    this.SaldoField = value;
+                    this.RaisePropertyChanged("Saldo");
                 }
             }
         }
@@ -1001,6 +1043,9 @@ namespace AccesoServicio.FinanzasService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/AgregarAsiento", ReplyAction="http://tempuri.org/IContabilidadService/AgregarAsientoResponse")]
         bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerMonedasSistema", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerMonedasSistemaResponse")]
+        AccesoServicio.FinanzasService.Moneda ObtenerMonedasSistema(string pAtributo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarAsiento", ReplyAction="http://tempuri.org/IContabilidadService/InsertarAsientoResponse")]
         void InsertarAsiento(AccesoServicio.FinanzasService.Asiento pAs);
     }
@@ -1082,6 +1127,10 @@ namespace AccesoServicio.FinanzasService {
         
         public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML) {
             return base.Channel.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+        }
+        
+        public AccesoServicio.FinanzasService.Moneda ObtenerMonedasSistema(string pAtributo) {
+            return base.Channel.ObtenerMonedasSistema(pAtributo);
         }
         
         public void InsertarAsiento(AccesoServicio.FinanzasService.Asiento pAs) {

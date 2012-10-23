@@ -183,10 +183,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerMonedasSistema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pAtributo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerMonedasSistemaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerMonedasSistemaResult" nillable="true" type="q12:Moneda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="InsertarAsiento">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" minOccurs="0" name="pAs" nillable="true" type="q12:Asiento" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" minOccurs="0" name="pAs" nillable="true" type="q13:Asiento" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

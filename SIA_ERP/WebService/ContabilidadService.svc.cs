@@ -82,6 +82,11 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
         }
 
+        public Moneda ObtenerMonedasSistema(string pAtributo)
+        {
+            return LogicaNegocio.Instancia.ObtenerMonedasSistema(pAtributo);
+        }
+
         public void InsertarAsiento(Asiento pAs)
         {
 

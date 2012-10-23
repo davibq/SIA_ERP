@@ -104,7 +104,7 @@ namespace DataAccessFinanzas
         public IEnumerable<Cuenta> ObtenerCuentas()
         {
             var cuentas = new List<Cuenta>();
-            var ds = EjecutarConsulta("dbo.ERPSP_ObtenerCatalogoCuentas", new List<SqlParameter>()
+            var ds = EjecutarConsulta("dbo.ERPSP_ObtenerBalanceComprobacion", new List<SqlParameter>()
             {
                 //new SqlParameter("Entidad", ":D:D:D:D")
             });
@@ -113,13 +113,14 @@ namespace DataAccessFinanzas
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     var cuenta = new Cuenta();
-                    cuenta.CodigoCuentaPadre = row["IdCuentaPadre"].ToString();
+                    //cuenta.CodigoCuentaPadre = row["IdCuentaPadre"].ToString();
                     cuenta.Nombre = row["NombreCuenta"].ToString();
-                    cuenta.Codigo = row["CodigoCuenta"].ToString();
-                    cuenta.Nivel = int.Parse(row["NivelCuenta"].ToString());
-                    cuenta.Identificador = row["NombreIdentificador"].ToString();
-                    /*cuenta.Saldo = double.Parse(row["SaldoCuenta"].ToString());
-                    cuenta.Moneda = new Moneda()
+                    //cuenta.Codigo = row["CodigoCuenta"].ToString();
+                    //cuenta.Nivel = int.Parse(row["NivelCuenta"].ToString());
+                    //cuenta.Identificador = row["NombreIdentificador"].ToString();
+                    cuenta.Saldo = double.Parse(row["SaldoCuenta"].ToString());
+                    //cuenta.Debe = Convert.ToBoolean(row["AlDebe"].ToString());
+                    /*cuenta._Moneda = new Moneda()
                     {
                         Nombre = row["NombreMoneda"].ToString(),
                         Acronimo = row["AcronimoMoneda"].ToString(),
@@ -133,7 +134,7 @@ namespace DataAccessFinanzas
 
         public IEnumerable<Moneda> DemeMonedas(string pNombreCuenta)
         {
-            var ds = EjecutarConsulta("dbo.ObtenterMonedasCuenta", new List<SqlParameter>()
+            var ds = EjecutarConsulta("dbo.ObtenerMonedasCuenta", new List<SqlParameter>()
             {
                 new SqlParameter("pNombreCuenta", pNombreCuenta)
             });
@@ -165,6 +166,28 @@ namespace DataAccessFinanzas
                                                               new SqlParameter("Cuenta", pXML),
                                                               new SqlParameter("TipoAsiento", "AS")
                                                           });
+        }
+
+        public Moneda ObtenerMonedasSistema(string pAtributo)
+        {
+            var ds = EjecutarConsulta("dbo.ObtenerMonedasSistema", new List<SqlParameter>()
+            {
+                new SqlParameter("Tipo", pAtributo)
+            });
+
+            var monedaConfiguracion = new Moneda();
+
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    monedaConfiguracion.Nombre = row["Nombre"].ToString();
+                    monedaConfiguracion.TipoMoneda = (MonedasValidas)(int.Parse(row["idBCCR"].ToString()));
+                    monedaConfiguracion.Acronimo = row["Acronimo"].ToString();
+                }
+            }
+
+            return monedaConfiguracion;
         }
 
         #endregion

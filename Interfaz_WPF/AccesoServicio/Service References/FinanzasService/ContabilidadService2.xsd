@@ -46,11 +46,13 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoCuentaPadre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Debe" type="xs:boolean" />
       <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
       <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nivel" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreIdiomaExtranjero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Saldo" type="xs:double" />
       <xs:element minOccurs="0" name="_Moneda" nillable="true" type="tns:Moneda" />
     </xs:sequence>
   </xs:complexType>

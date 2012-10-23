@@ -96,7 +96,8 @@ namespace Logica
 
         public IEnumerable<Cuenta> DemeCuentasHijas()
         {
-            var todasCuentas = _DataAccess.ObtenerCuentas();
+            return _DataAccess.ObtenerCuentas();
+            /*var todasCuentas = _DataAccess.ObtenerCuentas();
             var cuentasHijas = todasCuentas;
             foreach (var cuenta in todasCuentas)
             {
@@ -110,7 +111,7 @@ namespace Logica
                 }
                 cuentasHijas = cuentasHijas.Except(cuentasAQuitar);
             }
-            return cuentasHijas;
+            return cuentasHijas;*/
         }
 
         public IEnumerable<Moneda> DemeMonedasCuenta(string pCuenta)
@@ -121,6 +122,11 @@ namespace Logica
         public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
         {
             return _DataAccess.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+        }
+
+        public Moneda ObtenerMonedasSistema(string pAtributo)
+        {
+            return _DataAccess.ObtenerMonedasSistema(pAtributo);
         }
 
 #endregion
