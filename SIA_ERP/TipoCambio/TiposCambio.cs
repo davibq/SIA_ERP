@@ -20,7 +20,7 @@ namespace SIA.TipoCambio
                 _ValoresValidos = true;
                 _TiposCambio = new Hashtable();
                  wsCliente = new BCCRWebService.wsIndicadoresEconomicosSoapClient();
-                var fechaHoy=DateTime.Now.ToShortDateString();
+                 var fechaHoy = DateTime.Now.Day+"/"+DateTime.Now.Month+"/"+DateTime.Now.Year;
                 wsCliente.Open();
 
                 foreach (var moneda in Enum.GetValues(typeof(MonedasValidas)).Cast<MonedasValidas>())
@@ -75,6 +75,7 @@ namespace SIA.TipoCambio
 
         private void CargarTipoCambio(MonedasValidas pMoneda, string pFechaHoy)
         {
+            if (pMoneda == MonedasValidas.Colon) return;
             var dataSet = wsCliente.ObtenerIndicadoresEconomicos(((int)pMoneda).ToString(),
                     pFechaHoy, pFechaHoy, NOMBRE, "N");
             if (dataSet != null && dataSet.Tables[0] != null && dataSet.Tables[0].Rows != null)
@@ -97,6 +98,10 @@ namespace SIA.TipoCambio
 
         public double DemeCambio(MonedasValidas pOrigen, double pValor, MonedasValidas pDestino)
         {
+            if (pOrigen == MonedasValidas.Colon || pDestino == MonedasValidas.Colon)
+            {
+                return 0;
+            }
             return ((double)(_TiposCambio[pOrigen]) * pValor) / (double)_TiposCambio[pDestino];
         }
 

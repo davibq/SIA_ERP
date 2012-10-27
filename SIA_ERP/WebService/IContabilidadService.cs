@@ -57,6 +57,9 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         void InsertarAsiento(Asiento pAs);
+
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre);
     }
 
 }

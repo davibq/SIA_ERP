@@ -129,6 +129,11 @@ namespace Logica
             return _DataAccess.ObtenerMonedasSistema(pAtributo);
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        {
+            return _DataAccess.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+
 #endregion
 
         #region Atributos

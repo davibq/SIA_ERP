@@ -18,6 +18,11 @@ namespace AccesoServicio.FinanzasService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Moneda", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Moneda : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -524,7 +529,12 @@ namespace AccesoServicio.FinanzasService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
@@ -1006,6 +1016,9 @@ namespace AccesoServicio.FinanzasService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarAsiento", ReplyAction="http://tempuri.org/IContabilidadService/InsertarAsientoResponse")]
         void InsertarAsiento(AccesoServicio.FinanzasService.Asiento pAs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadreResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1093,6 +1106,10 @@ namespace AccesoServicio.FinanzasService {
         
         public void InsertarAsiento(AccesoServicio.FinanzasService.Asiento pAs) {
             base.Channel.InsertarAsiento(pAs);
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre) {
+            return base.Channel.ObtenerCuentasHijasSegunPadre(pNombrePadre);
         }
     }
 }

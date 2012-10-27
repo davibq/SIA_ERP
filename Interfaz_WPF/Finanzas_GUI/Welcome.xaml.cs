@@ -357,6 +357,8 @@ namespace Login_WPF
         {
             textBoxUtilidades.Text = "";
             textBoxPerdidasYGanancias.Text = "";
+
+            dataGridCierre.ItemsSource = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre("INGRESOS");
         }
 
         private void datePickerMesInicio_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

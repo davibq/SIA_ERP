@@ -315,6 +315,9 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerMonedasSistema.proc.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerCuentasHijas.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <NotInBuild Include="Scripts\Post-Deployment\BasicData.sql">

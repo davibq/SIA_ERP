@@ -91,5 +91,10 @@ namespace SIA.Contabilidad.WebService
         {
 
         }
+
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
     }
 }

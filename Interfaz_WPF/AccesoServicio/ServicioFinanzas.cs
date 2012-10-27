@@ -96,6 +96,11 @@ namespace AccesoServicio
             return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        {
+            return _CSC.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

@@ -209,4 +209,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerCuentasHijasSegunPadre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pNombrePadre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerCuentasHijasSegunPadreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerCuentasHijasSegunPadreResult" nillable="true" type="q14:ArrayOfCuenta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
