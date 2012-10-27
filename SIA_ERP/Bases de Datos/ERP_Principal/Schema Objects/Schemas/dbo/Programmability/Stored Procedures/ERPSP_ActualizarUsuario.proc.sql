@@ -64,7 +64,7 @@ BEGIN
 			END ELSE BEGIN
 				--Inserta al usuario
 				INSERT INTO dbo.ERP_Usuarios(Login, Password, Enabled)
-				VALUES(CONVERT(VARBINARY,@Login), CONVERT(VARBINARY, @Pass), @Enabled)
+				VALUES(CONVERT(VARBINARY,@Login), HASHBYTES('MD5', @Pass), @Enabled)
 				
 				SET @IdUsuario = SCOPE_IDENTITY()
 			END

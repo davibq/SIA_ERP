@@ -18,11 +18,6 @@ namespace AccesoServicio.FinanzasService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Moneda", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Moneda : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
-        public override string ToString()
-        {
-            return Nombre;
-        }
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -266,12 +261,6 @@ namespace AccesoServicio.FinanzasService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] _PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _PasswordStrField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -343,32 +332,6 @@ namespace AccesoServicio.FinanzasService {
                 if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
                     this.PasswordField = value;
                     this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] _Password {
-            get {
-                return this._PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._PasswordField, value) != true)) {
-                    this._PasswordField = value;
-                    this.RaisePropertyChanged("_Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _PasswordStr {
-            get {
-                return this._PasswordStrField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._PasswordStrField, value) != true)) {
-                    this._PasswordStrField = value;
-                    this.RaisePropertyChanged("_PasswordStr");
                 }
             }
         }
@@ -561,12 +524,7 @@ namespace AccesoServicio.FinanzasService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
-        public override string ToString()
-        {
-            return Nombre;
-        }
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         

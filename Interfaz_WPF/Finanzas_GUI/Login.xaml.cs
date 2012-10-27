@@ -55,12 +55,11 @@ namespace Login_WPF
             else
             {
                 string empresa = SociedadcomboBox1.SelectedItem.ToString();
-                Usuario usuario = new Usuario()
-                {
-                    NombreUsuario = textBoxUserName.Text,
-                    Password = passwordBox1.Password
-                };
-                
+                var usuario = new Usuario()
+                                  {
+                                      NombreUsuario = textBoxUserName.Text,
+                                      Password = passwordBox1.Password
+                                  };
                 if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario, empresa))
                 {
                     Welcome welcome = new Welcome();
