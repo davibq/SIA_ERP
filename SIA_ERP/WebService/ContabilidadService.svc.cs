@@ -91,5 +91,10 @@ namespace SIA.Contabilidad.WebService
         {
 
         }
+
+        public double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
+        {
+            return LogicaNegocio.Instancia.ConvertirAMonedaSistema(pMoneda, pValor);
+        }
     }
 }

@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cuenta.cs" />
+    <Compile Include="Moneda.cs" />
     <Compile Include="ServicioFinanzas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\FinanzasService\Reference.cs">

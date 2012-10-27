@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using SIA.Libreria;
 using SIA.Contabilidad.Libreria;
+using SIA.TipoCambio;
 
 namespace SIA.Contabilidad.WebService
 {
@@ -57,6 +58,9 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         void InsertarAsiento(Asiento pAs);
+
+        [OperationContract]
+        double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor);
     }
 
 }

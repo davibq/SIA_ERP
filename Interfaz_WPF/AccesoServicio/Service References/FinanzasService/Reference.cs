@@ -1006,6 +1006,9 @@ namespace AccesoServicio.FinanzasService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/InsertarAsiento", ReplyAction="http://tempuri.org/IContabilidadService/InsertarAsientoResponse")]
         void InsertarAsiento(AccesoServicio.FinanzasService.Asiento pAs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ConvertirAMonedaSistema", ReplyAction="http://tempuri.org/IContabilidadService/ConvertirAMonedaSistemaResponse")]
+        double ConvertirAMonedaSistema(AccesoServicio.FinanzasService.MonedasValidas pMoneda, double pValor);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1093,6 +1096,10 @@ namespace AccesoServicio.FinanzasService {
         
         public void InsertarAsiento(AccesoServicio.FinanzasService.Asiento pAs) {
             base.Channel.InsertarAsiento(pAs);
+        }
+        
+        public double ConvertirAMonedaSistema(AccesoServicio.FinanzasService.MonedasValidas pMoneda, double pValor) {
+            return base.Channel.ConvertirAMonedaSistema(pMoneda, pValor);
         }
     }
 }

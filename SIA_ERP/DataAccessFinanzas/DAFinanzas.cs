@@ -115,7 +115,7 @@ namespace DataAccessFinanzas
                     var cuenta = new Cuenta();
                     //cuenta.CodigoCuentaPadre = row["IdCuentaPadre"].ToString();
                     cuenta.Nombre = row["NombreCuenta"].ToString();
-                    //cuenta.Codigo = row["CodigoCuenta"].ToString();
+                    cuenta.Codigo = row["CodigoCuenta"].ToString();
                     //cuenta.Nivel = int.Parse(row["NivelCuenta"].ToString());
                     //cuenta.Identificador = row["NombreIdentificador"].ToString();
                     cuenta.Saldo = double.Parse(row["SaldoCuenta"].ToString());
@@ -145,6 +145,7 @@ namespace DataAccessFinanzas
                 {
                     var moneda = new Moneda();
                     moneda.Nombre = row[0].ToString();
+                    moneda.Acronimo = row["Acronimo"].ToString();
                     moneda.TipoMoneda = (MonedasValidas)(int.Parse(row[1].ToString()));
                     monedas.Add(moneda);
                 }

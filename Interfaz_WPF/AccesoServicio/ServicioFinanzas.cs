@@ -96,6 +96,11 @@ namespace AccesoServicio
             return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
         }
 
+        public double  ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
+        {
+            return _CSC.ConvertirAMonedaSistema(pMoneda, pValor);
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

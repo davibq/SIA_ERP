@@ -8,7 +8,7 @@ namespace SIA.TipoCambio
     public enum MonedasValidas
     {
         Colon = 1,
-        Dolar = 317,
+        Dolar = 317/*,
         Yen_Japones = 325,
         Franco_suizo = 326,
         Dolar_canadiense = 328,
@@ -48,7 +48,7 @@ namespace SIA.TipoCambio
         Libre_Egipcia = 21268,
         Dolar_de_Nueva_Zelandia = 21269,
         Dolar_de_Singapur = 21270,
-        Dong_Vietnamita = 21766,
+        Dong_Vietnamita = 21766,*/
         //Rand_Sudafricano = 21881,
     }
 }

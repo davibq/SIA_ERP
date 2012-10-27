@@ -1017,27 +1017,23 @@ namespace Login_WPF
         {
             var asiento = new Asiento();
             asiento.Cuenta = (Cuenta)_CmbCuentas.SelectedItem;
+            double factor = Math.Pow(10, 2);
             if (_txtHaber.Text.Length > 0)
             {
                 asiento.HaberMonedaOtra = double.Parse(_txtHaber.Text);
-                asiento.HaberMonedaSistema = ServicioFinanzas.Instancia.DemeCambio(
-                    (Moneda)_CmbMonedas.SelectedItem, double.Parse(_txtHaber.Text),
-                    new Moneda()
-                    {
-                        Nombre = "Colon",
-                        TipoMoneda = MonedasValidas.Colon
-                    });
+                asiento.HaberMonedaSistema =
+                    ServicioFinanzas.Instancia.ConvertirAMonedaSistema(((Moneda) _CmbMonedas.SelectedItem).TipoMoneda,
+                                                                       double.Parse(_txtHaber.Text));
+                asiento.HaberMonedaSistema = Math.Truncate(asiento.HaberMonedaSistema * factor) / factor;
             }
             else
             {
                 asiento.DebeMonedaOtra = double.Parse(_txtDebe.Text);
-                asiento.DebeMonedaSistema = ServicioFinanzas.Instancia.DemeCambio(
-                    (Moneda)_CmbMonedas.SelectedItem, double.Parse(_txtDebe.Text),
-                    new Moneda()
-                    {
-                        Nombre = "Colon",
-                        TipoMoneda = MonedasValidas.Colon
-                    });
+                asiento.DebeMonedaSistema =
+                    ServicioFinanzas.Instancia.ConvertirAMonedaSistema(((Moneda)_CmbMonedas.SelectedItem).TipoMoneda,
+                                                                       double.Parse(_txtDebe.Text));
+                
+                asiento.DebeMonedaSistema = Math.Truncate(asiento.DebeMonedaSistema * factor) / factor;
             }
             asiento.MonedaAcronimo = ((Moneda)_CmbMonedas.SelectedItem).Acronimo;
             _Coleccion.Add(asiento);
@@ -1061,14 +1057,21 @@ namespace Login_WPF
                       --		<Cuenta monto="5490.98" moneda="CRC" cuenta="" debe="1"/>
                       --  </Cuentas>*/
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
-                        (item.DebeMonedaSistema != null ? item.DebeMonedaSistema.ToString() : item.HaberMonedaSistema.ToString()),
-                        item.MonedaAcronimo, item.Cuenta.Codigo, item.DebeMonedaSistema != null);
+                        (item.DebeMonedaSistema > 1 ? item.DebeMonedaSistema.ToString() : item.HaberMonedaSistema.ToString()),
+                        item.MonedaAcronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0)?"1":"0");
                     montoDebe += (item.DebeMonedaSistema != null ? item.DebeMonedaSistema : 0);
                     montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);
                 }
                 xml += "</Cuentas>";
-                ServicioFinanzas.Instancia.InsertarAsiento(fechaAsiento.SelectedDate.Value.ToShortDateString(),
-                    montoDebe, montoHaber, xml);
+                if (ServicioFinanzas.Instancia.InsertarAsiento(fechaAsiento.SelectedDate.Value.ToShortDateString(),
+                    montoDebe, montoHaber, xml))
+                {
+                    MessageBox.Show("Asiento agregado!", "SIA", MessageBoxButton.OK, MessageBoxImage.Information);
+                    _Coleccion = new ObservableCollection<Asiento>();
+                    dataGridAgregaAsiento.Items.Refresh();
+                    _txtDebe.Text = string.Empty;
+                    _txtHaber.Text = string.Empty;
+                }
             }
         }
 

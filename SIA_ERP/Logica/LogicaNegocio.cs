@@ -6,6 +6,7 @@ using DataAccessPrincipal;
 using SIA.Libreria;
 using DataAccessFinanzas;
 using SIA.Contabilidad.Libreria;
+using SIA.TipoCambio;
 
 namespace Logica
 {
@@ -129,7 +130,13 @@ namespace Logica
             return _DataAccess.ObtenerMonedasSistema(pAtributo);
         }
 
-#endregion
+        public double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
+        {
+            var moneda = _DataAccess.ObtenerMonedasSistema("Sistema");
+            return (pMoneda == moneda.TipoMoneda) ? pValor : TiposCambio.Instancia.DemeCambio(pMoneda, pValor, moneda.TipoMoneda);
+        }
+
+        #endregion
 
         #region Atributos
 

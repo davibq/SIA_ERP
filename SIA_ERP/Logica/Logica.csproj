@@ -53,6 +53,10 @@
       <Project>{F5FB8F63-CD96-41F6-98E9-4FBDDD6EE65D}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TipoCambio\TipoCambio.csproj">
+      <Project>{1E890B42-E86B-430C-AE87-37393D19FA84}</Project>
+      <Name>TipoCambio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
