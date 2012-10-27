@@ -52,15 +52,15 @@ namespace Logica
         public bool AutenticarUsuario(Usuario pUsuario, string pNombreEmpresa)
         {
             var daPrincipal = new DAPrincipal();
-
+            pUsuario.ConvertirPassword();
             _DataAccess = new DAFinanzas("LCO_Finanzas");
-            /*var nombreBD = daPrincipal.AutenticarUsuario(pUsuario, pNombreEmpresa);
+            var nombreBD = daPrincipal.AutenticarUsuario(pUsuario, pNombreEmpresa);
             if (nombreBD.Length > 2)
             {
                 _DataAccess = new DAFinanzas(nombreBD);
-                */return true;/*
+                return true;
             }
-            return false;*/
+            return false;
         }
 
         public bool InsertarNuevoUsuario(Usuario pUsuario)

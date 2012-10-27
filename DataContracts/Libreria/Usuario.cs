@@ -26,19 +26,7 @@ namespace SIA.Libreria
         [DataMember]
         public string Password
         {
-            set
-            {
-                _PasswordStr = value;
-                Stream memStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(value), false);
-                if ((memStream != null) && (memStream.Length > 0))
-                {
-                    _Password = MD5.Create().ComputeHash(memStream);
-                }
-            }
-            get
-            {
-                return _PasswordStr;
-            }
+            set; get;
         }
 
         public byte[] PasswordBinario
@@ -49,9 +37,16 @@ namespace SIA.Libreria
             }
         }
 
-        [DataMember]
+        public void ConvertirPassword()
+        {
+            Stream memStream = new MemoryStream(Encoding.UTF8.GetBytes(Password), false);
+            if ((memStream != null) && (memStream.Length > 0))
+            {
+                _Password = MD5.Create().ComputeHash(memStream);
+            }
+
+        }
+
         private byte[] _Password;
-        [DataMember]
-        private string _PasswordStr;
     }
 }

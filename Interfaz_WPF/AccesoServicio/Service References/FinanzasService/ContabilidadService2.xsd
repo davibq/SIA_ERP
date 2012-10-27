@@ -23,8 +23,6 @@
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreUsuario" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="_Password" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="_PasswordStr" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
