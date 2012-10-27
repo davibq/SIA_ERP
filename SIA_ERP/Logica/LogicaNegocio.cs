@@ -130,6 +130,7 @@ namespace Logica
             return _DataAccess.ObtenerMonedasSistema(pAtributo);
         }
 
+<<<<<<< HEAD
         public double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
         {
             var moneda = _DataAccess.ObtenerMonedasSistema("Sistema");
@@ -137,6 +138,14 @@ namespace Logica
         }
 
         #endregion
+=======
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        {
+            return _DataAccess.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+
+#endregion
+>>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
 
         #region Atributos
 

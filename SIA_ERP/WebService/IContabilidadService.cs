@@ -60,7 +60,11 @@ namespace SIA.Contabilidad.WebService
         void InsertarAsiento(Asiento pAs);
 
         [OperationContract]
+<<<<<<< HEAD
         double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor);
+=======
+        IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre);
+>>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
     }
 
 }

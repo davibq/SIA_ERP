@@ -210,6 +210,7 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+<<<<<<< HEAD
   <xs:element name="ConvertirAMonedaSistema">
     <xs:complexType>
       <xs:sequence>
@@ -222,6 +223,19 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ConvertirAMonedaSistemaResult" type="xs:double" />
+=======
+  <xs:element name="ObtenerCuentasHijasSegunPadre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pNombrePadre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerCuentasHijasSegunPadreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerCuentasHijasSegunPadreResult" nillable="true" type="q14:ArrayOfCuenta" />
+>>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
       </xs:sequence>
     </xs:complexType>
   </xs:element>

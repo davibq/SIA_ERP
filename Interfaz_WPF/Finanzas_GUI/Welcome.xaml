@@ -115,7 +115,16 @@
             <TabItem Header="Cierre Contable" Name="CierreContable">
                 <Grid>
                     <Button Content="Generar Cierres" Height="25" HorizontalAlignment="Left" Margin="30,0,0,22" Name="buttonGenerarCierre" VerticalAlignment="Bottom" Width="97" Click="buttonGenerarCierre_Click" />
-                    <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Stretch" Margin="30,116,30,62" Name="dataGridCiere" VerticalAlignment="Stretch" />
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Stretch" Margin="30,116,30,62" Name="dataGridCierre" VerticalAlignment="Stretch" Width="Auto" IsManipulationEnabled="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Fecha Contab." CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=FechaContable}"/>
+                            <DataGridTextColumn Header="Cuenta" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Cuenta}"/>
+                            <DataGridTextColumn Header="Debe" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaOtra}"/>
+                            <DataGridTextColumn Header="Haber" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaOtra}"/>
+                            <DataGridTextColumn Header="Debe (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaSistema}"/>
+                            <DataGridTextColumn Header="Haber (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaSistema}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>    
                     <TextBlock FontSize="14" Height="22" HorizontalAlignment="Left" Margin="123,36,0,0" Name="textBlockUtilidades" Text="Utilidades:" VerticalAlignment="Top" Width="69" />
                     <TextBox Height="27" HorizontalAlignment="Left" Margin="212,34,0,0" Name="textBoxUtilidades" VerticalAlignment="Top" Width="308" />
                     <TextBlock FontSize="14" Height="30" HorizontalAlignment="Left" Margin="55,71,0,0" Name="textBlockPYG" Text="Perdidas y Ganancias:" VerticalAlignment="Top" Width="153" />
