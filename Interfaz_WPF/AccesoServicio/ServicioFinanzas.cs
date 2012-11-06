@@ -96,15 +96,14 @@ namespace AccesoServicio
             return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
         }
 
-<<<<<<< HEAD
         public double  ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
         {
             return _CSC.ConvertirAMonedaSistema(pMoneda, pValor);
-=======
+        }
+
         public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
         {
             return _CSC.ObtenerCuentasHijasSegunPadre(pNombrePadre);
->>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
         }
 
         private ContabilidadServiceClient _CSC;

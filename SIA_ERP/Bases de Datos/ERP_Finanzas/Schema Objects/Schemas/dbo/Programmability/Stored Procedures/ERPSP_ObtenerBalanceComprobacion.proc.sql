@@ -5,7 +5,7 @@
 -----------------------------------------------------------
 CREATE PROCEDURE [dbo].[ERPSP_ObtenerBalanceComprobacion]
 AS
-	SELECT Cuen.Nombre NombreCuenta, SalXCuXMo.Saldo SaldoCuenta, Mon.Acronimo AcronimoMoneda, 
+	SELECT Cuen.Nombre NombreCuenta, SalXCuXMo.Saldo SaldoCuenta, Mon.Acronimo AcronimoMoneda, Cuen.Codigo CodigoCuenta,
 	CASE
 		WHEN IdeCuen.Numero IN (1,6,8,5) THEN 1
 		WHEN IdeCuen.Numero IN (2,3,4,7) THEN 0

@@ -99,19 +99,17 @@
   <wsdl:message name="IContabilidadService_InsertarAsiento_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertarAsientoResponse" />
   </wsdl:message>
-<<<<<<< HEAD
   <wsdl:message name="IContabilidadService_ConvertirAMonedaSistema_InputMessage">
     <wsdl:part name="parameters" element="tns:ConvertirAMonedaSistema" />
   </wsdl:message>
   <wsdl:message name="IContabilidadService_ConvertirAMonedaSistema_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConvertirAMonedaSistemaResponse" />
-=======
+  </wsdl:message>
   <wsdl:message name="IContabilidadService_ObtenerCuentasHijasSegunPadre_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCuentasHijasSegunPadre" />
   </wsdl:message>
   <wsdl:message name="IContabilidadService_ObtenerCuentasHijasSegunPadre_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCuentasHijasSegunPadreResponse" />
->>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
   </wsdl:message>
   <wsdl:portType name="IContabilidadService">
     <wsdl:operation name="Saludar">
@@ -174,15 +172,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/InsertarAsiento" message="tns:IContabilidadService_InsertarAsiento_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/InsertarAsientoResponse" message="tns:IContabilidadService_InsertarAsiento_OutputMessage" />
     </wsdl:operation>
-<<<<<<< HEAD
     <wsdl:operation name="ConvertirAMonedaSistema">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ConvertirAMonedaSistema" message="tns:IContabilidadService_ConvertirAMonedaSistema_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ConvertirAMonedaSistemaResponse" message="tns:IContabilidadService_ConvertirAMonedaSistema_OutputMessage" />
-=======
+    </wsdl:operation>
     <wsdl:operation name="ObtenerCuentasHijasSegunPadre">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre" message="tns:IContabilidadService_ObtenerCuentasHijasSegunPadre_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadreResponse" message="tns:IContabilidadService_ObtenerCuentasHijasSegunPadre_OutputMessage" />
->>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContabilidadService" type="tns:IContabilidadService">
@@ -322,13 +318,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-<<<<<<< HEAD
     <wsdl:operation name="ConvertirAMonedaSistema">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/ConvertirAMonedaSistema" style="document" />
-=======
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ObtenerCuentasHijasSegunPadre">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre" style="document" />
->>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

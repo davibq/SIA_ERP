@@ -92,15 +92,14 @@ namespace SIA.Contabilidad.WebService
 
         }
 
-<<<<<<< HEAD
         public double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
         {
             return LogicaNegocio.Instancia.ConvertirAMonedaSistema(pMoneda, pValor);
-=======
+        }
+
         public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
         {
             return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre(pNombrePadre);
->>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
         }
     }
 }

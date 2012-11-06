@@ -19,12 +19,10 @@ namespace SIA.TipoCambio
                 UsarCompra = true;
                 _ValoresValidos = true;
                 _TiposCambio = new Hashtable();
-                 wsCliente = new BCCRWebService.wsIndicadoresEconomicosSoapClient();
-<<<<<<< HEAD
+                wsCliente = new BCCRWebService.wsIndicadoresEconomicosSoapClient();
+
                 var fechaHoy = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
-=======
-                 var fechaHoy = DateTime.Now.Day+"/"+DateTime.Now.Month+"/"+DateTime.Now.Year;
->>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
+
                 wsCliente.Open();
 
                 foreach (var moneda in Enum.GetValues(typeof(MonedasValidas)).Cast<MonedasValidas>())
@@ -102,7 +100,6 @@ namespace SIA.TipoCambio
 
         public double DemeCambio(MonedasValidas pOrigen, double pValor, MonedasValidas pDestino)
         {
-<<<<<<< HEAD
             if (pOrigen==MonedasValidas.Colon)
             {
                 return pValor/((double) (_TiposCambio[pDestino]));
@@ -110,11 +107,11 @@ namespace SIA.TipoCambio
             if (pDestino==MonedasValidas.Colon)
             {
                 return ((double)(_TiposCambio[pDestino])) * pValor;
-=======
+            }
+
             if (pOrigen == MonedasValidas.Colon || pDestino == MonedasValidas.Colon)
             {
                 return 0;
->>>>>>> d54a7d10ed6198dc13e410eec96523c2331afb77
             }
             return ((double)(_TiposCambio[pOrigen]) * pValor) / (double)_TiposCambio[pDestino];
         }
