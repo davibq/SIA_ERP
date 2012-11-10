@@ -694,24 +694,8 @@ namespace Login_WPF
                 //meter consulta
                 if (true)
                 {
-                    string xml = "<Meses>";
-                    for (int i = 0; i >= 12; i++)
-                    {
-                        /*  <Meses>
-                            -- <Mes Nombre='' FechaInicio="2012-01-01" FechaFin="2012-01-30" Estado="Abierto" /> 
-                            </Meses>*/
-                        xml += string.Format("<Mes Nombre=\"{0}\" FechaInicio=\"{1}\" FechaFin=\"{2}\" Estado=\"{3}\" />",
-                            ListaMeses[i].NombreMes,
-                            ListaMeses[i].FechaInicio,
-                            ListaMeses[i].FechaFin,
-                            ListaMeses[i].EstadoMes);
-                    }
-                    xml += "</Meses>";
-                    
-                    if (ServicioFinanzas.Instancia.InsertarPeriodoContable(FechaInicio,FechaFin,anio,pXML)){
-                        periodoCreado = true;
-                        MessageBox.Show("Creacion del periodo realizada.", "", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+                    periodoCreado = true;
+                    MessageBox.Show("Creacion del periodo realizada.", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {

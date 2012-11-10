@@ -55,10 +55,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.CrearCuenta(pCuenta);
         }
 
-        public bool InsertarPeriodoContable(string pFechaInicio, string pFechaFinal, string pAño, string pXML)
-        //public bool GuardarPeriodoContable(Mes[] pArregloMeses)
+        public bool GuardarPeriodoContable(Mes[] pArregloMeses)
         {
-            return LogicaNegocio.Instancia.InsertarPeriodoContable(pFechaInicio, pFechaFinal, pAño, pXML);
+            return LogicaNegocio.Instancia.GuardarPeriodoContable(pArregloMeses);
         }
 
         public IEnumerable<Cuenta> DemeCuentasHijas()
