@@ -73,6 +73,51 @@ namespace Login_WPF
                 CMBNuevaMoneda.Items.Add(moneda);
             }
             CMBNuevaMoneda.SelectedIndex = 0;
+
+
+            /*Carga del treeview*/
+            var cuentasTreeView = ServicioFinanzas.Instancia.ObtenerCuentasTreeView();
+            TreeViewItem itemTreeView = Parent;
+            TreeViewItem itemNivelCuatro = null;
+            TreeViewItem itemNivelTres = null;
+            TreeViewItem itemNivelDos = null;
+
+            foreach (var item in cuentasTreeView) 
+            {
+                TreeViewItem newChild = new TreeViewItem();
+                newChild.Header = item.Codigo + " " + item.Nombre;
+
+                if (item.Nivel == 1)
+                {
+                    itemTreeView.Items.Add(newChild);
+                    itemNivelDos = newChild;
+                }
+                else 
+                {
+                    if (item.Nivel == 2)
+                    {
+                        itemNivelDos.Items.Add(newChild);
+                        itemNivelTres = newChild;
+                    }
+                    else
+                    {
+                        if (item.Nivel == 3)
+                        {
+                            itemNivelTres.Items.Add(newChild);
+                            itemNivelCuatro = newChild;
+                        }
+                        else
+                        {
+                            itemNivelCuatro.Items.Add(newChild);
+                        }
+                    }
+                }
+                /*TreeViewItem newChild = new TreeViewItem();
+                newChild.Header = item.Nombre;
+                Parent.Items.Add(newChild);*/
+            }
+            Parent.IsExpanded = true;
+
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

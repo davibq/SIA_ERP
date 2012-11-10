@@ -111,6 +111,12 @@
   <wsdl:message name="IContabilidadService_ObtenerCuentasHijasSegunPadre_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCuentasHijasSegunPadreResponse" />
   </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasTreeView_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasTreeView" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasTreeView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasTreeViewResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContabilidadService">
     <wsdl:operation name="Saludar">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/Saludar" message="tns:IContabilidadService_Saludar_InputMessage" />
@@ -179,6 +185,10 @@
     <wsdl:operation name="ObtenerCuentasHijasSegunPadre">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre" message="tns:IContabilidadService_ObtenerCuentasHijasSegunPadre_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadreResponse" message="tns:IContabilidadService_ObtenerCuentasHijasSegunPadre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasTreeView">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView" message="tns:IContabilidadService_ObtenerCuentasTreeView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeViewResponse" message="tns:IContabilidadService_ObtenerCuentasTreeView_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContabilidadService" type="tns:IContabilidadService">
@@ -329,6 +339,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerCuentasHijasSegunPadre">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasTreeView">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

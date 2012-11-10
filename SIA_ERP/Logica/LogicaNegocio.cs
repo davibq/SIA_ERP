@@ -141,6 +141,11 @@ namespace Logica
             return _DataAccess.ObtenerCuentasHijasSegunPadre(pNombrePadre);
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasTreeView()
+        {
+            return _DataAccess.ObtenerCuentasTreeView();
+        }
+
 #endregion
 
         #region Atributos

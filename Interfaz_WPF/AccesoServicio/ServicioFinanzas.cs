@@ -111,6 +111,11 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasHijasSegunPadre(pNombrePadre);
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasTreeView() 
+        {
+            return _CSC.ObtenerCuentasTreeView();
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

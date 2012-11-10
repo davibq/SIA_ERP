@@ -217,6 +217,24 @@ namespace DataAccessFinanzas
             return cuentas;
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasTreeView()
+        {
+            var cuentas = new List<Cuenta>();
+            var ds = EjecutarConsulta("dbo.ObtenerCuentas", new List<SqlParameter>() {});
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var cuenta = new Cuenta();
+                    cuenta.Codigo = row["Codigo"].ToString();
+                    cuenta.Nombre = row["Nombre"].ToString();
+                    cuenta.Nivel = int.Parse(row["Nivel"].ToString());
+                    cuentas.Add(cuenta);
+                }
+            }
+            return cuentas;
+        }
+
         #endregion
 
     }

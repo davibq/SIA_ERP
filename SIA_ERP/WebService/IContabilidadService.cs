@@ -64,6 +64,9 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre);
+
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasTreeView();
     }
 
 }

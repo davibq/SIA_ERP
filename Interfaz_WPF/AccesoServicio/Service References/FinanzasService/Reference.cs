@@ -892,6 +892,9 @@ namespace AccesoServicio.FinanzasService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadreResponse")]
         AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeViewResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasTreeView();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -987,6 +990,10 @@ namespace AccesoServicio.FinanzasService {
         
         public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre) {
             return base.Channel.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasTreeView() {
+            return base.Channel.ObtenerCuentasTreeView();
         }
     }
 }
