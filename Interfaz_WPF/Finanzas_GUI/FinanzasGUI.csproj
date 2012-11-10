@@ -76,6 +76,24 @@
     <Compile Include="Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModuloAdministrativo.xaml.cs">
+      <DependentUpon>ModuloAdministrativo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloBancos.xaml.cs">
+      <DependentUpon>ModuloBancos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloCompras.xaml.cs">
+      <DependentUpon>ModuloCompras.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloInventarios.xaml.cs">
+      <DependentUpon>ModuloInventarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloSociosNegocios.xaml.cs">
+      <DependentUpon>ModuloSociosNegocios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloVentas.xaml.cs">
+      <DependentUpon>ModuloVentas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
@@ -107,6 +125,30 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModuloAdministrativo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModuloBancos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModuloCompras.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModuloInventarios.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModuloSociosNegocios.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModuloVentas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

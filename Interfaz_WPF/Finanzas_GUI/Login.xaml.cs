@@ -46,9 +46,8 @@ namespace Login_WPF
          * Los IF estan comentados solo para hacer mas facil cuando se esta probando
          */
         private void button1_Click(object sender, RoutedEventArgs e)
-        {            
-
-            if (SociedadcomboBox1.SelectedIndex == -1 || textBoxUserName.Text == string.Empty || passwordBox1.Password == string.Empty)
+        {
+            if (SociedadcomboBox1.SelectedIndex == -1 || textBoxUserName.Text == string.Empty || passwordBox1.Password == string.Empty || comboBoxModulos.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe completar todos los datos solicitados.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -56,18 +55,61 @@ namespace Login_WPF
             {
                 string empresa = SociedadcomboBox1.SelectedItem.ToString();
                 var usuario = new Usuario()
-                                  {
-                                      NombreUsuario = textBoxUserName.Text,
-                                      Password = passwordBox1.Password
-                                  };
+                {
+                    NombreUsuario = textBoxUserName.Text,
+                    Password = passwordBox1.Password
+                };
+
                 if (ServicioFinanzas.Instancia.AutenticarUsuario(usuario, empresa))
                 {
-                    Welcome welcome = new Welcome();
-                    welcome.Show();
-                    NoCierre = 1;
-                    Close();
+                    int modulo = comboBoxModulos.SelectedIndex;
+
+                    switch (modulo)
+                    {
+                        case 1:
+                            Welcome welcome = new Welcome();
+                            welcome.Show();
+                            NoCierre = 1;
+                            Close();
+                            break;
+
+                        case 2:
+                            ModuloInventarios inventarios = new ModuloInventarios();
+                            Close();
+                            inventarios.Show();
+                            break;
+
+                        case 3:
+                            ModuloSociosNegocios socios = new ModuloSociosNegocios();
+                            Close();
+                            socios.Show();
+                            break;
+
+                        case 4:
+                            ModuloBancos bancos = new ModuloBancos();
+                            Close();
+                            break;
+
+                        case 5:
+                            ModuloCompras compras = new ModuloCompras();
+                            Close();
+                            compras.Show();
+                            break;
+
+                        case 6:
+                            ModuloVentas ventas = new ModuloVentas();
+                            Close();
+                            ventas.Show();
+                            break;
+
+                        case 7:
+                            ModuloAdministrativo administrativo = new ModuloAdministrativo();
+                            Close();
+                            administrativo.Show();
+                            break;
+                    }
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Datos erroneos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -107,8 +149,3 @@ namespace Login_WPF
         }
     }
 }
-/*
-.kljhlkuijh ;kjh;ok jok
-kljbnkjhhhhv
-
-*/
