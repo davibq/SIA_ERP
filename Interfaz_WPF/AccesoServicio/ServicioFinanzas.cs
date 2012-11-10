@@ -106,6 +106,11 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasHijasSegunPadre(pNombrePadre);
         }
 
+        public bool InsertarPeriodoContable(string pFechaInicio, string pFechaFinal, string pAño, string pXML)
+        {
+            return _CSC.InsertarPeriodoContable(pFechaInicio, pFechaFinal, pAño, pXML);
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

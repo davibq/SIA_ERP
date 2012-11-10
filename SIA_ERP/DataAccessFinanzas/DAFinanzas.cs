@@ -86,6 +86,7 @@ namespace DataAccessFinanzas
                                                           });
         }
 
+        /*
         public bool GuardarPeriodoContable(Mes[] pMeses)
         {
             string xml = "<Meses>";
@@ -99,7 +100,7 @@ namespace DataAccessFinanzas
             {
                 new SqlParameter("ListaMeses", xml)
             });
-        }
+        }*/
 
         public IEnumerable<Cuenta> ObtenerCuentas()
         {
@@ -212,6 +213,17 @@ namespace DataAccessFinanzas
                 }
             }
             return cuentas;
+        }
+
+        public bool InsertarPeriodoContable(string pFechaInicio, string pFechaFinal, string pAño, string pXML)
+        {
+            return EjecutarNoConsulta("dbo.ERPSP_InsertarPeriodoContable", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("FechaInicio", pFechaInicio),
+                                                              new SqlParameter("FechaFinal", pFechaFinal),
+                                                              new SqlParameter("Anyo", pAño),
+                                                              new SqlParameter("Meses", pXML)
+                                                          });
         }
 
         #endregion

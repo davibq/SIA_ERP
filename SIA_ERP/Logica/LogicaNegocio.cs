@@ -90,9 +90,10 @@ namespace Logica
             return _DataAccess.CrearCuenta(pCuenta);
         }
 
-        public bool GuardarPeriodoContable(Mes[] pArregloMeses)
+        public bool InsertarPeriodoContable(string pFechaInicio, string pFechaFinal, string pAño, string pXML)
+        //public bool GuardarPeriodoContable(Mes[] pArregloMeses)
         {
-            return _DataAccess.GuardarPeriodoContable(pArregloMeses);
+            return _DataAccess.InsertarPeriodoContable(pFechaInicio, pFechaFinal, pAño, pXML);
         }
 
         public IEnumerable<Cuenta> DemeCuentasHijas()
