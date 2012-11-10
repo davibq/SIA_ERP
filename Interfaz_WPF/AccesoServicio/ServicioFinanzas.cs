@@ -76,6 +76,11 @@ namespace AccesoServicio
             return _CSC.CrearCuenta(pCuenta);
         }
 
+        public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)
+        {
+            return _CSC.GuardarPeriodoContable(pFechaIn, pFechaFin, pAno, pArregloMeses);
+        }
+
         public IEnumerable<Cuenta> DemeCuentasHijas()
         {
             return _CSC.DemeCuentasHijas();

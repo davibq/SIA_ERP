@@ -114,6 +114,9 @@
   <xs:element name="GuardarPeriodoContable">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="pFechaIn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pFechaFin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pAno" type="xs:int" />
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pArregloMeses" nillable="true" type="q7:ArrayOfMes" />
       </xs:sequence>
     </xs:complexType>

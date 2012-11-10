@@ -867,7 +867,7 @@ namespace AccesoServicio.FinanzasService {
         bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/GuardarPeriodoContable", ReplyAction="http://tempuri.org/IContabilidadService/GuardarPeriodoContableResponse")]
-        bool GuardarPeriodoContable(AccesoServicio.FinanzasService.Mes[] pArregloMeses);
+        bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, AccesoServicio.FinanzasService.Mes[] pArregloMeses);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/DemeCuentasHijas", ReplyAction="http://tempuri.org/IContabilidadService/DemeCuentasHijasResponse")]
         AccesoServicio.FinanzasService.Cuenta[] DemeCuentasHijas();
@@ -953,8 +953,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.CrearCuenta(pCuenta);
         }
         
-        public bool GuardarPeriodoContable(AccesoServicio.FinanzasService.Mes[] pArregloMeses) {
-            return base.Channel.GuardarPeriodoContable(pArregloMeses);
+        public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, AccesoServicio.FinanzasService.Mes[] pArregloMeses) {
+            return base.Channel.GuardarPeriodoContable(pFechaIn, pFechaFin, pAno, pArregloMeses);
         }
         
         public AccesoServicio.FinanzasService.Cuenta[] DemeCuentasHijas() {

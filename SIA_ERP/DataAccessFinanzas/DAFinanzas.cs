@@ -86,7 +86,7 @@ namespace DataAccessFinanzas
                                                           });
         }
 
-        public bool GuardarPeriodoContable(Mes[] pMeses)
+        public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pMeses)
         {
             string xml = "<Meses>";
             foreach (var mes in pMeses)
@@ -95,9 +95,12 @@ namespace DataAccessFinanzas
                     mes.NombreMes, mes.FechaInicio, mes.FechaFin, mes.EstadoMes);
             }
             xml += "</Meses>";
-            return EjecutarNoConsulta("dbo.InsertarPeriodoContable", new List<SqlParameter>()
+            return EjecutarNoConsulta("dbo.ERPSP_InsertarPeriodoContable", new List<SqlParameter>()
             {
-                new SqlParameter("ListaMeses", xml)
+                new SqlParameter("FechaInicio", pFechaIn),
+                new SqlParameter("FechaFinal", pFechaFin),
+                new SqlParameter("Anyo", pAno),
+                new SqlParameter("Meses", xml)
             });
         }
 

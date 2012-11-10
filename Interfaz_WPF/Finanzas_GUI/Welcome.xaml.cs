@@ -675,8 +675,8 @@ namespace Login_WPF
                         break;
                 }
 
-                FechaInicio = datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Year;
-                FechaFin = FechaFin + "/" + comboBoxFinPeriodo.SelectedItem + "/" + anio;
+                FechaInicio = datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Year;
+                FechaFin = comboBoxFinPeriodo.SelectedItem + "/" + FechaFin + "/" + anio;
 
                 ListaMeses[0] = Enero;
                 ListaMeses[1] = Febrero;
@@ -694,8 +694,11 @@ namespace Login_WPF
                 //meter consulta
                 if (true)
                 {
-                    periodoCreado = true;
-                    MessageBox.Show("Creacion del periodo realizada.", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (ServicioFinanzas.Instancia.GuardarPeriodoContable(FechaInicio,FechaFin,int.Parse(anio),ListaMeses))
+                    {
+                        periodoCreado = true;
+                        MessageBox.Show("Creacion del periodo realizada.", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 else
                 {

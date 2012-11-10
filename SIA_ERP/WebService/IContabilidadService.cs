@@ -39,7 +39,7 @@ namespace SIA.Contabilidad.WebService
         bool CrearCuenta(Cuenta pCuenta);
 
         [OperationContract]
-        bool GuardarPeriodoContable(Mes[] pArregloMeses);
+        bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses);
 
         [OperationContract]
         IEnumerable<Cuenta> DemeCuentasHijas();
