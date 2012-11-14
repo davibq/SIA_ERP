@@ -436,6 +436,9 @@ namespace AccesoServicio.FinanzasService {
         private double SaldoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double Saldo_HaberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AccesoServicio.FinanzasService.Moneda _MonedaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -561,6 +564,19 @@ namespace AccesoServicio.FinanzasService {
                 if ((this.SaldoField.Equals(value) != true)) {
                     this.SaldoField = value;
                     this.RaisePropertyChanged("Saldo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Saldo_Haber {
+            get {
+                return this.Saldo_HaberField;
+            }
+            set {
+                if ((this.Saldo_HaberField.Equals(value) != true)) {
+                    this.Saldo_HaberField = value;
+                    this.RaisePropertyChanged("Saldo_Haber");
                 }
             }
         }
@@ -891,7 +907,7 @@ namespace AccesoServicio.FinanzasService {
         double ConvertirAMonedaSistema(AccesoServicio.FinanzasService.MonedasValidas pMoneda, double pValor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadreResponse")]
-        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre);
+        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeViewResponse")]
         AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasTreeView();
@@ -988,8 +1004,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.ConvertirAMonedaSistema(pMoneda, pValor);
         }
         
-        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre) {
-            return base.Channel.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre() {
+            return base.Channel.ObtenerCuentasHijasSegunPadre();
         }
         
         public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasTreeView() {

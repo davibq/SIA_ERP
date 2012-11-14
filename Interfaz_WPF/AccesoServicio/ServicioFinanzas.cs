@@ -106,9 +106,9 @@ namespace AccesoServicio
             return _CSC.ConvertirAMonedaSistema(pMoneda, pValor);
         }
 
-        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
         {
-            return _CSC.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+            return _CSC.ObtenerCuentasHijasSegunPadre();
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView() 

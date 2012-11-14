@@ -403,7 +403,8 @@ namespace Login_WPF
             textBoxUtilidades.Text = "";
             textBoxPerdidasYGanancias.Text = "";
 
-            dataGridCierre.ItemsSource = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre("INGRESOS");
+            dataGridCierre.DataContext = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre();
+            //dataGridCierre.ItemsSource = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre("INGRESOS");
         }
 
         private void datePickerMesInicio_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -617,63 +618,87 @@ namespace Login_WPF
                 string mes;
                 if (Enero.FechaInicio == null)
                 {
+                    Enero.NombreMes = "Enero";
+                    Enero.EstadoMes = "Abierto";
                     Enero.FechaInicio = "1/1/" + anio;
-                    Enero.FechaFin = "1/31" + anio;
+                    Enero.FechaFin = "1/31/" + anio;
                 }
                 if (Febrero.FechaInicio == null)
                 {
+                    Febrero.NombreMes = "Febrero";
+                    Febrero.EstadoMes = "Abierto";
                     Febrero.FechaInicio = "2/1/" + anio;
-                    Febrero.FechaFin = "2/28" + anio;
+                    Febrero.FechaFin = "2/28/" + anio;
                 }
                 if (Marzo.FechaInicio == null)
                 {
+                    Marzo.NombreMes = "Marzo";
+                    Marzo.EstadoMes = "Abierto";
                     Marzo.FechaInicio = "3/1/" + anio;
-                    Marzo.FechaFin = "3/31" + anio;
+                    Marzo.FechaFin = "3/31/" + anio;
                 }
                 if (Abril.FechaInicio == null)
                 {
+                    Abril.NombreMes = "Abril";
+                    Abril.EstadoMes = "Abierto";
                     Abril.FechaInicio = "4/1/" + anio;
-                    Abril.FechaFin = "4/30" + anio;
+                    Abril.FechaFin = "4/30/" + anio;
                 }
                 if (Mayo.FechaInicio == null)
                 {
+                    Mayo.NombreMes = "Mayo";
+                    Mayo.EstadoMes = "Abierto";
                     Mayo.FechaInicio = "5/1/" + anio;
-                    Mayo.FechaFin = "5/31" + anio;
+                    Mayo.FechaFin = "5/31/" + anio;
                 }
                 if (Junio.FechaInicio == null)
                 {
+                    Junio.NombreMes = "Junio";
+                    Junio.EstadoMes = "Abierto";
                     Junio.FechaInicio = "6/1/" + anio;
-                    Junio.FechaFin = "6/30" + anio;
+                    Junio.FechaFin = "6/30/" + anio;
                 }
                 if (Julio.FechaInicio == null)
                 {
+                    Julio.NombreMes = "Julio";
+                    Julio.EstadoMes = "Abierto";
                     Julio.FechaInicio = "7/1/" + anio;
-                    Julio.FechaFin = "7/31" + anio;
+                    Julio.FechaFin = "7/31/" + anio;
                 }
                 if (Agosto.FechaInicio == null)
                 {
+                    Agosto.NombreMes = "Agosto";
+                    Agosto.EstadoMes = "Abierto";
                     Agosto.FechaInicio = "8/1/" + anio;
-                    Agosto.FechaFin = "8/31" + anio;
+                    Agosto.FechaFin = "8/31/" + anio;
                 }
                 if (Septiembre.FechaInicio == null)
                 {
+                    Septiembre.NombreMes = "Septiembre";
+                    Septiembre.EstadoMes = "Abierto";
                     Septiembre.FechaInicio = "9/1/" + anio;
-                    Septiembre.FechaFin = "9/30" + anio;
+                    Septiembre.FechaFin = "9/30/" + anio;
                 }
                 if (Octubre.FechaInicio == null)
                 {
+                    Octubre.NombreMes = "Octubre";
+                    Octubre.EstadoMes = "Abierto";
                     Octubre.FechaInicio = "10/1/" + anio;
-                    Octubre.FechaFin = "10/31" + anio;
+                    Octubre.FechaFin = "10/31/" + anio;
                 }
                 if (Noviembre.FechaInicio == null)
                 {
+                    Noviembre.NombreMes = "Noviembre";
+                    Noviembre.EstadoMes = "Abierto";
                     Noviembre.FechaInicio = "11/1/" + anio;
-                    Noviembre.FechaFin = "11/30" + anio;
+                    Noviembre.FechaFin = "11/30/" + anio;
                 }
                 if (Diciembre.FechaInicio == null)
                 {
+                    Diciembre.NombreMes = "Diciembre";
+                    Diciembre.EstadoMes = "Abierto";
                     Diciembre.FechaInicio = "12/1/" + anio;
-                    Diciembre.FechaFin = "12/31" + anio;
+                    Diciembre.FechaFin = "12/31/" + anio;
                 }
 
                 anio = datePickerMesInicio.DisplayDate.Year.ToString();
@@ -720,8 +745,8 @@ namespace Login_WPF
                         break;
                 }
 
-                FechaInicio = datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Year;
-                FechaFin = comboBoxFinPeriodo.SelectedItem + "/" + FechaFin + "/" + anio;
+                FechaInicio = datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Year;
+                FechaFin = FechaFin + "/" + comboBoxFinPeriodo.SelectedItem + "/" + anio;
 
                 ListaMeses[0] = Enero;
                 ListaMeses[1] = Febrero;

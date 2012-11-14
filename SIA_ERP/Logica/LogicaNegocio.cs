@@ -136,9 +136,22 @@ namespace Logica
             return (pMoneda == moneda.TipoMoneda) ? pValor : TiposCambio.Instancia.DemeCambio(pMoneda, pValor, moneda.TipoMoneda);
         }
     
-        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
         {
-            return _DataAccess.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+            IEnumerable<Cuenta> cuentas = _DataAccess.ObtenerCuentasHijasSegunPadre("INGRESOS");
+            cuentas = cuentas.Concat(_DataAccess.ObtenerCuentasHijasSegunPadre("OTROS INGRESOS"));
+
+            foreach (var cuenta in cuentas)
+            {
+                if (cuenta.Nombre == "Descuentos sobre ventas" || cuenta.Nombre == "Devoluciones sobre ventas")
+                {
+                    cuenta.Saldo_Haber = cuenta.Saldo;
+                    cuenta.Saldo = 0;
+                }
+                cuenta.Nombre = cuenta.Codigo + " " + cuenta.Nombre;
+            }
+
+            return cuentas;
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView()

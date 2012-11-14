@@ -121,15 +121,13 @@
             </TabItem>
             <TabItem Header="Cierre Contable" Name="CierreContable">
                 <Grid>
-                    <Button Content="Generar Cierres" Height="25" HorizontalAlignment="Left" Margin="30,0,0,22" Name="buttonGenerarCierre" VerticalAlignment="Bottom" Width="97" Click="buttonGenerarCierre_Click" />
-                    <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Stretch" Margin="30,116,30,62" Name="dataGridCierre" VerticalAlignment="Stretch" Width="Auto" IsManipulationEnabled="True">
+                    <Button Content="Generar Cierres" Height="25" HorizontalAlignment="Left" Margin="30,0,0,22" Name="buttonGenerarCierre" VerticalAlignment="Bottom" Width="97" Click="buttonGenerarCierre_Click"  />
+                    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Stretch" Margin="30,116,30,62" Name="dataGridCierre" VerticalAlignment="Stretch" Width="Auto" IsManipulationEnabled="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Fecha Contab." CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=FechaContable}"/>
-                            <DataGridTextColumn Header="Cuenta" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Cuenta}"/>
-                            <DataGridTextColumn Header="Debe" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaOtra}"/>
-                            <DataGridTextColumn Header="Haber" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaOtra}"/>
-                            <DataGridTextColumn Header="Debe (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=DebeMonedaSistema}"/>
-                            <DataGridTextColumn Header="Haber (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=HaberMonedaSistema}"/>
+                            <DataGridTextColumn Header="Cuenta" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Nombre}"/>
+                            <DataGridTextColumn Header="Debe (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Saldo}"/>
+                            <DataGridTextColumn Header="Haber (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Saldo_Haber}"/>
                         </DataGrid.Columns>
                     </DataGrid>    
                     <TextBlock FontSize="14" Height="22" HorizontalAlignment="Left" Margin="123,36,0,0" Name="textBlockUtilidades" Text="Utilidades:" VerticalAlignment="Top" Width="69" />

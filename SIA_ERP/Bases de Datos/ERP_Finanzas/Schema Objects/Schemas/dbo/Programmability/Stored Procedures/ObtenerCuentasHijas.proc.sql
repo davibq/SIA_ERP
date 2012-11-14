@@ -10,7 +10,7 @@ AS
 	INNER JOIN dbo.FIN_IdentificadorCuenta IdeCuen ON IdeCuen.IdIdentificadorCuenta = Cuen.IdIdentificadorCuenta
 	INNER JOIN dbo.FIN_SaldoXCuentaXMoneda SalXCuXMo ON SalXCuXMo.IdCuenta = Cuen.IdCuenta
 	INNER JOIN dbo.FIN_Moneda Mon ON Mon.IdMoneda = SalXCuXMo.IdMoneda
-	WHERE Cuen.Enabled = 1 AND (Mon.EsLocal = 1 OR Mon.EsSistema = 1) AND Cuen.Codigo LIKE @CodigoPadre+'%'
+	WHERE Cuen.Enabled = 1 AND Mon.EsSistema = 1 AND Cuen.Codigo LIKE @CodigoPadre+'%'
 	AND Cuen.IdCuenta NOT IN
 	(
 		SELECT IdCuentaPadre FROM dbo.FIN_Cuenta

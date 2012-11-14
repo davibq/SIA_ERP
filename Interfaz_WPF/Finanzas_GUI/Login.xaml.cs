@@ -40,6 +40,15 @@ namespace Login_WPF
                     SociedadcomboBox1.Items.Add(s);    
             }
             SociedadcomboBox1.SelectedIndex = 0;
+
+            comboBoxModulos.Items.Add("Finanzas");
+            comboBoxModulos.Items.Add("Inventarios");
+            comboBoxModulos.Items.Add("Socios de negocio");
+            comboBoxModulos.Items.Add("Bancos");
+            comboBoxModulos.Items.Add("Compras");
+            comboBoxModulos.Items.Add("Ventas");
+            comboBoxModulos.Items.Add("Administrativo");
+            comboBoxModulos.SelectedIndex = 0;
         }
         
         /*
@@ -66,43 +75,43 @@ namespace Login_WPF
 
                     switch (modulo)
                     {
-                        case 1:
+                        case 0:
                             Welcome welcome = new Welcome();
                             welcome.Show();
                             NoCierre = 1;
                             Close();
                             break;
 
-                        case 2:
+                        case 1:
                             ModuloInventarios inventarios = new ModuloInventarios();
                             Close();
                             inventarios.Show();
                             break;
 
-                        case 3:
+                        case 2:
                             ModuloSociosNegocios socios = new ModuloSociosNegocios();
                             Close();
                             socios.Show();
                             break;
 
-                        case 4:
+                        case 3:
                             ModuloBancos bancos = new ModuloBancos();
                             Close();
                             break;
 
-                        case 5:
+                        case 4:
                             ModuloCompras compras = new ModuloCompras();
                             Close();
                             compras.Show();
                             break;
 
-                        case 6:
+                        case 5:
                             ModuloVentas ventas = new ModuloVentas();
                             Close();
                             ventas.Show();
                             break;
 
-                        case 7:
+                        case 6:
                             ModuloAdministrativo administrativo = new ModuloAdministrativo();
                             Close();
                             administrativo.Show();

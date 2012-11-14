@@ -63,7 +63,7 @@ namespace SIA.Contabilidad.WebService
         double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor);
 
         [OperationContract]
-        IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre);
+        IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre();
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();

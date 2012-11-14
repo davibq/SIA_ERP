@@ -25,6 +25,9 @@ namespace SIA.Libreria
         public double Saldo { get; set; }
 
         [DataMember]
+        public double Saldo_Haber { get; set; }
+
+        [DataMember]
         public bool Debe { get; set; }
 
         [DataMember]

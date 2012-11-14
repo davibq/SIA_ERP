@@ -51,6 +51,7 @@
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreIdiomaExtranjero" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Saldo" type="xs:double" />
+      <xs:element minOccurs="0" name="Saldo_Haber" type="xs:double" />
       <xs:element minOccurs="0" name="_Moneda" nillable="true" type="tns:Moneda" />
     </xs:sequence>
   </xs:complexType>

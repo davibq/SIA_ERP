@@ -97,9 +97,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ConvertirAMonedaSistema(pMoneda, pValor);
         }
 
-        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
         {
-            return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+            return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre();
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView()

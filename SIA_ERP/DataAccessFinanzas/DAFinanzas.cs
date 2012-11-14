@@ -209,7 +209,6 @@ namespace DataAccessFinanzas
                     cuenta.Codigo = row["CodigoCuenta"].ToString();
                     cuenta.Nombre = row["NombreCuenta"].ToString();
                     cuenta.Saldo = double.Parse(row["SaldoCuenta"].ToString());
-                    cuenta.Enabled = bool.Parse(row["Eslocal"].ToString());
                     
                     cuentas.Add(cuenta);
                 }
