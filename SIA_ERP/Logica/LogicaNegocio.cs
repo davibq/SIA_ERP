@@ -120,9 +120,9 @@ namespace Logica
             return _DataAccess.DemeMonedas(pCuenta);
         }
 
-        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento)
         {
-            return _DataAccess.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+            return _DataAccess.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML, pTipoAsiento);
         }
 
         public Moneda ObtenerMonedasSistema(string pAtributo)

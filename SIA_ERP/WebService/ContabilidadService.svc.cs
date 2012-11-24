@@ -78,9 +78,9 @@ namespace SIA.Contabilidad.WebService
             return TiposCambio.Instancia.DemeCambio(pOrigen.TipoMoneda, pValor, pDestino.TipoMoneda);
         }
 
-        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento)
         {
-            return LogicaNegocio.Instancia.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+            return LogicaNegocio.Instancia.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML, pTipoAsiento);
         }
 
         public Moneda ObtenerMonedasSistema(string pAtributo)

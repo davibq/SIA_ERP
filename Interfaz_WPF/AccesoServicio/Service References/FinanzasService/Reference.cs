@@ -895,7 +895,7 @@ namespace AccesoServicio.FinanzasService {
         double DemeCambio(AccesoServicio.FinanzasService.Moneda pOrigen, double pValor, AccesoServicio.FinanzasService.Moneda pDestino);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/AgregarAsiento", ReplyAction="http://tempuri.org/IContabilidadService/AgregarAsientoResponse")]
-        bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML);
+        bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerMonedasSistema", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerMonedasSistemaResponse")]
         AccesoServicio.FinanzasService.Moneda ObtenerMonedasSistema(string pAtributo);
@@ -991,8 +991,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.DemeCambio(pOrigen, pValor, pDestino);
         }
         
-        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML) {
-            return base.Channel.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento) {
+            return base.Channel.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML, pTipoAsiento);
         }
         
         public AccesoServicio.FinanzasService.Moneda ObtenerMonedasSistema(string pAtributo) {

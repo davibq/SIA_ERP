@@ -156,7 +156,7 @@ namespace DataAccessFinanzas
             return monedas;
         }
 
-        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento)
         {
             return EjecutarNoConsulta("dbo.ERPSP_ActualizarAsiento", new List<SqlParameter>()
                                                           {
@@ -168,7 +168,7 @@ namespace DataAccessFinanzas
                                                               new SqlParameter("Referencia2", "-"),
                                                               new SqlParameter("Enabled", true),
                                                               new SqlParameter("Cuenta", pXML),
-                                                              new SqlParameter("TipoAsiento", "AS")
+                                                              new SqlParameter("TipoAsiento", pTipoAsiento)
                                                           });
         }
 

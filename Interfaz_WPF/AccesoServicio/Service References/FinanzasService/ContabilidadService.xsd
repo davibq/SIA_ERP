@@ -177,6 +177,7 @@
         <xs:element minOccurs="0" name="MontoDebe" type="xs:double" />
         <xs:element minOccurs="0" name="MontoHaber" type="xs:double" />
         <xs:element minOccurs="0" name="pXML" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pTipoAsiento" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

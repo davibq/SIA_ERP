@@ -51,7 +51,7 @@ namespace SIA.Contabilidad.WebService
         double DemeCambio(Moneda pOrigen, double pValor, Moneda pDestino);
 
         [OperationContract]
-        bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML);
+        bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento);
 
         [OperationContract]
         Moneda ObtenerMonedasSistema(string pAtributo);
