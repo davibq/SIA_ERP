@@ -135,6 +135,12 @@ namespace Logica
             var moneda = _DataAccess.ObtenerMonedasSistema("Sistema");
             return (pMoneda == moneda.TipoMoneda) ? pValor : TiposCambio.Instancia.DemeCambio(pMoneda, pValor, moneda.TipoMoneda);
         }
+
+        public double ConvertirAMonedaLocal(Moneda pMoneda, double pValor)
+        {
+            var moneda = _DataAccess.ObtenerMonedasSistema("Local");
+            return (pMoneda.TipoMoneda == moneda.TipoMoneda) ? pValor : TiposCambio.Instancia.DemeCambio(pMoneda.TipoMoneda, pValor, moneda.TipoMoneda);
+        }
     
         public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
         {

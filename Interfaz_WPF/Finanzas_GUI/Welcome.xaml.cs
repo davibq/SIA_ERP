@@ -403,6 +403,7 @@ namespace Login_WPF
             textBoxUtilidades.Text = "";
             textBoxPerdidasYGanancias.Text = "";
 
+            var cuentas = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre();
             dataGridCierre.DataContext = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre();
             //dataGridCierre.ItemsSource = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre("INGRESOS");
         }
@@ -1095,6 +1096,7 @@ namespace Login_WPF
             double factor = Math.Pow(10, 2);
             if (_txtHaber.Text.Length > 0)
             {
+                asiento.FechaContable = fechaAsiento.SelectedDate.Value;
                 asiento.HaberMonedaOtra = double.Parse(_txtHaber.Text);
                 asiento.HaberMonedaSistema =
                     ServicioFinanzas.Instancia.ConvertirAMonedaSistema(((Moneda) _CmbMonedas.SelectedItem).TipoMoneda,
@@ -1123,6 +1125,8 @@ namespace Login_WPF
             MessageBoxImage icon = MessageBoxImage.Question;
             if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
             {
+                var monedaSistema = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Sistema");
+                var monedaLocal = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Local");
                 string xml = "<Cuentas>";
                 double montoDebe = 0, montoHaber = 0;
                 foreach (var item in _Coleccion)
@@ -1133,12 +1137,20 @@ namespace Login_WPF
                       --  </Cuentas>*/
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
                         (item.DebeMonedaSistema > 1 ? item.DebeMonedaSistema.ToString() : item.HaberMonedaSistema.ToString()),
-                        item.MonedaAcronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0)?"1":"0");
+                        monedaSistema.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
                     montoDebe += (item.DebeMonedaSistema != null ? item.DebeMonedaSistema : 0);
-                    montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);
+                    montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);               
+
+                    xml += xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                        (item.DebeMonedaSistema > 1 ? ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.DebeMonedaSistema).ToString() : ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.HaberMonedaSistema).ToString()),
+                        monedaLocal.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
+                    montoDebe += (item.DebeMonedaSistema != null ? ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.DebeMonedaSistema) : 0);
+                    montoHaber += (item.HaberMonedaSistema != null ? ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.HaberMonedaSistema) : 0);
                 }
                 xml += "</Cuentas>";
-                if (ServicioFinanzas.Instancia.InsertarAsiento(fechaAsiento.SelectedDate.Value.ToShortDateString(),
+                
+
+                if (ServicioFinanzas.Instancia.InsertarAsiento(fechaAsiento.SelectedDate.Value.Month.ToString()+"/"+fechaAsiento.SelectedDate.Value.Day.ToString()+"/"+fechaAsiento.SelectedDate.Value.Year.ToString(),//fechaAsiento.SelectedDate.Value.ToShortDateString(),
                     montoDebe, montoHaber, xml))
                 {
                     MessageBox.Show("Asiento agregado!", "SIA", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -87,14 +87,14 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerMonedasSistema(pAtributo);
         }
 
-        public void InsertarAsiento(Asiento pAs)
-        {
-
-        }
-
         public double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
         {
             return LogicaNegocio.Instancia.ConvertirAMonedaSistema(pMoneda, pValor);
+        }
+
+        public double ConvertirAMonedaLocal(Moneda pMoneda, double pValor)
+        {
+            return LogicaNegocio.Instancia.ConvertirAMonedaLocal(pMoneda, pValor);
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()

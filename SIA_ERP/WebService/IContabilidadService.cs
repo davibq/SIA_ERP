@@ -57,10 +57,10 @@ namespace SIA.Contabilidad.WebService
         Moneda ObtenerMonedasSistema(string pAtributo);
 
         [OperationContract]
-        void InsertarAsiento(Asiento pAs);
+        double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor);
 
         [OperationContract]
-        double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor);
+        double ConvertirAMonedaLocal(Moneda pMoneda, double pValor);
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre();

@@ -2737,3 +2737,27 @@ System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL in
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
    at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-24 09:15:37,779 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-24 09:18:41,010 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68

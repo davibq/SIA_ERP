@@ -101,9 +101,18 @@ namespace AccesoServicio
             return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
         }
 
+        public Moneda ObtenerMonedasSistema(string pTipo) {
+            return _CSC.ObtenerMonedasSistema(pTipo);
+        }
+
         public double  ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
         {
             return _CSC.ConvertirAMonedaSistema(pMoneda, pValor);
+        }
+
+        public double ConvertirAMonedaLocal(Moneda pMoneda, double pValor)
+        {
+            return _CSC.ConvertirAMonedaLocal(pMoneda, pValor);
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
