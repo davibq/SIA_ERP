@@ -100,19 +100,19 @@ namespace SIA.TipoCambio
 
         public double DemeCambio(MonedasValidas pOrigen, double pValor, MonedasValidas pDestino)
         {
+            if (pOrigen == MonedasValidas.Colon && pDestino == MonedasValidas.Colon)
+            {
+                return pValor;
+            }
             if (pOrigen==MonedasValidas.Colon)
             {
                 return pValor/((double) (_TiposCambio[pDestino]));
             } 
             if (pDestino==MonedasValidas.Colon)
             {
-                return ((double)(_TiposCambio[pDestino])) * pValor;
+                return ((double)(_TiposCambio[pOrigen])) * pValor;
             }
 
-            if (pOrigen == MonedasValidas.Colon || pDestino == MonedasValidas.Colon)
-            {
-                return 0;
-            }
             return ((double)(_TiposCambio[pOrigen]) * pValor) / (double)_TiposCambio[pDestino];
         }
 

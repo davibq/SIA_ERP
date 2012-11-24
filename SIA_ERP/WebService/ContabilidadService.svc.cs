@@ -71,6 +71,7 @@ namespace SIA.Contabilidad.WebService
             return monedas;
         }
 
+        public void InsertarAsiento(Asiento pAs) { }
 
         public double DemeCambio(Moneda pOrigen, double pValor, Moneda pDestino)
         {

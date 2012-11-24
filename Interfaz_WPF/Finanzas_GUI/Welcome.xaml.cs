@@ -1141,11 +1141,9 @@ namespace Login_WPF
                     montoDebe += (item.DebeMonedaSistema != null ? item.DebeMonedaSistema : 0);
                     montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);               
 
-                    xml += xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                    xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
                         (item.DebeMonedaSistema > 1 ? ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.DebeMonedaSistema).ToString() : ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.HaberMonedaSistema).ToString()),
                         monedaLocal.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
-                    montoDebe += (item.DebeMonedaSistema != null ? ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.DebeMonedaSistema) : 0);
-                    montoHaber += (item.HaberMonedaSistema != null ? ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.HaberMonedaSistema) : 0);
                 }
                 xml += "</Cuentas>";
                 

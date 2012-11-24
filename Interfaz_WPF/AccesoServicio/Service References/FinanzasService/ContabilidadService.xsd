@@ -228,6 +228,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ConvertirAMonedaLocal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pMoneda" nillable="true" type="q15:Moneda" />
+        <xs:element minOccurs="0" name="pValor" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertirAMonedaLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConvertirAMonedaLocalResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ObtenerCuentasHijasSegunPadre">
     <xs:complexType>
       <xs:sequence />
@@ -236,7 +251,7 @@
   <xs:element name="ObtenerCuentasHijasSegunPadreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerCuentasHijasSegunPadreResult" nillable="true" type="q15:ArrayOfCuenta" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerCuentasHijasSegunPadreResult" nillable="true" type="q16:ArrayOfCuenta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -248,7 +263,7 @@
   <xs:element name="ObtenerCuentasTreeViewResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerCuentasTreeViewResult" nillable="true" type="q16:ArrayOfCuenta" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerCuentasTreeViewResult" nillable="true" type="q17:ArrayOfCuenta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -57,6 +57,9 @@ namespace SIA.Contabilidad.WebService
         Moneda ObtenerMonedasSistema(string pAtributo);
 
         [OperationContract]
+        void InsertarAsiento(Asiento pAs);
+
+        [OperationContract]
         double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor);
 
         [OperationContract]
