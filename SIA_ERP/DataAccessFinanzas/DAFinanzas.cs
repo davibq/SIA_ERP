@@ -194,7 +194,7 @@ namespace DataAccessFinanzas
             return monedaConfiguracion;
         }
 
-        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        public List<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
         {
             var cuentas = new List<Cuenta>();
             var ds = EjecutarConsulta("dbo.ERPSP_ObtenerCuentasHijas", new List<SqlParameter>()
@@ -214,6 +214,25 @@ namespace DataAccessFinanzas
                 }
             }
             return cuentas;
+        }
+
+        public Cuenta ObtenerCuenta(string pNombreCuenta) 
+        {
+            Cuenta cuenta = new Cuenta();
+            var ds = EjecutarConsulta("dbo.ERPSP_ObtenerCuenta", new List<SqlParameter>()
+            {
+                new SqlParameter("NombreCuenta", pNombreCuenta)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    cuenta.Codigo = row["CodigoCuenta"].ToString();
+                    cuenta.Nombre = row["NombreCuenta"].ToString();
+                    cuenta.Saldo = double.Parse(row["SaldoCuenta"].ToString());
+                }
+            }
+            return cuenta;
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView()
