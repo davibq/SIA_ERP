@@ -29,6 +29,7 @@
   <ItemGroup>
     <Compile Include="Arbol.cs" />
     <Compile Include="LogicaCompraVenta.cs" />
+    <Compile Include="LogicaInventario.cs" />
     <Compile Include="LogicaNegocio.cs" />
     <Compile Include="NodoCuenta.cs" />
     <Compile Include="NodoRaiz.cs" />
@@ -45,6 +46,10 @@
     <ProjectReference Include="..\DataAccessFinanzas\DataAccessFinanzas.csproj">
       <Project>{1EC41442-53D9-44E6-8402-9AFF50D32AE0}</Project>
       <Name>DataAccessFinanzas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessInventario\DataAccessInventario.csproj">
+      <Project>{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}</Project>
+      <Name>DataAccessInventario</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccessPrincipal\DataAccessPrincipal.csproj">
       <Project>{A305EAC6-F86D-45F7-B8EE-57ADABE233B5}</Project>

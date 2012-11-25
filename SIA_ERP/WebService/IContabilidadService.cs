@@ -84,6 +84,11 @@ namespace SIA.Contabilidad.WebService
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
 
+        #region Modulo inventarios
+        [OperationContract]
+        IEnumerable<UnidadMedida> obtenerUnidadesMedida();
+        #endregion
+
         [OperationContract]
         Documento ObtenerDocumento();
 

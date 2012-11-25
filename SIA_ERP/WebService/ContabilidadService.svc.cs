@@ -129,6 +129,13 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerCuentasTreeView();
         }
 
+        #region Modulo inventarios
+        public IEnumerable<UnidadMedida> obtenerUnidadesMedida()
+        {
+            return LogicaInventario.Instancia.obtenerUnidadesMedida();
+        }
+        #endregion
+
         public Documento ObtenerDocumento()
         {
             return null;

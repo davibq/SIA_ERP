@@ -1,80 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SIA.Libreria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SIA.Libreria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" />
-  <xs:complexType name="ArrayOfMoneda">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfProductoCV">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Moneda" nillable="true" type="tns:Moneda" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductoCV" nillable="true" type="tns:ProductoCV" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfMoneda" nillable="true" type="tns:ArrayOfMoneda" />
-  <xs:complexType name="Moneda">
+  <xs:element name="ArrayOfProductoCV" nillable="true" type="tns:ArrayOfProductoCV" />
+  <xs:complexType name="ProductoCV">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Acronimo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bodegas" nillable="true" type="tns:ArrayOfBodegaCV" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdProducto" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" minOccurs="0" name="TipoMoneda" type="q1:MonedasValidas" />
+      <xs:element minOccurs="0" name="Precio" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Moneda" nillable="true" type="tns:Moneda" />
-  <xs:complexType name="Usuario">
+  <xs:element name="ProductoCV" nillable="true" type="tns:ProductoCV" />
+  <xs:complexType name="ArrayOfBodegaCV">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Apellido1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Apellido2" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombreUsuario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BodegaCV" nillable="true" type="tns:BodegaCV" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
-  <xs:complexType name="Empresa">
+  <xs:element name="ArrayOfBodegaCV" nillable="true" type="tns:ArrayOfBodegaCV" />
+  <xs:complexType name="BodegaCV">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AcronimoMonedaLocal" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AcronimoMonedaSistema" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CedulaJuridica" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comprometido" type="xs:int" />
+      <xs:element minOccurs="0" name="Costo" type="xs:double" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombreMonedaLocal" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombreMonedaSistema" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solicitado" type="xs:int" />
+      <xs:element minOccurs="0" name="Stock" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Empresa" nillable="true" type="tns:Empresa" />
-  <xs:complexType name="Cuenta">
+  <xs:element name="BodegaCV" nillable="true" type="tns:BodegaCV" />
+  <xs:complexType name="ArrayOfSocNegocio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SocNegocio" nillable="true" type="tns:SocNegocio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSocNegocio" nillable="true" type="tns:ArrayOfSocNegocio" />
+  <xs:complexType name="SocNegocio">
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CodigoCuentaPadre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Debe" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nivel" type="xs:int" />
+      <xs:element minOccurs="0" name="CuentaAsociada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdSocio" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombreIdiomaExtranjero" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Saldo" type="xs:double" />
-      <xs:element minOccurs="0" name="Saldo_Haber" type="xs:double" />
-      <xs:element minOccurs="0" name="_Moneda" nillable="true" type="tns:Moneda" />
+      <xs:element minOccurs="0" name="TipoSocio" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Cuenta" nillable="true" type="tns:Cuenta" />
-  <xs:complexType name="ArrayOfMes">
+  <xs:element name="SocNegocio" nillable="true" type="tns:SocNegocio" />
+  <xs:complexType name="Documento">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Mes" nillable="true" type="tns:Mes" />
+      <xs:element minOccurs="0" name="Consecutivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecha1" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fecha2" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LineasVenta" nillable="true" type="tns:ArrayOfLineaVenta" />
+      <xs:element minOccurs="0" name="SocioNegocio" nillable="true" type="tns:SocNegocio" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfMes" nillable="true" type="tns:ArrayOfMes" />
-  <xs:complexType name="Mes">
+  <xs:element name="Documento" nillable="true" type="tns:Documento" />
+  <xs:complexType name="ArrayOfLineaVenta">
     <xs:sequence>
-      <xs:element minOccurs="0" name="EstadoMes" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaFin" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaInicio" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombreMes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LineaVenta" nillable="true" type="tns:LineaVenta" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Mes" nillable="true" type="tns:Mes" />
-  <xs:complexType name="ArrayOfCuenta">
+  <xs:element name="ArrayOfLineaVenta" nillable="true" type="tns:ArrayOfLineaVenta" />
+  <xs:complexType name="LineaVenta">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cuenta" nillable="true" type="tns:Cuenta" />
+      <xs:element minOccurs="0" name="Bodega" nillable="true" type="tns:BodegaCV" />
+      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Impuestos" type="xs:double" />
+      <xs:element minOccurs="0" name="Producto" nillable="true" type="tns:ProductoCV" />
+      <xs:element minOccurs="0" name="Total" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfCuenta" nillable="true" type="tns:ArrayOfCuenta" />
+  <xs:element name="LineaVenta" nillable="true" type="tns:LineaVenta" />
 </xs:schema>

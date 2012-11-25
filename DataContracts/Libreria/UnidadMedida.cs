@@ -8,7 +8,7 @@ namespace SIA.Libreria
 {
 
     [DataContract]
-    class UnidadMedida
+    public class UnidadMedida
     {
         [DataMember]
         public string Nombre { get; set; }
