@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Login_WPF.ComponentesComunes.Detalle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="326" Width="650">
+    <Grid>
+        <Button Content="Agregar Producto" Height="23" HorizontalAlignment="Left" Margin="12,4,0,0" Name="btnAgregar" VerticalAlignment="Top" Width="111" Background="#FF34FF34" Foreground="Black" Click="btnAgregar_Click" />
+        <Button Content="Quitar Producto Seleccionado" Height="23" HorizontalAlignment="Left" Margin="467,4,0,0" Name="btnQuitar" VerticalAlignment="Top" Width="171" Background="Red" Foreground="White" Click="btnQuitar_Click" />
+        <DataGrid AutoGenerateColumns="False" Height="200" HorizontalAlignment="Left" Margin="12,43,0,0" Name="gridProductos" VerticalAlignment="Top" Width="626" />
+        <Label Content="0.0" Height="28" HorizontalAlignment="Left" Margin="526,245,0,0" Name="lblSubtotal" VerticalAlignment="Top" Width="112" HorizontalContentAlignment="Right"/>
+        <Label Content="Subtotal:" Height="28" HorizontalAlignment="Left" Margin="429,245,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="0.0" Height="28" HorizontalAlignment="Left" Margin="526,268,0,0" Name="lblImpuestos" VerticalAlignment="Top" Width="112" HorizontalContentAlignment="Right"/>
+        <Label Content="0.0" Height="28" HorizontalAlignment="Left" Margin="526,300,0,0" Name="lblTotal" VerticalAlignment="Top" Width="112" HorizontalContentAlignment="Right" FontWeight="Bold" Foreground="#FF454FC1" />
+        <Label Content="Impuestos:" Height="28" HorizontalAlignment="Left" Margin="429,268,0,0" Name="label2" VerticalAlignment="Top" Width="71" />
+        <Label Content="Total:" Height="28" HorizontalAlignment="Left" Margin="429,300,0,0" Name="label3" VerticalAlignment="Top" Width="71" />
+        <Rectangle Height="1" HorizontalAlignment="Left" Margin="431,297,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="204" />
+    </Grid>
+</UserControl>

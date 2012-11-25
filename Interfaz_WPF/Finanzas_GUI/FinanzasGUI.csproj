@@ -76,6 +76,21 @@
     <Compile Include="Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ComponentesComunes\AgregarProducto.xaml.cs">
+      <DependentUpon>AgregarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentesComunes\Detalle.xaml.cs">
+      <DependentUpon>Detalle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentesComunes\Encabezado.xaml.cs">
+      <DependentUpon>Encabezado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\ModuloCompras.xaml.cs">
+      <DependentUpon>ModuloCompras.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\OrdenCompra.xaml.cs">
+      <DependentUpon>OrdenCompra.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModuloAdministrativo.xaml.cs">
       <DependentUpon>ModuloAdministrativo.xaml</DependentUpon>
     </Compile>
@@ -107,6 +122,26 @@
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
     <Page Include="Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComponentesComunes\AgregarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComponentesComunes\Detalle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComponentesComunes\Encabezado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Compras\ModuloCompras.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Compras\OrdenCompra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

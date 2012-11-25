@@ -9,6 +9,7 @@ using SIA.Libreria;
 using Logica;
 using SIA.Contabilidad.Libreria;
 using SIA.TipoCambio;
+using SIA.VentaCompra.Libreria;
 
 namespace SIA.Contabilidad.WebService
 {
@@ -126,6 +127,21 @@ namespace SIA.Contabilidad.WebService
         public IEnumerable<Cuenta> ObtenerCuentasTreeView()
         {
             return LogicaNegocio.Instancia.ObtenerCuentasTreeView();
+        }
+
+        public Documento ObtenerDocumento()
+        {
+            return null;
+        }
+
+        public IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio)
+        {
+            return LogicaCompraVenta.Instancia.ObtenerSociosNegocio(pTipoSocio);
+        }
+
+        public IEnumerable<ProductoCV> ObtenerProductosCV()
+        {
+            return LogicaCompraVenta.Instancia.ObtenerProductos();
         }
     }
 }

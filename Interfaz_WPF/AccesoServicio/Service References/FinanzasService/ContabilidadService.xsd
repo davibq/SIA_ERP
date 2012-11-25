@@ -3,6 +3,7 @@
   <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria" />
   <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" />
   <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" />
+  <xs:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" />
   <xs:element name="Saludar">
     <xs:complexType>
       <xs:sequence />
@@ -317,6 +318,44 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="ObtenerCuentasTreeViewResult" nillable="true" type="q21:ArrayOfCuenta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDocumento">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDocumentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" minOccurs="0" name="ObtenerDocumentoResult" nillable="true" type="q18:Documento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerProductosCV">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerProductosCVResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" minOccurs="0" name="ObtenerProductosCVResult" nillable="true" type="q19:ArrayOfProductoCV" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerSociosCV">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pTipoSocio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerSociosCVResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" minOccurs="0" name="ObtenerSociosCVResult" nillable="true" type="q20:ArrayOfSocNegocio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

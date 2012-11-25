@@ -145,6 +145,7 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasTreeView();
         }
 
+<<<<<<< HEAD
 
         #region ModuloInventario
         public IEnumerable<UnidadMedida> ObtenerUnidadesdeMedida()
@@ -153,6 +154,18 @@ namespace AccesoServicio
         }
         #endregion
 
+=======
+        public IEnumerable<SocNegocio> ObtenerSociosNegocioCV(string pTipoSocio)
+        {
+            return _CSC.ObtenerSociosCV(pTipoSocio);
+        }
+
+        public IEnumerable<ProductoCV> ObtenerProductosCV()
+        {
+            return _CSC.ObtenerProductosCV();
+        }
+        
+>>>>>>> f42b9d0f480d7b3835803989a2f8d1faf2361247
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

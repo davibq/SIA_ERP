@@ -8,6 +8,7 @@ using System.Text;
 using SIA.Libreria;
 using SIA.Contabilidad.Libreria;
 using SIA.TipoCambio;
+using SIA.VentaCompra.Libreria;
 
 namespace SIA.Contabilidad.WebService
 {
@@ -82,6 +83,15 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
+
+        [OperationContract]
+        Documento ObtenerDocumento();
+
+        [OperationContract]
+        IEnumerable<ProductoCV> ObtenerProductosCV();
+
+        [OperationContract]
+        IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio);
     }
 
 }

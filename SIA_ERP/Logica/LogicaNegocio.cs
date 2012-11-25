@@ -33,6 +33,8 @@ namespace Logica
             }
         }
 
+        public string NombreBase { get; set; }
+
         #endregion
 
         #region Metodos
@@ -58,6 +60,7 @@ namespace Logica
             var nombreBD = daPrincipal.AutenticarUsuario(pUsuario, pNombreEmpresa);
             if (nombreBD.Length > 2)
             {
+                NombreBase = nombreBD;
                 _DataAccess = new DAFinanzas(nombreBD);
                 return true;
             }

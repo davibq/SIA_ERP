@@ -1,14 +1,24 @@
 ﻿<Window x:Class="Login_WPF.ModuloCompras"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ModuloCompras" Height="600" Width="600">
+        Title="ModuloCompras" Height="600" Width="600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" BorderBrush="#FFA007FF">
     <Grid>
         <Label Content="Módulo Compras" Height="28" HorizontalAlignment="Center" Margin="0,22,0,0" Name="label1" VerticalAlignment="Top" FontSize="13" FontWeight="Bold" />
-        <Button Content="Salir" Height="23" HorizontalAlignment="Right" Margin="0,0,20,20" Name="btnAtras" VerticalAlignment="Bottom" Width="75" />
+        <Button Content="Salir" Height="23" HorizontalAlignment="Right" Margin="0,0,20,20" Name="btnAtras" VerticalAlignment="Bottom" Width="75" Click="btnAtras_Click" />
         <Label Content="Visualizar solo:" Height="28" HorizontalAlignment="Left" Margin="84,80,0,0" Name="label2" VerticalAlignment="Top" />
         <CheckBox Content="Ordenes de Compra" Height="16" HorizontalAlignment="Left" Margin="84,114,0,0" Name="chkOrdenesCompra" VerticalAlignment="Top" />
-        <CheckBox Content="Entradas de Mercancía" Height="16" HorizontalAlignment="Left" Margin="263,114,0,0" Name="chkEntradaMercancias" VerticalAlignment="Top" />
+        <CheckBox Content="Entradas de Mercancía" Height="16" HorizontalAlignment="Center" Margin="0,114,0,0" Name="chkEntradaMercancias" VerticalAlignment="Top" />
         <CheckBox Content="Facturas" Height="16" HorizontalAlignment="Left" Margin="446,114,0,0" Name="chkFacturas" VerticalAlignment="Top" />
-        <ListBox Height="177" HorizontalAlignment="Left" Margin="84,173,0,0" Name="listBox1" VerticalAlignment="Top" Width="418" />
+        <ListBox Height="177" HorizontalAlignment="Center" Margin="0,150,0,0" Name="listBox1" VerticalAlignment="Top" Width="418" />
+        <Button Content="Visualizar" Height="23" HorizontalAlignment="Left" Margin="427,345,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+        <Button Height="51" HorizontalAlignment="Left" Margin="84,428,0,0" Name="btnAgregarOrdenCompra" VerticalAlignment="Top" Width="98" Click="btnAgregarOrdenCompra_Click">
+            <TextBlock TextAlignment="Center">Nueva <LineBreak />Orden de Compra</TextBlock>
+        </Button>
+        <Button Height="51" HorizontalAlignment="Center" Margin="0,428,0,0" Name="btnAgregarEntregaMercancias" VerticalAlignment="Top" Width="129">
+            <TextBlock TextAlignment="Center">Nueva <LineBreak />Entrega de Mercancías</TextBlock>
+        </Button>
+        <Button Height="51" HorizontalAlignment="Left" Margin="404,428,0,0" Name="btnAgregarFactura" VerticalAlignment="Top" Width="98">
+            <TextBlock TextAlignment="Center">Nueva <LineBreak />Factura</TextBlock>
+        </Button>
     </Grid>
 </Window>
