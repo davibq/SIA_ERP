@@ -145,6 +145,14 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasTreeView();
         }
 
+
+        #region ModuloInventario
+        public IEnumerable<UnidadMedida> ObtenerUnidadesdeMedida()
+        { 
+            return _CSC.ObtenerUnidadesdeMedida()
+        }
+        #endregion
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

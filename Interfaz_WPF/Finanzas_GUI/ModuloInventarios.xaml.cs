@@ -23,12 +23,12 @@ namespace Login_WPF
             InitializeComponent();
             
             //http://elconta.com/2012/01/23/unidad-de-medida-facturas/
-            comboBoxUnidMedida.Items.Add("Metro");
+            /*comboBoxUnidMedida.Items.Add("Metro");
             comboBoxUnidMedida.Items.Add("Kilogramo");
             comboBoxUnidMedida.Items.Add("Ampere");
             comboBoxUnidMedida.Items.Add("Kelvin");
             comboBoxUnidMedida.Items.Add("Mol");            
-            comboBoxUnidMedida.Items.Add("Candela");
+            comboBoxUnidMedida.Items.Add("Candela");*/
         }
 
         private void buttonCrearArticulo_Click(object sender, RoutedEventArgs e)

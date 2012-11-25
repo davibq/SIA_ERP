@@ -98,21 +98,6 @@ namespace Logica
         public IEnumerable<Cuenta> DemeCuentasHijas()
         {
             return _DataAccess.ObtenerCuentas();
-            /*var todasCuentas = _DataAccess.ObtenerCuentas();
-            var cuentasHijas = todasCuentas;
-            foreach (var cuenta in todasCuentas)
-            {
-                var cuentasAQuitar = new List<Cuenta>();
-                foreach (var cta in todasCuentas)
-                {
-                    if (cta.Codigo == cuenta.CodigoCuentaPadre)
-                    {
-                        cuentasAQuitar.Add(cta);
-                    }
-                }
-                cuentasHijas = cuentasHijas.Except(cuentasAQuitar);
-            }
-            return cuentasHijas;*/
         }
 
         public IEnumerable<Moneda> DemeMonedasCuenta(string pCuenta)
@@ -201,7 +186,9 @@ namespace Logica
             return _DataAccess.ObtenerCuentasTreeView();
         }
 
-#endregion
+
+
+        #endregion
 
         #region Atributos
 
