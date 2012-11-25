@@ -136,9 +136,19 @@ namespace SIA.Contabilidad.WebService
             return LogicaInventario.Instancia.obtenerUnidadesMedida();
         }
 
+        public IEnumerable<Bodega> obtenerBodegas()
+        {
+            return LogicaInventario.Instancia.obtenerBodegas();
+        }
+
         public bool crearArticulo(Articulo pArticulo)
         {
             return LogicaInventario.Instancia.crearArticulo(pArticulo);
+        }
+
+        public bool crearBodega(Bodega pBodega)
+        {
+            return LogicaInventario.Instancia.crearBodega(pBodega);
         }
 
         #endregion

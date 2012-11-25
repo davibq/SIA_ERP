@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Bodega.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Cuenta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

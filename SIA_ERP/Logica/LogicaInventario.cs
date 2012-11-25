@@ -48,9 +48,19 @@ namespace Logica
             return _DataAccess.obtenerUnidadesMedida();
         }
 
+        public List<Bodega> obtenerBodegas()
+        {
+            return _DataAccess.obtenerBodegas();
+        }
+
         public bool crearArticulo(Articulo pArticulo)
         {
             return _DataAccess.crearArticulo(pArticulo);
+        }
+
+        public bool crearBodega(Bodega pBodega)
+        {
+            return _DataAccess.crearBodega(pBodega);
         }
 
         #endregion

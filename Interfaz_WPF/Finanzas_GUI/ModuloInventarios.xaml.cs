@@ -28,6 +28,9 @@ namespace Login_WPF
             var unidades = ServicioFinanzas.Instancia.ObtenerUnidadesdeMedida();
             comboBoxUnidMedida.ItemsSource = unidades;
 
+            var bodegas = ServicioFinanzas.Instancia.obtenerBodegas();
+            dataGridBodegas.ItemsSource = bodegas;
+
             //http://elconta.com/2012/01/23/unidad-de-medida-facturas/
             /*comboBoxUnidMedida.Items.Add("Metro");
             comboBoxUnidMedida.Items.Add("Kilogramo");
@@ -45,9 +48,9 @@ namespace Login_WPF
             }
             else
             {
-                if(textBoxCodigo.Text.Length != 20)
+                if(textBoxCodigo.Text.Length > 20)
                 {
-                    MessageBox.Show("El código debe tener 20 caracteres.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("El código no debe tener más de 20 caracteres.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -69,6 +72,10 @@ namespace Login_WPF
                     if (ServicioFinanzas.Instancia.crearArticulo(articulo))
                     {
                         MessageBox.Show("Artículo creado exitosamente", "Nuevo artículo", MessageBoxButton.OK, MessageBoxImage.Information);
+                        textBoxCodigo.Text = "";
+                        textBoxDescripcion.Text = "";
+                        textBoxComentarios.Text = "";
+                        textBoxImagen.Text = "";
                     }
                     else
                     {
@@ -102,6 +109,37 @@ namespace Login_WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void buttonCrearBodega_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxCodigoBodega.Text) || string.IsNullOrWhiteSpace(textBoxNombreBodega.Text))
+            {
+                MessageBox.Show("Debe completar todos los datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Bodega bodega = new Bodega()
+                {
+                    Codigo = textBoxCodigoBodega.Text,
+                    Nombre = textBoxNombreBodega.Text
+                };
+
+                if (ServicioFinanzas.Instancia.crearBodega(bodega))
+                {
+                    MessageBox.Show("Bodega creada exitosamente", "Nueva bodega", MessageBoxButton.OK, MessageBoxImage.Information);
+                    textBoxCodigoBodega.Text = "";
+                    textBoxNombreBodega.Text = "";
+
+                    var bodegas = ServicioFinanzas.Instancia.obtenerBodegas();
+                    dataGridBodegas.ItemsSource = bodegas;
+                    dataGridBodegas.Items.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Imposible crear la bodega", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

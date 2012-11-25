@@ -90,8 +90,14 @@ namespace SIA.Contabilidad.WebService
         IEnumerable<UnidadMedida> obtenerUnidadesMedida();
 
         [OperationContract]
+        IEnumerable<Bodega> obtenerBodegas();
+
+        [OperationContract]
         bool crearArticulo(Articulo pArticulo);
 
+        [OperationContract]
+        bool crearBodega(Bodega pBodega);
+        
         #endregion
 
         [OperationContract]
