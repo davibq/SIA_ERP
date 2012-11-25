@@ -117,6 +117,30 @@
   <wsdl:message name="IContabilidadService_ObtenerCuentasHijasSegunPadre_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCuentasHijasSegunPadreResponse" />
   </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasCierreCompras_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasCierreCompras" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasCierreCompras_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasCierreComprasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasCierreIngresos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasCierreIngresos" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasCierreIngresos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasCierreIngresosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasCierreGastos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasCierreGastos" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuentasCierreGastos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentasCierreGastosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuenta" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerCuenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentaResponse" />
+  </wsdl:message>
   <wsdl:message name="IContabilidadService_ObtenerCuentasTreeView_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCuentasTreeView" />
   </wsdl:message>
@@ -195,6 +219,22 @@
     <wsdl:operation name="ObtenerCuentasHijasSegunPadre">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre" message="tns:IContabilidadService_ObtenerCuentasHijasSegunPadre_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadreResponse" message="tns:IContabilidadService_ObtenerCuentasHijasSegunPadre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasCierreCompras">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreCompras" message="tns:IContabilidadService_ObtenerCuentasCierreCompras_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreComprasResponse" message="tns:IContabilidadService_ObtenerCuentasCierreCompras_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasCierreIngresos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreIngresos" message="tns:IContabilidadService_ObtenerCuentasCierreIngresos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreIngresosResponse" message="tns:IContabilidadService_ObtenerCuentasCierreIngresos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasCierreGastos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreGastos" message="tns:IContabilidadService_ObtenerCuentasCierreGastos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreGastosResponse" message="tns:IContabilidadService_ObtenerCuentasCierreGastos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuenta" message="tns:IContabilidadService_ObtenerCuenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentaResponse" message="tns:IContabilidadService_ObtenerCuenta_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerCuentasTreeView">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView" message="tns:IContabilidadService_ObtenerCuentasTreeView_InputMessage" />
@@ -358,6 +398,42 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerCuentasHijasSegunPadre">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasCierreCompras">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreCompras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasCierreIngresos">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreIngresos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuentasCierreGastos">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreGastos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuenta">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuenta" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

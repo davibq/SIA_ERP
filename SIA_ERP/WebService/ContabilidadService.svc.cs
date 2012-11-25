@@ -98,9 +98,29 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ConvertirAMonedaLocal(pMoneda, pValor);
         }
 
-        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
         {
-            return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre();
+            return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreCompras()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasCierreCompras();
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreIngresos()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasCierreIngresos();
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreGastos()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasCierreGastos();
+        }
+
+        public Cuenta ObtenerCuenta(string pNombreCuenta)
+        {
+            return LogicaNegocio.Instancia.ObtenerCuenta(pNombreCuenta);
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView()

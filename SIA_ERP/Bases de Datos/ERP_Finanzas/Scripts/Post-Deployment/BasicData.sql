@@ -128,6 +128,9 @@ EXEC dbo.ERPSP_ActualizarCuenta 'Pérdidas por inventario dañado', '6-3-01', 3,
 EXEC dbo.ERPSP_ActualizarCuenta 'OTROS INGRESOS', '7-1', 2, 1, '7', 'Otros Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="OTROS INGRESOS" idioma="es"/></Nombres>'
 EXEC dbo.ERPSP_ActualizarCuenta 'Ingresos financieros', '7-1-01', 3, 1, '7-1', 'Otros Ingresos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Ingresos financieros" idioma="es"/></Nombres>'
 
+EXEC dbo.ERPSP_ActualizarCuenta 'OTROS GASTOS', '8-1', 2, 1, '8', 'Otros Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="OTROS GASTOS" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Gastos financieros', '8-1-01', 3, 1, '8-1', 'Otros Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Gastos financieros" idioma="es"/></Nombres>'
+
 
 
 

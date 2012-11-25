@@ -115,9 +115,29 @@ namespace AccesoServicio
             return _CSC.ConvertirAMonedaLocal(pMoneda, pValor);
         }
 
-        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
         {
-            return _CSC.ObtenerCuentasHijasSegunPadre();
+            return _CSC.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreCompras()
+        {
+            return _CSC.ObtenerCuentasCierreCompras();
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreIngresos()
+        {
+            return _CSC.ObtenerCuentasCierreIngresos();
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreGastos()
+        {
+            return _CSC.ObtenerCuentasCierreGastos();
+        }
+
+        public Cuenta ObtenerCuenta(string pNombreCuenta)
+        {
+            return _CSC.ObtenerCuenta(pNombreCuenta);
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView() 

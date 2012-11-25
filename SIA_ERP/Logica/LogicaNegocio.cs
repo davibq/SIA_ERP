@@ -141,8 +141,31 @@ namespace Logica
             var moneda = _DataAccess.ObtenerMonedasSistema("Local");
             return (pMoneda.TipoMoneda == moneda.TipoMoneda) ? pValor : TiposCambio.Instancia.DemeCambio(pMoneda.TipoMoneda, pValor, moneda.TipoMoneda);
         }
-    
-        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
+
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
+        {
+            return _DataAccess.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreCompras()
+        {
+            var cuentas = _DataAccess.ObtenerCuentasHijasSegunPadre("GASTOS DE COMPRAS");
+            if (_DataAccess.ObtenerCuenta("Inventario final").Codigo!=null) cuentas.Add(_DataAccess.ObtenerCuenta("Inventario final"));
+            if (_DataAccess.ObtenerCuenta("Inventario inicial").Codigo != null) cuentas.Add(_DataAccess.ObtenerCuenta("Inventario inicial"));
+
+            foreach (var cuenta in cuentas)
+            {
+                if (cuenta.Nombre == "Fletes sobre compras" || cuenta.Nombre == "Compras" || cuenta.Nombre == "Inventario inicial")
+                {
+                    cuenta.Saldo_Haber = cuenta.Saldo;
+                    cuenta.Saldo = 0;
+                }
+            }
+
+            return cuentas;
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreIngresos()
         {
             IEnumerable<Cuenta> cuentas = _DataAccess.ObtenerCuentasHijasSegunPadre("INGRESOS");
             cuentas = cuentas.Concat(_DataAccess.ObtenerCuentasHijasSegunPadre("OTROS INGRESOS"));
@@ -154,10 +177,23 @@ namespace Logica
                     cuenta.Saldo_Haber = cuenta.Saldo;
                     cuenta.Saldo = 0;
                 }
-                cuenta.Nombre = cuenta.Codigo + " " + cuenta.Nombre;
             }
 
             return cuentas;
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasCierreGastos()
+        {
+            IEnumerable<Cuenta> cuentas = _DataAccess.ObtenerCuentasHijasSegunPadre("GASTOS");
+            cuentas = cuentas.Concat(_DataAccess.ObtenerCuentasHijasSegunPadre("OTROS GASTOS"));
+            cuentas = cuentas.Concat(_DataAccess.ObtenerCuentasHijasSegunPadre("COSTOS"));
+
+            return cuentas;
+        }
+
+        public Cuenta ObtenerCuenta(string pNombreCuenta) 
+        {
+            return _DataAccess.ObtenerCuenta(pNombreCuenta);
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView()

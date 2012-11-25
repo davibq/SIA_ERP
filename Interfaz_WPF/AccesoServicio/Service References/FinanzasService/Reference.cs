@@ -910,7 +910,19 @@ namespace AccesoServicio.FinanzasService {
         double ConvertirAMonedaLocal(AccesoServicio.FinanzasService.Moneda pMoneda, double pValor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadre", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasHijasSegunPadreResponse")]
-        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre();
+        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreCompras", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreComprasResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasCierreCompras();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreIngresos", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreIngresosResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasCierreIngresos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreGastos", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasCierreGastosResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasCierreGastos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuenta", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentaResponse")]
+        AccesoServicio.FinanzasService.Cuenta ObtenerCuenta(string pNombreCuenta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeViewResponse")]
         AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasTreeView();
@@ -1011,8 +1023,24 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.ConvertirAMonedaLocal(pMoneda, pValor);
         }
         
-        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre() {
-            return base.Channel.ObtenerCuentasHijasSegunPadre();
+        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasHijasSegunPadre(string pNombrePadre) {
+            return base.Channel.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasCierreCompras() {
+            return base.Channel.ObtenerCuentasCierreCompras();
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasCierreIngresos() {
+            return base.Channel.ObtenerCuentasCierreIngresos();
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasCierreGastos() {
+            return base.Channel.ObtenerCuentasCierreGastos();
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta ObtenerCuenta(string pNombreCuenta) {
+            return base.Channel.ObtenerCuenta(pNombreCuenta);
         }
         
         public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasTreeView() {

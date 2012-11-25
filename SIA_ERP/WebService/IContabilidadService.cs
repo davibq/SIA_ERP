@@ -66,8 +66,20 @@ namespace SIA.Contabilidad.WebService
         double ConvertirAMonedaLocal(Moneda pMoneda, double pValor);
 
         [OperationContract]
-        IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre();
+        IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre);
 
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasCierreCompras();
+
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasCierreIngresos();
+
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasCierreGastos();
+
+        [OperationContract]
+        Cuenta ObtenerCuenta(string pNombreCuenta);
+        
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
     }

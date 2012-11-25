@@ -26,6 +26,7 @@ namespace Login_WPF
         public int NoCierre = 0;
 
         private ObservableCollection<Asiento> _Coleccion;
+        private ObservableCollection<Asiento> _cuentasCierreIngresos;
         //private ObservableCollection<Cuenta> _Cuenta;
 
         // Xq no hacer un Mes[12]?
@@ -52,6 +53,7 @@ namespace Login_WPF
 
             //Inicializar DataGrid
             _Coleccion = new ObservableCollection<Asiento>();
+            _cuentasCierreIngresos = new ObservableCollection<Asiento>();
             dataGridAgregaAsiento.ItemsSource = _Coleccion;
 
             //DataGridComboBoxColumn comboboxColumn = dataGridAgregaAsiento.Columns[2] as DataGridComboBoxColumn;
@@ -400,12 +402,220 @@ namespace Login_WPF
 
         private void buttonGenerarCierre_Click(object sender, RoutedEventArgs e)
         {
-            textBoxUtilidades.Text = "";
-            textBoxPerdidasYGanancias.Text = "";
+            _cuentasCierreIngresos = new ObservableCollection<Asiento>();
+            double montoGlobalPG = 0;
+            var monedaSistema = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Sistema");
+            Asiento asientoBlanco = new Asiento();
+            double montoPG = 0;
+            double montoCV = 0;
+            double factor = Math.Pow(10, 2);
+            var cuentaPG = ServicioFinanzas.Instancia.ObtenerCuenta("Pérdidas y ganancias");
+            var asientoPG = new Asiento();
+            Cuenta cuentaNuevaPG = new Cuenta();
+            var cuentaCV = ServicioFinanzas.Instancia.ObtenerCuenta("Costo de ventas");
+            var asientoCV = new Asiento();
+            Cuenta cuentaNuevaCV = new Cuenta();
 
-            var cuentas = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre();
-            dataGridCierre.DataContext = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre();
-            //dataGridCierre.ItemsSource = ServicioFinanzas.Instancia.ObtenerCuentasHijasSegunPadre("INGRESOS");
+            //Agregar asientos de cierre de compras
+            var cuentasCompras = ServicioFinanzas.Instancia.ObtenerCuentasCierreCompras();
+            foreach (var cuenta in cuentasCompras)
+            {
+                var asiento = new Asiento();
+                Cuenta cuentaNueva = new Cuenta();
+                cuentaNueva.Nombre = cuenta.Nombre;
+                cuentaNueva.Codigo = cuenta.Codigo;
+                asiento.Cuenta = cuentaNueva;
+                asiento.FechaContable = DateTime.Today;
+                if (cuenta.Saldo_Haber != 0)
+                {
+                    asiento.HaberMonedaSistema = cuenta.Saldo_Haber;
+                    asiento.HaberMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, cuenta.Saldo_Haber);
+                    asiento.HaberMonedaOtra = Math.Truncate(asiento.HaberMonedaOtra * factor) / factor;
+                    montoCV+=cuenta.Saldo_Haber;
+                }
+                else
+                {
+                    asiento.DebeMonedaSistema = cuenta.Saldo;
+                    asiento.DebeMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, cuenta.Saldo);
+                    asiento.DebeMonedaOtra = Math.Truncate(asiento.DebeMonedaOtra * factor) / factor;
+                    montoCV -= cuenta.Saldo_Haber;
+                }
+                asiento.MonedaAcronimo = monedaSistema.Acronimo;
+                _cuentasCierreIngresos.Add(asiento);
+            }
+
+            cuentaNuevaCV.Codigo = cuentaCV.Codigo;
+            cuentaNuevaCV.Nombre = cuentaCV.Nombre;
+            asientoCV.Cuenta = cuentaNuevaCV;
+            asientoCV.FechaContable = DateTime.Today;
+            if (montoCV != 0)
+            {
+                asientoCV.HaberMonedaSistema = montoCV;
+                asientoCV.HaberMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, montoPG);
+                asientoCV.HaberMonedaOtra = Math.Truncate(asientoCV.HaberMonedaOtra * factor) / factor;
+                asientoCV.MonedaAcronimo = monedaSistema.Acronimo;
+                _cuentasCierreIngresos.Add(asientoCV);
+            }
+            _cuentasCierreIngresos.Add(asientoBlanco);
+
+            //Agregar asientos de cierre de Ingresos
+            asientoPG = new Asiento();
+            cuentaNuevaPG = new Cuenta();
+            var cuentasIngresos = ServicioFinanzas.Instancia.ObtenerCuentasCierreIngresos();
+            foreach(var cuenta in cuentasIngresos){
+                var asiento = new Asiento();
+                Cuenta cuentaNueva = new Cuenta();
+                cuentaNueva.Nombre = cuenta.Nombre;
+                cuentaNueva.Codigo = cuenta.Codigo;
+                asiento.Cuenta = cuentaNueva;
+                asiento.FechaContable = DateTime.Today;
+                if (cuenta.Saldo_Haber != 0)
+                {
+                    asiento.HaberMonedaSistema = cuenta.Saldo_Haber;
+                    asiento.HaberMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema,cuenta.Saldo_Haber);
+                    asiento.HaberMonedaOtra = Math.Truncate(asiento.HaberMonedaOtra * factor) / factor;
+                    montoPG -= cuenta.Saldo_Haber;
+                }
+                else
+                {
+                    asiento.DebeMonedaSistema = cuenta.Saldo;
+                    asiento.DebeMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, cuenta.Saldo);
+                    asiento.DebeMonedaOtra = Math.Truncate(asiento.DebeMonedaOtra * factor) / factor;
+                    montoPG += cuenta.Saldo;
+                }
+                asiento.MonedaAcronimo=monedaSistema.Acronimo;
+                _cuentasCierreIngresos.Add(asiento);
+            }
+
+            if (textBoxPerdidasYGanancias.Text == "") cuentaNuevaPG.Nombre = cuentaPG.Nombre;
+            else cuentaNuevaPG.Nombre = textBoxPerdidasYGanancias.Text;
+            cuentaNuevaPG.Codigo = cuentaPG.Codigo;
+            asientoPG.Cuenta = cuentaNuevaPG;
+            asientoPG.FechaContable = DateTime.Today;
+
+            if (montoPG != 0)
+            {
+                asientoPG.HaberMonedaSistema = montoPG;
+                asientoPG.HaberMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, montoPG);
+                asientoPG.HaberMonedaOtra = Math.Truncate(asientoPG.HaberMonedaOtra * factor) / factor;
+
+                asientoPG.MonedaAcronimo = monedaSistema.Acronimo;
+                _cuentasCierreIngresos.Add(asientoPG);
+                montoGlobalPG += montoPG;
+            }
+            _cuentasCierreIngresos.Add(asientoBlanco);
+
+            //Agregar asientos de cierre de gastos
+            asientoPG = new Asiento();
+            cuentaNuevaPG = new Cuenta();
+
+            montoPG = 0;
+            var cuentasGastos = ServicioFinanzas.Instancia.ObtenerCuentasCierreGastos();
+            foreach (var cuenta in cuentasGastos)
+            {
+                var asiento = new Asiento();
+                Cuenta cuentaNueva = new Cuenta();
+                cuentaNueva.Nombre = cuenta.Nombre;
+                cuentaNueva.Codigo = cuenta.Codigo;
+                asiento.Cuenta = cuentaNueva;
+                asiento.FechaContable = DateTime.Today;
+                
+                asiento.HaberMonedaSistema = cuenta.Saldo;
+                asiento.HaberMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, cuenta.Saldo);
+                asiento.HaberMonedaOtra = Math.Truncate(asiento.HaberMonedaOtra * factor) / factor;
+                montoPG += cuenta.Saldo;
+                
+                asiento.MonedaAcronimo = monedaSistema.Acronimo;
+                _cuentasCierreIngresos.Add(asiento);
+            }
+
+            if (textBoxPerdidasYGanancias.Text == "") cuentaNuevaPG.Nombre = cuentaPG.Nombre;
+            else cuentaNuevaPG.Nombre = textBoxPerdidasYGanancias.Text;
+            cuentaNuevaPG.Codigo = cuentaPG.Codigo;
+            asientoPG.Cuenta = cuentaNuevaPG;
+            asientoPG.FechaContable = DateTime.Today;
+
+            if (montoPG != 0)
+            {
+                asientoPG.DebeMonedaSistema = montoPG;
+                asientoPG.DebeMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, montoPG);
+                asientoPG.DebeMonedaOtra = Math.Truncate(asientoPG.DebeMonedaOtra * factor) / factor;
+                asientoPG.MonedaAcronimo = monedaSistema.Acronimo;
+                _cuentasCierreIngresos.Add(asientoPG);
+                montoGlobalPG -= montoPG;
+            }
+            _cuentasCierreIngresos.Add(asientoBlanco);
+
+
+            //Asiento de PyG contra Utilidades retenidas
+            asientoPG = new Asiento();
+            cuentaNuevaPG = new Cuenta();
+            var cuentaUR = ServicioFinanzas.Instancia.ObtenerCuenta("Utilidades retenidas");
+            var asientoUR = new Asiento();
+            Cuenta cuentaNuevaUR = new Cuenta();
+
+            if (montoGlobalPG != 0)
+            {
+                if (textBoxPerdidasYGanancias.Text == "") cuentaNuevaPG.Nombre = cuentaPG.Nombre;
+                else cuentaNuevaPG.Nombre = textBoxPerdidasYGanancias.Text;
+                cuentaNuevaPG.Codigo = cuentaPG.Codigo;
+                asientoPG.Cuenta = cuentaNuevaPG;
+                asientoPG.FechaContable = DateTime.Today;
+
+                asientoPG.DebeMonedaSistema = montoGlobalPG;
+                asientoPG.DebeMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, montoGlobalPG);
+                asientoPG.DebeMonedaOtra = Math.Truncate(asientoPG.DebeMonedaOtra * factor) / factor;
+                asientoPG.MonedaAcronimo = monedaSistema.Acronimo;
+
+                _cuentasCierreIngresos.Add(asientoPG);
+
+                if (textBoxUtilidades.Text == "") cuentaNuevaUR.Nombre = cuentaUR.Nombre;
+                else cuentaNuevaUR.Nombre = textBoxPerdidasYGanancias.Text;
+                cuentaNuevaUR.Codigo = cuentaUR.Codigo;
+                asientoUR.Cuenta = cuentaNuevaUR;
+                asientoUR.FechaContable = DateTime.Today;
+
+                asientoUR.HaberMonedaSistema = asientoPG.DebeMonedaSistema;
+                asientoUR.HaberMonedaOtra = asientoPG.DebeMonedaOtra;
+                asientoUR.MonedaAcronimo = monedaSistema.Acronimo;
+
+                _cuentasCierreIngresos.Add(asientoUR);
+                _cuentasCierreIngresos.Add(asientoBlanco);
+            }
+
+            //Asiento de Utilidades retenidas contra dividendos
+            asientoUR = new Asiento();
+            var cuentaDiv = ServicioFinanzas.Instancia.ObtenerCuenta("Dividendos");
+            if (cuentaDiv.Saldo != 0)
+            {
+                var asientoDiv = new Asiento();
+                Cuenta cuentaNuevaDiv = new Cuenta();
+
+                cuentaNuevaDiv.Nombre = cuentaDiv.Nombre;
+                cuentaNuevaUR.Codigo = cuentaUR.Codigo;
+                asientoDiv.Cuenta = cuentaNuevaDiv;
+                asientoDiv.FechaContable = DateTime.Today;
+
+                asientoDiv.HaberMonedaSistema = cuentaDiv.Saldo;
+                asientoDiv.HaberMonedaOtra = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, cuentaDiv.Saldo);
+                asientoDiv.HaberMonedaOtra = Math.Truncate(asientoDiv.HaberMonedaOtra * factor) / factor;
+                asientoDiv.MonedaAcronimo = monedaSistema.Acronimo;
+
+                if (textBoxUtilidades.Text == "") cuentaNuevaUR.Nombre = cuentaUR.Nombre;
+                else cuentaNuevaUR.Nombre = textBoxPerdidasYGanancias.Text;
+                cuentaNuevaUR.Codigo = cuentaUR.Codigo;
+                asientoUR.Cuenta = cuentaNuevaUR;
+                asientoUR.FechaContable = DateTime.Today;
+                asientoUR.DebeMonedaOtra = asientoDiv.HaberMonedaOtra;
+                asientoUR.DebeMonedaSistema = asientoDiv.HaberMonedaSistema;
+
+                _cuentasCierreIngresos.Add(asientoUR);
+                _cuentasCierreIngresos.Add(asientoDiv);
+                _cuentasCierreIngresos.Add(asientoBlanco);
+            }
+
+            dataGridCierre.ItemsSource = _cuentasCierreIngresos;
+            dataGridCierre.Items.Refresh();
         }
 
         private void datePickerMesInicio_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -1094,9 +1304,9 @@ namespace Login_WPF
             var asiento = new Asiento();
             asiento.Cuenta = (Cuenta)_CmbCuentas.SelectedItem;
             double factor = Math.Pow(10, 2);
+            asiento.FechaContable = fechaAsiento.SelectedDate.Value;
             if (_txtHaber.Text.Length > 0)
             {
-                asiento.FechaContable = fechaAsiento.SelectedDate.Value;
                 asiento.HaberMonedaOtra = double.Parse(_txtHaber.Text);
                 asiento.HaberMonedaSistema =
                     ServicioFinanzas.Instancia.ConvertirAMonedaSistema(((Moneda) _CmbMonedas.SelectedItem).TipoMoneda,
@@ -1119,6 +1329,8 @@ namespace Login_WPF
 
         private void buttonGuardarAsiento_Click(object sender, RoutedEventArgs e)
         {
+            double factor = Math.Pow(10, 2);
+            double montoMonedaLocal = 0;
             string message = "Desea guardar el asiento creado?";
             string caption = "Confirmación";
             MessageBoxButton buttons = MessageBoxButton.YesNo;
@@ -1139,11 +1351,20 @@ namespace Login_WPF
                         (item.DebeMonedaSistema > 1 ? item.DebeMonedaSistema.ToString() : item.HaberMonedaSistema.ToString()),
                         monedaSistema.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
                     montoDebe += (item.DebeMonedaSistema != null ? item.DebeMonedaSistema : 0);
-                    montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);               
+                    montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);
 
+                    if (item.DebeMonedaSistema > 1)
+                    {
+                        montoMonedaLocal = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.DebeMonedaSistema);
+                        montoMonedaLocal = Math.Truncate(montoMonedaLocal * factor) / factor;
+                    }
+                    else 
+                    {
+                        montoMonedaLocal = ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.HaberMonedaSistema);
+                        montoMonedaLocal = Math.Truncate(montoMonedaLocal * factor) / factor;
+                    }
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
-                        (item.DebeMonedaSistema > 1 ? ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.DebeMonedaSistema).ToString() : ServicioFinanzas.Instancia.ConvertirAMonedaLocal(monedaSistema, item.HaberMonedaSistema).ToString()),
-                        monedaLocal.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
+                        montoMonedaLocal.ToString(),monedaLocal.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
                 }
                 xml += "</Cuentas>";
                 
@@ -1164,7 +1385,53 @@ namespace Login_WPF
         {
             var monedas = ServicioFinanzas.Instancia.DemeMonedasCuenta(((Cuenta)_CmbCuentas.SelectedItem).Nombre);
             _CmbMonedas.ItemsSource = monedas;
-            _CmbMonedas.SelectedIndex = 0;
+            _CmbMonedas.SelectedIndex = 1;
+        }
+
+        private void buttonGuardarAsientosCierre_Click_1(object sender, RoutedEventArgs e)
+        {
+            double factor = Math.Pow(10, 2);
+            string message = "Desea guardar los asiento creados?";
+            string caption = "Confirmación";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+            {
+                var monedaSistema = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Sistema");
+                var monedaLocal = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Local");
+                string xml = "<Cuentas>";
+                double montoDebe = 0, montoHaber = 0;
+                foreach (var item in _cuentasCierreIngresos)
+                {
+                    if (item.Cuenta != null)
+                    {
+                        /*      <Cuentas>
+                          --		<Cuenta monto="10000.00" moneda="CRC" cuenta="" debe="0"/>
+                          --		<Cuenta monto="5490.98" moneda="CRC" cuenta="" debe="1"/>
+                          --  </Cuentas>*/
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            (item.DebeMonedaSistema > 1 ? item.DebeMonedaSistema.ToString() : item.HaberMonedaSistema.ToString()),
+                            monedaSistema.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
+                        montoDebe += (item.DebeMonedaSistema != null ? item.DebeMonedaSistema : 0);
+                        montoHaber += (item.HaberMonedaSistema != null ? item.HaberMonedaSistema : 0);
+
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            (item.DebeMonedaSistema > 1 ? item.DebeMonedaOtra.ToString() : item.HaberMonedaOtra.ToString()),
+                            monedaLocal.Acronimo, item.Cuenta.Codigo, (item.DebeMonedaSistema != 0) ? "1" : "0");
+                    }
+                    else 
+                    {
+                        xml += "</Cuentas>";
+                        ServicioFinanzas.Instancia.InsertarAsiento(DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString(), montoDebe, montoHaber, xml);
+                        xml = "<Cuentas>";
+                        montoDebe = 0;
+                        montoHaber = 0;
+                    }
+                }
+                MessageBox.Show("Asientos agregados!", "SIA", MessageBoxButton.OK, MessageBoxImage.Information);
+                _cuentasCierreIngresos = new ObservableCollection<Asiento>();
+                dataGridCierre.Items.Refresh();
+            }
         }
 
     }
