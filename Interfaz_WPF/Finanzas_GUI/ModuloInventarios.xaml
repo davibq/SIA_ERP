@@ -15,11 +15,12 @@
                 <TextBox Height="25" HorizontalAlignment="Left" Margin="61,234,0,0" Name="textBoxUnidMedida" VerticalAlignment="Top" Width="120" />
                 <ComboBox Height="25" HorizontalAlignment="Left" Margin="187,234,0,0" Name="comboBoxUnidMedida" VerticalAlignment="Top" Width="120" />
                 <TextBox Height="75" HorizontalAlignment="Left" Margin="61,291,0,0" Name="textBoxComentarios" VerticalAlignment="Top" Width="431" />
-                <TextBox Height="25" HorizontalAlignment="Left" Margin="61,406,0,0" Name="textBoxImagen" VerticalAlignment="Top" Width="431" />
-                <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="66,447,0,0" Name="buttonCrearArticulo" VerticalAlignment="Top" Width="75" Click="buttonCrearArticulo_Click" />
+                <TextBox Height="25" HorizontalAlignment="Left" Margin="61,406,0,0" Name="textBoxImagen" VerticalAlignment="Top" Width="120" />
+                <Button Content="Agregar" Height="23" HorizontalAlignment="Left" Margin="66,447,0,0" Name="buttonCrearArticulo" VerticalAlignment="Top" Width="75" Click="buttonCrearArticulo_Click" />
+                <Button Content="Buscar..." Height="25" HorizontalAlignment="Left" Margin="187,404,0,0" Name="buttonBuscar" VerticalAlignment="Top" Width="120" Click="buttonBuscar_Click" />
             </Grid>
         </TabItem>
-        <TabItem Header="Craer Bodega" Name="tabItem2">
+        <TabItem Header="Crear Bodega" Name="tabItem2">
             <Grid />
         </TabItem>
     </TabControl>
