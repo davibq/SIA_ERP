@@ -82,9 +82,6 @@
     <Compile Include="ModuloBancos.xaml.cs">
       <DependentUpon>ModuloBancos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ModuloCompras.xaml.cs">
-      <DependentUpon>ModuloCompras.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ModuloInventarios.xaml.cs">
       <DependentUpon>ModuloInventarios.xaml</DependentUpon>
     </Compile>
@@ -130,10 +127,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ModuloBancos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ModuloCompras.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
