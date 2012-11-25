@@ -84,31 +84,36 @@ namespace Login_WPF
 
                         case 1:
                             ModuloInventarios inventarios = new ModuloInventarios();
-                            Close();
+                            NoCierre = 1;
                             inventarios.Show();
+                            Close();
                             break;
 
                         case 2:
                             ModuloSociosNegocios socios = new ModuloSociosNegocios();
+                            NoCierre = 1;
                             Close();
                             socios.Show();
                             break;
 
                         case 3:
                             ModuloBancos bancos = new ModuloBancos();
+                            NoCierre = 1;
                             Close();
                             break;
 
                         case 4:
                             ModuloCompras compras = new ModuloCompras();
-                            Close();
+                            NoCierre = 1;
                             compras.Show();
+                            Close();
                             break;
 
                         case 5:
                             ModuloVentas ventas = new ModuloVentas();
-                            Close();
+                            NoCierre = 1;
                             ventas.Show();
+                            Close();
                             break;
 
                         case 6:

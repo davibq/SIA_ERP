@@ -51,7 +51,7 @@ namespace SIA.Contabilidad.WebService
         double DemeCambio(Moneda pOrigen, double pValor, Moneda pDestino);
 
         [OperationContract]
-        bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML);
+        bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento);
 
         [OperationContract]
         Moneda ObtenerMonedasSistema(string pAtributo);
@@ -66,6 +66,7 @@ namespace SIA.Contabilidad.WebService
         double ConvertirAMonedaLocal(Moneda pMoneda, double pValor);
 
         [OperationContract]
+<<<<<<< HEAD
         IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre);
 
         [OperationContract]
@@ -82,6 +83,12 @@ namespace SIA.Contabilidad.WebService
         
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
+=======
+        IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre();
+
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasTreeView();
+>>>>>>> 7b806c88bdcc58ab14094ca9203dca238393683a
     }
 
 }

@@ -96,9 +96,9 @@ namespace AccesoServicio
             return _CSC.DemeCambio(pOrigen, pValor, pDestino);
         }
 
-        public bool InsertarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        public bool InsertarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento)
         {
-            return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+            return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML, pTipoAsiento);
         }
 
         public Moneda ObtenerMonedasSistema(string pTipo) {

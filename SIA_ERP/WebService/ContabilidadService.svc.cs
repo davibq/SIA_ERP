@@ -78,9 +78,9 @@ namespace SIA.Contabilidad.WebService
             return TiposCambio.Instancia.DemeCambio(pOrigen.TipoMoneda, pValor, pDestino.TipoMoneda);
         }
 
-        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML)
+        public bool AgregarAsiento(string Fecha, double MontoDebe, double MontoHaber, string pXML, string pTipoAsiento)
         {
-            return LogicaNegocio.Instancia.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML);
+            return LogicaNegocio.Instancia.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML, pTipoAsiento);
         }
 
         public Moneda ObtenerMonedasSistema(string pAtributo)
@@ -98,6 +98,7 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ConvertirAMonedaLocal(pMoneda, pValor);
         }
 
+<<<<<<< HEAD
         public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
         {
             return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre(pNombrePadre);
@@ -121,6 +122,11 @@ namespace SIA.Contabilidad.WebService
         public Cuenta ObtenerCuenta(string pNombreCuenta)
         {
             return LogicaNegocio.Instancia.ObtenerCuenta(pNombreCuenta);
+=======
+        public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHijasSegunPadre();
+>>>>>>> 7b806c88bdcc58ab14094ca9203dca238393683a
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasTreeView()

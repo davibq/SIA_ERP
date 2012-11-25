@@ -1370,7 +1370,7 @@ namespace Login_WPF
                 
 
                 if (ServicioFinanzas.Instancia.InsertarAsiento(fechaAsiento.SelectedDate.Value.Month.ToString()+"/"+fechaAsiento.SelectedDate.Value.Day.ToString()+"/"+fechaAsiento.SelectedDate.Value.Year.ToString(),//fechaAsiento.SelectedDate.Value.ToShortDateString(),
-                    montoDebe, montoHaber, xml))
+                    montoDebe, montoHaber, xml, "AS"))
                 {
                     MessageBox.Show("Asiento agregado!", "SIA", MessageBoxButton.OK, MessageBoxImage.Information);
                     _Coleccion = new ObservableCollection<Asiento>();
