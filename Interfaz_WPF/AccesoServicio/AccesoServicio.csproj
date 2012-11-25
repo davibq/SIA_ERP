@@ -54,6 +54,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="SocNegocio.cs" />
+    <Compile Include="UnidadMedida.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -70,6 +71,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.SocNegocio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.UnidadMedida.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FinanzasService\ContabilidadService.wsdl" />

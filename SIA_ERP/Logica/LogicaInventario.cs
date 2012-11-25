@@ -48,6 +48,11 @@ namespace Logica
             return _DataAccess.obtenerUnidadesMedida();
         }
 
+        public bool crearArticulo(Articulo pArticulo)
+        {
+            return _DataAccess.crearArticulo(pArticulo);
+        }
+
         #endregion
 
         #region Atributos

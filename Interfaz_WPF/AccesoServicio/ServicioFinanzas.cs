@@ -146,10 +146,17 @@ namespace AccesoServicio
         }
 
         #region ModuloInventario
+
         public IEnumerable<UnidadMedida> ObtenerUnidadesdeMedida()
         {
             return _CSC.obtenerUnidadesMedida();
         }
+
+        public bool crearArticulo(Articulo pArticulo)
+        {
+            return _CSC.crearArticulo(pArticulo);
+        }
+
         #endregion
 
         public IEnumerable<SocNegocio> ObtenerSociosNegocioCV(string pTipoSocio)

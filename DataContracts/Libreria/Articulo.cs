@@ -14,7 +14,7 @@ namespace SIA.Libreria
         public string Codigo { get; set; }
 
         [DataMember]
-        public string Descrupcion { get; set; }
+        public string Descripcion { get; set; }
 
         [DataMember]
         public UnidadMedida unidadMedida { get; set; }

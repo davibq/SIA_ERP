@@ -41,5 +41,17 @@ namespace DataAccessInventario
             return unidadesMedida;
         }
 
+        public bool crearArticulo(Articulo pArticulo) 
+        {
+            return EjecutarNoConsulta("dbo.CrearArticulo", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("pCodigo", pArticulo.Codigo),
+                                                              new SqlParameter("pDescripcion", pArticulo.Descripcion),
+                                                              new SqlParameter("pUnidadMedida", pArticulo.unidadMedida.Nombre),
+                                                              new SqlParameter("pComentarios", pArticulo.Comentarios),
+                                                              new SqlParameter("pImagen", pArticulo.imagen)
+                                                          });
+        }
+
     }
 }

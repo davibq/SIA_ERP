@@ -89,4 +89,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UnidadMedida" nillable="true" type="tns:UnidadMedida" />
+  <xs:complexType name="Articulo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comentarios" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="imagen" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="unidadMedida" nillable="true" type="tns:UnidadMedida" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Articulo" nillable="true" type="tns:Articulo" />
 </xs:schema>

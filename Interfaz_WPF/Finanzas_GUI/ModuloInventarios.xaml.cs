@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 using AccesoServicio;
 using AccesoServicio.FinanzasService;
 
@@ -23,7 +24,10 @@ namespace Login_WPF
         public ModuloInventarios()
         {
             InitializeComponent();
-            
+
+            var unidades = ServicioFinanzas.Instancia.ObtenerUnidadesdeMedida();
+            comboBoxUnidMedida.ItemsSource = unidades;
+
             //http://elconta.com/2012/01/23/unidad-de-medida-facturas/
             /*comboBoxUnidMedida.Items.Add("Metro");
             comboBoxUnidMedida.Items.Add("Kilogramo");
@@ -35,7 +39,7 @@ namespace Login_WPF
 
         private void buttonCrearArticulo_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxCodigo.Text) || string.IsNullOrWhiteSpace(textBoxComentarios.Text) || string.IsNullOrWhiteSpace(textBoxDescripcion.Text) || string.IsNullOrWhiteSpace(textBoxImagen.Text) || string.IsNullOrWhiteSpace(textBoxUnidMedida.Text) || comboBoxUnidMedida.SelectedIndex == -1)
+            if (string.IsNullOrWhiteSpace(textBoxCodigo.Text) || string.IsNullOrWhiteSpace(textBoxComentarios.Text) || string.IsNullOrWhiteSpace(textBoxDescripcion.Text) || string.IsNullOrWhiteSpace(textBoxImagen.Text) || comboBoxUnidMedida.SelectedIndex == -1) //|| string.IsNullOrWhiteSpace(textBoxUnidMedida.Text))
             {
                 MessageBox.Show("Debe completar todos los datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -47,11 +51,22 @@ namespace Login_WPF
                 }
                 else
                 {
-                /*
-                 * Mandar a la base la info del articulo
-                 */
+                    FileStream stream = new FileStream(textBoxImagen.Text, FileMode.OpenOrCreate, FileAccess.Read);
+                    BinaryReader reader = new BinaryReader(stream);
+                    byte[] Logo = reader.ReadBytes((int)stream.Length);
+                    reader.Close();
+                    stream.Close();
 
-                    if (true)
+                    Articulo articulo = new Articulo()
+                    {
+                        Codigo = textBoxCodigo.Text,
+                        Descripcion = textBoxDescripcion.Text,
+                        unidadMedida = (UnidadMedida)comboBoxUnidMedida.SelectedItem,
+                        Comentarios = textBoxComentarios.Text,
+                        imagen = Logo
+                    };
+
+                    if (ServicioFinanzas.Instancia.crearArticulo(articulo))
                     {
                         MessageBox.Show("Artículo creado exitosamente", "Nuevo artículo", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -82,6 +97,11 @@ namespace Login_WPF
                 string filename = dlg.FileName;
                 textBoxImagen.Text = filename;
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

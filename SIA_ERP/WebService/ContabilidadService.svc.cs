@@ -130,10 +130,17 @@ namespace SIA.Contabilidad.WebService
         }
 
         #region Modulo inventarios
+
         public IEnumerable<UnidadMedida> obtenerUnidadesMedida()
         {
             return LogicaInventario.Instancia.obtenerUnidadesMedida();
         }
+
+        public bool crearArticulo(Articulo pArticulo)
+        {
+            return LogicaInventario.Instancia.crearArticulo(pArticulo);
+        }
+
         #endregion
 
         public Documento ObtenerDocumento()
