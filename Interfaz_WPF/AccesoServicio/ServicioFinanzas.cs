@@ -125,6 +125,16 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasTreeView();
         }
 
+        public IEnumerable<SocNegocio> ObtenerSociosNegocioCV(string pTipoSocio)
+        {
+            return _CSC.ObtenerSociosCV(pTipoSocio);
+        }
+
+        public IEnumerable<ProductoCV> ObtenerProductosCV()
+        {
+            return _CSC.ObtenerProductosCV();
+        }
+        
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

@@ -28,6 +28,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Arbol.cs" />
+    <Compile Include="LogicaCompraVenta.cs" />
     <Compile Include="LogicaNegocio.cs" />
     <Compile Include="NodoCuenta.cs" />
     <Compile Include="NodoRaiz.cs" />
@@ -49,9 +50,17 @@
       <Project>{A305EAC6-F86D-45F7-B8EE-57ADABE233B5}</Project>
       <Name>DataAccessPrincipal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataAccessVentasCompras\DataAccessVentasCompras.csproj">
+      <Project>{A61DBBB0-7578-41F4-A78F-CCB29FFDFD91}</Project>
+      <Name>DataAccessVentasCompras</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{F5FB8F63-CD96-41F6-98E9-4FBDDD6EE65D}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibreriaVentaCompra\LibreriaVentaCompra.csproj">
+      <Project>{6FC10D9A-2787-449B-AE57-DE9ECA74FA87}</Project>
+      <Name>LibreriaVentaCompra</Name>
     </ProjectReference>
     <ProjectReference Include="..\TipoCambio\TipoCambio.csproj">
       <Project>{1E890B42-E86B-430C-AE87-37393D19FA84}</Project>

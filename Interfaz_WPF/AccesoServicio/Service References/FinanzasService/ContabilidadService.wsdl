@@ -7,6 +7,7 @@
       <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria" />
       <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" />
       <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" />
+      <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IContabilidadService_Saludar_InputMessage">
@@ -123,6 +124,24 @@
   <wsdl:message name="IContabilidadService_ObtenerCuentasTreeView_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCuentasTreeViewResponse" />
   </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerDocumento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumento" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerDocumento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerProductosCV_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosCV" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerProductosCV_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosCVResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerSociosCV_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSociosCV" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_ObtenerSociosCV_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSociosCVResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContabilidadService">
     <wsdl:operation name="Saludar">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/Saludar" message="tns:IContabilidadService_Saludar_InputMessage" />
@@ -199,6 +218,18 @@
     <wsdl:operation name="ObtenerCuentasTreeView">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView" message="tns:IContabilidadService_ObtenerCuentasTreeView_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeViewResponse" message="tns:IContabilidadService_ObtenerCuentasTreeView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumento" message="tns:IContabilidadService_ObtenerDocumento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumentoResponse" message="tns:IContabilidadService_ObtenerDocumento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosCV">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerProductosCV" message="tns:IContabilidadService_ObtenerProductosCV_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerProductosCVResponse" message="tns:IContabilidadService_ObtenerProductosCV_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSociosCV">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerSociosCV" message="tns:IContabilidadService_ObtenerSociosCV_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerSociosCVResponse" message="tns:IContabilidadService_ObtenerSociosCV_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContabilidadService" type="tns:IContabilidadService">
@@ -367,6 +398,33 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerCuentasTreeView">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumento">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosCV">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerProductosCV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSociosCV">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerSociosCV" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

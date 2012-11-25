@@ -22,5 +22,23 @@ namespace Login_WPF
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAtras_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void btnAgregarOrdenCompra_Click(object sender, RoutedEventArgs e)
+        {
+            var ordenCompra = new Compras.OrdenCompra();
+            ordenCompra.ShowDialog();
+        }
     }
 }
