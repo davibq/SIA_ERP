@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="636eb132-ea9e-4cb0-8961-3ea7cee77fef" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4b686a3d-99c1-4105-96c1-50cef4393f53" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,14 +21,14 @@
     <MetadataSource Address="http://localhost:5603/ContabilidadService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ContabilidadService2.xsd" MetadataType="Schema" ID="4268f5f5-d038-49f5-bc53-706f0906ce43" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ContabilidadService3.xsd" MetadataType="Schema" ID="f33ce1d5-f1d9-46f3-bb40-d9e4c3632f77" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" />
-    <MetadataFile FileName="ContabilidadService.disco" MetadataType="Disco" ID="b636f60a-2ded-4303-ba82-3f19981b1b52" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?disco" />
-    <MetadataFile FileName="ContabilidadService.wsdl" MetadataType="Wsdl" ID="4856c50f-50f9-42b4-af30-817f5289f443" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?wsdl" />
-    <MetadataFile FileName="ContabilidadService4.xsd" MetadataType="Schema" ID="c05f6ab8-cb6c-4482-95fb-e30604790462" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd4" />
-    <MetadataFile FileName="ContabilidadService5.xsd" MetadataType="Schema" ID="9bb23151-fbf4-4787-936b-864bb5f391be" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd5" />
-    <MetadataFile FileName="ContabilidadService.xsd" MetadataType="Schema" ID="1b6bdc19-012f-402e-8ef6-ac314b6a138d" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ContabilidadService1.xsd" MetadataType="Schema" ID="023d1600-80b3-47b3-b9ec-67b2608c9b30" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContabilidadService.xsd" MetadataType="Schema" ID="a927f498-1c9a-4db0-b4e5-9f90ae0c6d0f" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContabilidadService1.xsd" MetadataType="Schema" ID="3bd84a55-5aed-43a0-8bdd-3638283306d1" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ContabilidadService.disco" MetadataType="Disco" ID="4af8eb0b-c723-4bfd-bca7-d36fb103cf49" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?disco" />
+    <MetadataFile FileName="ContabilidadService.wsdl" MetadataType="Wsdl" ID="fd5829d6-1fa5-42f6-a13d-29fb7fcf3c4a" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?wsdl" />
+    <MetadataFile FileName="ContabilidadService2.xsd" MetadataType="Schema" ID="f4b6f4fe-e311-4a38-8a01-94aa9ca5cc20" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ContabilidadService3.xsd" MetadataType="Schema" ID="b777af74-b6b8-47a1-a428-2212df015d41" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ContabilidadService4.xsd" MetadataType="Schema" ID="ad6566db-2c0e-4bd1-b12b-b1404cc17640" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContabilidadService5.xsd" MetadataType="Schema" ID="33a0de45-bd8f-4a09-99a5-3d6861477872" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

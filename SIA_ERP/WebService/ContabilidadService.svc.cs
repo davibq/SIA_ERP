@@ -129,11 +129,6 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerCuentasTreeView();
         }
 
-        public Documento ObtenerDocumento()
-        {
-            return null;
-        }
-
         public IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio)
         {
             return LogicaCompraVenta.Instancia.ObtenerSociosNegocio(pTipoSocio);
@@ -142,6 +137,21 @@ namespace SIA.Contabilidad.WebService
         public IEnumerable<ProductoCV> ObtenerProductosCV()
         {
             return LogicaCompraVenta.Instancia.ObtenerProductos();
+        }
+
+        public bool GuardarDocumento(Documento pDocumento)
+        {
+            return LogicaCompraVenta.Instancia.GuardarDocumento(pDocumento);
+        }
+
+        public IEnumerable<Documento> ObtenerDocumentosCompras()
+        {
+            return LogicaCompraVenta.Instancia.ObtenerDocumentosCompras();
+        }
+
+        public Documento ObtenerDocumento(int pIdDocumento)
+        {
+            return LogicaCompraVenta.Instancia.ObtenerDocumento(pIdDocumento);
         }
     }
 }

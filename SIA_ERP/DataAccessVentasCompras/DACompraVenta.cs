@@ -63,6 +63,7 @@ namespace DataAccessVentasCompras
                         var producto = repetido.First();
                         producto.Bodegas.Add(new BodegaCV()
                         {
+                            IdBodega = int.Parse(row["IdBodega"].ToString()),
                             Nombre = row["Bodega"].ToString(),
                             Costo = double.Parse(row["Costo"].ToString())
                         });
@@ -80,6 +81,179 @@ namespace DataAccessVentasCompras
                 }
             }
             return productos;
+        }
+
+        public bool GuardarDocumento(Documento pDocumento)
+        {
+            var nuevoDocumento = EjecutarNoConsulta("dbo.GuardarDocumento", new List<SqlParameter>()
+            {
+                new SqlParameter("pTipoDocumento", pDocumento.TipoDocumento),
+                new SqlParameter("pFecha1", pDocumento.Fecha1),
+                new SqlParameter("pFecha2", pDocumento.Fecha2),
+                new SqlParameter("pConsecutivo", pDocumento.Consecutivo),
+                new SqlParameter("pSubtotal", pDocumento.Subtotal),
+                new SqlParameter("pTotal", pDocumento.Total),
+                new SqlParameter("pEsServicio", pDocumento.EsServicio?1:0),
+                new SqlParameter("pDescripcionServicio", pDocumento.DescripcionServicio),
+                new SqlParameter("pCodigoCuentaServicio", pDocumento.CodigoCuentaServicio),
+                new SqlParameter("pIdSocioNegocio", pDocumento.SocioNegocio.IdSocio)
+            });
+            bool lineasVenta = true;
+            if (!pDocumento.EsServicio)
+            {
+                var ds = EjecutarConsulta("dbo.ObtenerDetalle", new List<SqlParameter>()
+                {
+                    new SqlParameter("pConsecutivo", pDocumento.Consecutivo)
+                });
+                int idDetalle = 0;
+                if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        idDetalle = int.Parse(row["IdDetalle"].ToString());
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+                DataTable dataTable = new DataTable("LineaVenta"); 
+
+                dataTable.Columns.Add("IdArticulo", typeof(int)); 
+                dataTable.Columns.Add("IdDetalle", typeof(int));
+                dataTable.Columns.Add("IdBodega", typeof(int)); 
+                dataTable.Columns.Add("Cantidad", typeof(int)); 
+                dataTable.Columns.Add("Impuesto", typeof(double)); 
+                foreach (var lv in pDocumento.LineasVenta)
+                {
+                    dataTable.Rows.Add(lv.Producto.IdProducto, idDetalle, 
+                        lv.Bodega.IdBodega, lv.Cantidad, lv.Impuestos);
+                }
+                var param=new SqlParameter();
+                param.ParameterName = "LineasVenta"; 
+                param.SqlDbType = SqlDbType.Structured; 
+                param.Value = dataTable; 
+                lineasVenta = EjecutarNoConsulta("dbo.AgregarLineasVenta", new List<SqlParameter>()
+                {
+                    param
+                });
+            }
+            bool respuesta = false;
+            if (pDocumento.TipoDocumento.CompareTo("Orden de Compra") == 0)
+            {
+                respuesta=AgregarSolicitados(pDocumento.LineasVenta);
+
+            }
+            return nuevoDocumento && lineasVenta && respuesta;
+        }
+
+        private bool AgregarSolicitados(List<LineaVenta> pLineasVenta)
+        {
+            DataTable dataTable = new DataTable("LineaVenta"); 
+            dataTable.Columns.Add("IdArticulo", typeof(int)); 
+            dataTable.Columns.Add("IdDetalle", typeof(int));
+            dataTable.Columns.Add("IdBodega", typeof(int)); 
+            dataTable.Columns.Add("Cantidad", typeof(int)); 
+            dataTable.Columns.Add("Impuesto", typeof(double)); 
+            foreach (var lv in pLineasVenta)
+            {
+                dataTable.Rows.Add(lv.Producto.IdProducto, 0, 
+                    lv.Bodega.IdBodega, lv.Cantidad, lv.Impuestos);
+            }
+            var param=new SqlParameter();
+            param.ParameterName = "pLineasVenta"; 
+            param.SqlDbType = SqlDbType.Structured; 
+            param.Value = dataTable; 
+            return EjecutarNoConsulta("AgregarSolicitados", new List<SqlParameter>(){
+               param
+            });
+        }
+
+        public List<Documento> ObtenerDocumentosCompra()
+        {
+            var documentos = new List<Documento>();
+            var ds = EjecutarConsulta("dbo.ObtenerDocumentosCompras", new List<SqlParameter>());
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    documentos.Add(new Documento()
+                    {
+                        IdDocumento = int.Parse(row["IdDocumento"].ToString()),
+                        Consecutivo = row["Consecutivo"].ToString(),
+                        TipoDocumento = row["TipoDocumento"].ToString(),
+                        Total = double.Parse(row["Total"].ToString()),
+                        SocioNegocio = new SocNegocio()
+                        {
+                            Nombre=row["Nombre"].ToString()
+                        }
+                    });
+                }
+            }
+            return documentos;
+        }
+
+        public Documento ObtenerDocumento(int pIdDocumento)
+        {
+            Documento documento=null;
+            var ds = EjecutarConsulta("dbo.ObtenerDocumentoCompleto", new List<SqlParameter>()
+            {
+                new SqlParameter("pIdDocumento", pIdDocumento)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    if (documento == null)
+                    { //SN.IdSocioNegocio, SN.Nombre SocioNegocio
+                        documento = new Documento()
+                        {
+                            IdDocumento = pIdDocumento,
+                            Consecutivo = row["Consecutivo"].ToString(),
+                            Fecha1 = DateTime.Parse(row["Fecha"].ToString()),
+                            Fecha2 = DateTime.Parse(row["Fecha2"].ToString()),
+                            TipoDocumento = row["TipoDocumento"].ToString(),
+                            Subtotal = double.Parse(row["Subtotal"].ToString()),
+                            Total = double.Parse(row["Total"].ToString()),
+                            LineasVenta = new List<LineaVenta>(){
+                                new LineaVenta(){
+                                    Bodega=new BodegaCV(){
+                                        IdBodega=row["IdBodega"]==null?-1:int.Parse(row["IdBodega"].ToString()),
+                                        Nombre=row["Bodega"]==null?string.Empty:row["Bodega"].ToString()
+                                    },
+                                    Cantidad=int.Parse(row["Cantidad"].ToString()),
+                                    Impuestos=double.Parse(row["Impuesto"].ToString()),
+                                    Producto=new ProductoCV(){
+                                        IdProducto=int.Parse(row["IdArticulo"].ToString()),
+                                        Nombre=row["NombreArticulo"].ToString(),
+                                        Descripcion = row["NombreArticulo"].ToString()
+                                    }
+                                }
+                            },
+                            SocioNegocio = new SocNegocio()
+                            {
+                                IdSocio=int.Parse(row["IdSocioNegocio"].ToString()),
+                                Nombre=row["SocioNegocio"].ToString()
+                            }
+                        };
+                    } else {
+                        documento.LineasVenta.Add(new LineaVenta(){
+                            Bodega=new BodegaCV(){
+                                IdBodega=row["IdBodega"]==null?-1:int.Parse(row["IdBodega"].ToString()),
+                                Nombre=row["Bodega"]==null?string.Empty:row["Bodega"].ToString()
+                            },
+                            Cantidad=int.Parse(row["Cantidad"].ToString()),
+                            Impuestos=double.Parse(row["Impuesto"].ToString()),
+                            Producto=new ProductoCV(){
+                                IdProducto=int.Parse(row["IdArticulo"].ToString()),
+                                Nombre=row["NombreArticulo"].ToString(),
+                                Descripcion = row["NombreArticulo"].ToString()
+                            }
+                        });
+                    }
+                }
+            }
+            return documento;
         }
 
         #endregion

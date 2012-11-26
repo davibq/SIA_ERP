@@ -53,6 +53,21 @@ namespace Logica
             return _DataAccess.DemeProductos();
         }
 
+        public bool GuardarDocumento(Documento pDocumento)
+        {
+            return _DataAccess.GuardarDocumento(pDocumento);
+        }
+
+        public List<Documento> ObtenerDocumentosCompras()
+        {
+            return _DataAccess.ObtenerDocumentosCompra();
+        }
+
+        public Documento ObtenerDocumento(int pIdDocumento)
+        {
+            return _DataAccess.ObtenerDocumento(pIdDocumento);
+        }
+
         #endregion
 
         #region Atributos

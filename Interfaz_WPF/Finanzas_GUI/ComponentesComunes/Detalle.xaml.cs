@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -25,7 +26,10 @@ namespace Login_WPF.ComponentesComunes
         {
             InitializeComponent();
             Productos = new List<LineaVenta>();
-            Articulos = ServicioFinanzas.Instancia.ObtenerProductosCV();
+            if (!DesignerProperties.GetIsInDesignMode(this))
+            {
+                Articulos = ServicioFinanzas.Instancia.ObtenerProductosCV();
+            }
         }
 
         #region Properties
@@ -93,12 +97,12 @@ namespace Login_WPF.ComponentesComunes
             gridProductos.ItemsSource = Productos;
         }
 
-        #endregion
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             var agregar = new AgregarProducto(Articulos, this, true);
-            if (agregar.ShowDialog().Value){
+            if (agregar.ShowDialog().Value)
+            {
                 gridProductos.Items.Refresh();
                 ActualizarTotal();
             }
@@ -116,17 +120,19 @@ namespace Login_WPF.ComponentesComunes
 
         private void ActualizarTotal()
         {
-            double subtotal=0.0, impuestos=0.0;
+            double subtotal = 0.0, impuestos = 0.0;
             foreach (var lineaVenta in Productos)
             {
                 subtotal += lineaVenta.Cantidad * lineaVenta.Producto.Precio;
-                impuestos += (lineaVenta.Cantidad * lineaVenta.Producto.Precio)*(lineaVenta.Impuestos/100);
+                impuestos += (lineaVenta.Cantidad * lineaVenta.Producto.Precio) * (lineaVenta.Impuestos / 100);
             }
             lblImpuestos.Content = impuestos;
             lblSubtotal.Content = subtotal;
             lblTotal.Content = impuestos + subtotal;
         }
-        
+
+        #endregion
+                        
         #region Constantes
 
         #endregion

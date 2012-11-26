@@ -85,6 +85,9 @@
     <Compile Include="ComponentesComunes\Encabezado.xaml.cs">
       <DependentUpon>Encabezado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Compras\EntradaMercancias.xaml.cs">
+      <DependentUpon>EntradaMercancias.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Compras\ModuloCompras.xaml.cs">
       <DependentUpon>ModuloCompras.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ComponentesComunes\Encabezado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Compras\EntradaMercancias.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

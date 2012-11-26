@@ -11,7 +11,7 @@ Post-Deployment Script Template
 */
 
 INSERT INTO dbo.TipoDocumento(Nombre) VALUES
-	('Order de Compra'),
+	('Orden de Compra'),
 	('Entrada de MercanciasC'),
 	('Factura de Proveedores'),
 	('Orden de Venta'),

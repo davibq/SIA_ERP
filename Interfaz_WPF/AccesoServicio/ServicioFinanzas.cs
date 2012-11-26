@@ -15,6 +15,7 @@ namespace AccesoServicio
 
         ~ServicioFinanzas()
         {
+            
             _CSC.Close();
         }
 
@@ -154,7 +155,22 @@ namespace AccesoServicio
         {
             return _CSC.ObtenerProductosCV();
         }
-        
+
+        public bool GuardarDocumento(Documento pDocumento)
+        {
+            return _CSC.GuardarDocumento(pDocumento);
+        }
+
+        public IEnumerable<Documento> ObtenerDocumentosCompras()
+        {
+            return _CSC.ObtenerDocumentosCompras();
+        }
+
+        public Documento ObtenerDocumento(int pIdDocumento)
+        {
+            return _CSC.ObtenerDocumento(pIdDocumento);
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -72,7 +73,10 @@ namespace Login_WPF.ComponentesComunes
 
         public void CargarSocios(string pTipo)
         {
-            cmbSocio.ItemsSource = ServicioFinanzas.Instancia.ObtenerSociosNegocioCV(pTipo);
+            if (!DesignerProperties.GetIsInDesignMode(this))
+            {
+                cmbSocio.ItemsSource = ServicioFinanzas.Instancia.ObtenerSociosNegocioCV(pTipo);
+            }
         }
 
         #endregion

@@ -83,15 +83,21 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
-
-        [OperationContract]
-        Documento ObtenerDocumento();
-
+        
         [OperationContract]
         IEnumerable<ProductoCV> ObtenerProductosCV();
 
         [OperationContract]
         IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio);
+
+        [OperationContract]
+        bool GuardarDocumento(Documento pDocumento);
+    
+        [OperationContract]
+        IEnumerable<Documento> ObtenerDocumentosCompras();
+
+        [OperationContract]
+        Documento ObtenerDocumento(int pIdDocumento);
     }
 
 }

@@ -17,33 +17,18 @@ using AccesoServicio;
 namespace Login_WPF.Compras
 {
     /// <summary>
-    /// Interaction logic for OrdenCompra.xaml
+    /// Interaction logic for EntregaMercancias.xaml
     /// </summary>
-    public partial class OrdenCompra : Window
+    public partial class EntradaMercancias : Window
     {
-        public OrdenCompra()
+        public EntradaMercancias()
         {
             InitializeComponent();
-        }
-
-        private void InicializarControles()
-        {
-            if (DesignerProperties.GetIsInDesignMode(this)) return;
-            encabezado1.Fecha1Label = "Fecha de Contabilización";
-            encabezado1.Fecha2Label = "Fecha de Entrega";
-            encabezado1.SocioLabel = "Proveedor:";
-            encabezado1.CargarSocios("Proveedor");
-            detalle1.InicializarColumnas(true);
         }
 
         private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            InicializarControles();
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -70,7 +55,7 @@ namespace Login_WPF.Compras
             }
             var documento = new AccesoServicio.FinanzasService.Documento();
             documento.Consecutivo = encabezado1.txtConsecutivo.Text;
-            documento.TipoDocumento = "Orden de Compra";
+            documento.TipoDocumento = "Entrada de Mercancias";
             documento.Fecha1 = encabezado1.fecha1.SelectedDate.Value;
             documento.Fecha2 = encabezado1.fecha2.SelectedDate.Value;
             documento.Subtotal = double.Parse(detalle1.lblSubtotal.Content.ToString());
@@ -82,7 +67,7 @@ namespace Login_WPF.Compras
             documento.SocioNegocio = (SocNegocio)encabezado1.cmbSocio.SelectedItem;
             if (ServicioFinanzas.Instancia.GuardarDocumento(documento))
             {
-                MessageBox.Show("Orden de compra guardada");
+                MessageBox.Show("Entrada de Mercancias guardada");
                 encabezado1.txtConsecutivo.Text = string.Empty;
                 encabezado1.cmbSocio.SelectedIndex = -1;
             }
@@ -90,6 +75,20 @@ namespace Login_WPF.Compras
             {
                 MessageBox.Show("Se produjo un error");
             }
+        }
+
+        public void InicializarControles()
+        {
+            if (DesignerProperties.GetIsInDesignMode(this)) return;
+            encabezado1.Fecha1Label = "Fecha de Contabilización";
+            encabezado1.Fecha2Label = "Fecha de Vencimiento";
+            encabezado1.SocioLabel = "Proveedor:";
+            encabezado1.CargarSocios("Proveedor");
+            detalle1.InicializarColumnas(true);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
         }
     }
 }
