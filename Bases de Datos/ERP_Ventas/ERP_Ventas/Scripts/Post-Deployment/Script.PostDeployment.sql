@@ -25,13 +25,13 @@ INSERT INTO dbo.TipoSocioNegocio(Nombre) VALUES
 
 
 -- TODO: agregar idMoneda y Cuenta Referencias
-INSERT INTO dbo.SocioNegocio(Codigo, Nombre, IdTipoSocio, IdMoneda) VALUES
-	('C001', 'Cliente1', 2, 1),
-	('C002', 'Cliente1', 2, 1),
-	('C003', 'Cliente1', 2, 1),
-	('P001', 'Proveedor1', 1, 1),
-	('P002', 'Proveedor3', 1, 1),
-	('P003', 'Proveedor2', 1, 1)
+INSERT INTO dbo.SocioNegocio(Codigo, Nombre, IdTipoSocio, CodigoAsiento, IDMoneda, _Cuenta) VALUES
+	('C001', 'Cliente1', 2, '0', 1, '1-1-02-01'),
+	('C002', 'Cliente1', 2, '0', 1, '1-1-02-01'),
+	('C003', 'Cliente1', 2, '0', 1, '1-1-02-02'),
+	('P001', 'Proveedor1', 1, '0', 1, '2-1-01-01'),
+	('P002', 'Proveedor3', 1, '0', 1, '2-1-01-01'),
+	('P003', 'Proveedor2', 1, '0', 1, '2-1-01-02')
 
 INSERT INTO dbo.Bodega (Codigo, Nombre) VALUES
 	('GEN', 'General'),

@@ -74,8 +74,6 @@
     <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR\" />
     <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types\" />
     <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections\" />
-    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\" />
-    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues\" />
     <Folder Include="Schema Objects\Schemas\dbo\Synonyms\" />
     <Folder Include="Schema Objects\Schemas\dbo\Tables\" />
     <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints\" />
@@ -118,6 +116,8 @@
     <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
     <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
     <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\Service Broker" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\Service Broker\Queues" />
   </ItemGroup>
   <ItemGroup>
     <PropertiesFile Include="Properties\Database.sqlsettings">
@@ -330,8 +330,8 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\CrearArticulo.proc.sql">
-		<SubType>Code</SubType>
-	</Build>
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AgregarLineasVenta.proc.sql">
       <SubType>Code</SubType>
     </Build>

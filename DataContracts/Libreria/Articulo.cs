@@ -46,7 +46,6 @@ namespace SIA.Libreria
 
         [DataMember]
         public string Nombre { get; set; }
-        #endregion
 
         [DataMember]
         public string UrlImagen { get; set; }
