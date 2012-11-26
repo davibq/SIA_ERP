@@ -48,19 +48,19 @@ INSERT INTO dbo.Articulo(Codigo, Nombre, IdUnidadMedida) VALUES
 	('PT02', 'Producto 2', 2),
 	('PT03', 'Producto 3', 1)
 
-INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado) VALUES
-	(1, 1, 0, 0, 0),
-	(1, 2, 0, 0, 0),
-	(1, 3, 0, 0, 0),
-	(1, 4, 0, 0, 0),
-	(2, 1, 0, 0, 0),
-	(2, 2, 0, 0, 0),
-	(2, 3, 0, 0, 0),
-	(2, 4, 0, 0, 0),
-	(3, 1, 0, 0, 0),
-	(3, 2, 0, 0, 0),
-	(3, 3, 0, 0, 0),
-	(3, 4, 0, 0, 0)
+INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentaExistencias, codCuentasVentas, codCuentasCostos) VALUES
+	(1, 1, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
+	(1, 2, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
+	(1, 3, 0, 0, 0, '1-1-03-02', '4-1-01', '5-1-01'),
+	(1, 4, 0, 0, 0, '1-1-03-03', '4-1-01', '5-1-01'),
+	(2, 1, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
+	(2, 2, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
+	(2, 3, 0, 0, 0, '1-1-03-02', '4-1-01', '5-1-01'),
+	(2, 4, 0, 0, 0, '1-1-03-03', '4-1-01', '5-1-01'),
+	(3, 1, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
+	(3, 2, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
+	(3, 3, 0, 0, 0, '1-1-03-02', '4-1-01', '5-1-01'),
+	(3, 4, 0, 0, 0, '1-1-03-03', '4-1-01', '5-1-01')
 
 INSERT INTO dbo.CostoXArticuloXBodega (IdArticulo, IdBodega, Costo, FechaActualizacion) VALUES
 	(1, 1, 0, GETDATE()),
