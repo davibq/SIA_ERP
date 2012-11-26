@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bodega.cs" />
     <Compile Include="BodegaCV.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Moneda.cs" />

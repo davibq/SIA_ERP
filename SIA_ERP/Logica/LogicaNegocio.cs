@@ -135,6 +135,11 @@ namespace Logica
             return _DataAccess.ObtenerCuentasHijasSegunPadre(pNombrePadre);
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombrePadre)
+        {
+            return _DataAccess.ObtenerCuentasHojas(pNombrePadre);
+        }
+
         public IEnumerable<Cuenta> ObtenerCuentasCierreCompras()
         {
             var cuentas = _DataAccess.ObtenerCuentasHijasSegunPadre("GASTOS DE COMPRAS");

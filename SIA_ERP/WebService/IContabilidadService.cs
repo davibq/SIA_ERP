@@ -84,6 +84,15 @@ namespace SIA.Contabilidad.WebService
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
 
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasInventario();
+
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasVentas();
+
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasCostos();
+        
         #region Modulo inventarios
 
         [OperationContract]

@@ -151,6 +151,21 @@ namespace SIA.Contabilidad.WebService
             return LogicaInventario.Instancia.crearBodega(pBodega);
         }
 
+        public IEnumerable<Cuenta> obtenerCuentasInventario() 
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("INVENTARIOS");
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasVentas()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("VENTAS");
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasCostos()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("COSTOS");
+        }
+
         #endregion
 
         public Documento ObtenerDocumento()

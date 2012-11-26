@@ -167,6 +167,21 @@ namespace AccesoServicio
             return _CSC.crearBodega(pBodega);
         }
 
+        public IEnumerable<Cuenta> obtenerCuentasInventario()
+        {
+            return _CSC.obtenerCuentasInventario();
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasVentas()
+        {
+            return _CSC.obtenerCuentasVentas();
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasCostos()
+        {
+            return _CSC.obtenerCuentasCostos();
+        }
+
         #endregion
 
         public IEnumerable<SocNegocio> ObtenerSociosNegocioCV(string pTipoSocio)

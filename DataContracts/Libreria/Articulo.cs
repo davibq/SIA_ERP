@@ -24,5 +24,17 @@ namespace SIA.Libreria
 
         [DataMember]
         public byte[] imagen { get; set; }
+
+        [DataMember]
+        public Cuenta Existencias { get; set; }
+
+        [DataMember]
+        public Cuenta Ventas { get; set; }
+
+        [DataMember]
+        public Cuenta Costos { get; set; }
+
+        [DataMember]
+        public Bodega bodega { get; set; }
     }
 }

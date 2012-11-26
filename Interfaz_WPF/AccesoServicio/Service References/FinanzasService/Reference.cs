@@ -15,9 +15,9 @@ namespace AccesoServicio.FinanzasService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Articulo", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
-    public partial class Articulo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -26,16 +26,34 @@ namespace AccesoServicio.FinanzasService {
         private string CodigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ComentariosField;
+        private string CodigoCuentaPadreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescripcionField;
+        private bool DebeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] imagenField;
+        private bool EnabledField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccesoServicio.FinanzasService.UnidadMedida unidadMedidaField;
+        private string IdentificadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NivelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreIdiomaExtranjeroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SaldoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double Saldo_HaberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.Moneda _MonedaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -61,53 +79,131 @@ namespace AccesoServicio.FinanzasService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Comentarios {
+        public string CodigoCuentaPadre {
             get {
-                return this.ComentariosField;
+                return this.CodigoCuentaPadreField;
             }
             set {
-                if ((object.ReferenceEquals(this.ComentariosField, value) != true)) {
-                    this.ComentariosField = value;
-                    this.RaisePropertyChanged("Comentarios");
+                if ((object.ReferenceEquals(this.CodigoCuentaPadreField, value) != true)) {
+                    this.CodigoCuentaPadreField = value;
+                    this.RaisePropertyChanged("CodigoCuentaPadre");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
+        public bool Debe {
             get {
-                return this.DescripcionField;
+                return this.DebeField;
             }
             set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
+                if ((this.DebeField.Equals(value) != true)) {
+                    this.DebeField = value;
+                    this.RaisePropertyChanged("Debe");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] imagen {
+        public bool Enabled {
             get {
-                return this.imagenField;
+                return this.EnabledField;
             }
             set {
-                if ((object.ReferenceEquals(this.imagenField, value) != true)) {
-                    this.imagenField = value;
-                    this.RaisePropertyChanged("imagen");
+                if ((this.EnabledField.Equals(value) != true)) {
+                    this.EnabledField = value;
+                    this.RaisePropertyChanged("Enabled");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccesoServicio.FinanzasService.UnidadMedida unidadMedida {
+        public string Identificador {
             get {
-                return this.unidadMedidaField;
+                return this.IdentificadorField;
             }
             set {
-                if ((object.ReferenceEquals(this.unidadMedidaField, value) != true)) {
-                    this.unidadMedidaField = value;
-                    this.RaisePropertyChanged("unidadMedida");
+                if ((object.ReferenceEquals(this.IdentificadorField, value) != true)) {
+                    this.IdentificadorField = value;
+                    this.RaisePropertyChanged("Identificador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Nivel {
+            get {
+                return this.NivelField;
+            }
+            set {
+                if ((this.NivelField.Equals(value) != true)) {
+                    this.NivelField = value;
+                    this.RaisePropertyChanged("Nivel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreIdiomaExtranjero {
+            get {
+                return this.NombreIdiomaExtranjeroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreIdiomaExtranjeroField, value) != true)) {
+                    this.NombreIdiomaExtranjeroField = value;
+                    this.RaisePropertyChanged("NombreIdiomaExtranjero");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Saldo {
+            get {
+                return this.SaldoField;
+            }
+            set {
+                if ((this.SaldoField.Equals(value) != true)) {
+                    this.SaldoField = value;
+                    this.RaisePropertyChanged("Saldo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Saldo_Haber {
+            get {
+                return this.Saldo_HaberField;
+            }
+            set {
+                if ((this.Saldo_HaberField.Equals(value) != true)) {
+                    this.Saldo_HaberField = value;
+                    this.RaisePropertyChanged("Saldo_Haber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.Moneda _Moneda {
+            get {
+                return this._MonedaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._MonedaField, value) != true)) {
+                    this._MonedaField = value;
+                    this.RaisePropertyChanged("_Moneda");
                 }
             }
         }
@@ -120,6 +216,110 @@ namespace AccesoServicio.FinanzasService {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Moneda", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
+    [System.SerializableAttribute()]
+    public partial class Moneda : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AcronimoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.MonedasValidas TipoMonedaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Acronimo {
+            get {
+                return this.AcronimoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AcronimoField, value) != true)) {
+                    this.AcronimoField = value;
+                    this.RaisePropertyChanged("Acronimo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.MonedasValidas TipoMoneda {
+            get {
+                return this.TipoMonedaField;
+            }
+            set {
+                if ((this.TipoMonedaField.Equals(value) != true)) {
+                    this.TipoMonedaField = value;
+                    this.RaisePropertyChanged("TipoMoneda");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MonedasValidas", Namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio")]
+    public enum MonedasValidas : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Colon = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dolar = 317,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -214,6 +414,179 @@ namespace AccesoServicio.FinanzasService {
                 if ((object.ReferenceEquals(this.NombreField, value) != true)) {
                     this.NombreField = value;
                     this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Articulo", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
+    [System.SerializableAttribute()]
+    public partial class Articulo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ComentariosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.Cuenta CostosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.Cuenta ExistenciasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.Cuenta VentasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.Bodega bodegaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] imagenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.UnidadMedida unidadMedidaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comentarios {
+            get {
+                return this.ComentariosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ComentariosField, value) != true)) {
+                    this.ComentariosField = value;
+                    this.RaisePropertyChanged("Comentarios");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.Cuenta Costos {
+            get {
+                return this.CostosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CostosField, value) != true)) {
+                    this.CostosField = value;
+                    this.RaisePropertyChanged("Costos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.Cuenta Existencias {
+            get {
+                return this.ExistenciasField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExistenciasField, value) != true)) {
+                    this.ExistenciasField = value;
+                    this.RaisePropertyChanged("Existencias");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.Cuenta Ventas {
+            get {
+                return this.VentasField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VentasField, value) != true)) {
+                    this.VentasField = value;
+                    this.RaisePropertyChanged("Ventas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.Bodega bodega {
+            get {
+                return this.bodegaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bodegaField, value) != true)) {
+                    this.bodegaField = value;
+                    this.RaisePropertyChanged("bodega");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] imagen {
+            get {
+                return this.imagenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.imagenField, value) != true)) {
+                    this.imagenField = value;
+                    this.RaisePropertyChanged("imagen");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.UnidadMedida unidadMedida {
+            get {
+                return this.unidadMedidaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.unidadMedidaField, value) != true)) {
+                    this.unidadMedidaField = value;
+                    this.RaisePropertyChanged("unidadMedida");
                 }
             }
         }
@@ -791,110 +1164,6 @@ namespace AccesoServicio.FinanzasService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Moneda", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
-    [System.SerializableAttribute()]
-    public partial class Moneda : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AcronimoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccesoServicio.FinanzasService.MonedasValidas TipoMonedaField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Acronimo {
-            get {
-                return this.AcronimoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AcronimoField, value) != true)) {
-                    this.AcronimoField = value;
-                    this.RaisePropertyChanged("Acronimo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo {
-            get {
-                return this.TipoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
-                    this.TipoField = value;
-                    this.RaisePropertyChanged("Tipo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccesoServicio.FinanzasService.MonedasValidas TipoMoneda {
-            get {
-                return this.TipoMonedaField;
-            }
-            set {
-                if ((this.TipoMonedaField.Equals(value) != true)) {
-                    this.TipoMonedaField = value;
-                    this.RaisePropertyChanged("TipoMoneda");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MonedasValidas", Namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio")]
-    public enum MonedasValidas : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Colon = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Dolar = 317,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1177,211 +1446,6 @@ namespace AccesoServicio.FinanzasService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
-    [System.SerializableAttribute()]
-    public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoCuentaPadreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool DebeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool EnabledField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdentificadorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NivelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreIdiomaExtranjeroField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double SaldoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double Saldo_HaberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccesoServicio.FinanzasService.Moneda _MonedaField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CodigoCuentaPadre {
-            get {
-                return this.CodigoCuentaPadreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoCuentaPadreField, value) != true)) {
-                    this.CodigoCuentaPadreField = value;
-                    this.RaisePropertyChanged("CodigoCuentaPadre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Debe {
-            get {
-                return this.DebeField;
-            }
-            set {
-                if ((this.DebeField.Equals(value) != true)) {
-                    this.DebeField = value;
-                    this.RaisePropertyChanged("Debe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Enabled {
-            get {
-                return this.EnabledField;
-            }
-            set {
-                if ((this.EnabledField.Equals(value) != true)) {
-                    this.EnabledField = value;
-                    this.RaisePropertyChanged("Enabled");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Identificador {
-            get {
-                return this.IdentificadorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdentificadorField, value) != true)) {
-                    this.IdentificadorField = value;
-                    this.RaisePropertyChanged("Identificador");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Nivel {
-            get {
-                return this.NivelField;
-            }
-            set {
-                if ((this.NivelField.Equals(value) != true)) {
-                    this.NivelField = value;
-                    this.RaisePropertyChanged("Nivel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreIdiomaExtranjero {
-            get {
-                return this.NombreIdiomaExtranjeroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreIdiomaExtranjeroField, value) != true)) {
-                    this.NombreIdiomaExtranjeroField = value;
-                    this.RaisePropertyChanged("NombreIdiomaExtranjero");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Saldo {
-            get {
-                return this.SaldoField;
-            }
-            set {
-                if ((this.SaldoField.Equals(value) != true)) {
-                    this.SaldoField = value;
-                    this.RaisePropertyChanged("Saldo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Saldo_Haber {
-            get {
-                return this.Saldo_HaberField;
-            }
-            set {
-                if ((this.Saldo_HaberField.Equals(value) != true)) {
-                    this.Saldo_HaberField = value;
-                    this.RaisePropertyChanged("Saldo_Haber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccesoServicio.FinanzasService.Moneda _Moneda {
-            get {
-                return this._MonedaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._MonedaField, value) != true)) {
-                    this._MonedaField = value;
-                    this.RaisePropertyChanged("_Moneda");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Mes", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Mes : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1634,6 +1698,15 @@ namespace AccesoServicio.FinanzasService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FinanzasService.IContabilidadService")]
     public interface IContabilidadService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasCostos", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasCostosResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasCostos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerUnidadesMedida", ReplyAction="http://tempuri.org/IContabilidadService/obtenerUnidadesMedidaResponse")]
+        AccesoServicio.FinanzasService.UnidadMedida[] obtenerUnidadesMedida();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerBodegas", ReplyAction="http://tempuri.org/IContabilidadService/obtenerBodegasResponse")]
+        AccesoServicio.FinanzasService.Bodega[] obtenerBodegas();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/crearArticulo", ReplyAction="http://tempuri.org/IContabilidadService/crearArticuloResponse")]
         bool crearArticulo(AccesoServicio.FinanzasService.Articulo pArticulo);
         
@@ -1718,11 +1791,11 @@ namespace AccesoServicio.FinanzasService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeViewResponse")]
         AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasTreeView();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerUnidadesMedida", ReplyAction="http://tempuri.org/IContabilidadService/obtenerUnidadesMedidaResponse")]
-        AccesoServicio.FinanzasService.UnidadMedida[] obtenerUnidadesMedida();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasInventario", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasInventarioResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasInventario();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerBodegas", ReplyAction="http://tempuri.org/IContabilidadService/obtenerBodegasResponse")]
-        AccesoServicio.FinanzasService.Bodega[] obtenerBodegas();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasVentas", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasVentasResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasVentas();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1750,6 +1823,18 @@ namespace AccesoServicio.FinanzasService {
         
         public ContabilidadServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasCostos() {
+            return base.Channel.obtenerCuentasCostos();
+        }
+        
+        public AccesoServicio.FinanzasService.UnidadMedida[] obtenerUnidadesMedida() {
+            return base.Channel.obtenerUnidadesMedida();
+        }
+        
+        public AccesoServicio.FinanzasService.Bodega[] obtenerBodegas() {
+            return base.Channel.obtenerBodegas();
         }
         
         public bool crearArticulo(AccesoServicio.FinanzasService.Articulo pArticulo) {
@@ -1864,12 +1949,12 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.ObtenerCuentasTreeView();
         }
         
-        public AccesoServicio.FinanzasService.UnidadMedida[] obtenerUnidadesMedida() {
-            return base.Channel.obtenerUnidadesMedida();
+        public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasInventario() {
+            return base.Channel.obtenerCuentasInventario();
         }
         
-        public AccesoServicio.FinanzasService.Bodega[] obtenerBodegas() {
-            return base.Channel.obtenerBodegas();
+        public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasVentas() {
+            return base.Channel.obtenerCuentasVentas();
         }
     }
 }
