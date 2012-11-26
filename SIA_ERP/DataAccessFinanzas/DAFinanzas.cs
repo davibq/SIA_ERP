@@ -216,6 +216,27 @@ namespace DataAccessFinanzas
             return cuentas;
         }
 
+        public List<Cuenta> ObtenerCuentasHojas(string pNombrePadre)
+        {
+            var cuentas = new List<Cuenta>();
+            var ds = EjecutarConsulta("dbo.ObtenerCuentasHojas", new List<SqlParameter>()
+            {
+                new SqlParameter("NombreCuenta", pNombrePadre)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var cuenta = new Cuenta();
+                    cuenta.Codigo = row["CodigoCuenta"].ToString();
+                    cuenta.Nombre = row["NombreCuenta"].ToString();
+
+                    cuentas.Add(cuenta);
+                }
+            }
+            return cuentas;
+        }
+
         public Cuenta ObtenerCuenta(string pNombreCuenta) 
         {
             Cuenta cuenta = new Cuenta();

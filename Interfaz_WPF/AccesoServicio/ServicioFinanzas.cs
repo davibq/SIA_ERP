@@ -146,6 +146,45 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasTreeView();
         }
 
+        #region ModuloInventario
+
+        public IEnumerable<UnidadMedida> ObtenerUnidadesdeMedida()
+        {
+            return _CSC.obtenerUnidadesMedida();
+        }
+
+        public IEnumerable<Bodega> obtenerBodegas()
+        {
+            return _CSC.obtenerBodegas();
+        }
+
+        public bool crearArticulo(Articulo pArticulo)
+        {
+            return _CSC.crearArticulo(pArticulo);
+        }
+
+        public bool crearBodega(Bodega pBodega)
+        {
+            return _CSC.crearBodega(pBodega);
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasInventario()
+        {
+            return _CSC.obtenerCuentasInventario();
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasVentas()
+        {
+            return _CSC.obtenerCuentasVentas();
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasCostos()
+        {
+            return _CSC.obtenerCuentasCostos();
+        }
+
+        #endregion
+
         public IEnumerable<SocNegocio> ObtenerSociosNegocioCV(string pTipoSocio)
         {
             return _CSC.ObtenerSociosCV(pTipoSocio);

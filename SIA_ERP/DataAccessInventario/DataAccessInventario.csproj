@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</ProjectGuid>
+    <ProjectGuid>{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SIA.Libreria</RootNamespace>
-    <AssemblyName>SIA.Libreria</AssemblyName>
+    <RootNamespace>DataAccessInventario</RootNamespace>
+    <AssemblyName>DataAccessInventario</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,8 +32,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,17 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Articulo.cs" />
-    <Compile Include="Asiento.cs" />
-    <Compile Include="Bodega.cs" />
-    <Compile Include="Mes.cs" />
-    <Compile Include="Cuenta.cs" />
-    <Compile Include="Empresa.cs" />
-    <Compile Include="Moneda.cs" />
-    <Compile Include="MonedasValidas.cs" />
+    <Compile Include="DAInventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnidadMedida.cs" />
-    <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataContracts\Libreria\Libreria.csproj">
+      <Project>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</Project>
+      <Name>Libreria</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{F5FB8F63-CD96-41F6-98E9-4FBDDD6EE65D}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

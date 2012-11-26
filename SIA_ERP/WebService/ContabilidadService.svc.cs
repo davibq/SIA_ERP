@@ -129,6 +129,44 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerCuentasTreeView();
         }
 
+        #region Modulo inventarios
+
+        public IEnumerable<UnidadMedida> obtenerUnidadesMedida()
+        {
+            return LogicaInventario.Instancia.obtenerUnidadesMedida();
+        }
+
+        public IEnumerable<Bodega> obtenerBodegas()
+        {
+            return LogicaInventario.Instancia.obtenerBodegas();
+        }
+
+        public bool crearArticulo(Articulo pArticulo)
+        {
+            return LogicaInventario.Instancia.crearArticulo(pArticulo);
+        }
+
+        public bool crearBodega(Bodega pBodega)
+        {
+            return LogicaInventario.Instancia.crearBodega(pBodega);
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasInventario() 
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("INVENTARIOS");
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasVentas()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("VENTAS");
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasCostos()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("COSTOS");
+        }
+
+        #endregion
         public IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio)
         {
             return LogicaCompraVenta.Instancia.ObtenerSociosNegocio(pTipoSocio);

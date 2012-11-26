@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bodega.cs" />
     <Compile Include="BodegaCV.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Moneda.cs" />
@@ -54,9 +55,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="SocNegocio.cs" />
+    <Compile Include="UnidadMedida.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Bodega.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Cuenta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -70,6 +75,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.SocNegocio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.UnidadMedida.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FinanzasService\ContabilidadService.wsdl" />

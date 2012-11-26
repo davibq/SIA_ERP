@@ -88,7 +88,29 @@ namespace SIA.Contabilidad.WebService
         IEnumerable<ProductoCV> ObtenerProductosCV();
 
         [OperationContract]
-        IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio);
+        IEnumerable<Cuenta> obtenerCuentasInventario();
+
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasVentas();
+
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasCostos();
+        
+        #region Modulo inventarios
+
+        [OperationContract]
+        IEnumerable<UnidadMedida> obtenerUnidadesMedida();
+
+        [OperationContract]
+        IEnumerable<Bodega> obtenerBodegas();
+
+        [OperationContract]
+        bool crearArticulo(Articulo pArticulo);
+
+        [OperationContract]
+        bool crearBodega(Bodega pBodega);
+        
+        #endregion
 
         [OperationContract]
         bool GuardarDocumento(Documento pDocumento);

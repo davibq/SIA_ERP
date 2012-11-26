@@ -31,6 +31,8 @@ Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "ERP_Ventas", "..\Bases de D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaVentaCompra", "LibreriaVentaCompra\LibreriaVentaCompra.csproj", "{6FC10D9A-2787-449B-AE57-DE9ECA74FA87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessInventario", "DataAccessInventario\DataAccessInventario.csproj", "{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,7 @@ Global
 		{9BD6B56D-9F10-443F-9F71-A1CEE1D3262C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{9BD6B56D-9F10-443F-9F71-A1CEE1D3262C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{9BD6B56D-9F10-443F-9F71-A1CEE1D3262C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9BD6B56D-9F10-443F-9F71-A1CEE1D3262C}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
 		{9BD6B56D-9F10-443F-9F71-A1CEE1D3262C}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{9BD6B56D-9F10-443F-9F71-A1CEE1D3262C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD6B56D-9F10-443F-9F71-A1CEE1D3262C}.Release|Any CPU.Build.0 = Release|Any CPU
@@ -201,6 +204,16 @@ Global
 		{6FC10D9A-2787-449B-AE57-DE9ECA74FA87}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{6FC10D9A-2787-449B-AE57-DE9ECA74FA87}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{6FC10D9A-2787-449B-AE57-DE9ECA74FA87}.Release|x86.ActiveCfg = Release|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7EC4492E-BCC9-4859-93DB-99CFF8FCED89}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -324,6 +324,9 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerCuenta.proc.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerCuentasHojas.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <NotInBuild Include="Scripts\Post-Deployment\BasicData.sql">
