@@ -185,6 +185,7 @@ namespace AccesoServicio
 
         #endregion
 
+
         public IEnumerable<SocNegocio> ObtenerSociosNegocioCV(string pTipoSocio)
         {
             return _CSC.ObtenerSociosCV(pTipoSocio);

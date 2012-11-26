@@ -167,6 +167,7 @@ namespace SIA.Contabilidad.WebService
         }
 
         #endregion
+
         public IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio)
         {
             return LogicaCompraVenta.Instancia.ObtenerSociosNegocio(pTipoSocio);

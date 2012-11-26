@@ -113,6 +113,9 @@ namespace SIA.Contabilidad.WebService
         #endregion
 
         [OperationContract]
+        IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio);
+
+        [OperationContract]
         bool GuardarDocumento(Documento pDocumento);
     
         [OperationContract]
