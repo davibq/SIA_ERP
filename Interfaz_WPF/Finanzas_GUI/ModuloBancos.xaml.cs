@@ -21,6 +21,12 @@ namespace Login_WPF
         public ModuloBancos()
         {
             InitializeComponent();
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
