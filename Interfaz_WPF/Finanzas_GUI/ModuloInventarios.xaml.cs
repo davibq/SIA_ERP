@@ -88,9 +88,6 @@ namespace Login_WPF
                     if (ServicioFinanzas.Instancia.crearArticulo(articulo))
                     {
                         MessageBox.Show("Artículo creado exitosamente", "Nuevo artículo", MessageBoxButton.OK, MessageBoxImage.Information);
-                        textBoxCodigo.Text = "";
-                        textBoxComentarios.Text = "";
-                        textBoxImagen.Text = "";
                     }
                     else
                     {

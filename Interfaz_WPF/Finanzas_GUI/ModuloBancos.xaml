@@ -1,8 +1,20 @@
 ﻿<Window x:Class="Login_WPF.ModuloBancos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ModuloBancos" Height="300" Width="300">
-    <Grid>
-        
+        Title="ModuloBancos" Height="515" Width="597" Loaded="Window_Loaded">
+    <Grid Height="472">
+        <TabControl Margin="10,10,12,12" Name="tabControl1">
+            <TabItem Header="Pagos efectuados" Name="tabItem1">
+                <Grid Height="417">
+                    <Label Content="Proveedor:" Height="28" HorizontalAlignment="Left" Margin="34,21,0,0" Name="label3" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="123,24,0,0" Name="comboBoxUnidMedida" VerticalAlignment="Top" Width="285" />
+                    <ListBox Height="297" HorizontalAlignment="Left" Margin="34,68,0,0" Name="listBox1" VerticalAlignment="Top" Width="476" />
+                    <Button Content="Pagar" Height="23" HorizontalAlignment="Left" Margin="435,380,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pagos recibidos" Name="tabItem2">
+                <Grid></Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
