@@ -85,5 +85,27 @@ namespace DataAccessInventario
                                                           });
         }
 
+        public List<Articulo> obtenerArticulos()
+        {
+            var articulos = new List<Articulo>();
+            var ds = EjecutarConsulta("dbo.ObtenerArticulos", new List<SqlParameter>() { });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    articulos.Add(new Articulo()
+                    {
+                        Nombre = row["Nombre"].ToString(),
+                        Codigo = row["Codigo"].ToString(),
+                        Descripcion = row["Descripcion"].ToString(),
+                        unidadMedida = new UnidadMedida() { Nombre = row["UnidadMedidad"].ToString() },
+                        UrlImagen = row["UrlFotografia"].ToString(),
+                        Precio = row["Costo"].ToString()
+                    });
+                }
+            }
+            return articulos;
+        }
+
     }
 }

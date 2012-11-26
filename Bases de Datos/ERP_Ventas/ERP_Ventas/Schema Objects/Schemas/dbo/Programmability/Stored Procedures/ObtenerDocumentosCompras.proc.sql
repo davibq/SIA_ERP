@@ -1,5 +1,4 @@
-﻿
-CREATE PROCEDURE dbo.ObtenerDocumentosCompras
+﻿CREATE PROCEDURE dbo.ObtenerDocumentosCompras
 AS
 BEGIN
 	SET NOCOUNT ON;

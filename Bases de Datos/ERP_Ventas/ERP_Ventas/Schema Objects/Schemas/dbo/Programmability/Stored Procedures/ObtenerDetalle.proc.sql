@@ -1,5 +1,4 @@
-﻿
-CREATE PROCEDURE dbo.ObtenerDetalle
+﻿CREATE PROCEDURE dbo.ObtenerDetalle
 	@pConsecutivo VARCHAR(15)
 AS
 BEGIN

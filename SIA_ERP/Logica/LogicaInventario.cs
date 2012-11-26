@@ -58,6 +58,11 @@ namespace Logica
             return _DataAccess.crearArticulo(pArticulo);
         }
 
+        public List<Articulo> obtenerArticulos()
+        {
+            return _DataAccess.obtenerArticulos();
+        }
+
         public bool crearBodega(Bodega pBodega)
         {
             return _DataAccess.crearBodega(pBodega);
