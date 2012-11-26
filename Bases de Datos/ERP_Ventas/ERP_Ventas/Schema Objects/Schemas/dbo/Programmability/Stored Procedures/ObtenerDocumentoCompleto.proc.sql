@@ -1,5 +1,4 @@
-﻿
-CREATE PROCEDURE [dbo].[ObtenerDocumentoCompleto]
+﻿CREATE PROCEDURE [dbo].[ObtenerDocumentoCompleto]
 	@pIdDocumento INT
 AS
 BEGIN

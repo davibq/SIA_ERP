@@ -1,5 +1,4 @@
-﻿
-CREATE PROCEDURE ObtenerProductosCV
+﻿CREATE PROCEDURE ObtenerProductosCV
 AS
 BEGIN
 	SET NOCOUNT ON;
