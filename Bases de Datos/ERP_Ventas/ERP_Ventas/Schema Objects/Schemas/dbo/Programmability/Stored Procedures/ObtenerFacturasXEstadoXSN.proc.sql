@@ -11,7 +11,7 @@ BEGIN
 	INNER JOIN dbo.TipoDocumento TDoc ON Doc.IdTipoDocumento=TDoc.IdTipoDocumento
 	INNER JOIN dbo.SocioNegocio SN ON Doc.IdSocioNegocio=SN.IdSocioNegocio
 	INNER JOIN dbo.EstadoDocumento EDoc ON Doc.IdEstado=EDoc.IdEstado
-	WHERE SN.Codigo=@pCodSN AND EDoc.Detalle=@pEstadoFactura
+	WHERE SN.Codigo=@pCodSN AND EDoc.Detalle=@pEstadoFactura AND (TDoc.Nombre = 'Factura de Clientes' OR TDoc.Nombre = 'Factura de Proveedores')
 	ORDER BY Doc.Consecutivo
 END
 RETURN 0

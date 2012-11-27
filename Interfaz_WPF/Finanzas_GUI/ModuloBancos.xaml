@@ -25,9 +25,9 @@
             <TabItem Header="Pagos recibidos" Name="tabItem2">
                 <Grid>
                     <Label Content="Cliente:" Height="28" HorizontalAlignment="Left" Margin="36,24,0,0" Name="label4" VerticalAlignment="Top" />
-                    <ComboBox Height="25" HorizontalAlignment="Right" Margin="0,27,31,0" Name="comboBoxClientes" VerticalAlignment="Top" Width="285" />
+                    <ComboBox Height="25" HorizontalAlignment="Right" Margin="0,27,31,0" Name="comboBoxClientes" VerticalAlignment="Top" Width="285" SelectionChanged="comboBoxClientes_SelectionChanged" />
                     <ListBox Height="207" HorizontalAlignment="Left" Margin="36,71,0,0" Name="listBoxFactClientes" SelectionMode="Multiple" VerticalAlignment="Top" Width="476" />
-                    <Button Content="Pagar" Height="23" HorizontalAlignment="Left" Margin="437,374,0,0" Name="button3" VerticalAlignment="Top" Width="75" />
+                    <Button Content="Pagar" Height="23" HorizontalAlignment="Left" Margin="437,374,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="button3_Click" />
                     <Label Content="Cuenta a depositar:" Height="28" HorizontalAlignment="Left" Margin="36,291,0,0" Name="label5" VerticalAlignment="Top" />
                     <ComboBox Height="25" HorizontalAlignment="Left" Margin="240,294,0,0" Name="comboBoxCuenta" VerticalAlignment="Top" Width="272" />
                     <Label Content="Número de transferencia bancaria:" Height="28" HorizontalAlignment="Left" Margin="36,325,0,0" Name="label6" VerticalAlignment="Top" />
