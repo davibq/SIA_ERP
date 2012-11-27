@@ -3,7 +3,7 @@
 	@pDescripcion	VARCHAR(75),
 	@pUnidadMedida	VARCHAR(40),
 	@pComentarios	VARCHAR(150),
-	@pImagen		VARBINARY(MAX),
+	@pImagen		VARCHAR(500),
 	@pCodBodega		VARCHAR(20),
 	@pCodExistencias	VARCHAR(25),
 	@pCodVentas		VARCHAR(25),
@@ -48,7 +48,7 @@ BEGIN
 	
 			SET @IdArticulo = SCOPE_IDENTITY()
 			
-			INSERT INTO dbo.FotografiaXArticulo (Fotografia, IdArticulo)
+			INSERT INTO dbo.FotografiaXArticulo (UrlFotografia, IdArticulo)
 			VALUES (@pImagen, @IdArticulo)
 			
 			INSERT INTO dbo.ComentariosXArticulo (IdArticulo, Comentario)
