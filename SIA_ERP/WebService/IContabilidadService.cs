@@ -155,6 +155,12 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda);
+
+        [OperationContract]
+        bool insertarBanco(Banco pBanco);
+
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombre);
     }
 
 }

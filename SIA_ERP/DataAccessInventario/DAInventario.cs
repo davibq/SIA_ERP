@@ -128,5 +128,16 @@ namespace DataAccessInventario
             return bancos;
         }
 
+        public bool insertarBanco(Banco pBanco)
+        {
+            return EjecutarNoConsulta("dbo.insertarBanco", new List<SqlParameter>()
+                                    {
+                                        new SqlParameter("Nombre", pBanco.Nombre),
+                                        new SqlParameter("Moneda", pBanco.AcronimoMoneda),
+                                        new SqlParameter("NoCuenta", pBanco.NoCuenta),
+                                        new SqlParameter("Cuenta", pBanco.CuentaMayor)
+                                    });
+        }
+
     }
 }

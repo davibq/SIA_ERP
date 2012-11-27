@@ -248,5 +248,15 @@ namespace SIA.Contabilidad.WebService
         {
             return LogicaCompraVenta.Instancia.insertarTransferencia(pTransferencia);
         }
+
+        public bool insertarBanco(Banco pBanco)
+        {
+            return LogicaInventario.Instancia.insertarBanco(pBanco);
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombre)
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas(pNombre);
+        }
     }
 }

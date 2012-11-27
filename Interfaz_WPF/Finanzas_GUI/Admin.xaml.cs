@@ -29,6 +29,12 @@ namespace Login_WPF
         {
             InitializeComponent();
 
+            var monedas = ServicioFinanzas.Instancia.ObtenerMonedas();
+            comboBoxMoneda.ItemsSource = monedas;
+
+            var cuentas = ServicioFinanzas.Instancia.ObtenerCuentasHojas("EFECTIVO Y BANCOS");
+            comboBoxCuentaMayor.ItemsSource = cuentas;
+
             foreach (MonedasValidas moneda in Enum.GetValues(typeof(MonedasValidas)))
             {
                 CMBMonedaLocal.Items.Add(moneda);
@@ -110,7 +116,7 @@ namespace Login_WPF
                 errormessage.Text = "Digite el nombre de la empresa";
                 textBoxNombre.Focus();
             }
-            
+
             else if (!Regex.IsMatch(textBoxTelefono.Text, "^[2-8]{1}[1-9]{2}[0-9]{5}$"))
             {
                 errormessage.Text = "Digite un número telefónico válido";
@@ -130,7 +136,7 @@ namespace Login_WPF
                 errormessage.Text = "Digite la cédula jurídica";
                 textBoxCedJuridica.Focus();
             }
-            
+
             else if (textBoxRuta.Text.Length == 0)
             {
                 errormessage.Text = "Ingrese una imagen de logo";
@@ -156,12 +162,12 @@ namespace Login_WPF
                     Nombre = textBoxNombre.Text,
                     CedulaJuridica = textBoxCedJuridica.Text,
                     Fax = textBoxFax.Text,
-                    Telefono= textBoxTelefono.Text,
-                    Enabled=true,
-                    NombreMonedaLocal=CMBMonedaLocal.SelectedItem.ToString(),
+                    Telefono = textBoxTelefono.Text,
+                    Enabled = true,
+                    NombreMonedaLocal = CMBMonedaLocal.SelectedItem.ToString(),
                     NombreMonedaSistema = CMBMonedaSistema.SelectedItem.ToString(),
-                    AcronimoMonedaLocal=textBoxAcronimoMonedaL.Text,
-                    AcronimoMonedaSistema=textBoxAcronimoMonedaS.Text
+                    AcronimoMonedaLocal = textBoxAcronimoMonedaL.Text,
+                    AcronimoMonedaSistema = textBoxAcronimoMonedaS.Text
                 };
 
                 FileStream stream = new FileStream(textBoxRuta.Text, FileMode.OpenOrCreate, FileAccess.Read);
@@ -170,7 +176,7 @@ namespace Login_WPF
                 reader.Close();
                 stream.Close();
 
-                if (ServicioFinanzas.Instancia.InsertarNuevaEmpresa(empresa,Logo))
+                if (ServicioFinanzas.Instancia.InsertarNuevaEmpresa(empresa, Logo))
                 {
                     errormessage.Text = "";
                     MessageBoxResult result = MessageBox.Show("Se Ha Creado La Empresa Correctamente");
@@ -199,6 +205,72 @@ namespace Login_WPF
                 // Open picture
                 string filename = dlg.FileName;
                 textBoxRuta.Text = filename;
+            }
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            if (textBoxNombreBanco.Text.Length == 0)
+            {
+                errormessaggeBanco.Text = "Digite el nombre del Banco";
+                textBoxNombre.Focus();
+            }
+
+            else if (textBoxNoCuenta.Text.Length == 0)
+            {
+                errormessaggeBanco.Text = "Digite el número de cuenta";
+                textBoxCedJuridica.Focus();
+            }
+
+            else if (comboBoxMoneda.SelectedIndex == -1)
+            {
+                errormessaggeBanco.Text = "Seleccione la moneda";
+                textBoxRuta.Focus();
+            }
+
+            else if (comboBoxCuentaMayor.SelectedIndex == -1)
+            {
+                errormessaggeBanco.Text = "Seleccione la cuenta mayor a afectar por las transferencias al banco";
+                textBoxAcronimoMonedaL.Focus();
+            }
+
+            else
+            {
+                Banco banco = new Banco()
+                {
+                    Nombre = textBoxNombreBanco.Text,
+                    NoCuenta = textBoxNoCuenta.Text,
+                    AcronimoMoneda = ((Moneda)comboBoxMoneda.SelectedItem).Acronimo,
+                    CuentaMayor = ((Cuenta)comboBoxCuentaMayor.SelectedItem).Codigo
+                };
+
+                if (ServicioFinanzas.Instancia.insertarBanco(banco))
+                {
+                    errormessaggeBanco.Text = "";
+                    MessageBoxResult result = MessageBox.Show("Se ha agregado el banco correctamente");
+                    errormessaggeBanco.Text = "";
+                    textBoxNombre.Text = "";
+                    textBoxNoCuenta.Text = "";
+                    comboBoxCuentaMayor.SelectedIndex = -1;
+                    comboBoxMoneda.SelectedIndex = -1;
+                }
+                else
+                    errormessaggeBanco.Text = "Error al insertar la empresa";
+            }
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Esta seguro que desea cerrar sesión?";
+            string caption = "Confirmación";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                NoCierre = 1;
+                Close();
             }
         }
     }

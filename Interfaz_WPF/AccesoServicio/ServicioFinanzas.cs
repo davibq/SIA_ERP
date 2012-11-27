@@ -15,7 +15,7 @@ namespace AccesoServicio
 
         ~ServicioFinanzas()
         {
-            
+
             _CSC.Close();
         }
 
@@ -74,7 +74,7 @@ namespace AccesoServicio
 
         public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
-            return _CSC.CrearCuenta(pCuenta,pXml);
+            return _CSC.CrearCuenta(pCuenta, pXml);
         }
 
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)
@@ -102,11 +102,12 @@ namespace AccesoServicio
             return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML, pTipoAsiento);
         }
 
-        public Moneda ObtenerMonedasSistema(string pTipo) {
+        public Moneda ObtenerMonedasSistema(string pTipo)
+        {
             return _CSC.ObtenerMonedasSistema(pTipo);
         }
 
-        public double  ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
+        public double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
         {
             return _CSC.ConvertirAMonedaSistema(pMoneda, pValor);
         }
@@ -141,19 +142,9 @@ namespace AccesoServicio
             return _CSC.ObtenerCuenta(pNombreCuenta);
         }
 
-        public IEnumerable<Cuenta> ObtenerCuentasTreeView() 
+        public IEnumerable<Cuenta> ObtenerCuentasTreeView()
         {
             return _CSC.ObtenerCuentasTreeView();
-        }
-
-        public IEnumerable<Cuenta> ObtenerCuentasDeMayorSN()
-        {
-            return _CSC.ObtenerCuentasDeMayorSN();
-        }
-
-        public int ObtenerIdMoneda(string moneda)
-        {
-            return _CSC.ObtenerIdMoneda(moneda);
         }
 
         #region ModuloInventario
@@ -206,30 +197,6 @@ namespace AccesoServicio
             return _CSC.ObtenerProductosCV();
         }
 
-        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada)
-        {
-            return _CSC.CrearSocioDeNegocio(Nombre, Codigo, TipoSocio, IdMoneda, CuentaAsociada);
-        }
-
-        public string ObtenerCuentaDeMayorXCodigo(string CodigoSN)
-        {
-            return _CSC.ObtenerCuentaDeMayorXCodigo(CodigoSN);
-        }
-
-        public int ObtenerIDMonedaCuentaDeMayorXCodigo(string CodigoSN)
-        {
-            return _CSC.ObtenerIDMonedaCuentaDeMayorXCodigo(CodigoSN);
-        }
-        
-        public string ObtenerNombreCuentaDeMayorSN(string CodigoSN)
-        {
-            return _CSC.ObtenerNombreCuentaDeMayorSN(CodigoSN);
-        }
-
-        public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
-        {
-            return _CSC.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
-        }
         public bool GuardarDocumento(Documento pDocumento)
         {
             return _CSC.GuardarDocumento(pDocumento);
@@ -255,7 +222,7 @@ namespace AccesoServicio
             return _CSC.obtenerBancos();
         }
 
-        public bool setearFacturas(int idDoc, string pEstado) 
+        public bool setearFacturas(int idDoc, string pEstado)
         {
             return _CSC.setearFacturas(idDoc, pEstado);
         }
@@ -263,6 +230,16 @@ namespace AccesoServicio
         public bool insertarTransferencia(Transferencia pTransferencia)
         {
             return _CSC.insertarTransferencia(pTransferencia);
+        }
+
+        public bool insertarBanco(Banco pBanco)
+        {
+            return _CSC.insertarBanco(pBanco);
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombrePadre)
+        {
+            return _CSC.ObtenerCuentasHojas(pNombrePadre);
         }
 
         private ContabilidadServiceClient _CSC;

@@ -117,9 +117,10 @@ namespace Login_WPF
                             Close();
                             break;
                         case 6:
-                            ModuloAdministrativo administrativo = new ModuloAdministrativo();
-                            Close();
+                            Admin administrativo = new Admin();
                             administrativo.Show();
+                            NoCierre = 1;
+                            Close();
                             break;
                     }
                 }

@@ -73,6 +73,11 @@ namespace Logica
             return _DataAccess.obtenerBancos();
         }
 
+        public bool insertarBanco(Banco pBanco)
+        {
+            return _DataAccess.insertarBanco(pBanco);
+        }
+
         #endregion
 
         #region Atributos
