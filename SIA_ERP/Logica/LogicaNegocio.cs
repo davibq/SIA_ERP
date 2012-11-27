@@ -189,6 +189,25 @@ namespace Logica
             return _DataAccess.ObtenerCuentasTreeView();
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasDeMayorSN()
+        {
+            return _DataAccess.ObtenerCuentasDeMayorSN();
+        }
+
+        public int ObtenerIdMoneda(string moneda)
+        {
+            return _DataAccess.ObtenerIdMoneda(moneda);
+        }
+
+        public string ObtenerNombreCuentaDeMayorSN(string CodigoSN)
+        {
+            return _DataAccess.ObtenerNombreCuentaDeMayorSN(CodigoSN);
+        }
+
+        public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
+        {
+            return _DataAccess.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
+        }
 
 
         #endregion

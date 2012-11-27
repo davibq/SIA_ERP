@@ -89,7 +89,7 @@ namespace Login_WPF
                             break;
 
                         case 2:
-                            ModuloSociosNegocios socios = new ModuloSociosNegocios();
+                            ModuloSociosDeNegocios socios = new ModuloSociosDeNegocios();
                             NoCierre = 1;
                             Close();
                             socios.Show();

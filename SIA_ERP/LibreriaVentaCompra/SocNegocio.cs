@@ -11,6 +11,7 @@ namespace SIA.VentaCompra.Libreria
         public string Nombre { get; set; }
         public string Codigo { get; set; }
         public string TipoSocio { get; set; }
+        public int IdMoneda { get; set; }
         public string CuentaAsociada { get; set; }
     }
 }

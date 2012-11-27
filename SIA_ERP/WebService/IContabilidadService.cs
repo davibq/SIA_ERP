@@ -84,6 +84,12 @@ namespace SIA.Contabilidad.WebService
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
 
+        [OperationContract]
+        IEnumerable<Cuenta> ObtenerCuentasDeMayorSN();
+
+        [OperationContract]
+        int ObtenerIdMoneda(string moneda);
+
         #region Modulo inventarios
 
         [OperationContract]
@@ -108,6 +114,21 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio);
+
+        [OperationContract]
+        bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada);
+
+        [OperationContract]
+        string ObtenerCuentaDeMayorXCodigo(string CodigoSN);
+
+        [OperationContract]
+        int ObtenerIDMonedaCuentaDeMayorXCodigo(string CodigoSN);
+
+        [OperationContract]
+        string ObtenerNombreCuentaDeMayorSN(string CodigoSN);
+
+        [OperationContract]
+        string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda);
     }
 
 }

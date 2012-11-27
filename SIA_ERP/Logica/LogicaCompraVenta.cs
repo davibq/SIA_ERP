@@ -53,6 +53,21 @@ namespace Logica
             return _DataAccess.DemeProductos();
         }
 
+        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada)
+        {
+            return _DataAccess.CrearSocioDeNegocio(Nombre, Codigo, TipoSocio, IdMoneda, CuentaAsociada);
+        }
+
+        public string ObtenerCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return _DataAccess.ObtenerCuentaDeMayorXCodigo(CodigoSN);
+        }
+
+        public int ObtenerIDMonedaCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return _DataAccess.ObtenerIDMonedaCuentaDeMayorXCodigo(CodigoSN);
+        }
+
         #endregion
 
         #region Atributos

@@ -57,6 +57,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CuentaAsociada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdMoneda" type="xs:int" />
       <xs:element minOccurs="0" name="IdSocio" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TipoSocio" nillable="true" type="xs:string" />

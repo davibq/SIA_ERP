@@ -4,7 +4,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	
-	SELECT IdSocioNegocio, Codigo, SN.Nombre, CodigoCuenta CC, TSN.Nombre TipoSocio FROM SocioNegocio SN
+	SELECT IdSocioNegocio, Codigo, SN.Nombre, _Cuenta CC, TSN.Nombre TipoSocio FROM SocioNegocio SN
 	INNER JOIN TipoSocioNegocio TSN ON TSN.IdTipoSocio=SN.IdTipoSocio
 	WHERE TSN.Nombre=@pTipoSocio
 END

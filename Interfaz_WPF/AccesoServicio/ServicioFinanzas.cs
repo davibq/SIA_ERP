@@ -145,6 +145,16 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasTreeView();
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasDeMayorSN()
+        {
+            return _CSC.ObtenerCuentasDeMayorSN();
+        }
+
+        public int ObtenerIdMoneda(string moneda)
+        {
+            return _CSC.ObtenerIdMoneda(moneda);
+        }
+
         #region ModuloInventario
 
         public IEnumerable<UnidadMedida> ObtenerUnidadesdeMedida()
@@ -177,6 +187,31 @@ namespace AccesoServicio
         public IEnumerable<ProductoCV> ObtenerProductosCV()
         {
             return _CSC.ObtenerProductosCV();
+        }
+
+        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada)
+        {
+            return _CSC.CrearSocioDeNegocio(Nombre, Codigo, TipoSocio, IdMoneda, CuentaAsociada);
+        }
+
+        public string ObtenerCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return _CSC.ObtenerCuentaDeMayorXCodigo(CodigoSN);
+        }
+
+        public int ObtenerIDMonedaCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return _CSC.ObtenerIDMonedaCuentaDeMayorXCodigo(CodigoSN);
+        }
+        
+        public string ObtenerNombreCuentaDeMayorSN(string CodigoSN)
+        {
+            return _CSC.ObtenerNombreCuentaDeMayorSN(CodigoSN);
+        }
+
+        public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
+        {
+            return _CSC.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
         }
 
         private ContabilidadServiceClient _CSC;

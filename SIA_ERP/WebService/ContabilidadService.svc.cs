@@ -129,6 +129,17 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.ObtenerCuentasTreeView();
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasDeMayorSN()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasDeMayorSN();
+        }
+
+        public int ObtenerIdMoneda(string moneda)
+        {
+            return LogicaNegocio.Instancia.ObtenerIdMoneda(moneda);
+        }
+
+
         #region Modulo inventarios
 
         public IEnumerable<UnidadMedida> obtenerUnidadesMedida()
@@ -166,6 +177,31 @@ namespace SIA.Contabilidad.WebService
         public IEnumerable<ProductoCV> ObtenerProductosCV()
         {
             return LogicaCompraVenta.Instancia.ObtenerProductos();
+        }
+
+        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada)
+        {
+            return LogicaCompraVenta.Instancia.CrearSocioDeNegocio(Nombre, Codigo, TipoSocio, IdMoneda, CuentaAsociada);
+        }
+
+        public string ObtenerCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return LogicaCompraVenta.Instancia.ObtenerCuentaDeMayorXCodigo(CodigoSN);
+        }
+
+        public int ObtenerIDMonedaCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return LogicaCompraVenta.Instancia.ObtenerIDMonedaCuentaDeMayorXCodigo(CodigoSN);
+        }
+
+        public string ObtenerNombreCuentaDeMayorSN(string CodigoSN)
+        {
+            return LogicaNegocio.Instancia.ObtenerNombreCuentaDeMayorSN(CodigoSN);
+        }
+
+        public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
+        {
+            return LogicaNegocio.Instancia.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
         }
     }
 }
