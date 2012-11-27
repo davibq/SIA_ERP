@@ -4,6 +4,7 @@
     [Nombre]         VARCHAR (40) NOT NULL,
     [IdTipoSocio]    INT          NOT NULL,
 	[IDMoneda]		 INT		  NOT NULL,
-	[_Cuenta]		 VARCHAR (15) NOT NULL
+	[_Cuenta]		 VARCHAR (15) NOT NULL,
+	[LimiteCredito]  DECIMAL(10,2) NULL
 );
 
