@@ -42,7 +42,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>.\sql\debug\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TargetConnectionString>Data Source=DAVID-PC\SQLEXPRESS;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetConnectionString>Data Source=PC-VIRTUAL-MAC\SQLEXPRESS;Integrated Security=True;Pooling=False</TargetConnectionString>
     <TargetDatabase>
     </TargetDatabase>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -405,6 +405,9 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\insertarTransferencia.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerSaldo_LimiteCredito.proc.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>
