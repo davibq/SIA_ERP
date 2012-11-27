@@ -107,5 +107,26 @@ namespace DataAccessInventario
             return articulos;
         }
 
+        public List<Banco> obtenerBancos()
+        {
+            var bancos = new List<Banco>();
+            var ds = EjecutarConsulta("dbo.obtenerBancos", new List<SqlParameter>() { });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    bancos.Add(new Banco()
+                    {
+                        idBanco = int.Parse(row["idBanco"].ToString()),
+                        Nombre = row["Nombre"].ToString(),
+                        AcronimoMoneda = row["Moneda"].ToString(),
+                        NoCuenta = row["NoCuenta"].ToString(),
+                        CuentaMayor = row["CuentaMayor"].ToString()
+                    });
+                }
+            }
+            return bancos;
+        }
+
     }
 }

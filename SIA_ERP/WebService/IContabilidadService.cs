@@ -123,6 +123,12 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         Documento ObtenerDocumento(int pIdDocumento);
+
+        [OperationContract]
+        IEnumerable<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura);
+
+        [OperationContract]
+        IEnumerable<Banco> obtenerBancos();
     }
 
 }

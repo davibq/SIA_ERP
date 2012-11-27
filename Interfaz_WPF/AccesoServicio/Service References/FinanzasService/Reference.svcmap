@@ -18,17 +18,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:5603/ContabilidadService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address=" http://localhost:4894/ContabilidadService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ContabilidadService.xsd" MetadataType="Schema" ID="a927f498-1c9a-4db0-b4e5-9f90ae0c6d0f" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ContabilidadService1.xsd" MetadataType="Schema" ID="3bd84a55-5aed-43a0-8bdd-3638283306d1" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" />
-    <MetadataFile FileName="ContabilidadService.disco" MetadataType="Disco" ID="4af8eb0b-c723-4bfd-bca7-d36fb103cf49" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?disco" />
-    <MetadataFile FileName="ContabilidadService.wsdl" MetadataType="Wsdl" ID="fd5829d6-1fa5-42f6-a13d-29fb7fcf3c4a" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?wsdl" />
-    <MetadataFile FileName="ContabilidadService2.xsd" MetadataType="Schema" ID="f4b6f4fe-e311-4a38-8a01-94aa9ca5cc20" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd4" />
-    <MetadataFile FileName="ContabilidadService3.xsd" MetadataType="Schema" ID="b777af74-b6b8-47a1-a428-2212df015d41" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd5" />
-    <MetadataFile FileName="ContabilidadService4.xsd" MetadataType="Schema" ID="ad6566db-2c0e-4bd1-b12b-b1404cc17640" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ContabilidadService5.xsd" MetadataType="Schema" ID="33a0de45-bd8f-4a09-99a5-3d6861477872" SourceId="1" SourceUrl="http://localhost:5603/ContabilidadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContabilidadService6.xsd" MetadataType="Schema" ID="05ccb200-9d9b-4d38-a625-57fc330fedaf" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ContabilidadService61.xsd" MetadataType="Schema" ID="873f2362-008b-4a01-9ecb-a26c54f15470" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ContabilidadService62.xsd" MetadataType="Schema" ID="a2a3f310-f830-41da-b584-903d0ee9e655" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContabilidadService63.xsd" MetadataType="Schema" ID="2f4afa91-9ac9-472d-9b52-11b6762a3413" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContabilidadService64.xsd" MetadataType="Schema" ID="3b08071b-7bd3-4e0e-b9c2-f7692dfef51a" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContabilidadService65.xsd" MetadataType="Schema" ID="c45cfefc-f4df-44e9-a660-2890a1d69801" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ContabilidadService1.disco" MetadataType="Disco" ID="dfd0e941-a3ca-4f97-9728-db4859f90b06" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?disco" />
+    <MetadataFile FileName="ContabilidadService1.wsdl" MetadataType="Wsdl" ID="29c5fe54-599c-4438-9c1d-fbfe08acd08b" SourceId="1" SourceUrl="http://localhost:4894/ContabilidadService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

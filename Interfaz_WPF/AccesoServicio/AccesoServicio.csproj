@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="Bodega.cs" />
     <Compile Include="BodegaCV.cs" />
+    <Compile Include="Banco.cs" />
     <Compile Include="Cuenta.cs" />
+    <Compile Include="Documento.cs" />
     <Compile Include="Moneda.cs" />
     <Compile Include="ProductoCV.cs" />
     <Compile Include="ServicioFinanzas.cs" />
@@ -59,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Banco.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.Bodega.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -80,13 +85,6 @@
     <None Include="Service References\FinanzasService\AccesoServicio.FinanzasService.UnidadMedida.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FinanzasService\ContabilidadService.wsdl" />
-    <None Include="Service References\FinanzasService\ContabilidadService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FinanzasService\ContabilidadService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -95,31 +93,38 @@
     <WCFMetadataStorage Include="Service References\FinanzasService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\FinanzasService\ContabilidadService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\FinanzasService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\FinanzasService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\FinanzasService\ContabilidadService2.xsd">
+    <None Include="Service References\FinanzasService\ContabilidadService1.wsdl" />
+    <None Include="Service References\FinanzasService\ContabilidadService6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FinanzasService\ContabilidadService3.xsd">
+    <None Include="Service References\FinanzasService\ContabilidadService61.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FinanzasService\ContabilidadService4.xsd">
+    <None Include="Service References\FinanzasService\ContabilidadService62.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FinanzasService\ContabilidadService5.xsd">
+    <None Include="Service References\FinanzasService\ContabilidadService63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FinanzasService\ContabilidadService64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FinanzasService\ContabilidadService65.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\FinanzasService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FinanzasService\ContabilidadService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

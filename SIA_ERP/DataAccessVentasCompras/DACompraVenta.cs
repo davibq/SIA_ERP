@@ -256,6 +256,35 @@ namespace DataAccessVentasCompras
             return documento;
         }
 
+        #region Facturas
+
+        public List<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura)
+        {
+            var documentos = new List<Documento>();
+            var ds = EjecutarConsulta("dbo.ObtenerFacturasXEstadoXSN", new List<SqlParameter>() 
+                                        {
+                                            new SqlParameter("pCodSN", pCodSN),
+                                            new SqlParameter("pEstadoFactura", pEstadoFactura)
+                                        });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    documentos.Add(new Documento()
+                    {
+                        IdDocumento = int.Parse(row["IdDocumento"].ToString()),
+                        Consecutivo = row["Consecutivo"].ToString(),
+                        Fecha1 = DateTime.Parse(row["Fecha"].ToString()),
+                        Subtotal = double.Parse(row["Subtotal"].ToString()),
+                        Total = double.Parse(row["Total"].ToString())
+                    });
+                }
+            }
+            return documentos;
+        }
+
+        #endregion
+
         #endregion
     }
 }
