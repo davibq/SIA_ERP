@@ -192,5 +192,15 @@ namespace SIA.Contabilidad.WebService
         {
             return LogicaCompraVenta.Instancia.ObtenerDocumento(pIdDocumento);
         }
+
+        public IEnumerable<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura)
+        {
+            return LogicaCompraVenta.Instancia.ObtenerFacturasXEstadoXSocioNegocio(pCodSN, pEstadoFactura);
+        }
+
+        public IEnumerable<Banco> obtenerBancos()
+        {
+            return LogicaInventario.Instancia.obtenerBancos();
+        }
     }
 }

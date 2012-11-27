@@ -68,6 +68,11 @@ namespace Logica
             return _DataAccess.crearBodega(pBodega);
         }
 
+        public List<Banco> obtenerBancos()
+        {
+            return _DataAccess.obtenerBancos();
+        }
+
         #endregion
 
         #region Atributos
