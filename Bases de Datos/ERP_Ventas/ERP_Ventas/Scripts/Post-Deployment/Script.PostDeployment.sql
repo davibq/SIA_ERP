@@ -30,18 +30,14 @@ INSERT INTO dbo.SocioNegocio(Codigo, Nombre, IdTipoSocio, IdMoneda, _Cuenta) VAL
 	('C002', 'Cliente1', 2, 1, '1-1-02-01'),
 	('C003', 'Cliente1', 2, 1, '1-1-02-02'),
 	('P001', 'Proveedor1', 1, 1, '2-1-01-01'),
-	('P002', 'Proveedor3', 1, 1, '2-1-01-01'),
-	('P003', 'Proveedor2', 1, 1, '2-1-01-02')
+	('P002', 'Proveedor2', 1, 1, '2-1-01-01'),
+	('P003', 'Proveedor3', 1, 1, '2-1-01-02')
 
 INSERT INTO dbo.Bodega (Codigo, Nombre) VALUES
 	('GEN', 'General'),
 	('COS', 'Costeo'),
 	('DAN', 'Dañado'),
-	('CON', 'Consignación')
-
-INSERT INTO dbo.UnidadMedida (Nombre) VALUES
-	('Litro'),
-	('Gramo')
+	('CON', 'Consignación')	
 
 INSERT INTO dbo.Articulo(Codigo, Nombre, Descripcion, IdUnidadMedida) VALUES
 	('PT01', 'Producto 1', 'Producto 1', 1),
@@ -83,7 +79,9 @@ INSERT INTO dbo.UnidadMedida (Nombre) VALUES
 	('Ampere'),
 	('Kelvin'),
 	('Mol'),
-	('Candela')
+	('Candela'),
+	('Litro'),
+	('Gramo')
 
 INSERT INTO dbo.Bancos (Nombre, Moneda, NoCuenta, CuentaMayor) VALUES
 	('BNCR','USD','11111-1','1-1-01-02'),
