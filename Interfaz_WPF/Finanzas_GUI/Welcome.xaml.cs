@@ -214,6 +214,10 @@ namespace Login_WPF
                 MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
                 Reset();
 
+                var cuentas = ServicioFinanzas.Instancia.DemeCuentasHijas();
+                _CmbCuentas.ItemsSource = cuentas;
+                _CmbCuentas.Items.Refresh();
+
                 /*Carga del treeview*/
                 var cuentasTreeView = ServicioFinanzas.Instancia.ObtenerCuentasTreeView();
                 Parent.Items.Clear();

@@ -14,7 +14,7 @@ AS
 	INNER JOIN dbo.FIN_IdentificadorCuenta IdeCuen ON IdeCuen.IdIdentificadorCuenta = Cuen.IdIdentificadorCuenta
 	INNER JOIN dbo.FIN_SaldoXCuentaXMoneda SalXCuXMo ON SalXCuXMo.IdCuenta = Cuen.IdCuenta
 	INNER JOIN dbo.FIN_Moneda Mon ON Mon.IdMoneda = SalXCuXMo.IdMoneda
-	WHERE Cuen.Enabled = 1 AND Mon.EsLocal = 1 AND Cuen.IdCuenta NOT IN
+	WHERE Cuen.Enabled = 1 AND Mon.EsSistema = 1 AND Cuen.IdCuenta NOT IN
 	(
 		SELECT IdCuentaPadre FROM dbo.FIN_Cuenta
 	)
