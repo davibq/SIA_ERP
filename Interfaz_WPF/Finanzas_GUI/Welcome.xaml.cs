@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.ComponentModel;
-using System.Windows.Shapes;
-using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
 using AccesoServicio;
 using AccesoServicio.FinanzasService;
@@ -163,17 +153,114 @@ namespace Login_WPF
 
         private void buttonAgregar_Click(object sender, RoutedEventArgs e)
         {
+            var monedaSistema = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Sistema");
+            var monedaLocal = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Local");
+            /*<MonedasCuenta>
+		        <Moneda moneda="CRC"/>
+		        <Moneda moneda="YEN"/>
+            </MonedasCuenta>*/
+            string xml = "";
+            xml += "<MonedasCuenta>";
+            xml += string.Format("<Moneda moneda=\"{0}\"/>",(monedaSistema.Acronimo));
+            xml += string.Format("<Moneda moneda=\"{0}\"/>", (monedaLocal.Acronimo));
+            xml += "</MonedasCuenta>";
+            char[] delimiterChars = { '-' };
+            string[] words = textBoxCodigo.Text.Split(delimiterChars);
+            string codigoPadre="";
+            int i;
+            for (i = 0; i + 2 < words.Length; i++)
+                codigoPadre += words[i] + "-";
+            codigoPadre += words[i];
+            string identificador="";
+            switch (words[0]) { 
+                case "1":
+                    identificador = "Activo";
+                    break;
+                case "2":
+                    identificador = "Pasivo";
+                    break;
+                case "3":
+                    identificador = "Patrimonio";
+                    break;
+                case "4":
+                    identificador = "Ingresos";
+                    break;
+                case "5":
+                    identificador = "Costos";
+                    break;
+                case "6":
+                    identificador = "Gastos";
+                    break;
+                case "7":
+                    identificador = "Otros Ingresos";
+                    break;
+                case "8":
+                    identificador = "Otros Gastos";
+                    break;
+            }
             Cuenta cuenta = new Cuenta()
                 {
                     Codigo = textBoxCodigo.Text,
                     Nombre = textBoxNomCuenta.Text,
                     NombreIdiomaExtranjero = textBoxNomExtranjero.Text,
-                    _Moneda=(Moneda)comboBoxMoneda.SelectedItem
+                    _Moneda=(Moneda)comboBoxMoneda.SelectedItem,
+                    CodigoCuentaPadre=codigoPadre,
+                    Nivel=i+2,
+                    Enabled=true,
+                    Identificador=identificador
                 };
-            if (ServicioFinanzas.Instancia.CrearCuenta(cuenta))
+            if (ServicioFinanzas.Instancia.CrearCuenta(cuenta, xml))
             {
                 MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
                 Reset();
+
+                var cuentas = ServicioFinanzas.Instancia.DemeCuentasHijas();
+                _CmbCuentas.ItemsSource = cuentas;
+                _CmbCuentas.Items.Refresh();
+
+                /*Carga del treeview*/
+                var cuentasTreeView = ServicioFinanzas.Instancia.ObtenerCuentasTreeView();
+                Parent.Items.Clear();
+                TreeViewItem itemTreeView = Parent;
+                TreeViewItem itemNivelCuatro = null;
+                TreeViewItem itemNivelTres = null;
+                TreeViewItem itemNivelDos = null;
+
+                foreach (var item in cuentasTreeView) 
+                {
+                    TreeViewItem newChild = new TreeViewItem();
+                    newChild.Header = item.Codigo + " " + item.Nombre;
+
+                    if (item.Nivel == 1)
+                    {
+                        itemTreeView.Items.Add(newChild);
+                        itemNivelDos = newChild;
+                    }
+                    else 
+                    {
+                        if (item.Nivel == 2)
+                        {
+                            itemNivelDos.Items.Add(newChild);
+                            itemNivelTres = newChild;
+                        }
+                        else
+                        {
+                            if (item.Nivel == 3)
+                            {
+                                itemNivelTres.Items.Add(newChild);
+                                itemNivelCuatro = newChild;
+                            }
+                            else
+                            {
+                                itemNivelCuatro.Items.Add(newChild);
+                            }
+                        }
+                    }
+                    /*TreeViewItem newChild = new TreeViewItem();
+                    newChild.Header = item.Nombre;
+                    Parent.Items.Add(newChild);*/
+                }
+                Parent.IsExpanded = true;
             }
             else
                 MessageBox.Show("Error al intentar crear la cuenta");
@@ -242,6 +329,10 @@ namespace Login_WPF
                 {
                     MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Moneda Correctamente");
                     ResetMoneda();
+
+                    var monedas = ServicioFinanzas.Instancia.ObtenerMonedas();
+                    comboBoxMoneda.ItemsSource = monedas;
+                    comboBoxMoneda.Items.Refresh();
                 }
                 else
                     MessageBox.Show("Error al insertar la moneda");
@@ -1422,7 +1513,7 @@ namespace Login_WPF
                     else 
                     {
                         xml += "</Cuentas>";
-                        ServicioFinanzas.Instancia.InsertarAsiento(DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString(), montoDebe, montoHaber, xml, "Automatico");
+                        ServicioFinanzas.Instancia.InsertarAsiento(DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString(), montoDebe, montoHaber, xml, "AS");
                         xml = "<Cuentas>";
                         montoDebe = 0;
                         montoHaber = 0;

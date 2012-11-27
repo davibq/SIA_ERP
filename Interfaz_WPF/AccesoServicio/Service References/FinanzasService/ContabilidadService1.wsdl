@@ -2,14 +2,26 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ContabilidadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria" />
-      <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" />
-      <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" />
-      <xsd:import schemaLocation="http://localhost:5603/ContabilidadService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" />
+      <xsd:import schemaLocation="http://localhost:4894/ContabilidadService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:4894/ContabilidadService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:4894/ContabilidadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria" />
+      <xsd:import schemaLocation="http://localhost:4894/ContabilidadService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" />
+      <xsd:import schemaLocation="http://localhost:4894/ContabilidadService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria" />
+      <xsd:import schemaLocation="http://localhost:4894/ContabilidadService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IContabilidadService_obtenerCuentasVentas_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCuentasVentas" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerCuentasVentas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCuentasVentasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerCuentasCostos_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCuentasCostos" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerCuentasCostos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCuentasCostosResponse" />
+  </wsdl:message>
   <wsdl:message name="IContabilidadService_obtenerUnidadesMedida_InputMessage">
     <wsdl:part name="parameters" element="tns:obtenerUnidadesMedida" />
   </wsdl:message>
@@ -34,53 +46,53 @@
   <wsdl:message name="IContabilidadService_crearBodega_OutputMessage">
     <wsdl:part name="parameters" element="tns:crearBodegaResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerDocumento_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerDocumento" />
-  </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerDocumento_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerDocumentoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerProductosCV_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerProductosCV" />
-  </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerProductosCV_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerProductosCVResponse" />
-  </wsdl:message>
   <wsdl:message name="IContabilidadService_ObtenerSociosCV_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerSociosCV" />
   </wsdl:message>
   <wsdl:message name="IContabilidadService_ObtenerSociosCV_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerSociosCVResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_CrearSocioDeNegocio_InputMessage">
-    <wsdl:part name="parameters" element="tns:CrearSocioDeNegocio" />
+  <wsdl:message name="IContabilidadService_GuardarDocumento_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDocumento" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_CrearSocioDeNegocio_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CrearSocioDeNegocioResponse" />
+  <wsdl:message name="IContabilidadService_GuardarDocumento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDocumentoResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerCuentaDeMayorXCodigo_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCuentaDeMayorXCodigo" />
+  <wsdl:message name="IContabilidadService_ObtenerDocumentosCompras_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentosCompras" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerCuentaDeMayorXCodigo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCuentaDeMayorXCodigoResponse" />
+  <wsdl:message name="IContabilidadService_ObtenerDocumentosCompras_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentosComprasResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerIDMonedaCuentaDeMayorXCodigo_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerIDMonedaCuentaDeMayorXCodigo" />
+  <wsdl:message name="IContabilidadService_ObtenerDocumento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumento" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerIDMonedaCuentaDeMayorXCodigo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerIDMonedaCuentaDeMayorXCodigoResponse" />
+  <wsdl:message name="IContabilidadService_ObtenerDocumento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentoResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerNombreCuentaDeMayorSN_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerNombreCuentaDeMayorSN" />
+  <wsdl:message name="IContabilidadService_ObtenerFacturasXEstadoXSocioNegocio_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerFacturasXEstadoXSocioNegocio" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerNombreCuentaDeMayorSN_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerNombreCuentaDeMayorSNResponse" />
+  <wsdl:message name="IContabilidadService_ObtenerFacturasXEstadoXSocioNegocio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerFacturasXEstadoXSocioNegocioResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerSaldoCuenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerSaldoCuenta" />
+  <wsdl:message name="IContabilidadService_obtenerBancos_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerBancos" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerSaldoCuenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerSaldoCuentaResponse" />
+  <wsdl:message name="IContabilidadService_obtenerBancos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerBancosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_setearFacturas_InputMessage">
+    <wsdl:part name="parameters" element="tns:setearFacturas" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_setearFacturas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setearFacturasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_insertarTransferencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTransferencia" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_insertarTransferencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTransferenciaResponse" />
   </wsdl:message>
   <wsdl:message name="IContabilidadService_Saludar_InputMessage">
     <wsdl:part name="parameters" element="tns:Saludar" />
@@ -220,19 +232,27 @@
   <wsdl:message name="IContabilidadService_ObtenerCuentasTreeView_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCuentasTreeViewResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerCuentasDeMayorSN_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCuentasDeMayorSN" />
+  <wsdl:message name="IContabilidadService_ObtenerProductosCV_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosCV" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerCuentasDeMayorSN_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCuentasDeMayorSNResponse" />
+  <wsdl:message name="IContabilidadService_ObtenerProductosCV_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosCVResponse" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerIdMoneda_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerIdMoneda" />
+  <wsdl:message name="IContabilidadService_obtenerCuentasInventario_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCuentasInventario" />
   </wsdl:message>
-  <wsdl:message name="IContabilidadService_ObtenerIdMoneda_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerIdMonedaResponse" />
+  <wsdl:message name="IContabilidadService_obtenerCuentasInventario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCuentasInventarioResponse" />
   </wsdl:message>
   <wsdl:portType name="IContabilidadService">
+    <wsdl:operation name="obtenerCuentasVentas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerCuentasVentas" message="tns:IContabilidadService_obtenerCuentasVentas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerCuentasVentasResponse" message="tns:IContabilidadService_obtenerCuentasVentas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCuentasCostos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerCuentasCostos" message="tns:IContabilidadService_obtenerCuentasCostos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerCuentasCostosResponse" message="tns:IContabilidadService_obtenerCuentasCostos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="obtenerUnidadesMedida">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerUnidadesMedida" message="tns:IContabilidadService_obtenerUnidadesMedida_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerUnidadesMedidaResponse" message="tns:IContabilidadService_obtenerUnidadesMedida_OutputMessage" />
@@ -249,37 +269,37 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/crearBodega" message="tns:IContabilidadService_crearBodega_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/crearBodegaResponse" message="tns:IContabilidadService_crearBodega_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerDocumento">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumento" message="tns:IContabilidadService_ObtenerDocumento_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumentoResponse" message="tns:IContabilidadService_ObtenerDocumento_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerProductosCV">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerProductosCV" message="tns:IContabilidadService_ObtenerProductosCV_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerProductosCVResponse" message="tns:IContabilidadService_ObtenerProductosCV_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ObtenerSociosCV">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerSociosCV" message="tns:IContabilidadService_ObtenerSociosCV_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerSociosCVResponse" message="tns:IContabilidadService_ObtenerSociosCV_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CrearSocioDeNegocio">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/CrearSocioDeNegocio" message="tns:IContabilidadService_CrearSocioDeNegocio_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/CrearSocioDeNegocioResponse" message="tns:IContabilidadService_CrearSocioDeNegocio_OutputMessage" />
+    <wsdl:operation name="GuardarDocumento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/GuardarDocumento" message="tns:IContabilidadService_GuardarDocumento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/GuardarDocumentoResponse" message="tns:IContabilidadService_GuardarDocumento_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerCuentaDeMayorXCodigo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentaDeMayorXCodigo" message="tns:IContabilidadService_ObtenerCuentaDeMayorXCodigo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentaDeMayorXCodigoResponse" message="tns:IContabilidadService_ObtenerCuentaDeMayorXCodigo_OutputMessage" />
+    <wsdl:operation name="ObtenerDocumentosCompras">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumentosCompras" message="tns:IContabilidadService_ObtenerDocumentosCompras_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumentosComprasResponse" message="tns:IContabilidadService_ObtenerDocumentosCompras_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerIDMonedaCuentaDeMayorXCodigo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerIDMonedaCuentaDeMayorXCodigo" message="tns:IContabilidadService_ObtenerIDMonedaCuentaDeMayorXCodigo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerIDMonedaCuentaDeMayorXCodigoResponse" message="tns:IContabilidadService_ObtenerIDMonedaCuentaDeMayorXCodigo_OutputMessage" />
+    <wsdl:operation name="ObtenerDocumento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumento" message="tns:IContabilidadService_ObtenerDocumento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerDocumentoResponse" message="tns:IContabilidadService_ObtenerDocumento_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerNombreCuentaDeMayorSN">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerNombreCuentaDeMayorSN" message="tns:IContabilidadService_ObtenerNombreCuentaDeMayorSN_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerNombreCuentaDeMayorSNResponse" message="tns:IContabilidadService_ObtenerNombreCuentaDeMayorSN_OutputMessage" />
+    <wsdl:operation name="ObtenerFacturasXEstadoXSocioNegocio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerFacturasXEstadoXSocioNegocio" message="tns:IContabilidadService_ObtenerFacturasXEstadoXSocioNegocio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerFacturasXEstadoXSocioNegocioResponse" message="tns:IContabilidadService_ObtenerFacturasXEstadoXSocioNegocio_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerSaldoCuenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerSaldoCuenta" message="tns:IContabilidadService_ObtenerSaldoCuenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerSaldoCuentaResponse" message="tns:IContabilidadService_ObtenerSaldoCuenta_OutputMessage" />
+    <wsdl:operation name="obtenerBancos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerBancos" message="tns:IContabilidadService_obtenerBancos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerBancosResponse" message="tns:IContabilidadService_obtenerBancos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setearFacturas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/setearFacturas" message="tns:IContabilidadService_setearFacturas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/setearFacturasResponse" message="tns:IContabilidadService_setearFacturas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarTransferencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/insertarTransferencia" message="tns:IContabilidadService_insertarTransferencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/insertarTransferenciaResponse" message="tns:IContabilidadService_insertarTransferencia_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Saludar">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/Saludar" message="tns:IContabilidadService_Saludar_InputMessage" />
@@ -373,17 +393,35 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeView" message="tns:IContabilidadService_ObtenerCuentasTreeView_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasTreeViewResponse" message="tns:IContabilidadService_ObtenerCuentasTreeView_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerCuentasDeMayorSN">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasDeMayorSN" message="tns:IContabilidadService_ObtenerCuentasDeMayorSN_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerCuentasDeMayorSNResponse" message="tns:IContabilidadService_ObtenerCuentasDeMayorSN_OutputMessage" />
+    <wsdl:operation name="ObtenerProductosCV">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerProductosCV" message="tns:IContabilidadService_ObtenerProductosCV_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerProductosCVResponse" message="tns:IContabilidadService_ObtenerProductosCV_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerIdMoneda">
-      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerIdMoneda" message="tns:IContabilidadService_ObtenerIdMoneda_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerIdMonedaResponse" message="tns:IContabilidadService_ObtenerIdMoneda_OutputMessage" />
+    <wsdl:operation name="obtenerCuentasInventario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerCuentasInventario" message="tns:IContabilidadService_obtenerCuentasInventario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerCuentasInventarioResponse" message="tns:IContabilidadService_obtenerCuentasInventario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContabilidadService" type="tns:IContabilidadService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obtenerCuentasVentas">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerCuentasVentas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCuentasCostos">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerCuentasCostos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="obtenerUnidadesMedida">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerUnidadesMedida" style="document" />
       <wsdl:input>
@@ -420,24 +458,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerDocumento">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerDocumento" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerProductosCV">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerProductosCV" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ObtenerSociosCV">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerSociosCV" style="document" />
       <wsdl:input>
@@ -447,8 +467,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CrearSocioDeNegocio">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/CrearSocioDeNegocio" style="document" />
+    <wsdl:operation name="GuardarDocumento">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/GuardarDocumento" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -456,8 +476,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerCuentaDeMayorXCodigo">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentaDeMayorXCodigo" style="document" />
+    <wsdl:operation name="ObtenerDocumentosCompras">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerDocumentosCompras" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -465,8 +485,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerIDMonedaCuentaDeMayorXCodigo">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerIDMonedaCuentaDeMayorXCodigo" style="document" />
+    <wsdl:operation name="ObtenerDocumento">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerDocumento" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -474,8 +494,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerNombreCuentaDeMayorSN">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerNombreCuentaDeMayorSN" style="document" />
+    <wsdl:operation name="ObtenerFacturasXEstadoXSocioNegocio">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerFacturasXEstadoXSocioNegocio" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -483,8 +503,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerSaldoCuenta">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerSaldoCuenta" style="document" />
+    <wsdl:operation name="obtenerBancos">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerBancos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setearFacturas">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/setearFacturas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarTransferencia">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/insertarTransferencia" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -699,8 +737,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerCuentasDeMayorSN">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerCuentasDeMayorSN" style="document" />
+    <wsdl:operation name="ObtenerProductosCV">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerProductosCV" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -708,8 +746,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerIdMoneda">
-      <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerIdMoneda" style="document" />
+    <wsdl:operation name="obtenerCuentasInventario">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerCuentasInventario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -720,7 +758,7 @@
   </wsdl:binding>
   <wsdl:service name="ContabilidadService">
     <wsdl:port name="BasicHttpBinding_IContabilidadService" binding="tns:BasicHttpBinding_IContabilidadService">
-      <soap:address location="http://localhost:5603/ContabilidadService.svc" />
+      <soap:address location="http://localhost:4894/ContabilidadService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

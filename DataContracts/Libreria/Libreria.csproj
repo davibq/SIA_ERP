@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Articulo.cs" />
     <Compile Include="Asiento.cs" />
+    <Compile Include="Banco.cs" />
     <Compile Include="Bodega.cs" />
     <Compile Include="Mes.cs" />
     <Compile Include="Cuenta.cs" />

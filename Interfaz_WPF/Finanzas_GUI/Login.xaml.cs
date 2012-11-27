@@ -46,6 +46,7 @@ namespace Login_WPF
             comboBoxModulos.Items.Add("Socios de negocio");
             comboBoxModulos.Items.Add("Bancos");
             comboBoxModulos.Items.Add("Ventas");
+            comboBoxModulos.Items.Add("Compras");
             comboBoxModulos.Items.Add("Administrativo");
             comboBoxModulos.SelectedIndex = 0;
         }
@@ -91,13 +92,14 @@ namespace Login_WPF
                         case 2:
                             ModuloSociosDeNegocios socios = new ModuloSociosDeNegocios();
                             NoCierre = 1;
-                            Close();
                             socios.Show();
+                            Close();
                             break;
 
                         case 3:
                             ModuloBancos bancos = new ModuloBancos();
                             NoCierre = 1;
+                            bancos.Show();
                             Close();
                             break;
 
@@ -109,6 +111,12 @@ namespace Login_WPF
                             break;
 
                         case 5:
+                            ModuloCompras compras= new ModuloCompras();
+                            NoCierre = 1;
+                            compras.Show();
+                            Close();
+                            break;
+                        case 6:
                             ModuloAdministrativo administrativo = new ModuloAdministrativo();
                             Close();
                             administrativo.Show();

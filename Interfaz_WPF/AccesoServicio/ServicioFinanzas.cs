@@ -15,6 +15,7 @@ namespace AccesoServicio
 
         ~ServicioFinanzas()
         {
+            
             _CSC.Close();
         }
 
@@ -71,9 +72,9 @@ namespace AccesoServicio
             return _CSC.InsertarNuevaMoneda(pMoneda);
         }
 
-        public bool CrearCuenta(Cuenta pCuenta)
+        public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
-            return _CSC.CrearCuenta(pCuenta);
+            return _CSC.CrearCuenta(pCuenta,pXml);
         }
 
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)
@@ -177,7 +178,23 @@ namespace AccesoServicio
             return _CSC.crearBodega(pBodega);
         }
 
+        public IEnumerable<Cuenta> obtenerCuentasInventario()
+        {
+            return _CSC.obtenerCuentasInventario();
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasVentas()
+        {
+            return _CSC.obtenerCuentasVentas();
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasCostos()
+        {
+            return _CSC.obtenerCuentasCostos();
+        }
+
         #endregion
+
 
         public IEnumerable<SocNegocio> ObtenerSociosNegocioCV(string pTipoSocio)
         {
@@ -212,6 +229,40 @@ namespace AccesoServicio
         public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
         {
             return _CSC.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
+        }
+        public bool GuardarDocumento(Documento pDocumento)
+        {
+            return _CSC.GuardarDocumento(pDocumento);
+        }
+
+        public IEnumerable<Documento> ObtenerDocumentosCompras()
+        {
+            return _CSC.ObtenerDocumentosCompras();
+        }
+
+        public Documento ObtenerDocumento(int pIdDocumento)
+        {
+            return _CSC.ObtenerDocumento(pIdDocumento);
+        }
+
+        public IEnumerable<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura)
+        {
+            return _CSC.ObtenerFacturasXEstadoXSocioNegocio(pCodSN, pEstadoFactura);
+        }
+
+        public IEnumerable<Banco> obtenerBancos()
+        {
+            return _CSC.obtenerBancos();
+        }
+
+        public bool setearFacturas(int idDoc, string pEstado) 
+        {
+            return _CSC.setearFacturas(idDoc, pEstado);
+        }
+
+        public bool insertarTransferencia(Transferencia pTransferencia)
+        {
+            return _CSC.insertarTransferencia(pTransferencia);
         }
 
         private ContabilidadServiceClient _CSC;

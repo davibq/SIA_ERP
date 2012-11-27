@@ -37,7 +37,7 @@ namespace SIA.Contabilidad.WebService
         bool InsertarNuevaMoneda(Moneda pMoneda);
 
         [OperationContract]
-        bool CrearCuenta(Cuenta pCuenta);
+        bool CrearCuenta(Cuenta pCuenta, string pXml);
 
         [OperationContract]
         bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses);
@@ -83,13 +83,24 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasTreeView();
+        
+        [OperationContract]
+        IEnumerable<ProductoCV> ObtenerProductosCV();
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasDeMayorSN();
 
         [OperationContract]
         int ObtenerIdMoneda(string moneda);
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasInventario();
 
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasVentas();
+
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerCuentasCostos();
+        
         #region Modulo inventarios
 
         [OperationContract]
@@ -107,13 +118,28 @@ namespace SIA.Contabilidad.WebService
         #endregion
 
         [OperationContract]
-        Documento ObtenerDocumento();
-
-        [OperationContract]
-        IEnumerable<ProductoCV> ObtenerProductosCV();
-
-        [OperationContract]
         IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio);
+
+        [OperationContract]
+        bool GuardarDocumento(Documento pDocumento);
+    
+        [OperationContract]
+        IEnumerable<Documento> ObtenerDocumentosCompras();
+
+        [OperationContract]
+        Documento ObtenerDocumento(int pIdDocumento);
+
+        [OperationContract]
+        IEnumerable<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura);
+
+        [OperationContract]
+        IEnumerable<Banco> obtenerBancos();
+
+        [OperationContract]
+        bool setearFacturas(int idDoc, string pEstado);
+
+        [OperationContract]
+        bool insertarTransferencia(Transferencia pTransferencia);
 
         [OperationContract]
         bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada);

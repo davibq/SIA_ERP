@@ -24,5 +24,31 @@ namespace SIA.Libreria
 
         [DataMember]
         public byte[] imagen { get; set; }
+
+        [DataMember]
+        public string urlImagen { get; set; }
+
+        [DataMember]
+        public Cuenta Existencias { get; set; }
+
+        [DataMember]
+        public Cuenta Ventas { get; set; }
+
+        [DataMember]
+        public Cuenta Costos { get; set; }
+
+        [DataMember]
+        public Bodega bodega { get; set; }
+
+        #region Atributos para el App
+        [DataMember]
+        public string Precio { get; set; }
+
+        [DataMember]
+        public string Nombre { get; set; }
+
+        [DataMember]
+        public string UrlImagen { get; set; }
+        #endregion
     }
 }

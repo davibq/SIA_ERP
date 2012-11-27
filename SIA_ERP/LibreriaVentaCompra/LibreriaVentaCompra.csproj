@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,13 @@
     <Compile Include="ProductoCV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocNegocio.cs" />
+    <Compile Include="Transferencia.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataContracts\Libreria\Libreria.csproj">
+      <Project>{FB259A9F-E35D-42AA-8453-85D3CAA52F63}</Project>
+      <Name>Libreria</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

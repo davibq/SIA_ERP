@@ -3,7 +3,11 @@
 	@pDescripcion	VARCHAR(75),
 	@pUnidadMedida	VARCHAR(40),
 	@pComentarios	VARCHAR(150),
-	@pImagen		VARBINARY(MAX)
+	@pImagen		VARBINARY(MAX),
+	@pCodBodega		VARCHAR(20),
+	@pCodExistencias	VARCHAR(25),
+	@pCodVentas		VARCHAR(25),
+	@pCodCostos		VARCHAR(25)
 AS
 BEGIN
 	
@@ -17,6 +21,7 @@ BEGIN
 	--Variables de SP
 	DECLARE @IdArticulo INT
 	DECLARE @IdUnidadMedida INT
+	DECLARE @IdBodega INT
 		
 	SET @InicieTransaccion = 0
 	IF @@TRANCOUNT=0 BEGIN
@@ -48,12 +53,23 @@ BEGIN
 			
 			INSERT INTO dbo.ComentariosXArticulo (IdArticulo, Comentario)
 			VALUES (@IdArticulo, @pComentarios)
+			
+			SELECT @IdBodega = IdBodega FROM dbo.Bodega WHERE Codigo = @pCodBodega
+			
+			INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentasExistencia, codCuentasVentas, codCuentasCostos)
+			VALUES (@IdArticulo,@IdBodega,0,0,0,@pCodExistencias,@pCodVentas,@pCodCostos)
 
 		END ELSE BEGIN
 			SELECT @IdArticulo = IdArticulo FROM dbo.Articulo WHERE Codigo = @pCodigo
 
 			UPDATE dbo.Articulo SET Descripcion = @pDescripcion
 			WHERE IdArticulo = @IdArticulo
+			
+			SELECT @IdBodega = IdBodega FROM dbo.Bodega WHERE Codigo = @pCodBodega
+			
+			INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentasExistencia, codCuentasVentas, codCuentasCostos)
+			VALUES (@IdArticulo,@IdBodega,0,0,0,@pCodExistencias,@pCodVentas,@pCodCostos)
+
 		END	
 		
 		IF @InicieTransaccion=1 BEGIN

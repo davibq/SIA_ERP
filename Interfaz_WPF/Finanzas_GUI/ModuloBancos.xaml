@@ -1,8 +1,41 @@
 ﻿<Window x:Class="Login_WPF.ModuloBancos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ModuloBancos" Height="300" Width="300">
-    <Grid>
-        
+        Title="ModuloBancos" Height="555" Width="597" Loaded="Window_Loaded" Icon="/Login_WPF;component/Images/icon_erp.png">
+    <Grid Height="458">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="299*" />
+            <ColumnDefinition Width="205*" />
+            <ColumnDefinition Width="41*" />
+            <ColumnDefinition Width="30*" />
+        </Grid.ColumnDefinitions>
+        <TabControl Margin="10,12,12,10" Name="tabControl1" Grid.ColumnSpan="4">
+            <TabItem Header="Pagos efectuados" Name="tabItem1">
+                <Grid Height="400">
+                    <Label Content="Proveedor:" Height="28" HorizontalAlignment="Left" Margin="34,21,0,0" Name="label3" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="225,24,0,0" Name="comboBoxProveedores" VerticalAlignment="Top" Width="285" SelectionChanged="comboBoxProveedores_SelectionChanged" />
+                    <ListBox Height="207" HorizontalAlignment="Left" Margin="34,68,0,0" Name="listBoxFacturas" VerticalAlignment="Top" Width="476" SelectionMode="Multiple"/>
+                    <Button Content="Pagar" Height="23" HorizontalAlignment="Left" Margin="435,371,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+                    <Label Content="Bancos:" Height="28" HorizontalAlignment="Left" Margin="34,288,0,0" Name="label1" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="238,291,0,0" Name="comboBoxBancos" VerticalAlignment="Top" Width="272" />
+                    <Label Content="Número de transferencia bancaria:" Height="28" HorizontalAlignment="Left" Margin="34,322,0,0" Name="label2" VerticalAlignment="Top" />
+                    <TextBox Height="29" Margin="238,324,33,0" Name="textBoxNumTransferencia" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pagos recibidos" Name="tabItem2">
+                <Grid>
+                    <Label Content="Cliente:" Height="28" HorizontalAlignment="Left" Margin="36,24,0,0" Name="label4" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Right" Margin="0,27,31,0" Name="comboBoxClientes" VerticalAlignment="Top" Width="285" SelectionChanged="comboBoxClientes_SelectionChanged" />
+                    <ListBox Height="207" HorizontalAlignment="Left" Margin="36,71,0,0" Name="listBoxFactClientes" SelectionMode="Multiple" VerticalAlignment="Top" Width="476" />
+                    <Button Content="Pagar" Height="23" HorizontalAlignment="Left" Margin="437,374,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="button3_Click" />
+                    <Label Content="Cuenta a depositar:" Height="28" HorizontalAlignment="Left" Margin="36,291,0,0" Name="label5" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="240,294,0,0" Name="comboBoxCuenta" VerticalAlignment="Top" Width="272" />
+                    <Label Content="Número de transferencia bancaria:" Height="28" HorizontalAlignment="Left" Margin="36,325,0,0" Name="label6" VerticalAlignment="Top" />
+                    <TextBox Height="29" Margin="240,327,31,0" Name="textBoxNumTransaccion" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBlock FontSize="17" FontStretch="ExtraCondensed" Height="23" HorizontalAlignment="Left" Margin="15,-31,0,0" Name="WelcomeHeading" Text="Bancos:" VerticalAlignment="Top" />
+        <Button Content="Cerrar Sesión" Height="23" HorizontalAlignment="Right" Margin="0,-29,12,0" Name="button2" VerticalAlignment="Top" Width="80" Click="button2_Click" Grid.Column="1" Grid.ColumnSpan="3" />
     </Grid>
 </Window>

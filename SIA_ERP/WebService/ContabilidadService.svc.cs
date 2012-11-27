@@ -51,9 +51,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.InsertarNuevaMoneda(pMoneda);
         }
 
-        public bool CrearCuenta(Cuenta pCuenta)
+        public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
-            return LogicaNegocio.Instancia.CrearCuenta(pCuenta);
+            return LogicaNegocio.Instancia.CrearCuenta(pCuenta, pXml);
         }
 
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)
@@ -162,12 +162,22 @@ namespace SIA.Contabilidad.WebService
             return LogicaInventario.Instancia.crearBodega(pBodega);
         }
 
-        #endregion
-
-        public Documento ObtenerDocumento()
+        public IEnumerable<Cuenta> obtenerCuentasInventario() 
         {
-            return null;
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("INVENTARIOS");
         }
+
+        public IEnumerable<Cuenta> obtenerCuentasVentas()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("VENTAS");
+        }
+
+        public IEnumerable<Cuenta> obtenerCuentasCostos()
+        {
+            return LogicaNegocio.Instancia.ObtenerCuentasHojas("COSTOS");
+        }
+
+        #endregion
 
         public IEnumerable<SocNegocio> ObtenerSociosCV(string pTipoSocio)
         {
@@ -202,6 +212,41 @@ namespace SIA.Contabilidad.WebService
         public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
         {
             return LogicaNegocio.Instancia.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
+        }
+
+        public bool GuardarDocumento(Documento pDocumento)
+        {
+            return LogicaCompraVenta.Instancia.GuardarDocumento(pDocumento);
+        }
+
+        public IEnumerable<Documento> ObtenerDocumentosCompras()
+        {
+            return LogicaCompraVenta.Instancia.ObtenerDocumentosCompras();
+        }
+
+        public Documento ObtenerDocumento(int pIdDocumento)
+        {
+            return LogicaCompraVenta.Instancia.ObtenerDocumento(pIdDocumento);
+        }
+
+        public IEnumerable<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura)
+        {
+            return LogicaCompraVenta.Instancia.ObtenerFacturasXEstadoXSocioNegocio(pCodSN, pEstadoFactura);
+        }
+
+        public IEnumerable<Banco> obtenerBancos()
+        {
+            return LogicaInventario.Instancia.obtenerBancos();
+        }
+
+        public bool setearFacturas(int idDoc, string pEstado)
+        {
+            return LogicaCompraVenta.Instancia.setearFacturas(idDoc,pEstado);
+        }
+
+        public bool insertarTransferencia(Transferencia pTransferencia)
+        {
+            return LogicaCompraVenta.Instancia.insertarTransferencia(pTransferencia);
         }
     }
 }

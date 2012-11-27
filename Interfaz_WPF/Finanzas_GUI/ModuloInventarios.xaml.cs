@@ -21,6 +21,8 @@ namespace Login_WPF
     /// </summary>
     public partial class ModuloInventarios : Window
     {
+        public int NoCierre = 0;
+
         public ModuloInventarios()
         {
             InitializeComponent();
@@ -29,7 +31,17 @@ namespace Login_WPF
             comboBoxUnidMedida.ItemsSource = unidades;
 
             var bodegas = ServicioFinanzas.Instancia.obtenerBodegas();
+            comboBoxBodega.ItemsSource = bodegas;
             dataGridBodegas.ItemsSource = bodegas;
+
+            var cuentasInventarios = ServicioFinanzas.Instancia.obtenerCuentasInventario();
+            comboBoxCuentasExistencias.ItemsSource = cuentasInventarios;
+
+            var cuentasVentas = ServicioFinanzas.Instancia.obtenerCuentasVentas();
+            comboBoxCuentasVentas.ItemsSource = cuentasVentas;
+
+            var cuentasCostos = ServicioFinanzas.Instancia.obtenerCuentasCostos();
+            comboBoxCuentasCostos.ItemsSource = cuentasCostos;
 
             //http://elconta.com/2012/01/23/unidad-de-medida-facturas/
             /*comboBoxUnidMedida.Items.Add("Metro");
@@ -42,7 +54,7 @@ namespace Login_WPF
 
         private void buttonCrearArticulo_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxCodigo.Text) || string.IsNullOrWhiteSpace(textBoxComentarios.Text) || string.IsNullOrWhiteSpace(textBoxDescripcion.Text) || string.IsNullOrWhiteSpace(textBoxImagen.Text) || comboBoxUnidMedida.SelectedIndex == -1) //|| string.IsNullOrWhiteSpace(textBoxUnidMedida.Text))
+            if (string.IsNullOrWhiteSpace(textBoxCodigo.Text) || string.IsNullOrWhiteSpace(textBoxComentarios.Text) || string.IsNullOrWhiteSpace(textBoxDescripcion.Text) || string.IsNullOrWhiteSpace(textBoxImagen.Text) || comboBoxUnidMedida.SelectedIndex == -1 || comboBoxCuentasCostos.SelectedIndex == -1 || comboBoxCuentasVentas.SelectedIndex == -1 || comboBoxCuentasExistencias.SelectedIndex == -1 || comboBoxBodega.SelectedIndex == -1) 
             {
                 MessageBox.Show("Debe completar todos los datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -66,16 +78,16 @@ namespace Login_WPF
                         Descripcion = textBoxDescripcion.Text,
                         unidadMedida = (UnidadMedida)comboBoxUnidMedida.SelectedItem,
                         Comentarios = textBoxComentarios.Text,
-                        imagen = Logo
+                        imagen = Logo,
+                        Existencias = (Cuenta)comboBoxCuentasExistencias.SelectedItem,
+                        Ventas=(Cuenta)comboBoxCuentasVentas.SelectedItem,
+                        Costos=(Cuenta)comboBoxCuentasCostos.SelectedItem,
+                        bodega=(Bodega)comboBoxBodega.SelectedItem
                     };
 
                     if (ServicioFinanzas.Instancia.crearArticulo(articulo))
                     {
                         MessageBox.Show("Artículo creado exitosamente", "Nuevo artículo", MessageBoxButton.OK, MessageBoxImage.Information);
-                        textBoxCodigo.Text = "";
-                        textBoxDescripcion.Text = "";
-                        textBoxComentarios.Text = "";
-                        textBoxImagen.Text = "";
                     }
                     else
                     {
@@ -139,6 +151,21 @@ namespace Login_WPF
                 {
                     MessageBox.Show("Imposible crear la bodega", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Esta seguro que desea cerrar sesión?";
+            string caption = "Confirmación";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                NoCierre = 1;
+                Close();
             }
         }
     }

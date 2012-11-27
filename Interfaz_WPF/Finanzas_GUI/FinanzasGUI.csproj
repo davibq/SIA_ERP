@@ -85,6 +85,12 @@
     <Compile Include="ComponentesComunes\Encabezado.xaml.cs">
       <DependentUpon>Encabezado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Compras\EntradaMercancias.xaml.cs">
+      <DependentUpon>EntradaMercancias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FacturaProveedores.xaml.cs">
+      <DependentUpon>FacturaProveedores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Compras\ModuloCompras.xaml.cs">
       <DependentUpon>ModuloCompras.xaml</DependentUpon>
     </Compile>
@@ -103,7 +109,13 @@
     <Compile Include="ModuloSociosDeNegocios.xaml.cs">
       <DependentUpon>ModuloSociosDeNegocios.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ModuloVentas.xaml.cs">
+    <Compile Include="Ventas\EntregaMercancias.xaml.cs">
+      <DependentUpon>EntregaMercancias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FacturaClientes.xaml.cs">
+      <DependentUpon>FacturaClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\ModuloVentas.xaml.cs">
       <DependentUpon>ModuloVentas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Registration.xaml.cs">
@@ -117,6 +129,9 @@
     </Compile>
     <Compile Include="UpdateEmpress.xaml.cs">
       <DependentUpon>UpdateEmpress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\OrdenVenta.xaml.cs">
+      <DependentUpon>OrdenVenta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
@@ -134,6 +149,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ComponentesComunes\Encabezado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Compras\EntradaMercancias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Compras\FacturaProveedores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,7 +196,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ModuloVentas.xaml">
+    <Page Include="Ventas\EntregaMercancias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventas\FacturaClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventas\ModuloVentas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -192,6 +223,10 @@
     <Page Include="UpdateEmpress.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventas\OrdenVenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Welcome.xaml">
       <SubType>Designer</SubType>

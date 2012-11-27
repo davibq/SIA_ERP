@@ -88,9 +88,9 @@ namespace Logica
             return _DataAccess.InsertarMonedas(pMoneda);
         }
 
-        public bool CrearCuenta(Cuenta pCuenta)
+        public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
-            return _DataAccess.CrearCuenta(pCuenta);
+            return _DataAccess.CrearCuenta(pCuenta, pXml);
         }
 
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)
@@ -133,6 +133,11 @@ namespace Logica
         public IEnumerable<Cuenta> ObtenerCuentasHijasSegunPadre(string pNombrePadre)
         {
             return _DataAccess.ObtenerCuentasHijasSegunPadre(pNombrePadre);
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombrePadre)
+        {
+            return _DataAccess.ObtenerCuentasHojas(pNombrePadre);
         }
 
         public IEnumerable<Cuenta> ObtenerCuentasCierreCompras()

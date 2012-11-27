@@ -68,7 +68,11 @@ namespace DataAccessInventario
                                                               new SqlParameter("pDescripcion", pArticulo.Descripcion),
                                                               new SqlParameter("pUnidadMedida", pArticulo.unidadMedida.Nombre),
                                                               new SqlParameter("pComentarios", pArticulo.Comentarios),
-                                                              new SqlParameter("pImagen", pArticulo.imagen)
+                                                              new SqlParameter("pImagen", pArticulo.imagen),
+                                                              new SqlParameter("pCodBodega", pArticulo.bodega.Codigo),
+                                                              new SqlParameter("pCodExistencias", pArticulo.Existencias.Codigo),
+                                                              new SqlParameter("pCodVentas", pArticulo.Ventas.Codigo),
+                                                              new SqlParameter("pCodCostos", pArticulo.Costos.Codigo)
                                                           });
         }
 
@@ -79,6 +83,49 @@ namespace DataAccessInventario
                                                               new SqlParameter("pCodigo", pBodega.Codigo),
                                                               new SqlParameter("pNombre", pBodega.Nombre)
                                                           });
+        }
+
+        public List<Articulo> obtenerArticulos()
+        {
+            var articulos = new List<Articulo>();
+            var ds = EjecutarConsulta("dbo.ObtenerArticulos", new List<SqlParameter>() { });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    articulos.Add(new Articulo()
+                    {
+                        Nombre = row["Nombre"].ToString(),
+                        Codigo = row["Codigo"].ToString(),
+                        Descripcion = row["Descripcion"].ToString(),
+                        unidadMedida = new UnidadMedida() { Nombre = row["UnidadMedidad"].ToString() },
+                        UrlImagen = row["UrlFotografia"].ToString(),
+                        Precio = row["Costo"].ToString()
+                    });
+                }
+            }
+            return articulos;
+        }
+
+        public List<Banco> obtenerBancos()
+        {
+            var bancos = new List<Banco>();
+            var ds = EjecutarConsulta("dbo.obtenerBancos", new List<SqlParameter>() { });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    bancos.Add(new Banco()
+                    {
+                        idBanco = int.Parse(row["idBanco"].ToString()),
+                        Nombre = row["Nombre"].ToString(),
+                        AcronimoMoneda = row["Moneda"].ToString(),
+                        NoCuenta = row["NoCuenta"].ToString(),
+                        CuentaMayor = row["CuentaMayor"].ToString()
+                    });
+                }
+            }
+            return bancos;
         }
 
     }

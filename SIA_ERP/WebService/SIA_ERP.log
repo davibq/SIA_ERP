@@ -2876,8 +2876,141 @@ System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure
    at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
    at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in D:\Documents and Settings\David\My Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-26 01:35:29,354 [29] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): No se encontró el procedimiento almacenado 'dbo.CrearSocioDeNegocio'.
+2012-11-25 18:17:42,678 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.ERPSP_ObtenerCuentasHojas'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-25 18:17:42,823 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.ERPSP_ObtenerCuentasHojas'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-25 18:17:42,922 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.ERPSP_ObtenerCuentasHojas'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-25 18:20:01,327 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.ERPSP_ObtenerCuentasHojas'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-25 18:20:01,393 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.ERPSP_ObtenerCuentasHojas'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-25 18:20:01,451 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.ERPSP_ObtenerCuentasHojas'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-26 20:12:32,823 [102] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.ObtenerUnidadesdeMedida'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-27 01:55:30,178 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'IdPeriodoContable', table 'LCO_Finanzas.dbo.FIN_Asiento'; column does not allow nulls. INSERT fails.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
@@ -2887,9 +3020,9 @@ System.Data.SqlClient.SqlException (0x80131904): No se encontró el procedimiento
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
-2012-11-26 01:35:46,875 [29] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): No se encontró el procedimiento almacenado 'dbo.CrearSocioDeNegocio'.
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 02:00:00,468 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'IdPeriodoContable', table 'LCO_Finanzas.dbo.FIN_Asiento'; column does not allow nulls. INSERT fails.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
@@ -2899,9 +3032,9 @@ System.Data.SqlClient.SqlException (0x80131904): No se encontró el procedimiento
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
-2012-11-26 01:35:54,566 [29] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): No se encontró el procedimiento almacenado 'dbo.CrearSocioDeNegocio'.
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 02:03:10,136 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'IdPeriodoContable', table 'LCO_Finanzas.dbo.FIN_Asiento'; column does not allow nulls. INSERT fails.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
@@ -2911,10 +3044,9 @@ System.Data.SqlClient.SqlException (0x80131904): No se encontró el procedimiento
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
-2012-11-26 20:15:14,554 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): Infracción de la restricción UNIQUE KEY 'UQ_Codigo_SocioNegocio'. No se puede insertar una clave duplicada en el objeto 'dbo.SocioNegocio'.
-Se terminó la instrucción.
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 02:58:21,872 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarTransferencia
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'IdSocioNegocio', table 'ERP_Ventas.dbo.Transferencia'; column does not allow nulls. INSERT fails.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
@@ -2924,251 +3056,100 @@ Se terminó la instrucción.
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
-2012-11-27 10:18:12,056 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 02:59:43,353 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarTransferencia
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'IdSocioNegocio', table 'ERP_Ventas.dbo.Transferencia'; column does not allow nulls. INSERT fails.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:18:19,795 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 10:23:22,529 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarCuenta
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ERPSP_ActualizarCuenta' expects parameter '@CuentaPadre', which was not supplied.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:18:23,936 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 10:25:30,118 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarCuenta
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ERPSP_ActualizarCuenta' expects parameter '@CuentaPadre', which was not supplied.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:18:26,558 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 10:27:07,318 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarCuenta
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ERPSP_ActualizarCuenta' expects parameter '@CuentaPadre', which was not supplied.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:24:37,695 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 10:41:26,956 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarCuenta
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ERPSP_ActualizarCuenta' expects parameter '@Identificador', which was not supplied.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:24:41,547 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 10:44:10,367 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarCuenta
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ERPSP_ActualizarCuenta' expects parameter '@Identificador', which was not supplied.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:25:17,923 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 10:45:29,009 [10] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarCuenta
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'IdIdentificadorCuenta', table 'LCO_Finanzas.dbo.FIN_Cuenta'; column does not allow nulls. INSERT fails.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:26:00,728 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-27 11:55:06,415 [40] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_FIN_CuentasXAsiento'. Cannot insert duplicate key in object 'dbo.FIN_CuentasXAsiento'.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
    at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:32:39,170 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
-   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:32:41,688 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
-   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:32:42,608 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
-   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:32:44,247 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
-   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
-2012-11-27 10:33:46,961 [5] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - 
-System.Data.SqlClient.SqlException (0x80131904): La función o el procedimiento ERPSP_ObtenerCuenta tiene demasiados argumentos.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
-   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
-   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
-   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
