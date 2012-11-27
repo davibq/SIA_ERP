@@ -314,6 +314,10 @@ namespace Login_WPF
                 {
                     MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Moneda Correctamente");
                     ResetMoneda();
+
+                    var monedas = ServicioFinanzas.Instancia.ObtenerMonedas();
+                    comboBoxMoneda.ItemsSource = monedas;
+                    comboBoxMoneda.Items.Refresh();
                 }
                 else
                     MessageBox.Show("Error al insertar la moneda");
