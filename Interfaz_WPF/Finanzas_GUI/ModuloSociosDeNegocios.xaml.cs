@@ -37,12 +37,12 @@ namespace Login_WPF
             comboBoxMonedaSN.ItemsSource = monedas;
             comboBoxMonedaSN.SelectedIndex = 0;
 
-            var cuentas_mayor = ServicioFinanzas.Instancia.ObtenerCuentasDeMayorSN();
-            foreach (var item in cuentas_mayor)
+            //var cuentas_mayor = ServicioFinanzas.Instancia.ObtenerCuentasDeMayorSN();
+            /*foreach (var item in cuentas_mayor)
             {
                 comboBoxCuentaMayorSN.Items.Add(item.Codigo + " " + item.Nombre);
             }
-            comboBoxCuentaMayorSN.SelectedIndex = 0;
+            comboBoxCuentaMayorSN.SelectedIndex = 0;*/
 
             comboBoxConsultaTipoSN.Items.Add("Cliente");
             comboBoxConsultaTipoSN.Items.Add("Proveedor");
@@ -97,16 +97,16 @@ namespace Login_WPF
             string Moneda = comboBoxMonedaSN.SelectedItem.ToString();
             string CuentaAsociada = comboBoxCuentaMayorSN.SelectedItem.ToString();
             CuentaAsociada = CuentaAsociada.Substring(0, 9);
-            int IdMoneda = ServicioFinanzas.Instancia.ObtenerIdMoneda(Moneda);
+            //int IdMoneda = ServicioFinanzas.Instancia.ObtenerIdMoneda(Moneda);
           
-            if (ServicioFinanzas.Instancia.CrearSocioDeNegocio(Nombre, Codigo, TipoSocio, IdMoneda, CuentaAsociada))
+            /*if (ServicioFinanzas.Instancia.CrearSocioDeNegocio(Nombre, Codigo, TipoSocio, IdMoneda, CuentaAsociada))
             {
                 MessageBoxResult result = MessageBox.Show("Se Ha Agregado el Socio De Negocio Correctamente");
                 Reset();
                 LlenarComboBoxConsultaSocioNegocio();
             }
             else
-                MessageBox.Show("Error al intentar crear el Socio De Negocio");
+                MessageBox.Show("Error al intentar crear el Socio De Negocio");*/
         }
 
         private void comboBoxConsultaTipoSN_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -142,13 +142,13 @@ namespace Login_WPF
                     break;
                 }
             }
-            string cuenta_socio = ServicioFinanzas.Instancia.ObtenerCuentaDeMayorXCodigo(CodigoSN);
-            int IdMoneda = ServicioFinanzas.Instancia.ObtenerIDMonedaCuentaDeMayorXCodigo(CodigoSN);
-            string nombre_cuenta_socio = ServicioFinanzas.Instancia.ObtenerNombreCuentaDeMayorSN(cuenta_socio);
-            string Codigo_Cuenta_SN = cuenta_socio + " " + nombre_cuenta_socio; 
-            string saldo = ServicioFinanzas.Instancia.ObtenerSaldoCuenta(cuenta_socio, IdMoneda);                       
-            textBoxConsultaCuentaDeMayorSN.Text = Codigo_Cuenta_SN;
-            textBoxConsultaSaldoSN.Text = saldo;
+            //string cuenta_socio = ServicioFinanzas.Instancia.ObtenerCuentaDeMayorXCodigo(CodigoSN);
+            //int IdMoneda = ServicioFinanzas.Instancia.ObtenerIDMonedaCuentaDeMayorXCodigo(CodigoSN);
+            //string nombre_cuenta_socio = ServicioFinanzas.Instancia.ObtenerNombreCuentaDeMayorSN(cuenta_socio);
+            //string Codigo_Cuenta_SN = cuenta_socio + " " + nombre_cuenta_socio; 
+            //string saldo = ServicioFinanzas.Instancia.ObtenerSaldoCuenta(cuenta_socio, IdMoneda);                       
+            //textBoxConsultaCuentaDeMayorSN.Text = Codigo_Cuenta_SN;
+            //textBoxConsultaSaldoSN.Text = saldo;
         }
 
     }

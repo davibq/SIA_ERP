@@ -51,6 +51,8 @@
     <Compile Include="Empresa.cs" />
     <Compile Include="Moneda.cs" />
     <Compile Include="MonedasValidas.cs" />
+    <Compile Include="OrdenCompras.cs" />
+    <Compile Include="Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnidadMedida.cs" />
     <Compile Include="Usuario.cs" />
