@@ -99,6 +99,7 @@ namespace Login_WPF
                         case 3:
                             ModuloBancos bancos = new ModuloBancos();
                             NoCierre = 1;
+                            bancos.Show();
                             Close();
                             break;
 

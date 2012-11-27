@@ -5,6 +5,6 @@
     [IdDetalleProductos] INT          NULL,
     [IdTipoDocumento]    INT          NOT NULL,
     [IdSocioNegocio]     INT          NOT NULL,
-    [IdDetalleServicios] INT          NULL
+    [IdDetalleServicios] INT          NULL,
+	[IdEstado] [int] NULL
 );
-

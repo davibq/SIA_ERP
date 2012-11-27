@@ -174,6 +174,15 @@ namespace Logica
             return _DataAccess.ObtenerDocumento(pIdDocumento);
         }
 
+        #region Facturas
+
+        public List<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura)
+        {
+            return _DataAccess.ObtenerFacturasXEstadoXSocioNegocio(pCodSN, pEstadoFactura);
+        }
+
+        #endregion
+
         #endregion
 
         #region Atributos

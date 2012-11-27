@@ -1,5 +1,4 @@
-﻿
-CREATE PROCEDURE dbo.GuardarDocumento 
+﻿CREATE PROCEDURE dbo.GuardarDocumento 
 	@pTipoDocumento VARCHAR(25),
 	@pFecha1 DATE,
 	@pFecha2 DATE,

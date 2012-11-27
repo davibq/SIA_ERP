@@ -153,5 +153,20 @@ namespace Login_WPF
                 }
             }
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Esta seguro que desea cerrar sesión?";
+            string caption = "Confirmación";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Question;
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                NoCierre = 1;
+                Close();
+            }
+        }
     }
 }

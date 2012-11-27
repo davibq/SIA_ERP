@@ -211,6 +211,21 @@ namespace AccesoServicio
             return _CSC.ObtenerDocumento(pIdDocumento);
         }
 
+        public IEnumerable<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura)
+        {
+            return _CSC.ObtenerFacturasXEstadoXSocioNegocio(pCodSN, pEstadoFactura);
+        }
+
+        public IEnumerable<Banco> obtenerBancos()
+        {
+            return _CSC.obtenerBancos();
+        }
+
+        public bool pagarFacturasProveedores(List<Documento> pFacturas)
+        {
+            return true;
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;
