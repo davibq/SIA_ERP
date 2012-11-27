@@ -27,7 +27,6 @@ INSERT INTO dbo.TipoSocioNegocio(Nombre) VALUES
 	('Proveedor'),
 	('Cliente')
 
-
 -- TODO: agregar idMoneda y Cuenta Referencias
 INSERT INTO dbo.SocioNegocio(Codigo, Nombre, IdTipoSocio, IdMoneda, _Cuenta) VALUES
 	('C001', 'Cliente1', 2, 1, '1-1-02-01'),
@@ -42,6 +41,16 @@ INSERT INTO dbo.Bodega (Codigo, Nombre) VALUES
 	('COS', 'Costeo'),
 	('DAN', 'Dañado'),
 	('CON', 'Consignación')	
+
+INSERT INTO dbo.UnidadMedida (Nombre) VALUES
+	('Litro'),
+	('Gramo'),
+	('Metro'),
+	('Kilogramo'),
+	('Ampere'),
+	('Kelvin'),
+	('Mol'),
+	('Candela')
 
 INSERT INTO dbo.Articulo(Codigo, Nombre, Descripcion, IdUnidadMedida) VALUES
 	('PT01', 'Producto 1', 'Producto 1', 1),
@@ -76,16 +85,6 @@ INSERT INTO dbo.CostoXArticuloXBodega (IdArticulo, IdBodega, Costo, FechaActuali
 	(3, 2, 0, GETDATE()),
 	(3, 3, 0, GETDATE()),
 	(3, 4, 0, GETDATE())
-
-INSERT INTO dbo.UnidadMedida (Nombre) VALUES
-	('Litro'),
-	('Gramo'),
-	('Metro'),
-	('Kilogramo'),
-	('Ampere'),
-	('Kelvin'),
-	('Mol'),
-	('Candela')
 
 INSERT INTO dbo.Bancos (Nombre, Moneda, NoCuenta, CuentaMayor) VALUES
 	('BNCR','USD','11111-1','1-1-01-02'),
