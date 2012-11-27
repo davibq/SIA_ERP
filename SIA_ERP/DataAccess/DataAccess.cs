@@ -46,7 +46,7 @@ namespace SIA.DataAccess
             }
             catch (Exception ex)
             {
-                ExceptionLogger.LogExcepcion(ex, string.Empty);
+                ExceptionLogger.LogExcepcion(ex, "Error consulta ejecutando: " + pProcedureName);
                 dataSet = null;
             }
             finally
@@ -71,7 +71,7 @@ namespace SIA.DataAccess
             }
             catch (Exception ex)
             {
-                ExceptionLogger.LogExcepcion(ex, string.Empty);
+                ExceptionLogger.LogExcepcion(ex, "Error no consulta ejecutando: "+pProcedureName);
                 return false;
             }
             finally

@@ -118,7 +118,7 @@ namespace Login_WPF.ComponentesComunes
             }
         }
 
-        private void ActualizarTotal()
+        public void ActualizarTotal()
         {
             double subtotal = 0.0, impuestos = 0.0;
             foreach (var lineaVenta in Productos)

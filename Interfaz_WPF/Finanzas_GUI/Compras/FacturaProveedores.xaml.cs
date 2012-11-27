@@ -17,21 +17,29 @@ using AccesoServicio;
 namespace Login_WPF.Compras
 {
     /// <summary>
-    /// Interaction logic for EntregaMercancias.xaml
+    /// Interaction logic for FacturaProveedores.xaml
     /// </summary>
-    public partial class EntradaMercancias : Window
+    public partial class FacturaProveedores : Window
     {
-        public EntradaMercancias()
+        public FacturaProveedores()
         {
             InitializeComponent();
         }
-
-
         public bool DesdeDocumentoPasado { get; set; }
 
         private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        public void InicializarControles()
+        {
+            if (DesignerProperties.GetIsInDesignMode(this)) return;
+            encabezado1.Fecha1Label = "Fecha de Contabilización";
+            encabezado1.Fecha2Label = "Fecha de Factura";
+            encabezado1.SocioLabel = "Proveedor:";
+            encabezado1.CargarSocios("Proveedor");
+            detalle1.InicializarColumnas(true);
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -71,7 +79,7 @@ namespace Login_WPF.Compras
             documento.SocioNegocio = (SocNegocio)encabezado1.cmbSocio.SelectedItem;
             if (ServicioFinanzas.Instancia.GuardarDocumento(documento))
             {
-                MessageBox.Show("Entrada de Mercancias guardada");
+                MessageBox.Show("Factura de proveedores guardada");
                 encabezado1.txtConsecutivo.Text = string.Empty;
                 encabezado1.cmbSocio.SelectedIndex = -1;
             }
@@ -79,20 +87,6 @@ namespace Login_WPF.Compras
             {
                 MessageBox.Show("Se produjo un error");
             }
-        }
-
-        public void InicializarControles()
-        {
-            if (DesignerProperties.GetIsInDesignMode(this)) return;
-            encabezado1.Fecha1Label = "Fecha de Contabilización";
-            encabezado1.Fecha2Label = "Fecha de Vencimiento";
-            encabezado1.SocioLabel = "Proveedor:";
-            encabezado1.CargarSocios("Proveedor");
-            detalle1.InicializarColumnas(true);
-        }
-        
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

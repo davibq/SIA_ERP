@@ -4,8 +4,9 @@
 	[Stock] [int] NOT NULL,
 	[Comprometido] [int] NOT NULL,
 	[Solicitado] [int] NOT NULL,
-	[codCuentaExistencias] [varchar](25) NOT NULL,
+	[codCuentasExistencias] [varchar](25) NOT NULL,
 	[codCuentasVentas] [varchar](25) NOT NULL,
-	[codCuentasCostos] [varchar](25) NOT NULL
+	[codCuentasCostos] [varchar](25) NOT NULL,
+	[codCuentaTransitoria] [varchar](25) NULL
 );
 

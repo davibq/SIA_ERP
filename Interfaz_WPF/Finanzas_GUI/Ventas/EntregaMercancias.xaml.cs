@@ -11,21 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using AccesoServicio.FinanzasService;
 using AccesoServicio;
+using AccesoServicio.FinanzasService;
 
-namespace Login_WPF.Compras
+namespace Login_WPF.Ventas
 {
     /// <summary>
     /// Interaction logic for EntregaMercancias.xaml
     /// </summary>
-    public partial class EntradaMercancias : Window
+    public partial class EntregaMercancias : Window
     {
-        public EntradaMercancias()
+        public EntregaMercancias()
         {
             InitializeComponent();
         }
-
 
         public bool DesdeDocumentoPasado { get; set; }
 
@@ -90,7 +89,7 @@ namespace Login_WPF.Compras
             encabezado1.CargarSocios("Proveedor");
             detalle1.InicializarColumnas(true);
         }
-        
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
         }
