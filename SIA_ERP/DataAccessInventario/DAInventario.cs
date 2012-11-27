@@ -68,7 +68,7 @@ namespace DataAccessInventario
                                                               new SqlParameter("pDescripcion", pArticulo.Descripcion),
                                                               new SqlParameter("pUnidadMedida", pArticulo.unidadMedida.Nombre),
                                                               new SqlParameter("pComentarios", pArticulo.Comentarios),
-                                                              new SqlParameter("pImagen", pArticulo.imagen),
+                                                              new SqlParameter("pImagen", pArticulo.urlImagen),
                                                               new SqlParameter("pCodBodega", pArticulo.bodega.Codigo),
                                                               new SqlParameter("pCodExistencias", pArticulo.Existencias.Codigo),
                                                               new SqlParameter("pCodVentas", pArticulo.Ventas.Codigo),
