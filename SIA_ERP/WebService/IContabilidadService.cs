@@ -37,7 +37,7 @@ namespace SIA.Contabilidad.WebService
         bool InsertarNuevaMoneda(Moneda pMoneda);
 
         [OperationContract]
-        bool CrearCuenta(Cuenta pCuenta);
+        bool CrearCuenta(Cuenta pCuenta, string pXml);
 
         [OperationContract]
         bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses);

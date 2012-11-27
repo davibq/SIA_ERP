@@ -288,6 +288,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SIA.Libreria" minOccurs="0" name="pCuenta" nillable="true" type="q19:Cuenta" />
+        <xs:element minOccurs="0" name="pXml" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -2405,7 +2405,7 @@ namespace AccesoServicio.FinanzasService {
         bool InsertarNuevaMoneda(AccesoServicio.FinanzasService.Moneda pMoneda);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearCuenta", ReplyAction="http://tempuri.org/IContabilidadService/CrearCuentaResponse")]
-        bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta);
+        bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta, string pXml);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/GuardarPeriodoContable", ReplyAction="http://tempuri.org/IContabilidadService/GuardarPeriodoContableResponse")]
         bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, AccesoServicio.FinanzasService.Mes[] pArregloMeses);
@@ -2570,8 +2570,8 @@ namespace AccesoServicio.FinanzasService {
             return base.Channel.InsertarNuevaMoneda(pMoneda);
         }
         
-        public bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta) {
-            return base.Channel.CrearCuenta(pCuenta);
+        public bool CrearCuenta(AccesoServicio.FinanzasService.Cuenta pCuenta, string pXml) {
+            return base.Channel.CrearCuenta(pCuenta, pXml);
         }
         
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, AccesoServicio.FinanzasService.Mes[] pArregloMeses) {

@@ -69,7 +69,7 @@ namespace DataAccessFinanzas
         }
 
         //Falta insertar las monedas asociadas de alguna manera
-        public bool CrearCuenta(Cuenta pCuenta)
+        public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
             const string quote = "\"";
                               //<Nombres><Nombre nombre=      "                        "       idioma=      "      es     "       /><Nombre nombre=      "                                        "       idioma=      "      en-US     "       /></Nombres>
@@ -82,6 +82,7 @@ namespace DataAccessFinanzas
                                                               new SqlParameter("Enabled", pCuenta.Enabled),
                                                               new SqlParameter("CuentaPadre", pCuenta.CodigoCuentaPadre),
                                                               new SqlParameter("Identificador", pCuenta.Identificador),
+                                                              new SqlParameter("MonedasCuenta", pXml),
                                                               new SqlParameter("Nombres", nombres)
                                                           });
         }

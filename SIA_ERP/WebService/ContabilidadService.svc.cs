@@ -51,9 +51,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaNegocio.Instancia.InsertarNuevaMoneda(pMoneda);
         }
 
-        public bool CrearCuenta(Cuenta pCuenta)
+        public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
-            return LogicaNegocio.Instancia.CrearCuenta(pCuenta);
+            return LogicaNegocio.Instancia.CrearCuenta(pCuenta, pXml);
         }
 
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)

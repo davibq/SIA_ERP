@@ -153,6 +153,17 @@ namespace Login_WPF
 
         private void buttonAgregar_Click(object sender, RoutedEventArgs e)
         {
+            var monedaSistema = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Sistema");
+            var monedaLocal = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Local");
+            /*<MonedasCuenta>
+		        <Moneda moneda="CRC"/>
+		        <Moneda moneda="YEN"/>
+            </MonedasCuenta>*/
+            string xml = "";
+            xml += "<MonedasCuenta>";
+            xml += string.Format("<Moneda moneda=\"{0}\"/>",(monedaSistema.Acronimo));
+            xml += string.Format("<Moneda moneda=\"{0}\"/>", (monedaLocal.Acronimo));
+            xml += "</MonedasCuenta>";
             char[] delimiterChars = { '-' };
             string[] words = textBoxCodigo.Text.Split(delimiterChars);
             string codigoPadre="";
@@ -198,7 +209,7 @@ namespace Login_WPF
                     Enabled=true,
                     Identificador=identificador
                 };
-            if (ServicioFinanzas.Instancia.CrearCuenta(cuenta))
+            if (ServicioFinanzas.Instancia.CrearCuenta(cuenta, xml))
             {
                 MessageBoxResult result = MessageBox.Show("Se Ha Agregado La Cuenta Correctamente");
                 Reset();

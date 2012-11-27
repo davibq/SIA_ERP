@@ -72,9 +72,9 @@ namespace AccesoServicio
             return _CSC.InsertarNuevaMoneda(pMoneda);
         }
 
-        public bool CrearCuenta(Cuenta pCuenta)
+        public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
-            return _CSC.CrearCuenta(pCuenta);
+            return _CSC.CrearCuenta(pCuenta,pXml);
         }
 
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)
