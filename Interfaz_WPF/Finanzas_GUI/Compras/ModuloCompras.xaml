@@ -12,7 +12,7 @@
         <Button Height="51" HorizontalAlignment="Center" Margin="0,428,0,0" Name="btnAgregarEntradaMercancias" VerticalAlignment="Top" Width="129" Click="btnAgregarEntradaMercancias_Click">
             <TextBlock TextAlignment="Center">Nueva <LineBreak />Entrada de Mercancías</TextBlock>
         </Button>
-        <Button Height="51" HorizontalAlignment="Left" Margin="404,428,0,0" Name="btnAgregarFactura" VerticalAlignment="Top" Width="98">
+        <Button Height="51" HorizontalAlignment="Left" Margin="404,428,0,0" Name="btnAgregarFactura" VerticalAlignment="Top" Width="98" Click="btnAgregarFactura_Click">
             <TextBlock TextAlignment="Center">Nueva <LineBreak />Factura</TextBlock>
         </Button>
         <DataGrid AutoGenerateColumns="False" Height="271" HorizontalAlignment="Left" Margin="12,56,0,0" Name="gridDocumentos" VerticalAlignment="Top" Width="554" IsReadOnly="True" SelectionChanged="gridDocumentos_SelectionChanged">
@@ -25,6 +25,6 @@
         </DataGrid>
         <Button Content="Actualizar" Height="23" HorizontalAlignment="Left" Margin="491,338,0,0" Name="btnActualizar" VerticalAlignment="Top" Width="75" Click="btnActualizar_Click" />
         <Button Content="Crear Entrada de Mercancías" Height="23" HorizontalAlignment="Left" Margin="12,338,0,0" Name="btnNuevaEM" VerticalAlignment="Top" Width="200" IsEnabled="False" Click="btnNuevaEM_Click" />
-        <Button Content="Crear Factura" Height="23" HorizontalAlignment="Left" Margin="12,367,0,0" Name="btnNuevaF" VerticalAlignment="Top" Width="200" IsEnabled="False" />
+        <Button Content="Crear Factura" Height="23" HorizontalAlignment="Left" Margin="12,367,0,0" Name="btnNuevaF" VerticalAlignment="Top" Width="200" IsEnabled="False" Click="btnNuevaF_Click" />
     </Grid>
 </Window>

@@ -40,7 +40,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>.\sql\debug\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TargetConnectionString>Data Source=SANTAMARIA-PC;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetConnectionString>Data Source=127.0.0.1;Integrated Security=True;Pooling=False</TargetConnectionString>
     <TargetDatabase>
     </TargetDatabase>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -324,10 +324,13 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerDocumentosCompras.proc.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AgregarSolicitudes.proc.sql">
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ModificarCantidadArticulos.proc.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerDocumentoCompleto.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ModificarCostoPromedio.proc.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>

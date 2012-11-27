@@ -33,5 +33,7 @@ namespace SIA.VentaCompra.Libreria
         public string DescripcionServicio {get; set;}
         [DataMember]
         public string CodigoCuentaServicio { get; set; }
+        [DataMember]
+        public bool CreadoDesdeAnterior { get; set; }
     }
 }

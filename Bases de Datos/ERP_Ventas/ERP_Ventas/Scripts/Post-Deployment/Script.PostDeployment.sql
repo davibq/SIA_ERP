@@ -12,10 +12,10 @@ Post-Deployment Script Template
 
 INSERT INTO dbo.TipoDocumento(Nombre) VALUES
 	('Orden de Compra'),
-	('Entrada de MercanciasC'),
+	('Entrada de Mercancias'),
 	('Factura de Proveedores'),
 	('Orden de Venta'),
-	('Entrega de MercanciasV'),
+	('Entrega de Mercancias'),
 	('Factura de Clientes')
 
   
@@ -25,13 +25,13 @@ INSERT INTO dbo.TipoSocioNegocio(Nombre) VALUES
 
 
 -- TODO: agregar idMoneda y Cuenta Referencias
-INSERT INTO dbo.SocioNegocio(Codigo, Nombre, IdTipoSocio, IdMoneda) VALUES
-	('C001', 'Cliente1', 2, 1),
-	('C002', 'Cliente1', 2, 1),
-	('C003', 'Cliente1', 2, 1),
-	('P001', 'Proveedor1', 1, 1),
-	('P002', 'Proveedor3', 1, 1),
-	('P003', 'Proveedor2', 1, 1)
+INSERT INTO dbo.SocioNegocio(Codigo, Nombre, IdTipoSocio, IdMoneda, _Cuenta) VALUES
+	('C001', 'Cliente1', 2, 1, '1-1-02-01'),
+	('C002', 'Cliente1', 2, 1, '1-1-02-01'),
+	('C003', 'Cliente1', 2, 1, '1-1-02-02'),
+	('P001', 'Proveedor1', 1, 1, '2-1-01-01'),
+	('P002', 'Proveedor3', 1, 1, '2-1-01-01'),
+	('P003', 'Proveedor2', 1, 1, '2-1-01-02')
 
 INSERT INTO dbo.Bodega (Codigo, Nombre) VALUES
 	('GEN', 'General'),
@@ -43,24 +43,28 @@ INSERT INTO dbo.UnidadMedida (Nombre) VALUES
 	('Litro'),
 	('Gramo')
 
-INSERT INTO dbo.Articulo(Codigo, Nombre, IdUnidadMedida) VALUES
-	('PT01', 'Producto 1', 1),
-	('PT02', 'Producto 2', 2),
-	('PT03', 'Producto 3', 1)
+INSERT INTO dbo.Articulo(Codigo, Nombre, Descripcion, IdUnidadMedida) VALUES
+	('PT01', 'Producto 1', 'Producto 1', 1),
+	('PT02', 'Producto 2', 'Producto 2', 2),
+	('PT03', 'Producto 3', 'Producto 3', 1)
 
-INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado) VALUES
-	(1, 1, 0, 0, 0),
-	(1, 2, 0, 0, 0),
-	(1, 3, 0, 0, 0),
-	(1, 4, 0, 0, 0),
-	(2, 1, 0, 0, 0),
-	(2, 2, 0, 0, 0),
-	(2, 3, 0, 0, 0),
-	(2, 4, 0, 0, 0),
-	(3, 1, 0, 0, 0),
-	(3, 2, 0, 0, 0),
-	(3, 3, 0, 0, 0),
-	(3, 4, 0, 0, 0)
+INSERT INTO dbo.ArticuloXBodega 
+	(IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentasExistencias, codCuentasVentas, 
+	codCuentasCostos, codCuentaTransitoria)
+VALUES
+	(1, 1, 0, 0, 0, '', '', '', ''),
+	(1, 2, 0, 0, 0, '', '', '', ''),
+	(1, 3, 0, 0, 0, '', '', '', ''),
+	(1, 4, 0, 0, 0, '', '', '', ''),
+	(2, 1, 0, 0, 0, '', '', '', ''),
+	(2, 2, 0, 0, 0, '', '', '', ''),
+	(2, 3, 0, 0, 0, '', '', '', ''),
+	(2, 4, 0, 0, 0, '', '', '', ''),
+	(3, 1, 0, 0, 0, '', '', '', ''),
+	(3, 2, 0, 0, 0, '', '', '', ''),
+	(3, 3, 0, 0, 0, '', '', '', ''),
+	(3, 4, 0, 0, 0, '', '', '', '')
+
 
 INSERT INTO dbo.CostoXArticuloXBodega (IdArticulo, IdBodega, Costo, FechaActualizacion) VALUES
 	(1, 1, 0, GETDATE()),

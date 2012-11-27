@@ -10,7 +10,12 @@
 -- Fecha: 23/09/2012
 -- Descripcion: Primeros valores para TipoAsiento
 -----------------------------------------------------------
-INSERT INTO dbo.FIN_TipoAsiento (Nombre, Descripcion) VALUES ('AS', 'Asientos Manuales')
+INSERT INTO dbo.FIN_TipoAsiento (Nombre, Descripcion) VALUES 
+	('AS', 'Asientos Manuales'),
+	('EM', 'Entrada Mercancias'),
+	('FP', 'Factura Proveedores'),
+	('EE', 'Entrega Mercancias'),
+	('FC', 'Factura Clientes')
 
 GO
 -- =============================================

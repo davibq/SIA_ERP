@@ -26,6 +26,9 @@ namespace Login_WPF.Compras
             InitializeComponent();
         }
 
+
+        public bool DesdeDocumentoPasado { get; set; }
+
         private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -55,6 +58,7 @@ namespace Login_WPF.Compras
             }
             var documento = new AccesoServicio.FinanzasService.Documento();
             documento.Consecutivo = encabezado1.txtConsecutivo.Text;
+            documento.CreadoDesdeAnterior = DesdeDocumentoPasado;
             documento.TipoDocumento = "Entrada de Mercancias";
             documento.Fecha1 = encabezado1.fecha1.SelectedDate.Value;
             documento.Fecha2 = encabezado1.fecha2.SelectedDate.Value;
@@ -86,7 +90,7 @@ namespace Login_WPF.Compras
             encabezado1.CargarSocios("Proveedor");
             detalle1.InicializarColumnas(true);
         }
-
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
         }

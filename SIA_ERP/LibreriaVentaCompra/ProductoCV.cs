@@ -21,6 +21,14 @@ namespace SIA.VentaCompra.Libreria
         public List<BodegaCV> Bodegas {get; set;}
         [DataMember]
         public double Precio { get; set; }
+        [DataMember]
+        public string CuentaCostos { get; set; }
+        [DataMember]
+        public string CuentaExistencias { get; set; }
+        [DataMember]
+        public string CuentaVentas { get; set; }
+        [DataMember]
+        public string CuentaTransitoria { get; set; }
     }
 }
 

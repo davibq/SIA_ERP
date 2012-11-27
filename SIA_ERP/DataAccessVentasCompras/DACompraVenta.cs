@@ -75,7 +75,19 @@ namespace DataAccessVentasCompras
                             IdProducto = int.Parse(row["IdArticulo"].ToString()),
                             Codigo = row["Codigo"].ToString(),
                             Descripcion = row["Descripcion"].ToString(),
-                            Bodegas=new List<BodegaCV>()
+                            Bodegas = new List<BodegaCV>()
+                            {
+                                new BodegaCV()
+                                {
+                                    IdBodega = int.Parse(row["IdBodega"].ToString()),
+                                    Nombre = row["Bodega"].ToString(),
+                                    Costo = double.Parse(row["Costo"].ToString())
+                                }
+                            },
+                            CuentaCostos = row["codCuentasCostos"].ToString(),
+                            CuentaExistencias = row["codCuentasExistencias"].ToString(),
+                            CuentaVentas = row["codCuentasVentas"].ToString(),
+                            CuentaTransitoria = row["codCuentaTransitoria"].ToString()
                         });
                     }
                 }
@@ -101,33 +113,19 @@ namespace DataAccessVentasCompras
             bool lineasVenta = true;
             if (!pDocumento.EsServicio)
             {
-                var ds = EjecutarConsulta("dbo.ObtenerDetalle", new List<SqlParameter>()
-                {
-                    new SqlParameter("pConsecutivo", pDocumento.Consecutivo)
-                });
-                int idDetalle = 0;
-                if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
-                {
-                    foreach (DataRow row in ds.Tables[0].Rows)
-                    {
-                        idDetalle = int.Parse(row["IdDetalle"].ToString());
-                    }
-                }
-                else
-                {
-                    return false;
-                }
+                var idDetalle = ObtenerIdDetalleDocumento(pDocumento.Consecutivo);
                 DataTable dataTable = new DataTable("LineaVenta"); 
 
                 dataTable.Columns.Add("IdArticulo", typeof(int)); 
                 dataTable.Columns.Add("IdDetalle", typeof(int));
                 dataTable.Columns.Add("IdBodega", typeof(int)); 
                 dataTable.Columns.Add("Cantidad", typeof(int)); 
-                dataTable.Columns.Add("Impuesto", typeof(double)); 
+                dataTable.Columns.Add("Impuesto", typeof(double));
+                dataTable.Columns.Add("Precio", typeof(double));
                 foreach (var lv in pDocumento.LineasVenta)
                 {
                     dataTable.Rows.Add(lv.Producto.IdProducto, idDetalle, 
-                        lv.Bodega.IdBodega, lv.Cantidad, lv.Impuestos);
+                        lv.Bodega.IdBodega, lv.Cantidad, lv.Impuestos, lv.Producto.Precio);
                 }
                 var param=new SqlParameter();
                 param.ParameterName = "LineasVenta"; 
@@ -138,34 +136,47 @@ namespace DataAccessVentasCompras
                     param
                 });
             }
-            bool respuesta = false;
-            if (pDocumento.TipoDocumento.CompareTo("Orden de Compra") == 0)
-            {
-                respuesta=AgregarSolicitados(pDocumento.LineasVenta);
-
-            }
-            return nuevoDocumento && lineasVenta && respuesta;
+            return nuevoDocumento && lineasVenta;
         }
 
-        private bool AgregarSolicitados(List<LineaVenta> pLineasVenta)
+        public int ObtenerIdDetalleDocumento(string pConsecutivo)
+        {
+            var ds = EjecutarConsulta("dbo.ObtenerDetalle", new List<SqlParameter>()
+                {
+                    new SqlParameter("pConsecutivo", pConsecutivo)
+                });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    return int.Parse(row["IdDetalle"].ToString());
+                }
+            }
+            return -1;
+        }
+
+        public bool ModificarCantidadArticulos(List<LineaVenta> pLineasVenta, bool pPositivo, string pCampo)
         {
             DataTable dataTable = new DataTable("LineaVenta"); 
             dataTable.Columns.Add("IdArticulo", typeof(int)); 
             dataTable.Columns.Add("IdDetalle", typeof(int));
             dataTable.Columns.Add("IdBodega", typeof(int)); 
             dataTable.Columns.Add("Cantidad", typeof(int)); 
-            dataTable.Columns.Add("Impuesto", typeof(double)); 
+            dataTable.Columns.Add("Impuesto", typeof(double));
+            dataTable.Columns.Add("Precio", typeof(double));
+
             foreach (var lv in pLineasVenta)
             {
                 dataTable.Rows.Add(lv.Producto.IdProducto, 0, 
-                    lv.Bodega.IdBodega, lv.Cantidad, lv.Impuestos);
+                    lv.Bodega.IdBodega, lv.Cantidad*(pPositivo?1:-1), lv.Impuestos, 0);
             }
             var param=new SqlParameter();
             param.ParameterName = "pLineasVenta"; 
             param.SqlDbType = SqlDbType.Structured; 
-            param.Value = dataTable; 
-            return EjecutarNoConsulta("AgregarSolicitados", new List<SqlParameter>(){
-               param
+            param.Value = dataTable;
+            return EjecutarNoConsulta("dbo.ModificarCantidadArticulos", new List<SqlParameter>(){
+               param,
+               new SqlParameter("pCampo", pCampo)
             });
         }
 
@@ -205,7 +216,7 @@ namespace DataAccessVentasCompras
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     if (documento == null)
-                    { //SN.IdSocioNegocio, SN.Nombre SocioNegocio
+                    {
                         documento = new Documento()
                         {
                             IdDocumento = pIdDocumento,
@@ -226,7 +237,8 @@ namespace DataAccessVentasCompras
                                     Producto=new ProductoCV(){
                                         IdProducto=int.Parse(row["IdArticulo"].ToString()),
                                         Nombre=row["NombreArticulo"].ToString(),
-                                        Descripcion = row["NombreArticulo"].ToString()
+                                        Descripcion = row["NombreArticulo"].ToString(),
+                                        Precio = row["Precio"]==null?-1:double.Parse(row["Precio"].ToString())
                                     }
                                 }
                             },
@@ -247,13 +259,41 @@ namespace DataAccessVentasCompras
                             Producto=new ProductoCV(){
                                 IdProducto=int.Parse(row["IdArticulo"].ToString()),
                                 Nombre=row["NombreArticulo"].ToString(),
-                                Descripcion = row["NombreArticulo"].ToString()
+                                Descripcion = row["NombreArticulo"].ToString(),
+                                Precio = row["Precio"]==null?-1:double.Parse(row["Precio"].ToString())
                             }
                         });
                     }
                 }
+                foreach (var lv in documento.LineasVenta)
+                {
+                    lv.Total = (lv.Cantidad * lv.Producto.Precio) + ((lv.Impuestos / 100) * lv.Producto.Precio * lv.Cantidad);
+                }
             }
             return documento;
+        }
+
+        public bool ModificarCostoArticulo(List<LineaVenta> pLineasVenta)
+        {
+            DataTable dataTable = new DataTable("LineaVenta");
+            dataTable.Columns.Add("IdArticulo", typeof(int));
+            dataTable.Columns.Add("IdDetalle", typeof(int));
+            dataTable.Columns.Add("IdBodega", typeof(int));
+            dataTable.Columns.Add("Cantidad", typeof(int));
+            dataTable.Columns.Add("Impuesto", typeof(double));
+            dataTable.Columns.Add("Precio", typeof(double));
+            foreach (var lv in pLineasVenta)
+            {
+                dataTable.Rows.Add(lv.Producto.IdProducto, 0,
+                    lv.Bodega.IdBodega, lv.Cantidad, lv.Impuestos, lv.Producto.Precio);
+            }
+            var param = new SqlParameter();
+            param.ParameterName = "pLineasVenta";
+            param.SqlDbType = SqlDbType.Structured;
+            param.Value = dataTable;
+            return EjecutarNoConsulta("dbo.ModificarCostoPromedio", new List<SqlParameter>(){
+               param
+            });
         }
 
         #endregion
