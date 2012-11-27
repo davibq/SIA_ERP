@@ -62,13 +62,90 @@ namespace Login_WPF
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            if (listBoxFacturas.SelectedItems.Count == 0 || comboBoxBancos.SelectedIndex == -1)
+            if (listBoxFacturas.SelectedItems.Count == 0 || comboBoxBancos.SelectedIndex == -1 || textBoxNumTransferencia.Text.Length==0)
             {
                 MessageBox.Show("Debe completar todos los datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                var facturasList = listBoxFacturas.SelectedItems;
+                List<Documento> facturasList = new List<Documento>();
+                for (int i = 0; i < listBoxFacturas.SelectedItems.Count; i++)
+                {
+                    Documento fact = (Documento)listBoxFacturas.SelectedItems[i];
+                    facturasList.Add(fact);
+                }
+                
+                //var facturasList = (List<Documento>)listBoxFacturas.SelectedItems;
+                var bancoDep = (Banco)comboBoxBancos.SelectedItem;
+                var proveedor = (SocNegocio)comboBoxProveedores.SelectedItem;
+
+                double factor = Math.Pow(10, 2);
+                string message = "Desea resgitrar el pago?";
+                string caption = "Confirmación";
+                bool completo = true;
+                MessageBoxButton buttons = MessageBoxButton.YesNo;
+                MessageBoxImage icon = MessageBoxImage.Question;
+                if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+                {
+                    var monedaSistema = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Sistema");
+                    var monedaLocal = ServicioFinanzas.Instancia.ObtenerMonedasSistema("Local");
+                    string xml = "<Cuentas>";
+                    double montoDebe = 0, montoHaber = 0;
+                    foreach (var factura in facturasList)
+                    {
+                        /*      <Cuentas>
+                            --		<Cuenta monto="10000.00" moneda="CRC" cuenta="" debe="0"/>
+                            --		<Cuenta monto="5490.98" moneda="CRC" cuenta="" debe="1"/>
+                            --  </Cuentas>*/
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            factura.Total, monedaSistema.Acronimo, factura.SocioNegocio.Codigo, "1");
+                        montoDebe += factura.Total;
+
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            factura.Total, monedaSistema.Acronimo, bancoDep.CuentaMayor, "0");
+                        montoHaber += factura.Total;
+
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            factura.Total, monedaLocal.Acronimo, factura.SocioNegocio.Codigo, "1");
+                        
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            factura.Total, monedaLocal.Acronimo, bancoDep.CuentaMayor, "0");
+
+                        xml += "</Cuentas>";
+
+                        if (ServicioFinanzas.Instancia.InsertarAsiento(DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString(), montoDebe, montoHaber, xml, "PR"))
+                        {
+                            if (!(ServicioFinanzas.Instancia.setearFacturas(factura.IdDocumento, "Cancelado")))
+                                completo = false;
+
+                            Transferencia transferencia = new Transferencia()
+                            {
+                                TipoTransferencia = "Efectuado",
+                                Socio = proveedor,
+                                banco = bancoDep,
+                                Monto = factura.Total,
+                                Fecha = DateTime.Now,
+                                NumTranseferencia = textBoxNumTransferencia.Text
+                            };
+
+                            if (!(ServicioFinanzas.Instancia.insertarTransferencia(transferencia)))
+                                completo = false;
+                        }
+                        else
+                            completo = false;
+
+                        xml = "<Cuentas>";
+                        montoDebe = 0;
+                        montoHaber = 0;
+                    }
+                    if (completo)
+                        MessageBox.Show("Pagos registrados!", "SIA", MessageBoxButton.OK, MessageBoxImage.Information);
+                    textBoxNumTransferencia.Text = "";
+                    comboBoxBancos.SelectedIndex = -1;
+                    var facturas = ServicioFinanzas.Instancia.ObtenerFacturasXEstadoXSocioNegocio(((SocNegocio)comboBoxProveedores.SelectedItem).Codigo, "Pendiente");
+                    listBoxFacturas.ItemsSource = facturas;
+                    listBoxFacturas.Items.Refresh();
+                }
             }
         }
     }

@@ -1422,7 +1422,7 @@ namespace Login_WPF
                     else 
                     {
                         xml += "</Cuentas>";
-                        ServicioFinanzas.Instancia.InsertarAsiento(DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString(), montoDebe, montoHaber, xml, "Automatico");
+                        ServicioFinanzas.Instancia.InsertarAsiento(DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString(), montoDebe, montoHaber, xml, "AS");
                         xml = "<Cuentas>";
                         montoDebe = 0;
                         montoHaber = 0;

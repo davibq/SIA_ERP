@@ -221,9 +221,14 @@ namespace AccesoServicio
             return _CSC.obtenerBancos();
         }
 
-        public bool pagarFacturasProveedores(List<Documento> pFacturas)
+        public bool setearFacturas(int idDoc, string pEstado) 
         {
-            return true;
+            return _CSC.setearFacturas(idDoc, pEstado);
+        }
+
+        public bool insertarTransferencia(Transferencia pTransferencia)
+        {
+            return _CSC.insertarTransferencia(pTransferencia);
         }
 
         private ContabilidadServiceClient _CSC;

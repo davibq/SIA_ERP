@@ -74,14 +74,14 @@ INSERT INTO dbo.CostoXArticuloXBodega (IdArticulo, IdBodega, Costo, FechaActuali
 	(3, 4, 0, GETDATE())
 
 INSERT INTO dbo.UnidadMedida (Nombre) VALUES
+	('Litro'),
+	('Gramo'),
 	('Metro'),
 	('Kilogramo'),
 	('Ampere'),
 	('Kelvin'),
 	('Mol'),
-	('Candela'),
-	('Litro'),
-	('Gramo')
+	('Candela')
 
 INSERT INTO dbo.Bancos (Nombre, Moneda, NoCuenta, CuentaMayor) VALUES
 	('BNCR','USD','11111-1','1-1-01-02'),

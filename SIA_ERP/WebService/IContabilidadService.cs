@@ -129,6 +129,12 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         IEnumerable<Banco> obtenerBancos();
+
+        [OperationContract]
+        bool setearFacturas(int idDoc, string pEstado);
+
+        [OperationContract]
+        bool insertarTransferencia(Transferencia pTransferencia);
     }
 
 }

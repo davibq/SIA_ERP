@@ -1545,6 +1545,147 @@ namespace AccesoServicio.FinanzasService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Transferencia", Namespace="http://schemas.datacontract.org/2004/07/SIA.VentaCompra.Libreria")]
+    [System.SerializableAttribute()]
+    public partial class Transferencia : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double MontoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumTranseferenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.SocNegocio SocioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoTransferenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccesoServicio.FinanzasService.Banco bancoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idTransferenciaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fecha {
+            get {
+                return this.FechaField;
+            }
+            set {
+                if ((this.FechaField.Equals(value) != true)) {
+                    this.FechaField = value;
+                    this.RaisePropertyChanged("Fecha");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Monto {
+            get {
+                return this.MontoField;
+            }
+            set {
+                if ((this.MontoField.Equals(value) != true)) {
+                    this.MontoField = value;
+                    this.RaisePropertyChanged("Monto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumTranseferencia {
+            get {
+                return this.NumTranseferenciaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumTranseferenciaField, value) != true)) {
+                    this.NumTranseferenciaField = value;
+                    this.RaisePropertyChanged("NumTranseferencia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.SocNegocio Socio {
+            get {
+                return this.SocioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SocioField, value) != true)) {
+                    this.SocioField = value;
+                    this.RaisePropertyChanged("Socio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoTransferencia {
+            get {
+                return this.TipoTransferenciaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoTransferenciaField, value) != true)) {
+                    this.TipoTransferenciaField = value;
+                    this.RaisePropertyChanged("TipoTransferencia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccesoServicio.FinanzasService.Banco banco {
+            get {
+                return this.bancoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bancoField, value) != true)) {
+                    this.bancoField = value;
+                    this.RaisePropertyChanged("banco");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idTransferencia {
+            get {
+                return this.idTransferenciaField;
+            }
+            set {
+                if ((this.idTransferenciaField.Equals(value) != true)) {
+                    this.idTransferenciaField = value;
+                    this.RaisePropertyChanged("idTransferencia");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/SIA.Libreria")]
     [System.SerializableAttribute()]
     public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2116,6 +2257,12 @@ namespace AccesoServicio.FinanzasService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerBancos", ReplyAction="http://tempuri.org/IContabilidadService/obtenerBancosResponse")]
         AccesoServicio.FinanzasService.Banco[] obtenerBancos();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/setearFacturas", ReplyAction="http://tempuri.org/IContabilidadService/setearFacturasResponse")]
+        bool setearFacturas(int idDoc, string pEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/insertarTransferencia", ReplyAction="http://tempuri.org/IContabilidadService/insertarTransferenciaResponse")]
+        bool insertarTransferencia(AccesoServicio.FinanzasService.Transferencia pTransferencia);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/Saludar", ReplyAction="http://tempuri.org/IContabilidadService/SaludarResponse")]
         string Saludar();
         
@@ -2265,6 +2412,14 @@ namespace AccesoServicio.FinanzasService {
         
         public AccesoServicio.FinanzasService.Banco[] obtenerBancos() {
             return base.Channel.obtenerBancos();
+        }
+        
+        public bool setearFacturas(int idDoc, string pEstado) {
+            return base.Channel.setearFacturas(idDoc, pEstado);
+        }
+        
+        public bool insertarTransferencia(AccesoServicio.FinanzasService.Transferencia pTransferencia) {
+            return base.Channel.insertarTransferencia(pTransferencia);
         }
         
         public string Saludar() {

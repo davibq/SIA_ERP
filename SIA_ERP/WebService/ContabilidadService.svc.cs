@@ -202,5 +202,15 @@ namespace SIA.Contabilidad.WebService
         {
             return LogicaInventario.Instancia.obtenerBancos();
         }
+
+        public bool setearFacturas(int idDoc, string pEstado)
+        {
+            return LogicaCompraVenta.Instancia.setearFacturas(idDoc,pEstado);
+        }
+
+        public bool insertarTransferencia(Transferencia pTransferencia)
+        {
+            return LogicaCompraVenta.Instancia.insertarTransferencia(pTransferencia);
+        }
     }
 }

@@ -181,6 +181,16 @@ namespace Logica
             return _DataAccess.ObtenerFacturasXEstadoXSocioNegocio(pCodSN, pEstadoFactura);
         }
 
+        public bool setearFacturas(int idDoc, string pEstado)
+        {
+            return _DataAccess.setearFacturas(idDoc, pEstado);
+        }
+
+        public bool insertarTransferencia(Transferencia pTransferencia)
+        {
+            return _DataAccess.insertarTransferencia(pTransferencia);
+        }
+
         #endregion
 
         #endregion

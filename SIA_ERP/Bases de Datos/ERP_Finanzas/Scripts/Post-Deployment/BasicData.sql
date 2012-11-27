@@ -15,7 +15,9 @@ INSERT INTO dbo.FIN_TipoAsiento (Nombre, Descripcion) VALUES
 	('EM', 'Entrada Mercancias'),
 	('FP', 'Factura Proveedores'),
 	('EE', 'Entrega Mercancias'),
-	('FC', 'Factura Clientes')
+	('FC', 'Factura Clientes'),
+	('PE', 'Pago efectuado'),
+	('PR', 'Pago recibido')
 
 GO
 -- =============================================

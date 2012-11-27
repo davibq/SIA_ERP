@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using SIA.DataAccess;
 using System.Configuration;
 using SIA.VentaCompra.Libreria;
+using SIA.Libreria;
 
 namespace DataAccessVentasCompras
 {
@@ -310,17 +311,41 @@ namespace DataAccessVentasCompras
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
+                    SocNegocio socNeg = new SocNegocio();
+                    socNeg.Codigo = row["_Cuenta"].ToString();
                     documentos.Add(new Documento()
                     {
                         IdDocumento = int.Parse(row["IdDocumento"].ToString()),
                         Consecutivo = row["Consecutivo"].ToString(),
                         Fecha1 = DateTime.Parse(row["Fecha"].ToString()),
                         Subtotal = double.Parse(row["Subtotal"].ToString()),
-                        Total = double.Parse(row["Total"].ToString())
+                        Total = double.Parse(row["Total"].ToString()),
+                        SocioNegocio = socNeg
                     });
                 }
             }
             return documentos;
+        }
+
+        public bool setearFacturas(int idDoc, string pEstado) {
+            return EjecutarNoConsulta("dbo.SetearFactura", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("IdDocumento", idDoc),
+                                                              new SqlParameter("Estado", pEstado)
+                                                          });
+        }
+
+        public bool insertarTransferencia(Transferencia pTransferencia)
+        {
+            return EjecutarNoConsulta("dbo.insertarTransferencia", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("TipoTransferencia", pTransferencia.TipoTransferencia),
+                                                              new SqlParameter("CodSN", pTransferencia.Socio.Codigo),
+                                                              new SqlParameter("NumTransferencia", pTransferencia.NumTranseferencia),
+                                                              new SqlParameter("Monto", pTransferencia.Monto),
+                                                              new SqlParameter("idBanco", pTransferencia.banco.idBanco),
+                                                              new SqlParameter("Fecha", pTransferencia.Fecha)
+                                                          });
         }
 
         #endregion
