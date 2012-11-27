@@ -48,7 +48,7 @@ INSERT INTO dbo.Articulo(Codigo, Nombre, Descripcion, IdUnidadMedida) VALUES
 	('PT02', 'Producto 2', 'Producto 2', 2),
 	('PT03', 'Producto 3', 'Producto 3', 1)
 
-INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentaExistencias, codCuentasVentas, codCuentasCostos) VALUES
+INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentasExistencia, codCuentasVentas, codCuentasCostos) VALUES
 	(1, 1, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
 	(1, 2, 0, 0, 0, '1-1-03-01', '4-1-01', '5-1-01'),
 	(1, 3, 0, 0, 0, '1-1-03-02', '4-1-01', '5-1-01'),

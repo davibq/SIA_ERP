@@ -56,7 +56,7 @@ BEGIN
 			
 			SELECT @IdBodega = IdBodega FROM dbo.Bodega WHERE Codigo = @pCodBodega
 			
-			INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentaExistencias, codCuentasVentas, codCuentasCostos)
+			INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentasExistencia, codCuentasVentas, codCuentasCostos)
 			VALUES (@IdArticulo,@IdBodega,0,0,0,@pCodExistencias,@pCodVentas,@pCodCostos)
 
 		END ELSE BEGIN
@@ -67,7 +67,7 @@ BEGIN
 			
 			SELECT @IdBodega = IdBodega FROM dbo.Bodega WHERE Codigo = @pCodBodega
 			
-			INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentaExistencias, codCuentasVentas, codCuentasCostos)
+			INSERT INTO dbo.ArticuloXBodega (IdArticulo, IdBodega, Stock, Comprometido, Solicitado, codCuentasExistencia, codCuentasVentas, codCuentasCostos)
 			VALUES (@IdArticulo,@IdBodega,0,0,0,@pCodExistencias,@pCodVentas,@pCodCostos)
 
 		END	

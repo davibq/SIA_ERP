@@ -344,9 +344,6 @@
     <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ArticulosXDetalle_Bodega.pkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\AgregarSolicitudes.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerArticulos.proc.sql">
       <SubType>Code</SubType>
     </Build>
