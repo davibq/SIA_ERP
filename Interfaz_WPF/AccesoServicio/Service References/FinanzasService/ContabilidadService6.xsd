@@ -20,6 +20,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="CodigoCuentaServicio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Consecutivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreadoDesdeAnterior" type="xs:boolean" />
       <xs:element minOccurs="0" name="DescripcionServicio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EsServicio" type="xs:boolean" />
       <xs:element minOccurs="0" name="Fecha1" type="xs:dateTime" />
@@ -64,6 +65,10 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Bodegas" nillable="true" type="tns:ArrayOfBodegaCV" />
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuentaCostos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuentaExistencias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuentaTransitoria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuentaVentas" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdProducto" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
