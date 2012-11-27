@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 ﻿ALTER TABLE [dbo].[EstadoDocumento]
+=======
+﻿ALTER TABLE [dbo].[EstadoDocumento]
+>>>>>>> 674ab780c3ed7d7b8d2a0823c347c88227c2bea0
     ADD CONSTRAINT [PK_EstadoDocumento] PRIMARY KEY CLUSTERED ([IdEstado] ASC) WITH (ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF);
