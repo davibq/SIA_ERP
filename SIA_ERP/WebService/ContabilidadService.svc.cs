@@ -188,6 +188,11 @@ namespace SIA.Contabilidad.WebService
             return LogicaCompraVenta.Instancia.ObtenerDocumentosCompras();
         }
 
+        public IEnumerable<Documento> ObtenerDocumentosVentas()
+        {
+            return LogicaCompraVenta.Instancia.ObtenerDocumentosVentas();
+        }
+
         public Documento ObtenerDocumento(int pIdDocumento)
         {
             return LogicaCompraVenta.Instancia.ObtenerDocumento(pIdDocumento);

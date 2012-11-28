@@ -135,6 +135,9 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         bool insertarTransferencia(Transferencia pTransferencia);
+
+        [OperationContract]
+        IEnumerable<Documento> ObtenerDocumentosVentas();
     }
 
 }

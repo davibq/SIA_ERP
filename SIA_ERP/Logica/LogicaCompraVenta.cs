@@ -5,6 +5,8 @@ using System.Text;
 using DataAccessVentasCompras;
 using SIA.VentaCompra.Libreria;
 using SIA.Libreria;
+using System.Net.Mail;
+using SIA.ExceptionLog;
 
 namespace Logica
 {
@@ -52,6 +54,34 @@ namespace Logica
         public List<ProductoCV> ObtenerProductos()
         {
             return _DataAccess.DemeProductos();
+        }
+
+        private bool EnviarCorreo()
+        {
+            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+            msg.To.Add("gatjens20@gmail.com");
+            msg.From = new MailAddress("tec.sia.2012@gmail.com", "TEC SIA", System.Text.Encoding.UTF8);
+            msg.Subject = "Nueva Orden de Compra";
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = "Se ha revisado una nueva orden de compra";
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+            msg.IsBodyHtml = false;
+
+            SmtpClient client = new SmtpClient();
+            client.Credentials = new System.Net.NetworkCredential("tec.sia.2012@gmail.com", "siatec2012");
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            try
+            {
+                client.Send(msg);
+            }
+            catch (System.Net.Mail.SmtpException ex)
+            {
+                ExceptionLogger.LogExcepcion(ex, "Error enviando correo");
+                return false;
+            }
+            return true;
         }
 
         public bool GuardarDocumento(Documento pDocumento)
@@ -105,6 +135,7 @@ namespace Logica
                     /*LogicaNegocio.Instancia.AgregarAsiento(pDocumento.Fecha1.ToShortDateString(), 
                         item.Producto.Precio, item.Producto.Precio, xml, "FP");*/
                 }
+                extras = true;
             }
             else if (pDocumento.TipoDocumento.CompareTo("Orden de Venta") == 0)
             {
@@ -123,7 +154,7 @@ namespace Logica
                     double total = (item.Producto.Precio * item.Cantidad) * (item.Impuestos / 100) + (item.Producto.Precio * item.Cantidad);
                     //Costo Ventas
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
-                            item.Bodega.Costo, monedaSistema.Acronimo, item.Producto.CuentaVentas, 1);
+                            item.Bodega.Costo, monedaSistema.Acronimo, item.Producto.CuentaCostos, 1);
                     //Inventario
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
                         item.Bodega.Costo, monedaSistema.Acronimo,
@@ -141,25 +172,60 @@ namespace Logica
                 //Inventario contra costo ventas
                 if (!pDocumento.CreadoDesdeAnterior)
                 {
+                    _DataAccess.ModificarCantidadArticulos(pDocumento.LineasVenta, false, "Stock");
                     foreach (var item in pDocumento.LineasVenta)
                     {
                         string xml = "<Cuentas>";
                         double total = (item.Producto.Precio * item.Cantidad) * (item.Impuestos / 100) + (item.Producto.Precio * item.Cantidad);
                         //Costo Ventas
                         xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
-                                item.Bodega.Costo, monedaSistema.Acronimo, item.Producto.CuentaVentas, 1);
+                                item.Bodega.Costo, monedaSistema.Acronimo, item.Producto.CuentaCostos, 1);
                         //Inventario
                         xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
                             item.Bodega.Costo, monedaSistema.Acronimo,
                             item.Producto.CuentaExistencias, 0);
+
+                        //CxC
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            total, monedaSistema.Acronimo,
+                            pDocumento.SocioNegocio.CuentaAsociada, 1);
+                        //IV x pagar
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            (item.Producto.Precio * item.Cantidad) * (item.Impuestos / 100), monedaSistema.Acronimo,
+                            cuentaIVXPagar, 0);
+                        //Ventas
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            (item.Producto.Precio * item.Cantidad), monedaSistema.Acronimo,
+                            item.Producto.CuentaVentas, 0);
                         xml += "</Cuentas>";
                         /*LogicaNegocio.Instancia.AgregarAsiento(pDocumento.Fecha1.ToShortDateString(), 
                             item.Producto.Precio, item.Producto.Precio, xml, "FC");*/
                     }
                 }
-                
-                //TODO: asiento saldo de socio negocio contra ventas
-
+                else
+                {
+                    foreach (var item in pDocumento.LineasVenta)
+                    {
+                        string xml = "<Cuentas>";
+                        double total = (item.Producto.Precio * item.Cantidad) * (item.Impuestos / 100) + (item.Producto.Precio * item.Cantidad);
+                        //CxC
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            total, monedaSistema.Acronimo,
+                            pDocumento.SocioNegocio.CuentaAsociada, 1);
+                        //IV x pagar
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            (item.Producto.Precio * item.Cantidad) * (item.Impuestos / 100), monedaSistema.Acronimo,
+                            cuentaIVXPagar, 0);
+                        //Ventas
+                        xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                            (item.Producto.Precio * item.Cantidad), monedaSistema.Acronimo,
+                            item.Producto.CuentaVentas, 0);
+                        xml += "</Cuentas>";
+                        /*LogicaNegocio.Instancia.AgregarAsiento(pDocumento.Fecha1.ToShortDateString(), 
+                            item.Producto.Precio, item.Producto.Precio, xml, "FC");*/
+                    }
+                }
+                extras = true;
             }
             return extras && guardadoDocumento;
         }
@@ -167,6 +233,10 @@ namespace Logica
         public List<Documento> ObtenerDocumentosCompras()
         {
             return _DataAccess.ObtenerDocumentosCompra();
+        }
+        public List<Documento> ObtenerDocumentosVentas()
+        {
+            return _DataAccess.ObtenerDocumentosVenta();
         }
 
         public Documento ObtenerDocumento(int pIdDocumento)

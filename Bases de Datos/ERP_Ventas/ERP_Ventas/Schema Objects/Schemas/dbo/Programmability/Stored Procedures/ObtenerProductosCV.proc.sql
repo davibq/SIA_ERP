@@ -4,7 +4,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT 
 		Articulo.IdArticulo, Articulo.Descripcion, Articulo.Codigo, Bodega.IdBodega, Bodega.Nombre Bodega, CA.Costo,
-		AXB.codCuentasCostos, AXB.codCuentasExistencia, AXB.codCuentasVentas, AXB.codCuentaTransitoria
+		AXB.codCuentasCostos, AXB.codCuentasExistencias, AXB.codCuentasVentas, AXB.codCuentaTransitoria
 	FROM dbo.Articulo
 	INNER JOIN (
 		SELECT MAX(FechaActualizacion) FechaAct, IdArticulo, IdBodega from dbo.CostoXArticuloXBodega

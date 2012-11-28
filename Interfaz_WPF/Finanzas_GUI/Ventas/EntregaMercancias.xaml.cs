@@ -58,7 +58,7 @@ namespace Login_WPF.Ventas
             var documento = new AccesoServicio.FinanzasService.Documento();
             documento.Consecutivo = encabezado1.txtConsecutivo.Text;
             documento.CreadoDesdeAnterior = DesdeDocumentoPasado;
-            documento.TipoDocumento = "Entrada de Mercancias";
+            documento.TipoDocumento = "Entrega de Mercancias";
             documento.Fecha1 = encabezado1.fecha1.SelectedDate.Value;
             documento.Fecha2 = encabezado1.fecha2.SelectedDate.Value;
             documento.Subtotal = double.Parse(detalle1.lblSubtotal.Content.ToString());
@@ -70,7 +70,7 @@ namespace Login_WPF.Ventas
             documento.SocioNegocio = (SocNegocio)encabezado1.cmbSocio.SelectedItem;
             if (ServicioFinanzas.Instancia.GuardarDocumento(documento))
             {
-                MessageBox.Show("Entrada de Mercancias guardada");
+                MessageBox.Show("Entrega de Mercancias guardada");
                 encabezado1.txtConsecutivo.Text = string.Empty;
                 encabezado1.cmbSocio.SelectedIndex = -1;
             }
@@ -85,8 +85,8 @@ namespace Login_WPF.Ventas
             if (DesignerProperties.GetIsInDesignMode(this)) return;
             encabezado1.Fecha1Label = "Fecha de Contabilización";
             encabezado1.Fecha2Label = "Fecha de Vencimiento";
-            encabezado1.SocioLabel = "Proveedor:";
-            encabezado1.CargarSocios("Proveedor");
+            encabezado1.SocioLabel = "Cliente:";
+            encabezado1.CargarSocios("Cliente");
             detalle1.InicializarColumnas(true);
         }
 

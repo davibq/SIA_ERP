@@ -131,5 +131,26 @@ namespace Login_WPF
             factura.detalle1.ActualizarTotal();
             factura.ShowDialog();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            var documento = (Documento)gridDocumentos.SelectedItem;
+            var doc = ServicioFinanzas.Instancia.ObtenerDocumento(documento.IdDocumento);
+            var factura = new Compras.FacturaProveedores();
+            factura.DesdeDocumentoPasado = true;
+            factura.encabezado1.label1.Content = doc.TipoDocumento;
+            factura.detalle1.Productos = doc.LineasVenta.ToList();
+            factura.InicializarControles();
+            foreach (var item in factura.encabezado1.cmbSocio.Items)
+            {
+                if (((SocNegocio)item).Nombre.CompareTo(doc.SocioNegocio.Nombre) == 0)
+                {
+                    factura.encabezado1.cmbSocio.SelectedItem = item;
+                }
+            }
+            factura.detalle1.btnAgregar.IsEnabled = false;
+            factura.detalle1.ActualizarTotal();
+            factura.ShowDialog();
+        }
     }
 }

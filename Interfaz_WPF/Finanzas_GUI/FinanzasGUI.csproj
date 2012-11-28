@@ -115,6 +115,9 @@
     <Compile Include="Ventas\FacturaClientes.xaml.cs">
       <DependentUpon>FacturaClientes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventas\FacturaServicios.xaml.cs">
+      <DependentUpon>FacturaServicios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventas\ModuloVentas.xaml.cs">
       <DependentUpon>ModuloVentas.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ventas\FacturaClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventas\FacturaServicios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

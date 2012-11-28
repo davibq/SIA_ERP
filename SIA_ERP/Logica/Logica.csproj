@@ -63,6 +63,10 @@
       <Project>{F5FB8F63-CD96-41F6-98E9-4FBDDD6EE65D}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExceptionLog\ExceptionLog.csproj">
+      <Project>{A29707C3-89B6-42EE-9CDB-19712D3AA490}</Project>
+      <Name>ExceptionLog</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibreriaVentaCompra\LibreriaVentaCompra.csproj">
       <Project>{6FC10D9A-2787-449B-AE57-DE9ECA74FA87}</Project>
       <Name>LibreriaVentaCompra</Name>

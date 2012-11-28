@@ -5,7 +5,7 @@
     <Grid>
         <Label Content="Módulo Compras" Height="28" HorizontalAlignment="Center" Margin="0,22,0,0" Name="label1" VerticalAlignment="Top" FontSize="13" FontWeight="Bold" />
         <Button Content="Salir" Height="23" HorizontalAlignment="Right" Margin="0,0,20,20" Name="btnAtras" VerticalAlignment="Bottom" Width="75" Click="btnAtras_Click" />
-        <Button Content="Visualizar" Height="23" HorizontalAlignment="Left" Margin="491,378,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+        <Button Content="Visualizar" Height="23" HorizontalAlignment="Left" Margin="491,378,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
         <Button Height="51" HorizontalAlignment="Left" Margin="84,428,0,0" Name="btnAgregarOrdenCompra" VerticalAlignment="Top" Width="98" Click="btnAgregarOrdenCompra_Click">
             <TextBlock TextAlignment="Center">Nueva <LineBreak />Orden de Compra</TextBlock>
         </Button>

@@ -404,5 +404,8 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\insertarTransferencia.proc.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerDocumentosVentas.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
 </Project>

@@ -204,6 +204,29 @@ namespace DataAccessVentasCompras
             }
             return documentos;
         }
+        public List<Documento> ObtenerDocumentosVenta()
+        {
+            var documentos = new List<Documento>();
+            var ds = EjecutarConsulta("dbo.ObtenerDocumentosVentas", new List<SqlParameter>());
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    documentos.Add(new Documento()
+                    {
+                        IdDocumento = int.Parse(row["IdDocumento"].ToString()),
+                        Consecutivo = row["Consecutivo"].ToString(),
+                        TipoDocumento = row["TipoDocumento"].ToString(),
+                        Total = double.Parse(row["Total"].ToString()),
+                        SocioNegocio = new SocNegocio()
+                        {
+                            Nombre = row["Nombre"].ToString()
+                        }
+                    });
+                }
+            }
+            return documentos;
+        }
 
         public Documento ObtenerDocumento(int pIdDocumento)
         {
@@ -231,7 +254,8 @@ namespace DataAccessVentasCompras
                                 new LineaVenta(){
                                     Bodega=new BodegaCV(){
                                         IdBodega=row["IdBodega"]==null?-1:int.Parse(row["IdBodega"].ToString()),
-                                        Nombre=row["Bodega"]==null?string.Empty:row["Bodega"].ToString()
+                                        Nombre=row["Bodega"]==null?string.Empty:row["Bodega"].ToString(),
+                                        Costo=row["Costo"]==null?-1:double.Parse(row["Costo"].ToString())
                                     },
                                     Cantidad=int.Parse(row["Cantidad"].ToString()),
                                     Impuestos=double.Parse(row["Impuesto"].ToString()),
@@ -253,7 +277,8 @@ namespace DataAccessVentasCompras
                         documento.LineasVenta.Add(new LineaVenta(){
                             Bodega=new BodegaCV(){
                                 IdBodega=row["IdBodega"]==null?-1:int.Parse(row["IdBodega"].ToString()),
-                                Nombre=row["Bodega"]==null?string.Empty:row["Bodega"].ToString()
+                                Nombre=row["Bodega"]==null?string.Empty:row["Bodega"].ToString(),
+                                Costo=row["Costo"]==null?-1:double.Parse(row["Costo"].ToString())
                             },
                             Cantidad=int.Parse(row["Cantidad"].ToString()),
                             Impuestos=double.Parse(row["Impuesto"].ToString()),

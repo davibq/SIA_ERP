@@ -206,6 +206,11 @@ namespace AccesoServicio
             return _CSC.ObtenerDocumentosCompras();
         }
 
+        public IEnumerable<Documento> ObtenerDocumentosVentas()
+        {
+            return _CSC.ObtenerDocumentosVentas();
+        }
+
         public Documento ObtenerDocumento(int pIdDocumento)
         {
             return _CSC.ObtenerDocumento(pIdDocumento);
