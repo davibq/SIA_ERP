@@ -121,6 +121,7 @@ EXEC dbo.ERPSP_ActualizarCuenta 'Ingresos por consultoría', '4-1-04' , 3, 1, '4
 
 EXEC dbo.ERPSP_ActualizarCuenta 'COSTO DE VENTAS', '5-1', 2, 1, '5', 'Costos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="COSTO DE VENTAS" idioma="es"/></Nombres>'
 EXEC dbo.ERPSP_ActualizarCuenta 'Costo de ventas', '5-1-01', 3, 1, '5-1', 'Costos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Costo de ventas" idioma="es"/></Nombres>'
+EXEC dbo.ERPSP_ActualizarCuenta 'Costo de ventas third party', '5-1-02', 3, 1, '5-1', 'Costos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="Costo de ventas Third Party" idioma="es"/></Nombres>'
 
 
 EXEC dbo.ERPSP_ActualizarCuenta 'GASTOS DE VENTAS', '6-1', 2, 1, '6', 'Gastos', '<MonedasCuenta><Moneda moneda="CRC"/><Moneda moneda="USD"/></MonedasCuenta>', '<Nombres><Nombre nombre="GASTOS DE VENTAS" idioma="es"/></Nombres>'

@@ -139,6 +139,7 @@ namespace Login_WPF
             var factura = new Compras.FacturaProveedores();
             factura.DesdeDocumentoPasado = true;
             factura.encabezado1.label1.Content = doc.TipoDocumento;
+            factura.encabezado1.txtConsecutivo.Text = doc.Consecutivo;
             factura.detalle1.Productos = doc.LineasVenta.ToList();
             factura.InicializarControles();
             foreach (var item in factura.encabezado1.cmbSocio.Items)

@@ -5,11 +5,17 @@
     <Grid>
         <d:Encabezado Height="111" HorizontalAlignment="Left" Margin="54,41,0,0" x:Name="encabezado1" VerticalAlignment="Top" Width="650" />
         <Label Content="Factura de Clientes" Height="28" HorizontalAlignment="Left" Margin="54,11,0,0" Name="label1" VerticalAlignment="Top" Width="325" FontWeight="Bold" FontSize="14" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="323,205,0,0" Name="txtCuentaAsociada" VerticalAlignment="Top" Width="226" />
-        <Label Content="Cuenta Asociada:" Height="28" HorizontalAlignment="Left" Margin="178,205,0,0" Name="label2" VerticalAlignment="Top" Width="150" />
-        <Label Content="Detalle:" Height="28" HorizontalAlignment="Left" Margin="178,256,0,0" Name="label3" VerticalAlignment="Top" Width="125" />
-        <TextBox Height="132" HorizontalAlignment="Left" Margin="323,256,0,0" Name="txtDetalle" VerticalAlignment="Top" Width="226" />
-        <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="240,462,0,0" Name="cmdGuardar" VerticalAlignment="Top" Width="75" />
-        <Button Content="Atras" Height="23" HorizontalAlignment="Left" Margin="402,462,0,0" Name="cmdAtras" VerticalAlignment="Top" Width="75" Click="cmdAtras_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="325,169,0,0" Name="txtCuentaAsociada" VerticalAlignment="Top" Width="120" />
+        <Label Content="Cuenta:" Height="28" HorizontalAlignment="Left" Margin="271,169,0,0" Name="label2" VerticalAlignment="Top" Width="59" />
+        <Label Content="Detalle:" Height="28" HorizontalAlignment="Left" Margin="271,220,0,0" Name="label3" VerticalAlignment="Top" Width="48" />
+        <TextBox Height="132" HorizontalAlignment="Left" Margin="325,220,0,0" Name="txtDetalle" VerticalAlignment="Top" Width="226" />
+        <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="263,509,0,0" Name="cmdGuardar" VerticalAlignment="Top" Width="75" Click="cmdGuardar_Click" />
+        <Button Content="Atras" Height="23" HorizontalAlignment="Left" Margin="425,509,0,0" Name="cmdAtras" VerticalAlignment="Top" Width="75" Click="cmdAtras_Click" />
+        <Label Content="Precio:" Height="28" HorizontalAlignment="Left" Margin="271,372,0,0" Name="label4" VerticalAlignment="Top" Width="48" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="325,372,0,0" Name="txtTotal" VerticalAlignment="Top" Width="120" LostFocus="txtTotal_LostFocus" />
+        <Label Content="IV:" Height="28" HorizontalAlignment="Left" Margin="271,414,0,0" Name="label5" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="325,414,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" LostFocus="textBox1_LostFocus" />
+        <Label Content="Total:" Height="28" HorizontalAlignment="Left" Margin="271,462,0,0" Name="label6" VerticalAlignment="Top" />
+        <Label Content="0.0" Height="28" HorizontalAlignment="Left" Margin="325,462,0,0" Name="lblTotal" VerticalAlignment="Top" Width="120" />
     </Grid>
 </Window>

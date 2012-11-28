@@ -49,6 +49,7 @@ namespace Login_WPF
         private void btnAgregarOrdenCompra_Click(object sender, RoutedEventArgs e)
         {
             var ordenCompra = new Ventas.OrdenVenta();
+            ordenCompra.InicializarControles();
             ordenCompra.ShowDialog();
         }
 
@@ -97,6 +98,7 @@ namespace Login_WPF
             var factura = new Ventas.FacturaClientes();
             factura.DesdeDocumentoPasado = true;
             factura.encabezado1.label1.Content = doc.TipoDocumento;
+            factura.encabezado1.txtConsecutivo.Text = doc.Consecutivo;
             factura.detalle1.Productos = doc.LineasVenta.ToList();
             factura.InicializarControles();
             foreach (var item in factura.encabezado1.cmbSocio.Items)

@@ -25,7 +25,7 @@ namespace Login_WPF.Ventas
         {
             InitializeComponent();
         }
-        private void InicializarControles()
+        public void InicializarControles()
         {
             if (DesignerProperties.GetIsInDesignMode(this)) return;
             encabezado1.Fecha1Label = "Fecha de Contabilización";

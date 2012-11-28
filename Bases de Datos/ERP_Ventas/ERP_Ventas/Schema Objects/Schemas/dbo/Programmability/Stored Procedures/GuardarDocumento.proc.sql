@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE dbo.GuardarDocumento 
+﻿CREATE PROCEDURE [dbo].[GuardarDocumento] 
 	@pTipoDocumento VARCHAR(25),
 	@pFecha1 DATE,
 	@pFecha2 DATE,
@@ -36,7 +36,9 @@ BEGIN
 		INSERT INTO dbo.DetalleServicios(Descripcion, CodigoCuenta) VALUES
 			(@pDescripcionServicio, @pCodigoCuentaServicio)
 		SET @IdDetalleServicios=SCOPE_IDENTITY()
-		SET @IdDetalleProductos=NULL
+		INSERT INTO dbo.DetalleDocumento(Subtotal, Total) VALUES
+			(@pSubtotal, @pTotal)
+		SET @IdDetalleProductos=SCOPE_IDENTITY()
 	END
 	
 	INSERT INTO Documento 
@@ -46,4 +48,3 @@ BEGIN
 
 	return 0;
 END
-

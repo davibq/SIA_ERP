@@ -86,7 +86,7 @@ namespace DataAccessVentasCompras
                                 }
                             },
                             CuentaCostos = row["codCuentasCostos"].ToString(),
-                            CuentaExistencias = row["codCuentasExistencias"].ToString(),
+                            CuentaExistencias = row["codCuentasExistencia"].ToString(),
                             CuentaVentas = row["codCuentasVentas"].ToString(),
                             CuentaTransitoria = row["codCuentaTransitoria"].ToString()
                         });
@@ -405,6 +405,23 @@ namespace DataAccessVentasCompras
                 }
             }
             return ordenesDeCompra;
+        }
+
+        public bool GuardarDocumentoServicios(Documento pDocumento)
+        {
+            return EjecutarNoConsulta("dbo.GuardarDocumento", new List<SqlParameter>()
+            {
+                new SqlParameter("pTipoDocumento", pDocumento.TipoDocumento),
+                new SqlParameter("pFecha1", pDocumento.Fecha1),
+                new SqlParameter("pFecha2", pDocumento.Fecha2),
+                new SqlParameter("pConsecutivo", pDocumento.Consecutivo),
+                new SqlParameter("pSubtotal", pDocumento.Subtotal),
+                new SqlParameter("pTotal", pDocumento.Total),
+                new SqlParameter("pEsServicio", pDocumento.EsServicio?1:0),
+                new SqlParameter("pDescripcionServicio", pDocumento.DescripcionServicio),
+                new SqlParameter("pCodigoCuentaServicio", pDocumento.CodigoCuentaServicio),
+                new SqlParameter("pIdSocioNegocio", pDocumento.SocioNegocio.IdSocio)
+            });
         }
 
         #region Facturas

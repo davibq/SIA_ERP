@@ -103,6 +103,28 @@ namespace Logica
             var guardadoDocumento=_DataAccess.GuardarDocumento(pDocumento);
             var extras=false;
             var monedaSistema = LogicaNegocio.Instancia.ObtenerMonedasSistema("Sistema");
+            if (pDocumento.EsServicio)
+            {
+                var cuenta = LogicaNegocio.Instancia.ObtenerCuenta("Impuesto Venta por pagar");
+                var cuentaIVXPagar = cuenta.Codigo;
+                string xml = "<Cuentas>";
+                //CxC
+                xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                    pDocumento.Total, monedaSistema.Acronimo,
+                    pDocumento.SocioNegocio.CuentaAsociada, 1);
+                //IV x pagar
+                xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                    (pDocumento.Total-pDocumento.Subtotal), monedaSistema.Acronimo,
+                    cuentaIVXPagar, 0);
+                //Ventas
+                xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                    pDocumento.Subtotal, monedaSistema.Acronimo,
+                    pDocumento.CodigoCuentaServicio, 0);
+                xml += "</Cuentas>";
+                /*LogicaNegocio.Instancia.AgregarAsiento(pDocumento.Fecha1.ToShortDateString(), 
+                    item.Producto.Precio, item.Producto.Precio, xml, "FC");*/
+                extras = true;
+            }
             if (pDocumento.TipoDocumento.CompareTo("Orden de Compra")==0){
                 //Aumenta solicitados
                 extras = _DataAccess.ModificarCantidadArticulos(pDocumento.LineasVenta, true, "Solicitado");
@@ -181,7 +203,8 @@ namespace Logica
             else if (pDocumento.TipoDocumento.CompareTo("Factura de clientes") == 0)
             {
                 //TODO: remover CXP alambrada
-                var cuentaIVXPagar = "2-1-01-01";
+                var cuenta=LogicaNegocio.Instancia.ObtenerCuenta("Impuesto Venta por pagar");
+                var cuentaIVXPagar = cuenta.Codigo;
 
                 //Inventario contra costo ventas
                 if (!pDocumento.CreadoDesdeAnterior)
