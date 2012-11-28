@@ -15,7 +15,7 @@ namespace AccesoServicio
 
         ~ServicioFinanzas()
         {
-            
+
             _CSC.Close();
         }
 
@@ -74,7 +74,7 @@ namespace AccesoServicio
 
         public bool CrearCuenta(Cuenta pCuenta, string pXml)
         {
-            return _CSC.CrearCuenta(pCuenta,pXml);
+            return _CSC.CrearCuenta(pCuenta, pXml);
         }
 
         public bool GuardarPeriodoContable(string pFechaIn, string pFechaFin, int pAno, Mes[] pArregloMeses)
@@ -102,11 +102,12 @@ namespace AccesoServicio
             return _CSC.AgregarAsiento(Fecha, MontoDebe, MontoHaber, pXML, pTipoAsiento);
         }
 
-        public Moneda ObtenerMonedasSistema(string pTipo) {
+        public Moneda ObtenerMonedasSistema(string pTipo)
+        {
             return _CSC.ObtenerMonedasSistema(pTipo);
         }
 
-        public double  ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
+        public double ConvertirAMonedaSistema(MonedasValidas pMoneda, double pValor)
         {
             return _CSC.ConvertirAMonedaSistema(pMoneda, pValor);
         }
@@ -141,7 +142,7 @@ namespace AccesoServicio
             return _CSC.ObtenerCuenta(pNombreCuenta);
         }
 
-        public IEnumerable<Cuenta> ObtenerCuentasTreeView() 
+        public IEnumerable<Cuenta> ObtenerCuentasTreeView()
         {
             return _CSC.ObtenerCuentasTreeView();
         }
@@ -226,7 +227,7 @@ namespace AccesoServicio
             return _CSC.obtenerBancos();
         }
 
-        public bool setearFacturas(int idDoc, string pEstado) 
+        public bool setearFacturas(int idDoc, string pEstado)
         {
             return _CSC.setearFacturas(idDoc, pEstado);
         }
@@ -234,6 +235,16 @@ namespace AccesoServicio
         public bool insertarTransferencia(Transferencia pTransferencia)
         {
             return _CSC.insertarTransferencia(pTransferencia);
+        }
+
+        public bool insertarBanco(Banco pBanco)
+        {
+            return _CSC.insertarBanco(pBanco);
+        }
+
+        public IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombrePadre)
+        {
+            return _CSC.ObtenerCuentasHojas(pNombrePadre);
         }
 
         private ContabilidadServiceClient _CSC;

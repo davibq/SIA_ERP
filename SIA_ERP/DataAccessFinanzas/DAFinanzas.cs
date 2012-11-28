@@ -275,6 +275,104 @@ namespace DataAccessFinanzas
             return cuentas;
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasDeMayorSN()
+        {
+            var cuentas = new List<Cuenta>();
+            var ds = EjecutarConsulta("dbo.ObtenerCuentasDeMayorSN", new List<SqlParameter>() { });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var cuenta = new Cuenta();
+                    cuenta.Codigo = row["Codigo"].ToString();
+                    cuenta.Nombre = row["Nombre"].ToString();
+                    cuenta.Nivel = int.Parse(row["Nivel"].ToString());
+                    cuentas.Add(cuenta);
+                }
+            }
+            return cuentas;
+        }
+
+        public int ObtenerIdMoneda(string moneda)
+        {
+            int IdMoneda = 0;
+            var ds = EjecutarConsulta("dbo.ObtenerIdMoneda", new List<SqlParameter>()
+            {
+                new SqlParameter("Moneda", moneda)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var monedaId = new Moneda();
+                    monedaId.IdMoneda = int.Parse(row["IdMoneda"].ToString());
+                    IdMoneda = monedaId.IdMoneda;
+                }
+            }
+            return IdMoneda;
+        }
+
+        public string ObtenerNombreCuentaDeMayorSN(string CodigoSN)
+        {
+            string Cuenta_Socio = "";
+            var ds = EjecutarConsulta("dbo.ObtenerNombreCuentaDeMayorSN", new List<SqlParameter>(){
+                    new SqlParameter("CodigoSN", CodigoSN)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var cuenta = new Cuenta();
+                    cuenta.Nombre = row["Nombre"].ToString();
+                    Cuenta_Socio = cuenta.Nombre;
+                }
+            }
+            return Cuenta_Socio;
+        }
+
+        public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
+        {
+            string Saldo_Cuenta = "";
+            var ds = EjecutarConsulta("dbo.ERPSP_ObtenerSaldoCuenta", new List<SqlParameter>()
+            {
+                new SqlParameter("CodigoCuentaSN", CodigoCuentaSN),
+                new SqlParameter("IdMoneda", IdMoneda)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var cuenta = new Cuenta();
+                    cuenta.Saldo = double.Parse(row["SaldoCuenta"].ToString());
+                    var moneda = new Moneda();
+                    moneda.Acronimo = row["AcronimoMoneda"].ToString();
+                    Saldo_Cuenta = string.Format("{0:f}",cuenta.Saldo) + " " + moneda.Acronimo;
+                }
+            }
+            return Saldo_Cuenta;
+        }
+
+        #endregion
+
+        #region Métodos App
+
+        public ConsultaSaldo consultarCreditoSaldo(string pCodigoCliente)
+        {
+            var consultaSaldo = new ConsultaSaldo();
+            var ds = EjecutarConsulta("dbo.ObtenerSaldo_LimiteCredito", new List<SqlParameter>()
+            {
+                new SqlParameter("@CodigoCliente", pCodigoCliente)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    consultaSaldo.LimiteCredito = Convert.ToDouble(row["LimiteCredito"].ToString();
+                    consultaSaldo.Saldo = Convert.ToDouble(row["Saldo"].ToString());
+                }
+            }
+            return consultaSaldo;
+        }
         #endregion
 
     }

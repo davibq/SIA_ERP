@@ -11,6 +11,9 @@ namespace SIA.Libreria
     public class Moneda
     {
         [DataMember]
+        public int IdMoneda { get; set; }
+
+        [DataMember]
         public string Nombre { get; set; }
 
         [DataMember]

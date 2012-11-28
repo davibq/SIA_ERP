@@ -58,11 +58,6 @@ namespace Logica
             return _DataAccess.crearArticulo(pArticulo);
         }
 
-        public List<Articulo> obtenerArticulos()
-        {
-            return _DataAccess.obtenerArticulos();
-        }
-
         public bool crearBodega(Bodega pBodega)
         {
             return _DataAccess.crearBodega(pBodega);
@@ -71,6 +66,30 @@ namespace Logica
         public List<Banco> obtenerBancos()
         {
             return _DataAccess.obtenerBancos();
+        }
+
+        #endregion
+
+        #region Métodos App
+
+        public List<Articulo> obtenerArticulos()
+        {
+            return _DataAccess.obtenerArticulos();
+        }
+
+        public List<string> obtenerHistorialArticulosCliente(string pCodigoCliente)
+        {
+            return _DataAccess.obtenerHistorialArticulosCliente(pCodigoCliente);
+        }
+
+        public List<string> consultarCantidadPrecio(string pCliente, string pArticulo)
+        {
+            return _DataAccess.consultarCantidadPrecio(pCliente, pArticulo);
+        }
+
+        public bool insertarBanco(Banco pBanco)
+        {
+            return _DataAccess.insertarBanco(pBanco);
         }
 
         #endregion

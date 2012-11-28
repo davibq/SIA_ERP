@@ -51,6 +51,7 @@
   <xs:complexType name="Moneda">
     <xs:sequence>
       <xs:element minOccurs="0" name="Acronimo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdMoneda" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SIA.TipoCambio" minOccurs="0" name="TipoMoneda" type="q1:MonedasValidas" />

@@ -1,46 +1,72 @@
 ﻿<Window x:Class="Login_WPF.Admin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Admin" Height="489" Width="585" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="Images/icon_erp.png" Closing="Window_Closing" MinHeight="470" MinWidth="545">
+        Title="Admin" Height="510" Width="598" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="Images/icon_erp.png" Closing="Window_Closing" MinHeight="470" MinWidth="545">
     <Grid>
-        <TabControl Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="tabControlRegisEmpresas" VerticalAlignment="Stretch" Width="Auto">
-            <TabItem Header="Crear Empresa" Name="CrearEmpresa">
-                <Grid>
-                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="225,9,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="250"  OpacityMask="Crimson" Foreground="#FFE5572C" FontSize="14"/>
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="152,47,0,0" Name="textBlock1Nombre" Text="Nombre:" VerticalAlignment="Top" Width="61" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="225,43,0,0" Name="textBoxNombre" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="152,84,0,0" Name="textBlockTelefono" Text="Teléfono:" VerticalAlignment="Top" Width="61" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="225,81,0,0" Name="textBoxTelefono" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="181,124,0,0" Name="textBlockFax" Text="Fax:" VerticalAlignment="Top" Width="30" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="225,120,0,0" Name="textBoxFax" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="172,197,0,0" Name="textBlockLogo" Text="Logo:" VerticalAlignment="Top" Width="40" />
-                    <TextBox Height="27" HorizontalAlignment="Left" IsReadOnly="True" Margin="225,195,0,0" Name="textBoxRuta" VerticalAlignment="Top" Width="250" />
-                    <Button Content="Buscar..." Height="25" HorizontalAlignment="Left" Margin="480,196,0,0" Name="buttonBuscar" VerticalAlignment="Top" Width="52" Click="buttonBuscar_Click" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="111,161,0,0" Name="textBlockCedJuridica" Text="Cédula Jurídica:" VerticalAlignment="Top" Width="104" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="225,158,0,0" Name="textBoxCedJuridica" VerticalAlignment="Top" Width="250" />
-                    <Button Content="Crear" Height="28" HorizontalAlignment="Left" Margin="225,366,0,0" Name="button1" VerticalAlignment="Top" Width="65" Click="button1_Click" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="64,236,0,0" Name="textBlock1" Text="Moneda Local:" VerticalAlignment="Top" Width="149" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="55,269,0,0" Name="textBlock2" Text="Acrónimo Moneda Local:" VerticalAlignment="Top" Width="157" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="225,267,0,0" Name="textBoxAcronimoMonedaL" VerticalAlignment="Top" Width="250" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="23,302,0,0" Name="textBlock3" Text="Moneda del Sistema:" VerticalAlignment="Top" Width="189" />
-                    <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="16,335,0,0" Name="textBlock4" Text="Acrónimo Moneda del Sistema:" VerticalAlignment="Top" Width="196" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="225,333,0,0" Name="textBoxAcronimoMonedaS" VerticalAlignment="Top" Width="250" />
-                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="225,236,0,0" Name="CMBMonedaLocal" VerticalAlignment="Top" Width="250" />
-                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="225,302,0,0" Name="CMBMonedaSistema" VerticalAlignment="Top" Width="250" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Modificar/Eliminar Empresa" Name="ModificarEliminarEmpresa">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="277" />
-                        <ColumnDefinition Width="206" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="15" FontWeight="Bold" Height="23" HorizontalAlignment="Left" Margin="49,26,0,0" Name="textBlockEmpresasDisponibles" Text="Empresas Disponibles" VerticalAlignment="Top" />
-                    <ListBox Height="Auto" HorizontalAlignment="Stretch" Margin="50,70" Name="listBox1" VerticalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="2" />
-                    <Button Content="Modificar" Height="27" HorizontalAlignment="Left" Margin="50,0,0,25" Name="buttonModificar" VerticalAlignment="Bottom" Width="83" Click="buttonModificar_Click" />
-                    <Button Content="Elminar" Height="27" HorizontalAlignment="Left" Margin="163,0,0,25" Name="buttonEliminar" VerticalAlignment="Bottom" Width="83" Click="buttonEliminar_Click" />
-                </Grid>
-            </TabItem>
-        </TabControl>
+        <Grid Margin="0,0,0,-23">
+            <TabControl HorizontalAlignment="Stretch" Margin="0,30,0,23" Name="tabControlRegisEmpresas" VerticalAlignment="Stretch" Width="Auto">
+                <TabItem Header="Crear Empresa" Name="CrearEmpresa">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="286" />
+                            <ColumnDefinition Width="267" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="14" Foreground="#FFE5572C" Grid.ColumnSpan="2" Height="25" HorizontalAlignment="Left" Margin="225,9,0,0" Name="errormessage" OpacityMask="Crimson" VerticalAlignment="Top" Width="250" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="152,47,0,0" Name="textBlock1Nombre" Text="Nombre:" VerticalAlignment="Top" Width="61" />
+                        <TextBox Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" Margin="225,43,0,0" Name="textBoxNombre" VerticalAlignment="Top" Width="250" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="152,84,0,0" Name="textBlockTelefono" Text="Teléfono:" VerticalAlignment="Top" Width="61" />
+                        <TextBox Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" Margin="225,81,0,0" Name="textBoxTelefono" VerticalAlignment="Top" Width="250" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="181,124,0,0" Name="textBlockFax" Text="Fax:" VerticalAlignment="Top" Width="30" />
+                        <TextBox Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" Margin="225,120,0,0" Name="textBoxFax" VerticalAlignment="Top" Width="250" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="172,197,0,0" Name="textBlockLogo" Text="Logo:" VerticalAlignment="Top" Width="40" />
+                        <TextBox Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" IsReadOnly="True" Margin="225,195,0,0" Name="textBoxRuta" VerticalAlignment="Top" Width="250" />
+                        <Button Click="buttonBuscar_Click" Content="Buscar..." Grid.Column="1" Height="25" HorizontalAlignment="Left" Margin="194,196,0,0" Name="buttonBuscar" VerticalAlignment="Top" Width="52" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="111,161,0,0" Name="textBlockCedJuridica" Text="Cédula Jurídica:" VerticalAlignment="Top" Width="104" />
+                        <TextBox Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" Margin="225,158,0,0" Name="textBoxCedJuridica" VerticalAlignment="Top" Width="250" />
+                        <Button Click="button1_Click" Content="Crear" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left" Margin="225,366,0,0" Name="button1" VerticalAlignment="Top" Width="65" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="64,236,0,0" Name="textBlock1" Text="Moneda Local:" VerticalAlignment="Top" Width="149" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="55,269,0,0" Name="textBlock2" Text="Acrónimo Moneda Local:" VerticalAlignment="Top" Width="157" />
+                        <TextBox Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" Margin="225,267,0,0" Name="textBoxAcronimoMonedaL" VerticalAlignment="Top" Width="250" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="23,302,0,0" Name="textBlock3" Text="Moneda del Sistema:" VerticalAlignment="Top" Width="189" />
+                        <TextBlock FontSize="14" Height="24" HorizontalAlignment="Left" Margin="16,335,0,0" Name="textBlock4" Text="Acrónimo Moneda del Sistema:" VerticalAlignment="Top" Width="196" />
+                        <TextBox Grid.ColumnSpan="2" Height="27" HorizontalAlignment="Left" Margin="225,333,0,0" Name="textBoxAcronimoMonedaS" VerticalAlignment="Top" Width="250" />
+                        <ComboBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="225,236,0,0" Name="CMBMonedaLocal" VerticalAlignment="Top" Width="250" />
+                        <ComboBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="225,302,0,0" Name="CMBMonedaSistema" VerticalAlignment="Top" Width="250" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Modificar/Eliminar Empresa" Name="ModificarEliminarEmpresa">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="277" />
+                            <ColumnDefinition Width="206" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="15" FontWeight="Bold" Height="23" HorizontalAlignment="Left" Margin="49,26,0,0" Name="textBlockEmpresasDisponibles" Text="Empresas Disponibles" VerticalAlignment="Top" />
+                        <ListBox Grid.ColumnSpan="2" Height="Auto" HorizontalAlignment="Stretch" Margin="50,70" Name="listBox1" VerticalAlignment="Stretch" Width="Auto" />
+                        <Button Click="buttonModificar_Click" Content="Modificar" Height="27" HorizontalAlignment="Left" Margin="50,0,0,25" Name="buttonModificar" VerticalAlignment="Bottom" Width="83" />
+                        <Button Click="buttonEliminar_Click" Content="Elminar" Height="27" HorizontalAlignment="Left" Margin="163,0,0,25" Name="buttonEliminar" VerticalAlignment="Bottom" Width="83" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Agregar Banco" Name="AgregarBanco">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="277" />
+                            <ColumnDefinition Width="206" />
+                            <ColumnDefinition Width="70*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Nombre:" Height="28" HorizontalAlignment="Left" Margin="82,107,0,0" Name="label1" VerticalAlignment="Top" />
+                        <Label Content="Número de Cuenta:" Height="28" HorizontalAlignment="Left" Margin="82,141,0,0" Name="label2" VerticalAlignment="Top" />
+                        <Label Content="Moneda:" Height="28" HorizontalAlignment="Left" Margin="82,175,0,0" Name="label3" VerticalAlignment="Top" />
+                        <Label Content="Cuenta Mayor:" Height="28" HorizontalAlignment="Left" Margin="82,214,0,0" Name="label4" VerticalAlignment="Top" />
+                        <TextBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="234,107,0,0" Name="textBoxNombreBanco" VerticalAlignment="Top" Width="212" />
+                        <TextBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="234,141,0,0" Name="textBoxNoCuenta" VerticalAlignment="Top" Width="212" />
+                        <ComboBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="234,180,0,0" Name="comboBoxMoneda" VerticalAlignment="Top" Width="212" />
+                        <ComboBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="234,214,0,0" Name="comboBoxCuentaMayor" VerticalAlignment="Top" Width="212" />
+                        <Button Click="button2_Click" Content="Agregar banco" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left" Margin="234,272,0,0" Name="button2" VerticalAlignment="Top" Width="100" />
+                        <TextBlock FontSize="14" Foreground="#FFE5572C" Grid.ColumnSpan="2" Height="25" HorizontalAlignment="Left" Margin="82,54,0,0" Name="errormessaggeBanco" OpacityMask="Crimson" VerticalAlignment="Top" Width="364" />
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <Button Click="button3_Click" Content="Cerrar Sesión" Height="23" HorizontalAlignment="Right" Margin="0,12,5,0" Name="button3" VerticalAlignment="Top" Width="80" />
+        </Grid>
     </Grid>
 </Window>

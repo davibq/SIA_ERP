@@ -66,11 +66,7 @@ namespace Login_WPF
                 }
                 else
                 {
-                    FileStream stream = new FileStream(textBoxImagen.Text, FileMode.OpenOrCreate, FileAccess.Read);
-                    BinaryReader reader = new BinaryReader(stream);
-                    byte[] Logo = reader.ReadBytes((int)stream.Length);
-                    reader.Close();
-                    stream.Close();
+                    string urlImagen = textBoxImagen.Text;
 
                     Articulo articulo = new Articulo()
                     {
@@ -78,7 +74,7 @@ namespace Login_WPF
                         Descripcion = textBoxDescripcion.Text,
                         unidadMedida = (UnidadMedida)comboBoxUnidMedida.SelectedItem,
                         Comentarios = textBoxComentarios.Text,
-                        imagen = Logo,
+                        UrlImagen = urlImagen,
                         Existencias = (Cuenta)comboBoxCuentasExistencias.SelectedItem,
                         Ventas=(Cuenta)comboBoxCuentasVentas.SelectedItem,
                         Costos=(Cuenta)comboBoxCuentasCostos.SelectedItem,

@@ -96,6 +96,53 @@ namespace DataAccessVentasCompras
             return productos;
         }
 
+        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada)
+        {
+            return EjecutarNoConsulta("dbo.CrearSocioDeNegocio", new List<SqlParameter>()
+                                                          {
+                                                              new SqlParameter("Codigo", Codigo),
+                                                              new SqlParameter("NombreSN", Nombre),
+                                                              new SqlParameter("NombreTipo", TipoSocio),
+                                                              new SqlParameter("IdMoneda", IdMoneda),
+                                                              new SqlParameter("CuentaDeMayor", CuentaAsociada),
+                                                          });
+        }
+
+        public string ObtenerCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            string Cuenta_Socio = "";
+            var ds = EjecutarConsulta("dbo.ObtenerCuentaDeMayorXCodigo", new List<SqlParameter>(){
+                    new SqlParameter("CodigoSN", CodigoSN)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var socio = new SocNegocio();
+                    socio.CuentaAsociada = row["CC"].ToString();
+                    Cuenta_Socio = socio.CuentaAsociada;
+                }
+            }
+            return Cuenta_Socio;
+        }
+
+        public int ObtenerIDMonedaCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            int IdMoneda_Cuenta_Socio = 0;
+            var ds = EjecutarConsulta("dbo.ObtenerCuentaDeMayorXCodigo", new List<SqlParameter>(){
+                    new SqlParameter("CodigoSN", CodigoSN)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var socio = new SocNegocio();
+                    socio.IdMoneda = int.Parse(row["IDMoneda"].ToString());
+                    IdMoneda_Cuenta_Socio = socio.IdMoneda;
+                }
+            }
+            return IdMoneda_Cuenta_Socio;
+        }
         public bool GuardarDocumento(Documento pDocumento)
         {
             var nuevoDocumento = EjecutarNoConsulta("dbo.GuardarDocumento", new List<SqlParameter>()
@@ -320,6 +367,44 @@ namespace DataAccessVentasCompras
             return EjecutarNoConsulta("dbo.ModificarCostoPromedio", new List<SqlParameter>(){
                param
             });
+        }
+
+        public List<OrdenCompras> obtenerOrdenCompra(string pCodProveedor, string pTipoDocumento)
+        {
+            var ordenesDeCompra = new List<OrdenCompras>();
+            var ds = EjecutarConsulta("dbo.obtenerOrdenCompra", new List<SqlParameter>(){
+                    new SqlParameter("codProveedor", pCodProveedor),
+                    new SqlParameter("tipoDocumento", pTipoDocumento)
+                });
+
+
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    ordenesDeCompra.Add(new OrdenCompras()
+                    {
+                        codigo = row["Consecutivo"].ToString(),
+                        fechaContabilizacion = row["FechaConta"].ToString(),
+                        fechaEntrega = row["FechaEntrega"].ToString(),
+                        proveedor = new SocNegocio()
+                        {
+                            Codigo = row["CodigoSN"].ToString(),
+                            Nombre = row["NombreSN"].ToString()
+                        },
+                        producto = new Productos()
+                        {
+                            cantidad = int.Parse(row["CantidadProducto"].ToString()),
+                            precioUnit = double.Parse(row["PrecioProducto"].ToString()),
+                            idArticulo = int.Parse(row["IdArticulo"].ToString()),
+                            idBodega = int.Parse(row["IdBodega"].ToString()),
+                            Nombre= row["NombreArticulo"].ToString(),
+                            NombreBodega = row["NombreBodega"].ToString()
+                        }
+                    });
+                }
+            }
+            return ordenesDeCompra;
         }
 
         #region Facturas

@@ -39,7 +39,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>.\sql\debug\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TargetConnectionString>Data Source=127.0.0.1;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetConnectionString>Data Source=DAVID-PC\SQLEXPRESS;Integrated Security=True;Pooling=False</TargetConnectionString>
     <TargetDatabase>LCO_Finanzas</TargetDatabase>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <SuppressWarnings>
@@ -324,7 +324,16 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerCuenta.proc.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerIdMoneda.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerCuentasHojas.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerNombreCuentaDeMayorSN.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ERPSP_ObtenerSaldoCuenta.proc.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>
@@ -332,5 +341,11 @@
     <NotInBuild Include="Scripts\Post-Deployment\BasicData.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerCuentasDeMayorSN.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\ObtenerMonedasConId.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
   </ItemGroup>
 </Project>

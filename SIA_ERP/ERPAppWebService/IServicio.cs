@@ -30,9 +30,10 @@ namespace ERPAppWebService
 
         [OperationContract]
         [WebInvoke(UriTemplate = "consultarCreditoSaldo", ResponseFormat = WebMessageFormat.Json)]
-        string consultarCreditoSaldo(RequestConsulta pRequestConsulta);
+        ConsultaSaldo consultarCreditoSaldo(RequestConsulta pRequestConsulta);
     }
 
+    #region Clases consulta
     //TODO: Pasar estas clases a archivos separados, solo era para prueba
     [DataContract]
     public class RequestPedido
@@ -53,6 +54,5 @@ namespace ERPAppWebService
         [DataMember]
         public string _Articulo { get; set; }
     }
-
-
+    #endregion
 }

@@ -68,7 +68,7 @@ namespace DataAccessInventario
                                                               new SqlParameter("pDescripcion", pArticulo.Descripcion),
                                                               new SqlParameter("pUnidadMedida", pArticulo.unidadMedida.Nombre),
                                                               new SqlParameter("pComentarios", pArticulo.Comentarios),
-                                                              new SqlParameter("pImagen", pArticulo.imagen),
+                                                              new SqlParameter("pImagen", pArticulo.urlImagen),
                                                               new SqlParameter("pCodBodega", pArticulo.bodega.Codigo),
                                                               new SqlParameter("pCodExistencias", pArticulo.Existencias.Codigo),
                                                               new SqlParameter("pCodVentas", pArticulo.Ventas.Codigo),
@@ -128,5 +128,89 @@ namespace DataAccessInventario
             return bancos;
         }
 
+<<<<<<< .mine
+
+        public List<string> obtenerHistorialArticulosCliente(string pCliente)
+        {
+            List<string> historialArticulos = new List<string>();
+            // Se arma un string para ser desplegado de una vez en el cel
+            var ds = EjecutarConsulta("dbo.ObtenerHistorialArticulosCliente", new List<SqlParameter>() {
+                new SqlParameter("CodigoCliente", pCliente)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    historialArticulos.Add(
+                        String.Format(
+                        "Cliente: {0}\n"+
+                        "Codigo: {1}"+
+                        "Articulo: {2}\n"+
+                        "Ultima Venta: {3}\n"+
+                        "Cantidad Vendida: {4}"+
+                        "Cantidad vendida en ultimos 12 meses: {5}\n"+
+                        "Promedio de venta por factura: {6}\n"+
+                        "Stock: {7}\n"+
+                        "Comprometido: {8}\n"+
+                        "Disponible: {9}\n",
+                        pCliente,
+                        row["Codigo"].ToString(),
+                        row["Nombre"].ToString(),
+                        row["FechaUltimaVenta"].ToString(),
+                        row["CantidadVendida"].ToString(),
+                        row["VendidoMeses"].ToString(),
+                        row["Promedio"].ToString(),
+                        row["Stock"].ToString(),
+                        row["Comprometido"].ToString(),
+                        row["Disponible"].ToString()
+                    ));
+
+                }
+            }
+            return historialArticulos;
+        }
+
+        public List<string> consultarCantidadPrecio(string pCliente, string pArticulo)
+        {
+            List<string> historialArticulos = new List<string>();
+            // Se arma un string para ser desplegado de una vez en el cel
+            var ds = EjecutarConsulta("dbo.ConsultarCantidadPrecio", new List<SqlParameter>() { 
+                new SqlParameter("CodigoCliente", pCliente),
+                new SqlParameter("Articulo", pArticulo),
+            });
+
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    historialArticulos.Add(
+                        String.Format(
+                        "Codigo: {0}\n" +
+                        "Articulo: {1}" +
+                        "Cantidad: {2}\n" +
+                        "Precio: {3}\n",
+                        row["Codigo"].ToString(),
+                        row["Nombre"].ToString(),
+                        row["Cantidad"].ToString(),
+                        row["Precio"].ToString()
+                    ));
+
+                }
+            }
+            return historialArticulos;
+        }
+=======
+        public bool insertarBanco(Banco pBanco)
+        {
+            return EjecutarNoConsulta("dbo.insertarBanco", new List<SqlParameter>()
+                                    {
+                                        new SqlParameter("Nombre", pBanco.Nombre),
+                                        new SqlParameter("Moneda", pBanco.AcronimoMoneda),
+                                        new SqlParameter("NoCuenta", pBanco.NoCuenta),
+                                        new SqlParameter("Cuenta", pBanco.CuentaMayor)
+                                    });
+        }
+
+>>>>>>> .r151
     }
 }

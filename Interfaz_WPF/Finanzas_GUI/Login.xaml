@@ -22,9 +22,7 @@
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="118,184,0,0" Name="SociedadcomboBox1" VerticalAlignment="Top" Width="247" />
         <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="118,250,0,0" Name="button1" VerticalAlignment="Top" Width="104" Click="button1_Click" />
         <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="118,276,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
-        <TextBlock Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <TextBlock><Hyperlink Click="buttonRegistrarEmpresas_Click" FontSize="12" FontStyle="Normal">Registro De Empresas</Hyperlink></TextBlock>
-        </TextBlock>
+        <TextBlock Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBlock>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="59,221,0,0" Name="textBlock4" Text="Modulo:" VerticalAlignment="Top" Width="77" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="118,219,0,0" Name="comboBoxModulos" VerticalAlignment="Top" Width="247" />
     </Grid>

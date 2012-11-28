@@ -97,17 +97,14 @@
     <Compile Include="Compras\OrdenCompra.xaml.cs">
       <DependentUpon>OrdenCompra.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ModuloAdministrativo.xaml.cs">
-      <DependentUpon>ModuloAdministrativo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ModuloBancos.xaml.cs">
       <DependentUpon>ModuloBancos.xaml</DependentUpon>
     </Compile>
     <Compile Include="ModuloInventarios.xaml.cs">
       <DependentUpon>ModuloInventarios.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ModuloSociosNegocios.xaml.cs">
-      <DependentUpon>ModuloSociosNegocios.xaml</DependentUpon>
+    <Compile Include="ModuloSociosDeNegocios.xaml.cs">
+      <DependentUpon>ModuloSociosDeNegocios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventas\EntregaMercancias.xaml.cs">
       <DependentUpon>EntregaMercancias.xaml</DependentUpon>
@@ -183,10 +180,6 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ModuloAdministrativo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ModuloBancos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -195,7 +188,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ModuloSociosNegocios.xaml">
+    <Page Include="ModuloSociosDeNegocios.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

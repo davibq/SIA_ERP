@@ -90,7 +90,7 @@ namespace Login_WPF
                             break;
 
                         case 2:
-                            ModuloSociosNegocios socios = new ModuloSociosNegocios();
+                            ModuloSociosDeNegocios socios = new ModuloSociosDeNegocios();
                             NoCierre = 1;
                             socios.Show();
                             Close();
@@ -117,9 +117,10 @@ namespace Login_WPF
                             Close();
                             break;
                         case 6:
-                            ModuloAdministrativo administrativo = new ModuloAdministrativo();
-                            Close();
+                            Admin administrativo = new Admin();
                             administrativo.Show();
+                            NoCierre = 1;
+                            Close();
                             break;
                     }
                 }
