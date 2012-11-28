@@ -22,11 +22,11 @@ namespace ERPAppWebService
 
         [OperationContract]
         [WebInvoke(UriTemplate = "consultarCantidadPrecio", ResponseFormat = WebMessageFormat.Json)]
-        string consultarCantidadPrecio(RequestConsulta pRequestConsulta);
+        List<string> consultarCantidadPrecio(RequestConsulta pRequestConsulta);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "consultarClienteArticulo", ResponseFormat = WebMessageFormat.Json)]
-        string consultarClienteArticulo(RequestConsulta pRequestConsulta);
+        List<string> consultarClienteArticulo(RequestConsulta pRequestConsulta);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "consultarCreditoSaldo", ResponseFormat = WebMessageFormat.Json)]

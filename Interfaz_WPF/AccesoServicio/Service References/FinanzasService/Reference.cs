@@ -2356,15 +2356,6 @@ namespace AccesoServicio.FinanzasService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FinanzasService.IContabilidadService")]
     public interface IContabilidadService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerIdMoneda", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerIdMonedaResponse")]
-        int ObtenerIdMoneda(string moneda);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasInventario", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasInventarioResponse")]
-        AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasInventario();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasVentas", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasVentasResponse")]
-        AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasVentas();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasCostos", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasCostosResponse")]
         AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasCostos();
         
@@ -2404,6 +2395,9 @@ namespace AccesoServicio.FinanzasService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/insertarTransferencia", ReplyAction="http://tempuri.org/IContabilidadService/insertarTransferenciaResponse")]
         bool insertarTransferencia(AccesoServicio.FinanzasService.Transferencia pTransferencia);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerDocumentosVentas", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerDocumentosVentasResponse")]
+        AccesoServicio.FinanzasService.Documento[] ObtenerDocumentosVentas();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/CrearSocioDeNegocio", ReplyAction="http://tempuri.org/IContabilidadService/CrearSocioDeNegocioResponse")]
         bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada);
@@ -2501,6 +2495,15 @@ namespace AccesoServicio.FinanzasService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerCuentasDeMayorSN", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerCuentasDeMayorSNResponse")]
         AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasDeMayorSN();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/ObtenerIdMoneda", ReplyAction="http://tempuri.org/IContabilidadService/ObtenerIdMonedaResponse")]
+        int ObtenerIdMoneda(string moneda);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasInventario", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasInventarioResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasInventario();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContabilidadService/obtenerCuentasVentas", ReplyAction="http://tempuri.org/IContabilidadService/obtenerCuentasVentasResponse")]
+        AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasVentas();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2528,18 +2531,6 @@ namespace AccesoServicio.FinanzasService {
         
         public ContabilidadServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public int ObtenerIdMoneda(string moneda) {
-            return base.Channel.ObtenerIdMoneda(moneda);
-        }
-        
-        public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasInventario() {
-            return base.Channel.obtenerCuentasInventario();
-        }
-        
-        public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasVentas() {
-            return base.Channel.obtenerCuentasVentas();
         }
         
         public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasCostos() {
@@ -2592,6 +2583,10 @@ namespace AccesoServicio.FinanzasService {
         
         public bool insertarTransferencia(AccesoServicio.FinanzasService.Transferencia pTransferencia) {
             return base.Channel.insertarTransferencia(pTransferencia);
+        }
+        
+        public AccesoServicio.FinanzasService.Documento[] ObtenerDocumentosVentas() {
+            return base.Channel.ObtenerDocumentosVentas();
         }
         
         public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada) {
@@ -2720,6 +2715,18 @@ namespace AccesoServicio.FinanzasService {
         
         public AccesoServicio.FinanzasService.Cuenta[] ObtenerCuentasDeMayorSN() {
             return base.Channel.ObtenerCuentasDeMayorSN();
+        }
+        
+        public int ObtenerIdMoneda(string moneda) {
+            return base.Channel.ObtenerIdMoneda(moneda);
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasInventario() {
+            return base.Channel.obtenerCuentasInventario();
+        }
+        
+        public AccesoServicio.FinanzasService.Cuenta[] obtenerCuentasVentas() {
+            return base.Channel.obtenerCuentasVentas();
         }
     }
 }

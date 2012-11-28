@@ -83,9 +83,9 @@ namespace SIA.Libreria
             try
             {
                 System.Data.DataRow objFila = objtabla.NewRow();
-                objFila["Producto"] = producto;
+                /*objFila["Producto"] = producto;
                 objFila["Cantidad Actual"] = cantActual;
-                objFila["Cantidad Minima"] = cantMinima;
+                objFila["Cantidad Minima"] = cantMinima;*/
                 objtabla.Rows.Add(objFila);
                 return true;
             }
@@ -109,7 +109,7 @@ namespace SIA.Libreria
             try
             {
                 System.Data.DataRow objFila = objtablaProducto.NewRow();
-                objFila["Producto"] = producto;
+                //objFila["Producto"] = producto;
                 objtablaProducto.Rows.Add(objFila);
                 return true;
             }

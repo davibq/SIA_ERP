@@ -367,7 +367,7 @@ namespace DataAccessFinanzas
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    consultaSaldo.LimiteCredito = Convert.ToDouble(row["LimiteCredito"].ToString();
+                    consultaSaldo.LimiteCredito = Convert.ToDouble(row["LimiteCredito"].ToString());
                     consultaSaldo.Saldo = Convert.ToDouble(row["Saldo"].ToString());
                 }
             }

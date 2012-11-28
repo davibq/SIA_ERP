@@ -128,7 +128,7 @@ namespace DataAccessInventario
             return bancos;
         }
 
-<<<<<<< .mine
+
 
         public List<string> obtenerHistorialArticulosCliente(string pCliente)
         {
@@ -199,7 +199,7 @@ namespace DataAccessInventario
             }
             return historialArticulos;
         }
-=======
+
         public bool insertarBanco(Banco pBanco)
         {
             return EjecutarNoConsulta("dbo.insertarBanco", new List<SqlParameter>()
@@ -211,6 +211,6 @@ namespace DataAccessInventario
                                     });
         }
 
->>>>>>> .r151
+
     }
 }
