@@ -344,6 +344,44 @@ namespace DataAccessVentasCompras
             });
         }
 
+        public List<OrdenCompras> obtenerOrdenCompra(string pCodProveedor, string pTipoDocumento)
+        {
+            var ordenesDeCompra = new List<OrdenCompras>();
+            var ds = EjecutarConsulta("dbo.obtenerOrdenCompra", new List<SqlParameter>(){
+                    new SqlParameter("codProveedor", pCodProveedor),
+                    new SqlParameter("tipoDocumento", pTipoDocumento)
+                });
+
+
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    ordenesDeCompra.Add(new OrdenCompras()
+                    {
+                        codigo = row["Consecutivo"].ToString(),
+                        fechaContabilizacion = row["FechaConta"].ToString(),
+                        fechaEntrega = row["FechaEntrega"].ToString(),
+                        proveedor = new SocNegocio()
+                        {
+                            Codigo = row["CodigoSN"].ToString(),
+                            Nombre = row["NombreSN"].ToString()
+                        },
+                        producto = new Productos()
+                        {
+                            cantidad = int.Parse(row["CantidadProducto"].ToString()),
+                            precioUnit = double.Parse(row["PrecioProducto"].ToString()),
+                            idArticulo = int.Parse(row["IdArticulo"].ToString()),
+                            idBodega = int.Parse(row["IdBodega"].ToString()),
+                            Nombre= row["NombreArticulo"].ToString(),
+                            NombreBodega = row["NombreBodega"].ToString()
+                        }
+                    });
+                }
+            }
+            return ordenesDeCompra;
+        }
+
         #region Facturas
 
         public List<Documento> ObtenerFacturasXEstadoXSocioNegocio(string pCodSN, string pEstadoFactura)
