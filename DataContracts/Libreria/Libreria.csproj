@@ -46,6 +46,7 @@
     <Compile Include="Asiento.cs" />
     <Compile Include="Banco.cs" />
     <Compile Include="Bodega.cs" />
+    <Compile Include="ConsultaSaldo.cs" />
     <Compile Include="Mes.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Empresa.cs" />
