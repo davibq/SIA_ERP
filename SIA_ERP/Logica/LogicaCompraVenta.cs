@@ -161,6 +161,10 @@ namespace Logica
             }
             else if (pDocumento.TipoDocumento.CompareTo("Factura de Proveedores") == 0)
             {
+                if (!pDocumento.CreadoDesdeAnterior)
+                {
+                    extras = extras && _DataAccess.ModificarCantidadArticulos(pDocumento.LineasVenta, true, "Stock");
+                }
                 foreach (var item in pDocumento.LineasVenta)
                 {
                     string xml = "<Cuentas>";
@@ -187,7 +191,7 @@ namespace Logica
             }
             else if (pDocumento.TipoDocumento.CompareTo("Entrega de Mercancias") == 0)
             {
-                extras = extras && _DataAccess.ModificarCantidadArticulos(pDocumento.LineasVenta, false, "Stock");
+                extras = _DataAccess.ModificarCantidadArticulos(pDocumento.LineasVenta, false, "Stock");
                 if (pDocumento.CreadoDesdeAnterior)
                 {
                     extras = extras && _DataAccess.ModificarCantidadArticulos(pDocumento.LineasVenta, false, "Comprometido");
@@ -216,7 +220,7 @@ namespace Logica
                 //TODO: remover CXP alambrada
                 var cuenta=LogicaNegocio.Instancia.ObtenerCuenta("Impuesto Venta por pagar");
                 var cuentaIVXPagar = cuenta.Codigo;
-
+                
                 //Inventario contra costo ventas
                 if (!pDocumento.CreadoDesdeAnterior)
                 {
