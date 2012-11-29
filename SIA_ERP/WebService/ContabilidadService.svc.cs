@@ -189,9 +189,9 @@ namespace SIA.Contabilidad.WebService
             return LogicaCompraVenta.Instancia.ObtenerProductos();
         }
 
-        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada)
+        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string Email, string TipoSocio, int IdMoneda, string CuentaAsociada, double LimiteCredito)
         {
-            return LogicaCompraVenta.Instancia.CrearSocioDeNegocio(Nombre, Codigo, TipoSocio, IdMoneda, CuentaAsociada);
+            return LogicaCompraVenta.Instancia.CrearSocioDeNegocio(Nombre, Codigo, Email, TipoSocio, IdMoneda, CuentaAsociada, LimiteCredito);
         }
 
         public string ObtenerCuentaDeMayorXCodigo(string CodigoSN)
@@ -263,5 +263,11 @@ namespace SIA.Contabilidad.WebService
         {
             return LogicaNegocio.Instancia.ObtenerCuentasHojas(pNombre);
         }
+
+        public ConsultaSaldo consultarCreditoSaldo(string pCodigoCliente)
+        {
+            return LogicaInventario.Instancia.consultarCreditoSaldo(pCodigoCliente);
+        }
+         
     }
 }

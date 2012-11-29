@@ -145,7 +145,7 @@ namespace SIA.Contabilidad.WebService
         IEnumerable<Documento> ObtenerDocumentosVentas();
 
         [OperationContract]
-        bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada);
+        bool CrearSocioDeNegocio(string Nombre, string Codigo, string Email, string TipoSocio, int IdMoneda, string CuentaAsociada, double LimiteCredito);
 
         [OperationContract]
         string ObtenerCuentaDeMayorXCodigo(string CodigoSN);
@@ -164,6 +164,9 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombre);
+
+        [OperationContract]
+        ConsultaSaldo consultarCreditoSaldo(string pCodigoCliente);
     }
 
 }

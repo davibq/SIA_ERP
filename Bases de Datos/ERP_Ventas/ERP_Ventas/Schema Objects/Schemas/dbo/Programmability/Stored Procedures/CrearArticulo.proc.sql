@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[CrearArticulo]
+	@pNombre		VARCHAR(40),
 	@pCodigo		VARCHAR(20),
 	@pDescripcion	VARCHAR(75),
 	@pUnidadMedida	VARCHAR(40),
@@ -43,8 +44,8 @@ BEGIN
 				SELECT @IdUnidadMedida = IdUnidadMedida FROM dbo.UnidadMedida WHERE Nombre = @pUnidadMedida
 			END
 			
-			INSERT INTO dbo.Articulo (Codigo, Descripcion, IdUnidadMedida) 
-			VALUES (@pCodigo, @pDescripcion, @IdUnidadMedida)
+			INSERT INTO dbo.Articulo (Codigo, Descripcion, IdUnidadMedida, Nombre) 
+			VALUES (@pCodigo, @pDescripcion, @IdUnidadMedida, @pNombre)
 	
 			SET @IdArticulo = SCOPE_IDENTITY()
 			

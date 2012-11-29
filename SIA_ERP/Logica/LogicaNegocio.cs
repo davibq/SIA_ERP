@@ -217,14 +217,7 @@ namespace Logica
 
         #endregion
 
-        #region Metodos ERPApp
-
-        public ConsultaSaldo consultarCreditoSaldo(string pCodigoCliente)
-        {
-            return _DataAccess.consultarCreditoSaldo(pCodigoCliente);
-        }
-
-        #endregion
+        
 
         #region Atributos
 

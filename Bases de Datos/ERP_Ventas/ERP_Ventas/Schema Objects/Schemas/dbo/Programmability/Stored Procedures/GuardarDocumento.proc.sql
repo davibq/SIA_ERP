@@ -42,9 +42,9 @@ BEGIN
 	END
 	
 	INSERT INTO Documento 
-		(Consecutivo, IdEncabezado, IdDetalleProductos, IdDetalleServicios, IdTipoDocumento, IdSocioNegocio)
+		(Consecutivo, IdEncabezado, IdDetalleProductos, IdDetalleServicios, IdTipoDocumento, IdSocioNegocio, IdEstado)
 	VALUES
-		(@pConsecutivo, @IdEncabezado, @IdDetalleProductos, @IdDetalleServicios, @IdTipoDocumento, @pIdSocioNegocio)
+		(@pConsecutivo, @IdEncabezado, @IdDetalleProductos, @IdDetalleServicios, @IdTipoDocumento, @pIdSocioNegocio, 1)
 
 	return 0;
 END

@@ -5,13 +5,13 @@
     <TabControl Height="629" Name="tabControl1" Width="571">
         <TabItem Header="Crear Articulo" Name="tabItem1">
             <Grid Height="556">
-                <Label Content="Código:" Height="28" HorizontalAlignment="Left" Margin="61,29,0,0" Name="label1" VerticalAlignment="Top" />
-                <Label Content="Descripción:" Height="28" HorizontalAlignment="Left" Margin="61,63,0,0" Name="label2" VerticalAlignment="Top" />
+                <Label Content="Código:" Height="28" HorizontalAlignment="Left" Margin="63,65,0,0" Name="label1" VerticalAlignment="Top" />
+                <Label Content="Descripción:" Height="28" HorizontalAlignment="Left" Margin="63,99,0,0" Name="label2" VerticalAlignment="Top" />
                 <Label Content="Unidad de medida:" Height="28" HorizontalAlignment="Left" Margin="61,147,0,0" Name="label3" VerticalAlignment="Top" />
                 <Label Content="Comentarios:" Height="28" HorizontalAlignment="Left" Margin="61,191,0,0" Name="label4" VerticalAlignment="Top" />
                 <Label Content="URL Imagen:" Height="28" HorizontalAlignment="Left" Margin="61,284,0,0" Name="label5" VerticalAlignment="Top" />
-                <TextBox Height="25" HorizontalAlignment="Left" Margin="207,32,0,0" Name="textBoxCodigo" VerticalAlignment="Top" Width="285" />
-                <TextBox Height="68" HorizontalAlignment="Left" Margin="207,66,0,0" Name="textBoxDescripcion" VerticalAlignment="Top" Width="285" />
+                <TextBox Height="25" HorizontalAlignment="Left" Margin="209,68,0,0" Name="textBoxCodigo" VerticalAlignment="Top" Width="285" />
+                <TextBox Height="25" HorizontalAlignment="Left" Margin="209,102,0,0" Name="textBoxDescripcion" VerticalAlignment="Top" Width="285" />
                 <ComboBox Height="25" HorizontalAlignment="Left" Margin="207,150,0,0" Name="comboBoxUnidMedida" VerticalAlignment="Top" Width="285" />
                 <TextBox Height="75" HorizontalAlignment="Left" Margin="207,191,0,0" Name="textBoxComentarios" VerticalAlignment="Top" Width="285" />
                 <TextBox Height="25" HorizontalAlignment="Right" Margin="0,286,69,0" Name="textBoxImagen" VerticalAlignment="Top" Width="285" />
@@ -25,6 +25,8 @@
                 <Label Content="Bodega:" Height="28" HorizontalAlignment="Left" Margin="61,339,0,0" Name="label11" VerticalAlignment="Top" />
                 <ComboBox Height="25" HorizontalAlignment="Left" Margin="207,342,0,0" Name="comboBoxBodega" VerticalAlignment="Top" Width="285" />
                 <Button Content="Cerrar Sesión" Height="23" HorizontalAlignment="Right" Margin="0,-47,0,0" Name="button2" VerticalAlignment="Top" Width="80" Click="button2_Click" />
+                <Label Content="Nombre:" Height="28" HorizontalAlignment="Left" Margin="63,33,0,0" Name="label12" VerticalAlignment="Top" />
+                <TextBox Height="25" HorizontalAlignment="Left" Margin="209,36,0,0" Name="textBoxNombreArticulo" VerticalAlignment="Top" Width="285" />
             </Grid>
         </TabItem>
         <TabItem Header="Crear Bodega" Name="tabItem2">

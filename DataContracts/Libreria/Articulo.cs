@@ -26,9 +26,6 @@ namespace SIA.Libreria
         public byte[] imagen { get; set; }
 
         [DataMember]
-        public string urlImagen { get; set; }
-
-        [DataMember]
         public Cuenta Existencias { get; set; }
 
         [DataMember]

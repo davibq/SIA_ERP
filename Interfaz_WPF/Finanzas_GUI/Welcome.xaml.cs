@@ -916,14 +916,16 @@ namespace Login_WPF
             }
             else
             {
+
                 Mes[] ListaMeses = new Mes[12];
                 string mes;
                 if (Enero.FechaInicio == null)
                 {
                     Enero.NombreMes = "Enero";
                     Enero.EstadoMes = "Abierto";
+                    
                     Enero.FechaInicio = "1/1/" + anio;
-                    Enero.FechaFin = "1/31/" + anio;
+                    Enero.FechaFin = "1/31/" + anio ;
                 }
                 if (Febrero.FechaInicio == null)
                 {
@@ -1048,7 +1050,8 @@ namespace Login_WPF
                 }
 
                 FechaInicio = datePickerMesInicio.SelectedDate.Value.Month + "/" + datePickerMesInicio.SelectedDate.Value.Day + "/" + datePickerMesInicio.SelectedDate.Value.Year;
-                FechaFin = FechaFin + "/" + comboBoxFinPeriodo.SelectedItem + "/" + anio;
+                //FechaInicio = datePickerMesInicio.SelectedDate.Value.Year + "-" + datePickerMesInicio.SelectedDate.Value.Month  + "-" + datePickerMesInicio.SelectedDate.Value.Day;
+                FechaFin = FechaFin + "-" + comboBoxFinPeriodo.SelectedItem + "-" + anio;
 
                 ListaMeses[0] = Enero;
                 ListaMeses[1] = Febrero;

@@ -96,15 +96,17 @@ namespace DataAccessVentasCompras
             return productos;
         }
 
-        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string TipoSocio, int IdMoneda, string CuentaAsociada)
+        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string Email, string TipoSocio, int IdMoneda, string CuentaAsociada, double LimiteCredito)
         {
             return EjecutarNoConsulta("dbo.CrearSocioDeNegocio", new List<SqlParameter>()
                                                           {
                                                               new SqlParameter("Codigo", Codigo),
                                                               new SqlParameter("NombreSN", Nombre),
+                                                              new SqlParameter("Email", Email),
                                                               new SqlParameter("NombreTipo", TipoSocio),
                                                               new SqlParameter("IdMoneda", IdMoneda),
                                                               new SqlParameter("CuentaDeMayor", CuentaAsociada),
+                                                              new SqlParameter("LimiteCredito", LimiteCredito),
                                                           });
         }
 

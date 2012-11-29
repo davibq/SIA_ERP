@@ -45,7 +45,7 @@ namespace ERPAppWebService
 
         public ConsultaSaldo consultarCreditoSaldo(RequestConsulta pRequestConsulta)
         {
-            return LogicaNegocio.Instancia.consultarCreditoSaldo(pRequestConsulta._Cliente);
+            return LogicaInventario.Instancia.consultarCreditoSaldo(pRequestConsulta._Cliente);
         }
     
         #endregion

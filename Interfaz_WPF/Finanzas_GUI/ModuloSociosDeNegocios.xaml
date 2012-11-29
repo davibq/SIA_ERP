@@ -7,17 +7,25 @@
             <TabItem Header="Maestro De Socio De Negocios" Name="MaestroDeSocioDeNegocios">
                 <Grid>
                     <TextBlock Height="38" HorizontalAlignment="Left" Margin="40,46,0,0" Name="textBlockCrearSN" Text="Crear Clientes o Proveedores" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" />
-                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="156,124,0,0" Name="textBlockCodigoSN" Text="Código:" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBox Height="25" HorizontalAlignment="Left" Margin="217,124,0,0" Name="textBoxCodigoSN" VerticalAlignment="Top" Width="205" Grid.ColumnSpan="2" />
-                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="149,164,0,0" Name="textBlockNombreSN" Text="Nombre:" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBox Height="25" HorizontalAlignment="Left" Margin="217,164,0,0" Name="textBoxNombreSN" VerticalAlignment="Top" Width="205" Grid.ColumnSpan="2" />
-                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="176,204,0,0" Name="textBlockTipoSN" Text="Tipo:" VerticalAlignment="Top" FontSize="16"/>
-                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="217,204,0,0" Name="comboBoxTipoSN" VerticalAlignment="Top" Width="205" Grid.ColumnSpan="2" />
-                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="149,244,0,0" Name="textBlockMonedaSN" Text="Moneda:" VerticalAlignment="Top" FontSize="16"/>
-                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="217,244,0,0" Name="comboBoxMonedaSN" VerticalAlignment="Top" Width="205" Grid.ColumnSpan="2" />
-                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="84,286,0,0" Name="textBlockCuentaMayorSN" Text="Cuenta De Mayor:" VerticalAlignment="Top" FontSize="16"/>
-                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="217,284,0,0" Name="comboBoxCuentaMayorSN" VerticalAlignment="Top" Width="265" Grid.ColumnSpan="2" />
-                    <Button Content="Crear" Height="23" HorizontalAlignment="Left" Margin="217,361,0,0" Name="buttonCrearSN" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="buttonCrearSN_Click" />
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="102,126,0,0" Name="textBlockCodigoSN" Text="Código:" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBox Height="25" HorizontalAlignment="Left" Margin="163,126,0,0" Name="textBoxCodigoSN" VerticalAlignment="Top" Width="205" />
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="95,166,0,0" Name="textBlockNombreSN" Text="Nombre:" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBox Height="25" HorizontalAlignment="Left" Margin="163,166,0,0" Name="textBoxNombreSN" VerticalAlignment="Top" Width="205" />
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="122,246,0,0" Name="textBlockTipoSN" Text="Tipo:" VerticalAlignment="Top" FontSize="16"/>
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="163,246,0,0" Name="comboBoxTipoSN" VerticalAlignment="Top" Width="205" SelectionChanged="comboBoxTipoSN_SelectionChanged" />
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="95,286,0,0" Name="textBlockMonedaSN" Text="Moneda:" VerticalAlignment="Top" FontSize="16"/>
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="163,286,0,0" Name="comboBoxMonedaSN" VerticalAlignment="Top" Width="205" />
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="30,326,0,0" Name="textBlockCuentaMayorSN" Text="Cuenta De Mayor:" VerticalAlignment="Top" FontSize="16"/>
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="163,326,0,0" Name="comboBoxCuentaMayorSN" VerticalAlignment="Top" Width="265" />
+                    <Button Content="Crear" Height="23" HorizontalAlignment="Left" Margin="163,423,0,0" Name="buttonCrearSN" VerticalAlignment="Top" Width="75" Click="buttonCrearSN_Click" />
+                    <TextBlock FontSize="16" Height="25" HorizontalAlignment="Left" Margin="109,206,0,0" Name="textBlockEmailSN" Text="E-Mail:" VerticalAlignment="Top" />
+                    <TextBox Height="25" HorizontalAlignment="Left" Margin="163,206,0,0" Name="textBoxEmailSN" VerticalAlignment="Top" Width="205" />
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="30,363,0,0" Name="textBlockLimiteCredito" Text="Límite De Crédito:" VerticalAlignment="Top" FontSize="16" Visibility="Hidden" />
+                    <TextBox Height="25" HorizontalAlignment="Left" Margin="163,363,0,0" Name="textBoxLimiteCredito" VerticalAlignment="Top" Width="265" Visibility="Hidden" />
+                    <TextBlock FontSize="16" Foreground="#FFE5572C" Height="25" HorizontalAlignment="Left" Margin="376,126,0,0" Name="errormessageCodigo" OpacityMask="Crimson" VerticalAlignment="Top" Width="235" />
+                    <TextBlock FontSize="16" Foreground="#FFE5572C" Height="25" HorizontalAlignment="Left" Margin="376,166,0,0" Name="errormessageNombre" OpacityMask="Crimson" VerticalAlignment="Top" Width="235" />
+                    <TextBlock FontSize="16" Foreground="#FFE5572C" Height="25" HorizontalAlignment="Left" Margin="376,206,0,0" Name="errormessageEmail" OpacityMask="Crimson" VerticalAlignment="Top" Width="235" />
+                    <TextBlock FontSize="16" Foreground="#FFE5572C" Height="25" HorizontalAlignment="Left" Margin="163,394,0,0" Name="errormessageLimiteCredito" OpacityMask="Crimson" VerticalAlignment="Top" Width="265" />
                 </Grid>
             </TabItem>
             <TabItem Header="Consultar Saldos" Name="ConsultarSaldos">
@@ -36,6 +44,21 @@
             </TabItem>
             <TabItem Header="Consultar Documentos" Name="ConsultarDocumentos">
                 <Grid>
+                    <TextBlock Height="38" HorizontalAlignment="Center" Margin="0,10,0,0" Name="textBlockConsultaDocumentosSN" Text="Consultar Documentos De Clientes o Proveedores" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock FontSize="16" Height="25" HorizontalAlignment="Left" Margin="27,68,0,0" Name="textBlockConsultaDocTipoSN" Text="Tipo:" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="68,68,0,0" Name="comboBoxConsultaDocTipoSN" VerticalAlignment="Top" Width="160" SelectionChanged="comboBoxConsultaDocTipoSN_SelectionChanged" />
+                    <TextBlock FontSize="16" Height="25" HorizontalAlignment="Left" Margin="247,68,0,0" Name="textBlockConsultaDocSN" Text="Socio De Negocio:" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="383,68,0,0" Name="comboBoxConsultaDocSN" VerticalAlignment="Top" Width="174" />
+                    <DataGrid AutoGenerateColumns="False" Height="295" HorizontalAlignment="Stretch" Margin="68,160,68,50" Name="dataGridDocumentos" VerticalAlignment="Stretch" Width="489" CanUserSortColumns="False" CanUserResizeColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID Documento" IsReadOnly="True" Binding="{Binding Path=IdDocumento}"/>
+                            <DataGridTextColumn Header="Documento Consecutivo" IsReadOnly="True" Binding="{Binding Path=Consecutivo}"/>
+                            <DataGridTextColumn Header="Fecha" IsReadOnly="True" Binding="{Binding Path=Fecha1}"/>
+                            <DataGridTextColumn Header="Sub-Total" IsReadOnly="True" Binding="{Binding Path=Subtotal}"/>
+                            <DataGridTextColumn Header="Total" IsReadOnly="True" Binding="{Binding Path=Total}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Consultar Documentos" Height="25" HorizontalAlignment="Left" Margin="68,113,0,0" Name="buttonConsultarDocumentos" VerticalAlignment="Top" Width="139" Click="buttonConsultarDocumentos_Click" />
                 </Grid>
             </TabItem>
         </TabControl>

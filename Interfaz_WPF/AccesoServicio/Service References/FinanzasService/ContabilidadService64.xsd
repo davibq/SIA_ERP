@@ -72,7 +72,6 @@
       <xs:element minOccurs="0" name="bodega" nillable="true" type="tns:Bodega" />
       <xs:element minOccurs="0" name="imagen" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="unidadMedida" nillable="true" type="tns:UnidadMedida" />
-      <xs:element minOccurs="0" name="urlImagen" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Articulo" nillable="true" type="tns:Articulo" />
@@ -92,6 +91,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Banco" nillable="true" type="tns:Banco" />
+  <xs:complexType name="ConsultaSaldo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LimiteCredito" type="xs:double" />
+      <xs:element minOccurs="0" name="Saldo" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultaSaldo" nillable="true" type="tns:ConsultaSaldo" />
   <xs:complexType name="ArrayOfMoneda">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Moneda" nillable="true" type="tns:Moneda" />

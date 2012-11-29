@@ -4,7 +4,7 @@
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SELECT Doc.IdDocumento IdDocumento, Doc.Consecutivo Consecutivo, Enc.Fecha Fecha, DetDoc.Subtotal Subtotal, DetDoc.Total Total
+	SELECT Doc.IdDocumento IdDocumento, Doc.Consecutivo Consecutivo, Enc.Fecha Fecha, DetDoc.Subtotal Subtotal, DetDoc.Total Total , SN._Cuenta _Cuenta
 	FROM dbo.Documento Doc 
 	INNER JOIN dbo.EncabezadoDocumento Enc ON Doc.IdEncabezado=Enc.IdEncabezado
 	INNER JOIN dbo.DetalleDocumento DetDoc ON Doc.IdDetalleProductos=DetDoc.IdDetalle

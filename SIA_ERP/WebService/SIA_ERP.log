@@ -17,3 +17,216 @@ System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occ
    at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
    at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in D:\Documents and Settings\David\My Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-28 15:38:01,915 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir el tipo de datos nvarchar a date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 15:38:05,231 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir el tipo de datos nvarchar a date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 15:40:30,458 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir el tipo de datos nvarchar a date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 15:42:21,467 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir el tipo de datos nvarchar a date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 15:45:23,195 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir una cadena de caracteres en fecha y/u hora.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 15:48:43,861 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir una cadena de caracteres en fecha y/u hora.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 15:53:39,916 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir una cadena de caracteres en fecha y/u hora.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 15:54:56,046 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir una cadena de caracteres en fecha y/u hora.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 16:15:37,936 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_InsertarPeriodoContable
+System.Data.SqlClient.SqlException (0x80131904): Error al convertir el tipo de datos nvarchar a date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 16:16:36,127 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error consulta ejecutando: dbo.ObtenerUnidadesdeMedida
+System.Data.SqlClient.SqlException (0x80131904): No se encontró el procedimiento almacenado 'dbo.ObtenerUnidadesdeMedida'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SIA.DataAccess.DataAccess.EjecutarConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 45
+2012-11-28 16:23:37,674 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.CrearArticulo
+System.Data.SqlClient.SqlException (0x80131904): El procedimiento o la función 'CrearArticulo' esperaba el parámetro '@pImagen', que no se ha especificado.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 16:23:40,703 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.CrearArticulo
+System.Data.SqlClient.SqlException (0x80131904): El procedimiento o la función 'CrearArticulo' esperaba el parámetro '@pImagen', que no se ha especificado.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 16:24:24,811 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.CrearArticulo
+System.Data.SqlClient.SqlException (0x80131904): El procedimiento o la función 'CrearArticulo' esperaba el parámetro '@pImagen', que no se ha especificado.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 16:28:06,145 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.CrearArticulo
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'Nombre', tabla 'ERP_Ventas.dbo.Articulo'. La columna no admite valores NULL. Error de INSERT.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 16:29:06,045 [16] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.CrearArticulo
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'Nombre', tabla 'ERP_Ventas.dbo.Articulo'. La columna no admite valores NULL. Error de INSERT.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 17:36:54,255 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.AgregarLineasVenta
+System.Data.SqlClient.SqlException (0x80131904): Infracción de la restricción PRIMARY KEY 'PK_ArticulosXDetalle'. No se puede insertar una clave duplicada en el objeto 'dbo.ArticulosXDetalle'.
+Se terminó la instrucción.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 17:37:26,586 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.AgregarLineasVenta
+System.Data.SqlClient.SqlException (0x80131904): Infracción de la restricción PRIMARY KEY 'PK_ArticulosXDetalle'. No se puede insertar una clave duplicada en el objeto 'dbo.ArticulosXDetalle'.
+Se terminó la instrucción.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68

@@ -147,6 +147,16 @@ namespace AccesoServicio
             return _CSC.ObtenerCuentasTreeView();
         }
 
+        public IEnumerable<Cuenta> ObtenerCuentasDeMayorSN()
+        {
+            return _CSC.ObtenerCuentasDeMayorSN();
+        }
+
+        public int ObtenerIdMoneda(string moneda)
+        {
+            return _CSC.ObtenerIdMoneda(moneda);
+        }
+
         #region ModuloInventario
 
         public IEnumerable<UnidadMedida> ObtenerUnidadesdeMedida()
@@ -197,6 +207,31 @@ namespace AccesoServicio
             return _CSC.ObtenerProductosCV();
         }
 
+        public bool CrearSocioDeNegocio(string Nombre, string Codigo, string Email, string TipoSocio, int IdMoneda, string CuentaAsociada, double LimiteCredito)
+        {
+            return _CSC.CrearSocioDeNegocio(Nombre, Codigo, Email, TipoSocio, IdMoneda, CuentaAsociada, LimiteCredito);
+        }
+
+        public string ObtenerCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return _CSC.ObtenerCuentaDeMayorXCodigo(CodigoSN);
+        }
+
+        public int ObtenerIDMonedaCuentaDeMayorXCodigo(string CodigoSN)
+        {
+            return _CSC.ObtenerIDMonedaCuentaDeMayorXCodigo(CodigoSN);
+        }
+
+        public string ObtenerNombreCuentaDeMayorSN(string CodigoSN)
+        {
+            return _CSC.ObtenerNombreCuentaDeMayorSN(CodigoSN);
+        }
+
+        public string ObtenerSaldoCuenta(string CodigoCuentaSN, int IdMoneda)
+        {
+            return _CSC.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
+        }
+
         public bool GuardarDocumento(Documento pDocumento)
         {
             return _CSC.GuardarDocumento(pDocumento);
@@ -245,6 +280,11 @@ namespace AccesoServicio
         public IEnumerable<Cuenta> ObtenerCuentasHojas(string pNombrePadre)
         {
             return _CSC.ObtenerCuentasHojas(pNombrePadre);
+        }
+
+        public ConsultaSaldo consultarCreditoSaldo(string pCodigoCliente)
+        {
+            return _CSC.consultarCreditoSaldo(pCodigoCliente);
         }
 
         private ContabilidadServiceClient _CSC;

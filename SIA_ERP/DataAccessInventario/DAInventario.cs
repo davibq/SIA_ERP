@@ -64,11 +64,12 @@ namespace DataAccessInventario
         {
             return EjecutarNoConsulta("dbo.CrearArticulo", new List<SqlParameter>()
                                                           {
+                                                              new SqlParameter("pNombre", pArticulo.Nombre),
                                                               new SqlParameter("pCodigo", pArticulo.Codigo),
                                                               new SqlParameter("pDescripcion", pArticulo.Descripcion),
                                                               new SqlParameter("pUnidadMedida", pArticulo.unidadMedida.Nombre),
                                                               new SqlParameter("pComentarios", pArticulo.Comentarios),
-                                                              new SqlParameter("pImagen", pArticulo.urlImagen),
+                                                              new SqlParameter("pImagen", pArticulo.UrlImagen),
                                                               new SqlParameter("pCodBodega", pArticulo.bodega.Codigo),
                                                               new SqlParameter("pCodExistencias", pArticulo.Existencias.Codigo),
                                                               new SqlParameter("pCodVentas", pArticulo.Ventas.Codigo),
@@ -210,6 +211,27 @@ namespace DataAccessInventario
                                         new SqlParameter("Cuenta", pBanco.CuentaMayor)
                                     });
         }
+
+        #region Métodos App
+
+        public ConsultaSaldo consultarCreditoSaldo(string pCodigoCliente)
+        {
+            var consultaSaldo = new ConsultaSaldo();
+            var ds = EjecutarConsulta("dbo.ObtenerSaldo_LimiteCredito", new List<SqlParameter>()
+            {
+                new SqlParameter("@CodigoCliente", pCodigoCliente)
+            });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    consultaSaldo.LimiteCredito = Convert.ToDouble(row["LimiteCredito"].ToString());
+                    consultaSaldo.Saldo = Convert.ToDouble(row["Saldo"].ToString());
+                }
+            }
+            return consultaSaldo;
+        }
+        #endregion
 
 
     }

@@ -54,7 +54,7 @@ namespace Login_WPF
 
         private void buttonCrearArticulo_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxCodigo.Text) || string.IsNullOrWhiteSpace(textBoxComentarios.Text) || string.IsNullOrWhiteSpace(textBoxDescripcion.Text) || string.IsNullOrWhiteSpace(textBoxImagen.Text) || comboBoxUnidMedida.SelectedIndex == -1 || comboBoxCuentasCostos.SelectedIndex == -1 || comboBoxCuentasVentas.SelectedIndex == -1 || comboBoxCuentasExistencias.SelectedIndex == -1 || comboBoxBodega.SelectedIndex == -1) 
+            if (string.IsNullOrWhiteSpace(textBoxCodigo.Text) || string.IsNullOrWhiteSpace(textBoxComentarios.Text) || string.IsNullOrWhiteSpace(textBoxDescripcion.Text) || string.IsNullOrWhiteSpace(textBoxImagen.Text) || comboBoxUnidMedida.SelectedIndex == -1 || comboBoxCuentasCostos.SelectedIndex == -1 || comboBoxCuentasVentas.SelectedIndex == -1 || comboBoxCuentasExistencias.SelectedIndex == -1 || comboBoxBodega.SelectedIndex == -1 ||  textBoxNombreArticulo.Text.Length==0) 
             {
                 MessageBox.Show("Debe completar todos los datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -66,15 +66,16 @@ namespace Login_WPF
                 }
                 else
                 {
-                    string urlImagen = textBoxImagen.Text;
+                    string urlImagen1 = textBoxImagen.Text;
 
                     Articulo articulo = new Articulo()
                     {
+                        Nombre=textBoxNombreArticulo.Text,
                         Codigo = textBoxCodigo.Text,
                         Descripcion = textBoxDescripcion.Text,
                         unidadMedida = (UnidadMedida)comboBoxUnidMedida.SelectedItem,
                         Comentarios = textBoxComentarios.Text,
-                        UrlImagen = urlImagen,
+                        UrlImagen = urlImagen1,
                         Existencias = (Cuenta)comboBoxCuentasExistencias.SelectedItem,
                         Ventas=(Cuenta)comboBoxCuentasVentas.SelectedItem,
                         Costos=(Cuenta)comboBoxCuentasCostos.SelectedItem,
