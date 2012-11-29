@@ -9,6 +9,6 @@ BEGIN
 	INNER JOIN dbo.FIN_MontosXMonedaXAsientos MxMxA ON MxMxA.IdAsiento=Asi.IdAsiento AND MxMxA.IdCuenta=Cuen.IdCuenta
 	INNER JOIN dbo.FIN_Moneda Mon ON Mon.IdMoneda=MxMxA.IdMoneda
 	WHERE Mon.EsSistema=1
-	ORDER BY Asi.IdASiento
+	ORDER BY Asi.IdASiento, CxA.AlDebe
 END
 RETURN 0
