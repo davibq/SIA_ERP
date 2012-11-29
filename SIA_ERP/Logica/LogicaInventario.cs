@@ -92,6 +92,16 @@ namespace Logica
             return _DataAccess.insertarBanco(pBanco);
         }
 
+        public List<Articulo> obtenerArticuloXBodeba(string pCodArticulo, string pCodBodega)
+        {
+            return _DataAccess.obtenerArticuloXBodeba(pCodArticulo, pCodBodega);
+        }
+
+        public List<Articulo> obtenerTodosArticulos()
+        {
+            return _DataAccess.obtenerTodosArticulos();
+        }
+
         #endregion
 
         #region Metodos ERPApp

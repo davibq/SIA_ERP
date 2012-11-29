@@ -230,3 +230,657 @@ Se terminó la instrucción.
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
    at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Juan-Crawford\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 23:35:21,264 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarBanco
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.insertarBanco'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 23:36:26,506 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarBanco
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.insertarBanco'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 23:46:42,228 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarBanco
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'insertarBanco' expects parameter '@CuentaMayor', which was not supplied.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 23:48:38,709 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarBanco
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'insertarBanco' expects parameter '@CuentaMayor', which was not supplied.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 23:50:34,967 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarBanco
+System.Data.SqlClient.SqlException (0x80131904): Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-28 23:52:39,171 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.insertarBanco
+System.Data.SqlClient.SqlException (0x80131904): Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:21:31,767 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:21:31,829 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:29:28,687 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:36:06,132 [11] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:39:27,549 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:39:27,597 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:42:19,167 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:49:54,285 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 00:51:34,884 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 01:05:10,501 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.AgregarLineasVenta
+System.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_ArticulosXDetalle'. Cannot insert duplicate key in object 'dbo.ArticulosXDetalle'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 01:05:12,974 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 01:05:13,024 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 01:06:05,505 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.AgregarLineasVenta
+System.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_ArticulosXDetalle'. Cannot insert duplicate key in object 'dbo.ArticulosXDetalle'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 01:06:48,340 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 01:06:48,417 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error no consulta ejecutando: dbo.ERPSP_ActualizarAsiento
+System.Data.SqlClient.SqlException (0x80131904): Error converting data type nvarchar to date.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SIA.DataAccess.DataAccess.EjecutarNoConsulta(String pProcedureName, IEnumerable`1 pParametros) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\DataAccess\DataAccess.cs:line 68
+2012-11-29 01:09:22,749 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 01:09:23,031 [17] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:19,033 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:19,310 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:19,547 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:19,786 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:20,032 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:20,272 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:20,512 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:23,872 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:24,107 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:24,350 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:24,568 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:28,312 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:28,589 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:28,844 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:29,067 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:29,300 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:38,861 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:42,613 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:42,861 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:43,082 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:43,289 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:43,522 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:43,756 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:43,981 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:51,897 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:52,101 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:52,331 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:52,581 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:52,769 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:52,967 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:56,114 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:56,321 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:56,547 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:58,090 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:58,329 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:58,552 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:58,769 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:59,052 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:14:59,296 [12] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:51,014 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:51,286 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:51,527 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:51,775 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:52,044 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:55,826 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:56,076 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:56,317 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:56,573 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:56,826 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:57,073 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:57,328 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:57,574 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:57,799 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:58,038 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:38:58,258 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:06,159 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:06,405 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:06,643 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:06,889 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:07,159 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:10,931 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:11,161 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:12,515 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:13,872 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:14,163 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:14,432 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:14,689 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:14,971 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:16,314 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:16,557 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:16,810 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:17,086 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:18,458 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:19,813 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:20,057 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:21,681 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:21,931 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88
+2012-11-29 02:39:23,283 [14] ERROR SIA.ExceptionLog.ExceptionLogger [(null)] - Error obteniendo datos del WS del BCCR
+System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SIA.TipoCambio.TiposCambio.CargarTipoCambio(MonedasValidas pMoneda, String pFechaHoy) in C:\Users\Santamaria\Documents\GitHub\SIA_ERP\SIA_ERP\TipoCambio\TiposCambio.cs:line 88

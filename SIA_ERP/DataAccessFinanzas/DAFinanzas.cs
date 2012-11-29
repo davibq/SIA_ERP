@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using SIA.Libreria;
 using SIA.TipoCambio;
+using SIA.Libreria;
 
 namespace DataAccessFinanzas
 {
@@ -350,6 +351,37 @@ namespace DataAccessFinanzas
                 }
             }
             return Saldo_Cuenta;
+        }
+
+        public List<Cuenta> obtenerAsientos()
+        {
+            var cuentas = new List<Cuenta>();
+            var ds = EjecutarConsulta("dbo.obtenerAsientos", new List<SqlParameter>()
+                {});
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    var cuenta = new Cuenta();
+                    cuenta.Nivel = int.Parse(row["IdAsiento"].ToString());
+                    cuenta.Nombre = row["NombreCuenta"].ToString();
+                    if (row["AlDebe"].ToString()=="True")
+                    {
+                        cuenta.Debe = true;
+                        cuenta.Saldo = double.Parse(row["Monto"].ToString());
+                        cuenta.Saldo_Haber = 0;
+                    }
+                    else
+                    {
+                        cuenta.Debe = false;
+                        cuenta.Saldo_Haber = double.Parse(row["Monto"].ToString());
+                        cuenta.Saldo = 0;
+                    }
+
+                    cuentas.Add(cuenta);
+                }
+            }
+            return cuentas;
         }
 
         #endregion

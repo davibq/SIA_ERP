@@ -268,6 +268,21 @@ namespace SIA.Contabilidad.WebService
         {
             return LogicaInventario.Instancia.consultarCreditoSaldo(pCodigoCliente);
         }
+
+        public IEnumerable<Articulo> obtenerArticuloXBodeba(string pCodArticulo, string pCodBodega)
+        {
+            return LogicaInventario.Instancia.obtenerArticuloXBodeba(pCodArticulo, pCodBodega);
+        }
+
+        public IEnumerable<Articulo> obtenerTodosArticulos()
+        {
+            return LogicaInventario.Instancia.obtenerTodosArticulos();
+        }
+
+        public IEnumerable<Cuenta> obtenerAsientos()
+        {
+            return LogicaNegocio.Instancia.obtenerAsientos();
+        }
          
     }
 }

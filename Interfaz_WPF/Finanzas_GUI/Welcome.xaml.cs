@@ -1468,6 +1468,7 @@ namespace Login_WPF
                 {
                     MessageBox.Show("Asiento agregado!", "SIA", MessageBoxButton.OK, MessageBoxImage.Information);
                     _Coleccion = new ObservableCollection<Asiento>();
+                    dataGridAgregaAsiento.ItemsSource = _Coleccion;
                     dataGridAgregaAsiento.Items.Refresh();
                     _txtDebe.Text = string.Empty;
                     _txtHaber.Text = string.Empty;
@@ -1526,6 +1527,13 @@ namespace Login_WPF
                 _cuentasCierreIngresos = new ObservableCollection<Asiento>();
                 dataGridCierre.Items.Refresh();
             }
+        }
+
+        private void buttonMostrarAsientos_Click(object sender, RoutedEventArgs e)
+        {
+            var asientos=ServicioFinanzas.Instancia.obtenerAsientos();
+            dataGridMostrarAsiento.ItemsSource = asientos;
+            dataGridMostrarAsiento.Items.Refresh();
         }
 
     }

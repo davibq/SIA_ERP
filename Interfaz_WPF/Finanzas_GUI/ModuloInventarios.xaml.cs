@@ -32,7 +32,11 @@ namespace Login_WPF
 
             var bodegas = ServicioFinanzas.Instancia.obtenerBodegas();
             comboBoxBodega.ItemsSource = bodegas;
+            comboBoxBodegas.ItemsSource = bodegas;
             dataGridBodegas.ItemsSource = bodegas;
+
+            var articulos = ServicioFinanzas.Instancia.obtenerTodosArticulos();
+            comboBoxArticulo.ItemsSource = articulos;
 
             var cuentasInventarios = ServicioFinanzas.Instancia.obtenerCuentasInventario();
             comboBoxCuentasExistencias.ItemsSource = cuentasInventarios;
@@ -89,7 +93,11 @@ namespace Login_WPF
                     else
                     {
                         MessageBox.Show("Imposible crear el artículo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }                
+                    }
+
+                    var articulos = ServicioFinanzas.Instancia.obtenerTodosArticulos();
+                    comboBoxArticulo.ItemsSource = articulos;
+                    comboBoxArticulo.Items.Refresh();
                 }
             }
         }
@@ -163,6 +171,16 @@ namespace Login_WPF
                 login.Show();
                 NoCierre = 1;
                 Close();
+            }
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBoxArticulo.SelectedIndex != -1 && comboBoxBodegas.SelectedIndex != -1)
+            {
+                var artXbod = ServicioFinanzas.Instancia.obtenerArticuloXBodeba(((Articulo)comboBoxArticulo.SelectedItem).Codigo, ((Bodega)comboBoxBodegas.SelectedItem).Codigo);
+                dataGridArticulosXBodegas.ItemsSource = artXbod;
+                dataGridArticulosXBodegas.Items.Refresh();
             }
         }
     }

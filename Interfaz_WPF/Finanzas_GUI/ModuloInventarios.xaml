@@ -46,5 +46,23 @@
                 </Grid>
             </Grid>
         </TabItem>
+        <TabItem Header="Visualizar artículos" Name="tabItem3">
+            <Grid>
+                <Grid Margin="-4,5,4,10">
+                    <DataGrid AutoGenerateColumns="False" Height="432" HorizontalAlignment="Left" Margin="31,104,0,0" Name="dataGridArticulosXBodegas" VerticalAlignment="Top" Width="514">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Stock" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Stock}"/>
+                            <DataGridTextColumn Header="Comprometido" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Comprometido}"/>
+                            <DataGridTextColumn Header="Solicitado" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Solicitado}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Bodega:" Height="28" HorizontalAlignment="Left" Margin="298,18,0,0" Name="label13" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="369,21,0,0" Name="comboBoxBodegas" VerticalAlignment="Top" Width="176" />
+                    <Label Content="Artículo:" Height="28" HorizontalAlignment="Left" Margin="32,18,0,0" Name="label14" VerticalAlignment="Top" />
+                    <ComboBox Height="25" HorizontalAlignment="Left" Margin="103,21,0,0" Name="comboBoxArticulo" VerticalAlignment="Top" Width="176" />
+                    <Button Content="Consultar" Height="23" HorizontalAlignment="Left" Margin="470,60,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="button3_Click" />
+                </Grid>
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>

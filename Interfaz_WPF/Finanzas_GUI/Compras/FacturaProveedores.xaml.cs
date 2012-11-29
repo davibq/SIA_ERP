@@ -70,6 +70,9 @@ namespace Login_WPF.Compras
             documento.TipoDocumento = "Factura de Proveedores";
             documento.Fecha1 = encabezado1.fecha1.SelectedDate.Value;
             documento.Fecha2 = encabezado1.fecha2.SelectedDate.Value;
+            //documento.Fecha1 = encabezado1.fecha1.SelectedDate.Value.Month + "/" + encabezado1.fecha1.SelectedDate.Value.Day + "/" + encabezado1.fecha1.SelectedDate.Value.Year;
+            //documento.Fecha2 = encabezado1.fecha2.SelectedDate.Value.Month + "/" + encabezado1.fecha2.SelectedDate.Value.Day + "/" + encabezado1.fecha2.SelectedDate.Value.Year;
+
             documento.Subtotal = double.Parse(detalle1.lblSubtotal.Content.ToString());
             documento.Total = double.Parse(detalle1.lblTotal.Content.ToString());
             documento.EsServicio = false;

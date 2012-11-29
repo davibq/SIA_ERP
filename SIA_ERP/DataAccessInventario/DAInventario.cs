@@ -208,8 +208,50 @@ namespace DataAccessInventario
                                         new SqlParameter("Nombre", pBanco.Nombre),
                                         new SqlParameter("Moneda", pBanco.AcronimoMoneda),
                                         new SqlParameter("NoCuenta", pBanco.NoCuenta),
-                                        new SqlParameter("Cuenta", pBanco.CuentaMayor)
+                                        new SqlParameter("CuentaMayor", pBanco.CuentaMayor)
                                     });
+        }
+
+        public List<Articulo> obtenerArticuloXBodeba(string pCodArticulo, string pCodBodega)
+        {
+            var articulos = new List<Articulo>();
+            var ds = EjecutarConsulta("dbo.obtenerArticuloXBodeba", new List<SqlParameter>() 
+                {
+                    new SqlParameter("pCodArticulo", pCodArticulo),
+                    new SqlParameter("pCodBodega", pCodBodega)
+                });
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    articulos.Add(new Articulo()
+                    {
+                        Stock = int.Parse(row["Stock"].ToString()),
+                        Comprometido = int.Parse(row["Comprometido"].ToString()),
+                        Solicitado = int.Parse(row["Solicitado"].ToString())
+                    });
+                }
+            }
+            return articulos;
+        }
+
+        public List<Articulo> obtenerTodosArticulos()
+        {
+            var articulos = new List<Articulo>();
+            var ds = EjecutarConsulta("dbo.obtenerTodosArticulos", new List<SqlParameter>() 
+                {});
+            if (ds != null && ds.Tables != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    articulos.Add(new Articulo()
+                    {
+                        Codigo = row["Codigo"].ToString(),
+                        Nombre = row["Nombre"].ToString()
+                    });
+                }
+            }
+            return articulos;
         }
 
         #region Métodos App

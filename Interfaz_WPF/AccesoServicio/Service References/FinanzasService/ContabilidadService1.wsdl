@@ -10,6 +10,24 @@
       <xsd:import schemaLocation="http://localhost:4894/ContabilidadService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SIA.Contabilidad.Libreria" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IContabilidadService_obtenerArticuloXBodeba_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerArticuloXBodeba" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerArticuloXBodeba_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerArticuloXBodebaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerTodosArticulos_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerTodosArticulos" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerTodosArticulos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerTodosArticulosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerAsientos_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerAsientos" />
+  </wsdl:message>
+  <wsdl:message name="IContabilidadService_obtenerAsientos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerAsientosResponse" />
+  </wsdl:message>
   <wsdl:message name="IContabilidadService_ObtenerIdMoneda_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIdMoneda" />
   </wsdl:message>
@@ -311,6 +329,18 @@
     <wsdl:part name="parameters" element="tns:ObtenerCuentasDeMayorSNResponse" />
   </wsdl:message>
   <wsdl:portType name="IContabilidadService">
+    <wsdl:operation name="obtenerArticuloXBodeba">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerArticuloXBodeba" message="tns:IContabilidadService_obtenerArticuloXBodeba_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerArticuloXBodebaResponse" message="tns:IContabilidadService_obtenerArticuloXBodeba_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTodosArticulos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerTodosArticulos" message="tns:IContabilidadService_obtenerTodosArticulos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerTodosArticulosResponse" message="tns:IContabilidadService_obtenerTodosArticulos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerAsientos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/obtenerAsientos" message="tns:IContabilidadService_obtenerAsientos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/obtenerAsientosResponse" message="tns:IContabilidadService_obtenerAsientos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ObtenerIdMoneda">
       <wsdl:input wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerIdMoneda" message="tns:IContabilidadService_ObtenerIdMoneda_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContabilidadService/ObtenerIdMonedaResponse" message="tns:IContabilidadService_ObtenerIdMoneda_OutputMessage" />
@@ -514,6 +544,33 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContabilidadService" type="tns:IContabilidadService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obtenerArticuloXBodeba">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerArticuloXBodeba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTodosArticulos">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerTodosArticulos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerAsientos">
+      <soap:operation soapAction="http://tempuri.org/IContabilidadService/obtenerAsientos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ObtenerIdMoneda">
       <soap:operation soapAction="http://tempuri.org/IContabilidadService/ObtenerIdMoneda" style="document" />
       <wsdl:input>

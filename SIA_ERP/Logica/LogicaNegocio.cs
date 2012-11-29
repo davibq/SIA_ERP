@@ -214,6 +214,11 @@ namespace Logica
             return _DataAccess.ObtenerSaldoCuenta(CodigoCuentaSN, IdMoneda);
         }
 
+        public List<Cuenta> obtenerAsientos()
+        {
+            return _DataAccess.obtenerAsientos();
+        }
+
 
         #endregion
 

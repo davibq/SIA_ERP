@@ -14,6 +14,15 @@ namespace SIA.Libreria
         public string Codigo { get; set; }
 
         [DataMember]
+        public int Stock { get; set; }
+
+        [DataMember]
+        public int Comprometido { get; set; }
+
+        [DataMember]
+        public int Solicitado { get; set; }
+
+        [DataMember]
         public string Descripcion { get; set; }
 
         [DataMember]

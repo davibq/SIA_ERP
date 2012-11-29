@@ -92,16 +92,12 @@
                         </TabItem>
                         <TabItem Header="Mostrar Asientos" Name="MA">
                             <Grid>
-                                <Button Content="Mostrar" Height="26" HorizontalAlignment="Left" Margin="40,0,0,22" Name="buttonMostrarAsientos" VerticalAlignment="Bottom" Width="90" />
-                                <DataGrid AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Stretch" Margin="40,34,40,66" Name="dataGrid1" VerticalAlignment="Stretch" Width="auto">
+                                <Button Content="Mostrar" Height="26" HorizontalAlignment="Left" Margin="40,0,0,22" Name="buttonMostrarAsientos" VerticalAlignment="Bottom" Width="90" Click="buttonMostrarAsientos_Click" />
+                                <DataGrid AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Stretch" Margin="40,34,40,66" Name="dataGridMostrarAsiento" VerticalAlignment="Stretch" Width="auto">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn CanUserResize="False" Header="#" MinWidth="20" />
-                                        <DataGridTextColumn CanUserResize="False" Header="Cuenta/Código SN" MinWidth="70" />
-                                        <DataGridTextColumn CanUserResize="False" Header="Cuenta/Nombre SN" MinWidth="70" />
-                                        <DataGridTextColumn CanUserResize="False" Header="Debe" MinWidth="70" />
-                                        <DataGridTextColumn CanUserResize="False" Header="Haber" MinWidth="70" />
-                                        <DataGridTextColumn CanUserResize="False" Header="Debe (MS)" MinWidth="70" />
-                                        <DataGridTextColumn CanUserResize="False" Header="Haber (MS)" MinWidth="70" />
+                                        <DataGridTextColumn Header="Cuenta" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Nombre}"/>
+                                        <DataGridTextColumn Header="Debe (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Saldo}"/>
+                                        <DataGridTextColumn Header="Haber (MS)" IsReadOnly="True" CanUserReorder="False" CanUserResize="False" CanUserSort="False" Binding="{Binding Path=Saldo_Haber}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>

@@ -167,6 +167,15 @@ namespace SIA.Contabilidad.WebService
 
         [OperationContract]
         ConsultaSaldo consultarCreditoSaldo(string pCodigoCliente);
+
+        [OperationContract]
+        IEnumerable<Articulo> obtenerArticuloXBodeba(string pCodArticulo, string pCodBodega);
+
+        [OperationContract]
+        IEnumerable<Articulo> obtenerTodosArticulos();
+
+        [OperationContract]
+        IEnumerable<Cuenta> obtenerAsientos();
     }
 
 }

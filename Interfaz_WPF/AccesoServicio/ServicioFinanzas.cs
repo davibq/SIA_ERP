@@ -287,6 +287,21 @@ namespace AccesoServicio
             return _CSC.consultarCreditoSaldo(pCodigoCliente);
         }
 
+        public IEnumerable<Articulo> obtenerArticuloXBodeba(string pCodArticulo, string pCodBodega)
+        {
+            return _CSC.obtenerArticuloXBodeba(pCodArticulo, pCodBodega);
+        }
+
+        public IEnumerable<Articulo> obtenerTodosArticulos()
+        {
+            return _CSC.obtenerTodosArticulos();
+        }
+
+        public IEnumerable<Cuenta> obtenerAsientos()
+        {
+            return _CSC.obtenerAsientos();
+        }
+
         private ContabilidadServiceClient _CSC;
 
         private static ServicioFinanzas _Instancia;

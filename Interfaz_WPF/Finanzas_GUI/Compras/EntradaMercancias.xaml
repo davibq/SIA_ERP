@@ -7,6 +7,6 @@
         <Label Content="Entrada de Mercancías" Height="28" HorizontalAlignment="Left" Margin="54,11,0,0" Name="label1" VerticalAlignment="Top" Width="325" FontWeight="Bold" FontSize="14" />
         <Button Content="Volver" Height="23" HorizontalAlignment="Right" Margin="0,0,20,20" Name="btnAtras" VerticalAlignment="Bottom" Width="75" Click="btnAtras_Click" />
         <Button Content="Guardar" Height="23" HorizontalAlignment="Right" Margin="0,0,120,20" Name="btnGuardar" VerticalAlignment="Bottom" Width="75" Click="btnGuardar_Click"/>
-        <d:Detalle HorizontalAlignment="Left" Margin="54,151,0,0" x:Name="detalle1" Width="650" Height="326" VerticalAlignment="Top" />
+        <d:Detalle HorizontalAlignment="Left" Margin="54,151,0,0" x:Name="detalle1" Width="650" Height="326" VerticalAlignment="Top" Loaded="detalle1_Loaded" />
     </Grid>
 </Window>
