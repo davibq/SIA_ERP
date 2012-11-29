@@ -299,6 +299,8 @@ namespace DataAccessVentasCompras
                             TipoDocumento = row["TipoDocumento"].ToString(),
                             Subtotal = double.Parse(row["Subtotal"].ToString()),
                             Total = double.Parse(row["Total"].ToString()),
+                            //AXB.codCuentasCostos, AXB.codCuentasExistencia,
+        //AXB.codCuentasVentas, AXB.codCuentaTransitoria
                             LineasVenta = new List<LineaVenta>(){
                                 new LineaVenta(){
                                     Bodega=new BodegaCV(){
@@ -312,7 +314,11 @@ namespace DataAccessVentasCompras
                                         IdProducto=int.Parse(row["IdArticulo"].ToString()),
                                         Nombre=row["NombreArticulo"].ToString(),
                                         Descripcion = row["NombreArticulo"].ToString(),
-                                        Precio = row["Precio"]==null?-1:double.Parse(row["Precio"].ToString())
+                                        Precio = row["Precio"]==null?-1:double.Parse(row["Precio"].ToString()),
+                                        CuentaCostos=row["codCuentasCostos"].ToString(),
+                                        CuentaExistencias=row["codCuentasExistencia"].ToString(),
+                                        CuentaVentas=row["codCuentasVentas"].ToString(),
+                                        CuentaTransitoria=row["codCuentaTransitoria"].ToString()
                                     }
                                 }
                             },
@@ -335,7 +341,11 @@ namespace DataAccessVentasCompras
                                 IdProducto=int.Parse(row["IdArticulo"].ToString()),
                                 Nombre=row["NombreArticulo"].ToString(),
                                 Descripcion = row["NombreArticulo"].ToString(),
-                                Precio = row["Precio"]==null?-1:double.Parse(row["Precio"].ToString())
+                                Precio = row["Precio"]==null?-1:double.Parse(row["Precio"].ToString()),
+                                CuentaCostos = row["codCuentasCostos"].ToString(),
+                                CuentaExistencias = row["codCuentasExistencia"].ToString(),
+                                CuentaVentas = row["codCuentasVentas"].ToString(),
+                                CuentaTransitoria = row["codCuentaTransitoria"].ToString()
                             }
                         });
                     }

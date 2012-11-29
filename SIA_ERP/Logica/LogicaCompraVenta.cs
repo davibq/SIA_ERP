@@ -141,9 +141,9 @@ namespace Logica
                 {
                     string xml = "<Cuentas>";
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
-                            item.Producto.Precio*item.Cantidad, monedaSistema.Acronimo, item.Producto.CuentaExistencias, 0);
+                            item.Producto.Precio*item.Cantidad, monedaSistema.Acronimo, item.Producto.CuentaExistencias, 1);
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
-                        item.Producto.Precio * item.Cantidad, monedaSistema.Acronimo, item.Producto.CuentaTransitoria, 1);
+                        item.Producto.Precio * item.Cantidad, monedaSistema.Acronimo, item.Producto.CuentaTransitoria, 0);
                     xml += "</Cuentas>";
                     LogicaNegocio.Instancia.AgregarAsiento(pDocumento.Fecha1.ToShortDateString(),
                         item.Producto.Precio * item.Cantidad, item.Producto.Precio * item.Cantidad, xml, "EM");
@@ -161,6 +161,10 @@ namespace Logica
             }
             else if (pDocumento.TipoDocumento.CompareTo("Factura de Proveedores") == 0)
             {
+
+                var cuenta=LogicaNegocio.Instancia.ObtenerCuenta("Impuesto Venta");
+                var cuentaIV = cuenta.Codigo;
+
                 if (!pDocumento.CreadoDesdeAnterior)
                 {
                     extras = extras && _DataAccess.ModificarCantidadArticulos(pDocumento.LineasVenta, true, "Stock");
@@ -176,9 +180,14 @@ namespace Logica
                     montoHaber += total;
                     //Inventario o Inventario en dotacion
                     xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
-                        total, monedaSistema.Acronimo, 
+                        (item.Producto.Precio * item.Cantidad), monedaSistema.Acronimo, 
                         pDocumento.CreadoDesdeAnterior?item.Producto.CuentaTransitoria:item.Producto.CuentaExistencias, 1);
-                    montoDebe += total;
+                    montoDebe += (item.Producto.Precio * item.Cantidad);
+                    //Impuesto x pagar
+                    xml += string.Format("<Cuenta monto=\"{0}\" moneda=\"{1}\" cuenta=\"{2}\" debe=\"{3}\" />",
+                        (item.Producto.Precio * item.Cantidad) * (item.Impuestos / 100), monedaSistema.Acronimo,
+                        cuentaIV, 1);
+                    montoDebe += (item.Producto.Precio * item.Cantidad) * (item.Impuestos / 100);
                     xml += "</Cuentas>";
                     LogicaNegocio.Instancia.AgregarAsiento(pDocumento.Fecha1.ToShortDateString(), 
                         montoDebe, montoHaber, xml, "FP");
